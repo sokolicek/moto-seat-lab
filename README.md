@@ -86,6 +86,7 @@ Pilot scope:
 - [Affiliate strategy](docs/monetization/affiliate-strategy.md)
 - [Research backlog](docs/research/research-backlog.md)
 - [Competitive landscape](docs/research/competitive-landscape.md)
+- [Global forum seat pain research](docs/research/global-forum-seat-pain-research.md)
 - [Country localization and market research](docs/research/country-localization-market-research.md)
 - [First German page outline](docs/content/first-german-page-outline.md)
 - [Solution decision tree](docs/content/solution-decision-tree.md)

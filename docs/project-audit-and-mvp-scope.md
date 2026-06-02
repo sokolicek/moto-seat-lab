@@ -56,6 +56,7 @@ Germany / German / Suzuki GSX-S1000GX / original seat hurts after about one hour
 The following topics are valid but too broad for first implementation:
 
 - multi-country localization,
+- Southeast Asia scooter/underbone commuter flows,
 - country-specific design variants,
 - full admin studio,
 - full database,
@@ -69,6 +70,8 @@ The following topics are valid but too broad for first implementation:
 - paid placements.
 
 They should stay documented but explicitly outside the first MVP.
+
+Forum research confirms that Southeast Asian markets can be covered later, but they need different defaults: scooter/underbone first, low-cost fixes first, heat/rain comfort first, and premium imported seats only as advanced options.
 
 ## Duplicate Or Overlapping Documents
 
