@@ -1,0 +1,31 @@
+.PHONY: dev build check db-up db-down db-logs db-seed db-reset db-psql db-adminer
+
+dev:
+	npm run dev
+
+build:
+	npm run build
+
+check:
+	npm run check
+
+db-up:
+	docker compose up -d db
+
+db-down:
+	docker compose down
+
+db-logs:
+	docker compose logs -f db
+
+db-seed:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-seed.ps1
+
+db-reset:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-reset.ps1
+
+db-psql:
+	docker compose exec db psql -U motoseatlab -d motoseatlab
+
+db-adminer:
+	docker compose --profile tools up -d adminer

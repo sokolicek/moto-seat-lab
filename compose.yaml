@@ -1,0 +1,32 @@
+name: moto-seat-lab
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-motoseatlab}
+      POSTGRES_USER: ${POSTGRES_USER:-motoseatlab}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-motoseatlab_dev}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - moto-seat-lab-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-motoseatlab} -d ${POSTGRES_DB:-motoseatlab}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  adminer:
+    image: adminer:4
+    restart: unless-stopped
+    profiles: ["tools"]
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  moto-seat-lab-pgdata:

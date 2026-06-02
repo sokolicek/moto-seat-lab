@@ -120,4 +120,39 @@ If Windows resolves `node` to the Codex app runtime instead of the system Node.j
 & 'C:\Program Files\nodejs\node.exe' node_modules\astro\astro.js build
 ```
 
-The MVP uses Astro, static German routes, and JSON data files. No database or admin UI is required for the first version.
+The MVP uses Astro, static German routes, JSON data files, and an optional local PostgreSQL mirror for future admin/maintenance tooling.
+
+## Local Database
+
+Requires Docker Desktop.
+
+```powershell
+copy .env.example .env
+make db-up
+make db-seed
+```
+
+The seed imports the current JSON content into PostgreSQL tables:
+
+- `countries`
+- `motorcycles`
+- `solution_paths`
+- `product_categories`
+- `seat_options`
+- `research_sources`
+
+Open a shell:
+
+```powershell
+make db-psql
+```
+
+Optional Adminer:
+
+```powershell
+make db-adminer
+```
+
+Adminer runs at `http://127.0.0.1:8080`.
+
+The Astro website still reads JSON files directly. PostgreSQL is the prepared foundation for the future maintenance/admin tool.

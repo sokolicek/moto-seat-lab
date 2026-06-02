@@ -71,11 +71,11 @@ MVP implementation started.
 - GSX-S1000GX page now includes a simple seat option advisor that maps problem, riding use, and budget to the safest first option.
 - Navigation simplified with a Motorrad list page, remembered GSX-S1000GX as the current/last model, page jump navigation, and illustrated seat option cards.
 - GSX-S1000GX solution and option sections made more scannable with decision strips, compact facts, and expandable detail blocks.
+- Local PostgreSQL database layer added with Docker Compose, schema, JSON seed import, Makefile commands, and optional Adminer.
 
 ## Not Started
 
 - Full website implementation.
-- Database implementation.
 - Data maintenance tool implementation.
 - Numeric calculation function implementation.
 - German final copy.

@@ -9,7 +9,10 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "lint": "npm run check",
-    "test": "npm run build"
+    "test": "npm run build",
+    "db:generate-seed": "node scripts/generate-seed-sql.mjs",
+    "db:seed": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-seed.ps1",
+    "db:reset": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-reset.ps1"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
