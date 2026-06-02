@@ -61,6 +61,7 @@ MVP implementation started.
 - Custom seat-layer visual graphic added to make the GSX-S1000GX and DIY pages more readable and distinctive.
 - Cookie bar reduced and moved to a less intrusive bottom-right layout.
 - Homepage expanded with a reusable diagnostic-map visual and beginner-friendly entry flow.
+- AI-generated German touring forest curve hero image added to the project and used on the German homepage.
 
 ## Not Started
 
