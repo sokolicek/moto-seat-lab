@@ -75,6 +75,7 @@ Pilot scope:
 - [DIY seat requirements](docs/content/diy-seat-requirements.md)
 - [Affiliate strategy](docs/monetization/affiliate-strategy.md)
 - [Research backlog](docs/research/research-backlog.md)
+- [Competitive landscape](docs/research/competitive-landscape.md)
 - [First German page outline](docs/content/first-german-page-outline.md)
 - [Solution decision tree](docs/content/solution-decision-tree.md)
 - [SEO and taxonomy](docs/content/seo-and-taxonomy.md)

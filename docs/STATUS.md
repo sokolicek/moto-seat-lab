@@ -32,6 +32,7 @@ Concept and content architecture.
 - Data entry templates drafted.
 - Maintenance workflow drafted.
 - Validation and import rules drafted.
+- Competitive landscape research drafted.
 
 ## Not Started
 
