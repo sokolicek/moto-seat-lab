@@ -33,6 +33,7 @@ Concept and content architecture.
 - Maintenance workflow drafted.
 - Validation and import rules drafted.
 - Competitive landscape research drafted.
+- Technical parameter model drafted.
 
 ## Not Started
 

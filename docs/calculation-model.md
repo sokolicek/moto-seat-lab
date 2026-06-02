@@ -12,8 +12,12 @@ The tools should produce:
 
 - comfort risk score,
 - seat height/reach risk,
+- rider triangle risk,
+- estimated seat load by riding scenario,
 - long-distance suitability score,
 - heat/sweat risk,
+- braking slide risk,
+- off-road impact risk,
 - DIY difficulty score,
 - estimated cost range,
 - recommended solution path,
@@ -41,6 +45,10 @@ The tools should produce:
 - seat width,
 - bike weight,
 - riding position,
+- footpeg position,
+- handlebar position,
+- suspension sag,
+- wind protection,
 - passenger/luggage use.
 
 ### Seat Inputs
@@ -53,6 +61,18 @@ The tools should produce:
 - cover type,
 - heating,
 - waterproofing.
+
+### Scenario Inputs
+
+- city/country/highway/off-road/touring,
+- average speed,
+- ride duration,
+- seated/standing percentage,
+- road roughness,
+- braking/cornering intensity,
+- wind exposure,
+- passenger and luggage weight,
+- ambient temperature and rain use.
 
 ## Proposed Calculations
 
@@ -82,7 +102,66 @@ Outputs:
 
 Important: seat width affects reach, not only height.
 
-### 3. Pressure Risk
+### 3. Rider Triangle Risk
+
+Inputs:
+
+- seat reference point,
+- handlebar position,
+- footpeg position,
+- rider inseam,
+- thigh/lower leg estimates,
+- torso/arm estimates,
+- seat height changes.
+
+Outputs:
+
+- knee angle risk,
+- hip angle risk,
+- forward lean estimate,
+- likely wrist/neck compensation warning.
+
+Important: lowering a seat can improve reach to ground but worsen knee angle.
+
+### 4. Estimated Seat Load
+
+Inputs:
+
+- rider weight,
+- passenger/luggage weight,
+- motorcycle category,
+- handlebar reach,
+- footpeg drop and rearward offset,
+- seat slope,
+- wind exposure,
+- riding scenario,
+- seated/standing percentage.
+
+Outputs:
+
+- estimated static seat load,
+- highway load score,
+- footpeg support tendency,
+- hand/wrist support tendency,
+- confidence level.
+
+Early formula concept:
+
+```text
+estimated_seat_load = rider_weight * posture_seat_load_factor
+```
+
+The factor must be configured by scenario and posture. Early versions should use broad bands, not precise numbers.
+
+Scenario notes:
+
+- highway riding can increase rearward pressure when wind pushes the rider into the seat step,
+- cruise control can increase seated load because the rider supports less weight through arms,
+- sporty forward lean may reduce seat load but increase wrist and neck fatigue,
+- off-road standing greatly reduces seated load, but seated impacts can be high,
+- passenger and luggage change rear sag and seat slope.
+
+### 5. Pressure Risk
 
 Inputs:
 
@@ -90,6 +169,8 @@ Inputs:
 - sit bone distance,
 - seat support width,
 - foam firmness,
+- foam compression behavior,
+- estimated seat load,
 - ride duration.
 
 Outputs:
@@ -97,7 +178,41 @@ Outputs:
 - pressure risk estimate,
 - warning if seat is too narrow or too soft.
 
-### 4. Heat And Sweat Risk
+### 6. Braking Slide Risk
+
+Inputs:
+
+- seat fore-aft slope,
+- cover friction,
+- rider posture,
+- braking intensity,
+- tank shape/contact,
+- riding pants friction.
+
+Outputs:
+
+- low/medium/high slide risk,
+- warning if a softer or higher top layer may make sliding worse.
+
+### 7. Off-Road And Bad-Road Impact Risk
+
+Inputs:
+
+- road roughness,
+- suspension travel,
+- suspension sag,
+- seat foam stack,
+- seated percentage,
+- rider weight,
+- motorcycle category.
+
+Outputs:
+
+- impact comfort risk,
+- bottoming-out risk,
+- recommendation for support layer vs soft top layer.
+
+### 8. Heat And Sweat Risk
 
 Inputs:
 
@@ -111,7 +226,7 @@ Outputs:
 - heat risk,
 - recommendation for mesh/breathable materials.
 
-### 5. Long-Distance Suitability
+### 9. Long-Distance Suitability
 
 Inputs:
 
@@ -119,6 +234,8 @@ Inputs:
 - pressure risk,
 - heat risk,
 - seat width,
+- rider triangle risk,
+- estimated seat load,
 - material stack,
 - passenger use.
 
@@ -127,7 +244,7 @@ Outputs:
 - long-distance suitability score,
 - recommended intervention level.
 
-### 6. DIY Difficulty
+### 10. DIY Difficulty
 
 Inputs:
 
@@ -143,7 +260,7 @@ Outputs:
 - beginner/intermediate/advanced,
 - warning if professional work is recommended.
 
-### 7. Budget Fit
+### 11. Budget Fit
 
 Inputs:
 
@@ -220,4 +337,3 @@ The system should always show safety notes when:
 - waterproofing is modified,
 - passenger section is modified,
 - seat lock/base is changed.
-

@@ -65,6 +65,7 @@ Pilot scope:
 - [Validation and import rules](docs/validation-and-import-rules.md)
 - [Data model concept](docs/data-model.md)
 - [Calculation model concept](docs/calculation-model.md)
+- [Technical parameter model](docs/technical-parameter-model.md)
 - [Seat comparison concept](docs/seat-comparison.md)
 - [Feature roadmap](docs/feature-roadmap.md)
 - [Implementation notes](docs/implementation-notes.md)
