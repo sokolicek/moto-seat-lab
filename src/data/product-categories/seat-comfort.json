@@ -1,0 +1,30 @@
+[
+  {
+    "key": "3d_mesh_cover",
+    "name": "3D-Mesh Sitzauflage",
+    "problemSolved": "Hitze, Schwitzen, leichte Druckverteilung",
+    "limitations": "erhöht Sitzhöhe leicht und löst keine falsche Sitzform",
+    "priceBand": "niedrig"
+  },
+  {
+    "key": "air_cushion",
+    "name": "Luftkissen",
+    "problemSolved": "Druckentlastung auf längeren geraden Strecken",
+    "limitations": "kann entkoppelt wirken und muss sehr niedrig aufgepumpt werden",
+    "priceBand": "mittel"
+  },
+  {
+    "key": "gel_pad",
+    "name": "Gel-Pad",
+    "problemSolved": "kurzfristige Druckminderung für manche Fahrer",
+    "limitations": "kann Hitze speichern und schlechte Form nicht reparieren",
+    "priceBand": "niedrig bis mittel"
+  },
+  {
+    "key": "professional_upholstery",
+    "name": "Professioneller Sitzbankumbau",
+    "problemSolved": "Form, Schaum, Breite und Bezug gezielt anpassen",
+    "limitations": "Qualität hängt stark vom Sattler ab, Rückbau nicht immer möglich",
+    "priceBand": "mittel bis hoch"
+  }
+]

@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  bestFor: string;
+  notIdealFor: string;
+  cost: string;
+  confidence: string;
+}
+
+const { title, summary, bestFor, notIdealFor, cost, confidence } = Astro.props;
+---
+
+<article class="card">
+  <span class="badge">{confidence}</span>
+  <h3>{title}</h3>
+  <p>{summary}</p>
+  <p><strong>Gut für:</strong> {bestFor}</p>
+  <p><strong>Nicht ideal für:</strong> {notIdealFor}</p>
+  <p><strong>Kosten:</strong> {cost}</p>
+</article>

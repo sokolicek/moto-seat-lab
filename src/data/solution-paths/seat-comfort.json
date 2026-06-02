@@ -1,0 +1,47 @@
+[
+  {
+    "key": "reversible_addon",
+    "title": "Reversible Auflage testen",
+    "summary": "3D-Mesh, Air Cushion oder dünne Komfortauflage testen, bevor die originale Sitzbank verändert wird.",
+    "bestFor": "unsichere Ursache, niedriges Budget, schnelle Tests",
+    "notIdealFor": "stark falsche Sitzform oder lange Touren mit klaren Druckpunkten",
+    "cost": "niedrig bis mittel",
+    "confidence": "MVP: mittel"
+  },
+  {
+    "key": "oem_comfort_seat",
+    "title": "OEM Komfort- oder Zubehörsitz prüfen",
+    "summary": "Suzuki Zubehör kann die sauberste Plug-and-play-Option sein, muss aber mit Sitzhöhe und Rückgabemöglichkeit geprüft werden.",
+    "bestFor": "Fahrer, die nicht schneiden oder basteln wollen",
+    "notIdealFor": "wenn die OEM-Form nicht zum Körper passt",
+    "cost": "mittel bis hoch",
+    "confidence": "MVP: braucht Quellenprüfung"
+  },
+  {
+    "key": "aftermarket_seat",
+    "title": "Aftermarket-Sitz vergleichen",
+    "summary": "Premiumsitze können auf langen Strecken helfen, sind aber teuer und nicht automatisch für jeden Körper passend.",
+    "bestFor": "lange Touren, hohes Budget, klare Rückgaberegeln",
+    "notIdealFor": "kurze sportliche Fahrten oder unklare Beschwerden",
+    "cost": "hoch",
+    "confidence": "MVP: niedrig bis mittel"
+  },
+  {
+    "key": "professional_upholsterer",
+    "title": "Sattler / Sitzbankumbau",
+    "summary": "Ein guter Sattler kann Form, Breite, Schaum und Bezug gezielt anpassen.",
+    "bestFor": "klare Druckpunkte, lange Nutzung des Motorrads, individuelle Anatomie",
+    "notIdealFor": "wenn Rückbau und Originalzustand sehr wichtig sind",
+    "cost": "mittel bis hoch",
+    "confidence": "MVP: mittel"
+  },
+  {
+    "key": "diy",
+    "title": "DIY nur mit Plan",
+    "summary": "DIY kann funktionieren, sollte aber mit Dokumentation, Messung und idealerweise einer zweiten Sitzbank starten.",
+    "bestFor": "erfahrene Bastler und Lernprojekte",
+    "notIdealFor": "einzige Original-Sitzbank, Zeitdruck oder fehlendes Werkzeug",
+    "cost": "variabel",
+    "confidence": "MVP: abhängig von Können"
+  }
+]

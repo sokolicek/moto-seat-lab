@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+import CookieBar from "../components/CookieBar.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+}
+
+const { title, description, canonicalPath = "/" } = Astro.props;
+const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com").toString();
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="brand" href="/de/">Moto Seat Lab</a>
+          <nav class="nav-links" aria-label="Hauptnavigation">
+            <a href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">GSX-S1000GX</a>
+            <a href="/de/loesungen/">Lösungen</a>
+            <a href="/de/kaufen/">Kaufen</a>
+            <a href="/de/diy/">DIY</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div class="page-inner">
+          <p>
+            Moto Seat Lab ist ein unabhängiges Konzeptprojekt. Empfehlungen sind keine Garantie für Passform,
+            Komfort oder medizinische Wirkung.
+          </p>
+          <p>
+            <a href="/de/datenschutz/">Datenschutz</a> ·
+            <a href="/de/cookies/">Cookies</a> ·
+            <a href="/de/impressum/">Impressum</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+    <CookieBar />
+  </body>
+</html>

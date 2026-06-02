@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import productCategories from "../../../data/product-categories/seat-comfort.json";
+import disclosures from "../../../data/disclosures/de.json";
+---
+
+<BaseLayout
+  title="Motorradsitzbank kaufen: Deutschland Guide"
+  description="Kaufpfade für Motorrad Sitzbank Komfort in Deutschland: Produktkategorien, Grenzen, Quellen und Affiliate-Hinweise."
+  canonicalPath="/de/kaufen/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Kaufen ohne Nebel</p>
+      <h1>Was kaufen, wenn die Sitzbank unbequem ist?</h1>
+      <p class="lead">
+        Starte nicht mit dem teuersten Produkt. Starte mit Problem, Rückgabemöglichkeit und Passform.
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="page-inner grid">
+      {productCategories.map((category) => (
+        <article class="card">
+          <h2>{category.name}</h2>
+          <p><strong>Hilft bei:</strong> {category.problemSolved}</p>
+          <p><strong>Grenzen:</strong> {category.limitations}</p>
+          <p><strong>Preisband:</strong> {category.priceBand}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="page-inner notice">
+      <h2>Affiliate-Hinweis</h2>
+      <p>{disclosures.affiliate}</p>
+      <p>{disclosures.fitment}</p>
+    </div>
+  </section>
+</BaseLayout>

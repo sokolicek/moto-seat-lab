@@ -4,7 +4,7 @@ Date: 2026-06-02
 
 ## Phase
 
-Concept and content architecture.
+MVP implementation started.
 
 ## Done
 
@@ -15,6 +15,7 @@ Concept and content architecture.
 - Audience documented.
 - Content architecture drafted.
 - Design system concept drafted.
+- Domain decision drafted: motoseatlab.com.
 - Platform architecture drafted.
 - Functional architecture drafted.
 - Geo intent routing concept drafted.
@@ -47,11 +48,12 @@ Concept and content architecture.
 - Competitive landscape research drafted.
 - Global forum seat pain research drafted.
 - Technical parameter model drafted.
+- Website stack selected: Astro.
+- MVP Astro skeleton created.
 
 ## Not Started
 
-- Website stack decision.
-- Website implementation.
+- Full website implementation.
 - Database implementation.
 - Data maintenance tool implementation.
 - Calculation function implementation.
@@ -64,7 +66,7 @@ Concept and content architecture.
 
 ## Next Best Step
 
-Use `docs/mvp-spec.md` to create the first implementation skeleton, then write the first real article draft:
+Install dependencies, run the Astro build, then improve the first real article draft:
 
 ```text
 Suzuki GSX-S1000GX Sitzbank Komfort:
@@ -78,7 +80,6 @@ Recommended working language:
 
 ## Open Decisions
 
-- Website stack: Astro, Vite, or another static approach.
 - Brand name is Moto Seat Lab.
 - First monetization path: Amazon only, or Amazon + motorcycle retailers.
 - Whether to publish first as blog/articles or as interactive guide.

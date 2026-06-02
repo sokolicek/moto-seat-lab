@@ -4,9 +4,9 @@ Concept-stage content project for a future multilingual website about motorcycle
 
 ## Current Phase
 
-**Phase 0: Concept and content architecture**
+**Phase 1: MVP implementation started**
 
-No website code yet. The current goal is to define:
+The first Astro-based MVP skeleton exists. The current goal is to turn the German GSX-S1000GX pilot into a usable static website.
 
 - target audience,
 - content structure,
@@ -60,6 +60,7 @@ Pilot scope:
 - [Audience](docs/audience.md)
 - [Content architecture](docs/content-architecture.md)
 - [Design system concept](docs/design-system-concept.md)
+- [Domain decision](docs/domain-decision.md)
 - [Platform architecture](docs/platform-architecture.md)
 - [Functional architecture](docs/functional-architecture.md)
 - [Geo intent routing concept](docs/geo-intent-routing-concept.md)
@@ -99,3 +100,15 @@ Pilot scope:
 Start with structured content before building the website.
 
 The first deliverable should be a high-quality German landing/content page for Suzuki GSX-S1000GX seat comfort, backed by a reusable content model for more motorcycles and countries.
+
+## Local Development
+
+Requires Node.js and npm.
+
+```sh
+npm install
+npm run dev
+npm run build
+```
+
+The MVP uses Astro, static German routes, and JSON data files. No database or admin UI is required for the first version.

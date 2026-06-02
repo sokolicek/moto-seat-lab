@@ -1,0 +1,28 @@
+<aside class="cookie-bar" id="cookie-bar" aria-label="Cookie Hinweis">
+  <strong>Cookies</strong>
+  <p>
+    Wir nutzen notwendige Cookies für den Betrieb. Optionale Einstellungen können später Komfortfunktionen
+    und Statistiken ermöglichen. Im MVP laden wir keine Werbenetzwerke.
+  </p>
+  <div class="cookie-actions">
+    <button class="primary" type="button" data-cookie-choice="optional">Optional akzeptieren</button>
+    <button type="button" data-cookie-choice="necessary">Nur notwendige</button>
+    <a class="button secondary" href="/de/cookies/">Details</a>
+  </div>
+</aside>
+
+<script>
+  const bar = document.querySelector("#cookie-bar");
+  const stored = window.localStorage.getItem("motoseatlab_cookie_choice");
+  if (stored && bar) {
+    bar.setAttribute("hidden", "");
+  }
+
+  document.querySelectorAll("[data-cookie-choice]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const choice = button.getAttribute("data-cookie-choice") || "necessary";
+      window.localStorage.setItem("motoseatlab_cookie_choice", choice);
+      bar?.setAttribute("hidden", "");
+    });
+  });
+</script>

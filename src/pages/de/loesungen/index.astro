@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SolutionCard from "../../../components/SolutionCard.astro";
+import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
+---
+
+<BaseLayout
+  title="Motorrad Sitzbank Lösungen vergleichen"
+  description="Vergleiche reversible Auflagen, OEM-Komfortsitze, Aftermarket-Sitze, Sattler und DIY ohne Verkaufsnebel."
+  canonicalPath="/de/loesungen/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Lösungswege</p>
+      <h1>Erst Ursache klären, dann Lösung wählen.</h1>
+      <p class="lead">
+        Sitzbank-Komfort ist kein einzelnes Produkt. Je nach Problem kann die beste Lösung billig,
+        professionell, reversibel oder bewusst gar kein Sitzkauf sein.
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="page-inner grid">
+      {solutionPaths.map((path) => <SolutionCard {...path} />)}
+    </div>
+  </section>
+</BaseLayout>

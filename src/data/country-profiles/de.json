@@ -1,0 +1,18 @@
+{
+  "country": "DE",
+  "language": "de",
+  "currency": "EUR",
+  "designVariant": "technical_touring",
+  "marketGroup": "premium_touring",
+  "defaultSolutionOrder": [
+    "diagnose_problem",
+    "reversible_addon",
+    "oem_comfort_seat",
+    "aftermarket_seat",
+    "professional_upholsterer",
+    "diy"
+  ],
+  "cookieMode": "minimal_bottom_bar",
+  "premiumAftermarketVisibility": "high",
+  "localRepairVisibility": "medium"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Suzuki Global GSX-S1000GX",
+    "url": "https://www.globalsuzuki.com/motorcycle/smgs/products/2024gsx-s1000gx/",
+    "type": "manufacturer_official",
+    "confidence": 5,
+    "notes": "Official model source. Seat accessory details need separate verification."
+  },
+  {
+    "title": "Suzuki USA GSX-S1000GX accessory catalog",
+    "url": "https://store.suzukicycles.com/c/accessories_standard_gsx-s1000gx",
+    "type": "manufacturer_accessory_catalog",
+    "confidence": 4,
+    "notes": "Useful for accessory naming and availability; Germany availability must be verified separately."
+  },
+  {
+    "title": "Global forum seat pain research",
+    "url": "https://github.com/sokolicek/moto-seat-lab/blob/main/docs/research/global-forum-seat-pain-research.md",
+    "type": "research_note",
+    "confidence": 2,
+    "notes": "Anecdotal pain-point research, not product proof."
+  }
+]

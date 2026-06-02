@@ -1,0 +1,25 @@
+{
+  "brand": "Suzuki",
+  "model": "GSX-S1000GX",
+  "years": {
+    "from": 2024,
+    "to": null
+  },
+  "category": "sport_touring_crossover",
+  "pilotCountry": "DE",
+  "researchStatus": "draft",
+  "stockSeat": {
+    "heightMm": null,
+    "widthSitBoneZoneMm": null,
+    "confidence": 0,
+    "notes": "MVP placeholder. Official and measured values still need verification."
+  },
+  "knownProblemsToResearch": [
+    "pain after about one hour",
+    "pressure on sit bones",
+    "sliding forward",
+    "heat in summer",
+    "seat height and reach",
+    "passenger comfort"
+  ]
+}

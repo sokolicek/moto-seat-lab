@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import Questionnaire from "../../../../components/Questionnaire.astro";
+import SolutionCard from "../../../../components/SolutionCard.astro";
+import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
+import productCategories from "../../../../data/product-categories/seat-comfort.json";
+import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
+import disclosures from "../../../../data/disclosures/de.json";
+---
+
+<BaseLayout
+  title="Suzuki GSX-S1000GX Sitzbank Komfort: Schmerzen nach einer Stunde?"
+  description="Praktischer Guide für GSX-S1000GX Fahrer: Ursachen, schnelle Tests, OEM/Aftermarket/Sattler und DIY ohne falsche Versprechen."
+  canonicalPath="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/"
+>
+  <section class="hero">
+    <div class="page-inner hero-grid">
+      <div>
+        <p class="eyebrow">Suzuki GSX-S1000GX · Deutschland</p>
+        <h1>Sitzbank-Schmerzen nach einer Stunde? Erst die Ursache finden, dann kaufen.</h1>
+        <p class="lead">
+          Die GSX-S1000GX ist ein sportlicher Tourer. Komfort hängt nicht nur von der Sitzbank ab,
+          sondern auch von Sitzform, Haltung, Knie­winkel, Kleidung, Hitze und Fahrdauer.
+        </p>
+        <div class="actions">
+          <a class="button" href="#quick-check-title">Schnellcheck starten</a>
+          <a class="button secondary" href="#loesungen">Lösungen vergleichen</a>
+        </div>
+      </div>
+      <aside class="notice">
+        <h2>Keine Wunderbank</h2>
+        <p>
+          Ein teurer Sitz kann helfen, aber keine Sitzbank passt jedem Körper und jedem Fahrstil.
+          Deshalb zeigen wir Nutzen, Risiko und Unsicherheit.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <Questionnaire />
+      <article class="card">
+        <h2>Für wen ist dieser Guide?</h2>
+        <p>
+          Für Fahrer, die mit der originalen GSX-S1000GX Sitzbank nach etwa 45 bis 90 Minuten Probleme bekommen
+          und nicht wissen, ob sie eine Auflage, einen OEM-Sitz, einen Aftermarket-Sitz, einen Sattler oder DIY wählen sollen.
+        </p>
+        <ul class="tag-list">
+          <li>Touring</li>
+          <li>Landstraße</li>
+          <li>Druckpunkte</li>
+          <li>Hitze</li>
+          <li>Sitzhöhe</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="loesungen">
+    <div class="page-inner">
+      <h2>Realistische Lösungswege</h2>
+      <p class="lead">
+        Die Reihenfolge ist für Deutschland und sportliches Touring gedacht. Für Scooter- und Low-Budget-Märkte
+        wäre die Reihenfolge anders.
+      </p>
+      <div class="grid">
+        {solutionPaths.map((path) => <SolutionCard {...path} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article>
+        <h2>Was du zuerst prüfen solltest</h2>
+        <div class="card">
+          <h3>1. Wo genau tut es weh?</h3>
+          <p>Sitzknochen, Steißbein, Innenschenkel, Knie/Hüfte oder taubes Gefühl sind unterschiedliche Probleme.</p>
+          <h3>2. Rutschst du nach vorne?</h3>
+          <p>Dann kann der Sitzwinkel oder Bezug wichtiger sein als mehr Polsterung.</p>
+          <h3>3. Wird es im Sommer schlimmer?</h3>
+          <p>Dann können 3D-Mesh, Kleidung und Bezugsmaterial sinnvoller sein als Gel.</p>
+        </div>
+      </article>
+      <article>
+        <h2>Produktkategorien für erste Tests</h2>
+        <div class="grid">
+          {productCategories.map((category) => (
+            <article class="card">
+              <h3>{category.name}</h3>
+              <p><strong>Hilft bei:</strong> {category.problemSolved}</p>
+              <p><strong>Grenze:</strong> {category.limitations}</p>
+              <p><strong>Preis:</strong> {category.priceBand}</p>
+            </article>
+          ))}
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner grid two">
+      <article class="notice">
+        <h2>Wichtige Warnungen</h2>
+        <p>Weicher ist nicht automatisch bequemer. Wenn Schaum durchsitzt, steigt der Druck oft.</p>
+        <p>Gel kann Hitze speichern und löst keine falsche Sitzform.</p>
+        <p>Eine niedrigere Sitzbank kann den Bodenkontakt verbessern, aber Kniewinkel und Langstreckenkomfort verschlechtern.</p>
+      </article>
+      <article class="card">
+        <h2>Offene Recherche</h2>
+        <p>
+          Konkrete GSX-S1000GX Produktdaten, deutsche Preise, Rückgaberegeln und echte Besitzerberichte
+          müssen noch verifiziert werden.
+        </p>
+        <p><strong>Affiliate-Hinweis:</strong> {disclosures.affiliate}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner">
+      <h2>Quellen und Vertrauensniveau</h2>
+      <div class="grid">
+        {sources.map((source) => (
+          <article class="card">
+            <span class="badge">Confidence {source.confidence}/5</span>
+            <h3>{source.title}</h3>
+            <p>{source.notes}</p>
+            <p><a href={source.url}>Quelle öffnen</a></p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

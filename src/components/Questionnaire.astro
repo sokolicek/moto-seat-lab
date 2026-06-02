@@ -1,0 +1,90 @@
+<section class="card" aria-labelledby="quick-check-title">
+  <h2 id="quick-check-title">Schneller Sitzbank-Check</h2>
+  <p>Vier Fragen reichen für eine erste Richtung. Keine Messwerte, keine Expertenbegriffe.</p>
+  <form class="questionnaire" id="seat-check">
+    <div class="field">
+      <label for="ride-type">Wie fährst du meistens?</label>
+      <select id="ride-type" name="rideType">
+        <option value="touring">Autobahn / längere Touren</option>
+        <option value="country">Landstraße</option>
+        <option value="short">Kurze Runden</option>
+        <option value="city">Stadt</option>
+        <option value="passenger">Mit Sozius oder Gepäck</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="problem">Was stört am meisten?</label>
+      <select id="problem" name="problem">
+        <option value="pressure">Druck / tauber Hintern</option>
+        <option value="hard">Zu hart</option>
+        <option value="soft">Zu weich</option>
+        <option value="slide">Ich rutsche nach vorne</option>
+        <option value="heat">Hitze / Schwitzen</option>
+        <option value="knees">Knie oder Hüfte</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="path">Was möchtest du eher tun?</label>
+      <select id="path" name="path">
+        <option value="not-sure">Ich bin nicht sicher</option>
+        <option value="buy">Etwas kaufen</option>
+        <option value="upholsterer">Zum Sattler gehen</option>
+        <option value="addon">Erst eine reversible Auflage testen</option>
+        <option value="diy">Selbst umbauen</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="budget">Budgetgefühl</label>
+      <select id="budget" name="budget">
+        <option value="medium">Mittel</option>
+        <option value="low">Niedrig</option>
+        <option value="high">Hoch</option>
+      </select>
+    </div>
+    <button class="button" type="submit">Erste Richtung anzeigen</button>
+  </form>
+  <div class="result-box" id="seat-check-result" hidden></div>
+</section>
+
+<script>
+  const form = document.querySelector("#seat-check");
+  const result = document.querySelector("#seat-check-result");
+
+  const recommendations = {
+    touring:
+      "Für längere Touren ist ein reiner Gel- oder Billig-Pad selten die ganze Lösung. Prüfe erst Druckzone und Sitzposition, dann OEM-Komfortsitz, Sattler oder ein gut passendes Aftermarket-Sitzsystem.",
+    country:
+      "Für Landstraße zählt Bewegungsfreiheit. Eine zu breite oder stark ausgeformte Tourenbank kann stören. Reversible Tests und ein rutschfester Bezug sind gute erste Schritte.",
+    short:
+      "Für kurze Runden lohnt meist kein teurer Komplettumbau. Starte mit Kleidung, Haltung, 3D-Mesh oder einer dünnen Auflage.",
+    city:
+      "In der Stadt sind Sitzhöhe, Rutschen und Hitze oft wichtiger als Langstrecken-Polsterung. Achte darauf, dass Auflagen die Sitzhöhe nicht unangenehm erhöhen.",
+    passenger:
+      "Sozius und Gepäck verändern die Sitzposition. Prüfe auch Federung/Sag und die Soziusfläche, nicht nur den Fahrersitz."
+  };
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const rideType = data.get("rideType")?.toString() || "touring";
+    const problem = data.get("problem")?.toString() || "pressure";
+    const budget = data.get("budget")?.toString() || "medium";
+    const warning =
+      problem === "soft"
+        ? "Warnung: Weicher ist nicht automatisch bequemer. Wenn die Polsterung durchsitzt, steigt der Druck oft sogar."
+        : problem === "heat"
+          ? "Hinweis: Bei Hitze sind 3D-Mesh, atmungsaktive Kleidung und Bezugsmaterial oft sinnvoller als mehr Gel."
+          : "Hinweis: Die Empfehlung ist eine erste Richtung, keine Garantie. Körperbau, Sitzform und Fahrstil bleiben entscheidend.";
+    const budgetNote =
+      budget === "high"
+        ? "Mit hohem Budget lohnt ein Sattler oder ein verifiziertes Komfort-/Aftermarket-Sitzsystem."
+        : budget === "low"
+          ? "Mit niedrigem Budget: erst reversible Auflage, Mesh, Kleidung und gebrauchte Zweitsitzbank prüfen."
+          : "Mit mittlerem Budget: reversible Tests plus Sattler-Angebot oder OEM-Option vergleichen.";
+
+    if (result) {
+      result.hidden = false;
+      result.innerHTML = `<strong>Erste Richtung:</strong><p>${recommendations[rideType] || recommendations.touring}</p><p>${warning}</p><p>${budgetNote}</p>`;
+    }
+  });
+</script>
