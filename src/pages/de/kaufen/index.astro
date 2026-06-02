@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ProductCategoryCard from "../../../components/ProductCategoryCard.astro";
+import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import productCategories from "../../../data/product-categories/seat-comfort.json";
+import seatOptions from "../../../data/products/gsx-s1000gx-seat-options.json";
 import disclosures from "../../../data/disclosures/de.json";
 ---
 
@@ -63,6 +65,20 @@ import disclosures from "../../../data/disclosures/de.json";
   <section class="section">
     <div class="page-inner grid">
       {productCategories.map((category) => <ProductCategoryCard {...category} />)}
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">GSX-S1000GX Beispiel</p>
+      <h2>Erste Produkt- und Servicekandidaten</h2>
+      <p class="lead">
+        So soll die Kaufseite spaeter arbeiten: nicht “bestes Produkt” behaupten, sondern Fitment,
+        Risiko, Preisnotiz, Quelle und Vertrauensniveau nebeneinander zeigen.
+      </p>
+      <div class="grid two">
+        {seatOptions.map((option) => <SeatOptionCard {...option} />)}
+      </div>
     </div>
   </section>
 

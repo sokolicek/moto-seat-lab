@@ -1,0 +1,55 @@
+---
+interface Props {
+  name: string;
+  maker: string;
+  type: string;
+  fitment: string;
+  market: string;
+  priceNote: string;
+  bestFor: string;
+  watchOut: string;
+  comfortLogic: string;
+  researchStatus: string;
+  confidence: number;
+  affiliateStatus: string;
+  sourceLabel: string;
+  sourceUrl: string;
+}
+
+const {
+  name,
+  maker,
+  type,
+  fitment,
+  market,
+  priceNote,
+  bestFor,
+  watchOut,
+  comfortLogic,
+  researchStatus,
+  confidence,
+  affiliateStatus,
+  sourceLabel,
+  sourceUrl
+} = Astro.props;
+---
+
+<article class="card seat-option-card">
+  <div class="card-topline">
+    <span class="badge">{maker}</span>
+    <span class="badge muted">{type}</span>
+    <span class="badge confidence">Confidence {confidence}/5</span>
+  </div>
+  <h3>{name}</h3>
+  <p><strong>Passt zu:</strong> {fitment}</p>
+  <p><strong>Markt:</strong> {market}</p>
+  <p><strong>Preisnotiz:</strong> {priceNote}</p>
+  <p><strong>Sinnvoll fuer:</strong> {bestFor}</p>
+  <p><strong>Aufpassen:</strong> {watchOut}</p>
+  <p><strong>Komfort-Logik:</strong> {comfortLogic}</p>
+  <div class="card-footer-line">
+    <span>{researchStatus}</span>
+    <span>{affiliateStatus}</span>
+  </div>
+  <p class="source-link"><a href={sourceUrl}>{sourceLabel}</a></p>
+</article>

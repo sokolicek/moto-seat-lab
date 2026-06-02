@@ -5,8 +5,10 @@ import SeatComfortEstimator from "../../../../components/SeatComfortEstimator.as
 import SeatLayerGraphic from "../../../../components/SeatLayerGraphic.astro";
 import RiderProfileCard from "../../../../components/RiderProfileCard.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
+import SeatOptionCard from "../../../../components/SeatOptionCard.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
+import seatOptions from "../../../../data/products/gsx-s1000gx-seat-options.json";
 import riderProfiles from "../../../../data/rider-profiles/gsx-s1000gx.json";
 import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
 import disclosures from "../../../../data/disclosures/de.json";
@@ -182,6 +184,20 @@ import disclosures from "../../../../data/disclosures/de.json";
       </p>
       <div class="grid">
         {solutionPaths.map((path) => <SolutionCard {...path} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner">
+      <p class="eyebrow">Erster Research-Shortlist</p>
+      <h2>Konkrete Optionen fuer die GSX-S1000GX</h2>
+      <p class="lead">
+        Diese Karten sind noch kein Ranking. Sie zeigen, welche Optionen als erstes in die Datenbank gehoeren:
+        OEM, Aftermarket, reversible Tests und Sattler-Umbau.
+      </p>
+      <div class="grid two">
+        {seatOptions.map((option) => <SeatOptionCard {...option} />)}
       </div>
     </div>
   </section>
