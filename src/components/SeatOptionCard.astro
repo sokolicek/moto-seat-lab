@@ -12,6 +12,8 @@ interface Props {
   researchStatus: string;
   confidence: number;
   affiliateStatus: string;
+  imagePath?: string;
+  imageAlt?: string;
   sourceLabel: string;
   sourceUrl: string;
 }
@@ -29,12 +31,19 @@ const {
   researchStatus,
   confidence,
   affiliateStatus,
+  imagePath,
+  imageAlt = "",
   sourceLabel,
   sourceUrl
 } = Astro.props;
 ---
 
 <article class="card seat-option-card">
+  {imagePath && (
+    <figure class="option-card-media">
+      <img src={imagePath} alt={imageAlt} loading="lazy" />
+    </figure>
+  )}
   <div class="card-topline">
     <span class="badge">{maker}</span>
     <span class="badge muted">{type}</span>

@@ -484,6 +484,11 @@ h3 {
   padding: 46px 0;
 }
 
+.compact-nav-section {
+  padding: 16px 0;
+  background: rgba(250, 248, 242, 0.82);
+}
+
 .section + .section {
   border-top: 1px solid rgba(216, 208, 193, 0.52);
 }
@@ -516,6 +521,30 @@ h3 {
 
 .visual-band p {
   color: #d5dde3;
+}
+
+.page-jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.page-jump-nav a {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(18, 107, 115, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--color-accent-strong);
+  padding: 7px 10px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.page-jump-nav a:hover,
+.page-jump-nav a:focus {
+  background: rgba(18, 107, 115, 0.08);
 }
 
 .grid {
@@ -616,6 +645,7 @@ h3 {
   align-content: start;
   gap: 4px;
   overflow: hidden;
+  padding-top: 14px;
 }
 
 .seat-option-card::before {
@@ -633,6 +663,20 @@ h3 {
 
 .seat-option-card p {
   margin: 8px 0;
+}
+
+.option-card-media {
+  margin: -4px -4px 14px;
+  border: 1px solid rgba(18, 107, 115, 0.12);
+  border-radius: var(--radius);
+  background: #f4f1e9;
+  overflow: hidden;
+}
+
+.option-card-media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .badge.confidence {
@@ -693,6 +737,33 @@ h3 {
 
 .advisor-result p:last-child {
   margin-bottom: 0;
+}
+
+.motorcycle-card {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.motorcycle-card .button {
+  width: fit-content;
+  margin-top: 6px;
+}
+
+.muted-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.94)),
+    var(--color-panel);
+}
+
+.last-bike-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.last-bike-card .button {
+  width: fit-content;
 }
 
 .profile-card {

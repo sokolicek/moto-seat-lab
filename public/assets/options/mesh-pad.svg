@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">3D mesh motorcycle seat pad illustration</title>
+  <desc id="desc">A black breathable motorcycle mesh seat pad with visible honeycomb pattern and straps.</desc>
+  <rect width="960" height="540" fill="#eef3f1"/>
+  <path d="M118 358c126 43 258 44 398 6 90-24 163-27 248-4 57 15 102 34 123 59 10 12 2 28-15 31-87 14-191-9-311-22-150-16-264 27-404-1-61-12-96-31-106-50-6-12 16-22 67-19z" fill="#d7dedb"/>
+  <path d="M168 281c56-48 135-72 238-72h218c86 0 161 31 225 92 22 21 19 58-7 75-40 26-114 23-221 9-105-14-193 17-311 18-72 1-133-9-183-31-34-15-39-60-9-82 15-11 31-9 50-9z" fill="#101820"/>
+  <defs>
+    <pattern id="mesh" width="38" height="33" patternUnits="userSpaceOnUse">
+      <path d="M19 1 36 10v14L19 33 2 24V10z" fill="none" stroke="#60717b" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <path d="M191 288c61-31 134-46 219-45h210c62 0 113 18 153 54 15 14 11 38-8 47-34 16-94 11-156 2-94-13-182 15-287 15-63 0-116-8-160-25-28-11-28-35-1-47 10-5 20-3 30-1z" fill="url(#mesh)"/>
+  <path d="M156 304c-62-22-95-18-105 12-9 27 20 48 95 63" fill="none" stroke="#26313a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M804 314c72-18 112-11 121 21 8 29-27 49-107 58" fill="none" stroke="#26313a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M146 204h170" stroke="#126b73" stroke-width="10" stroke-linecap="round"/>
+  <path d="M146 229h116" stroke="#e69245" stroke-width="10" stroke-linecap="round"/>
+</svg>

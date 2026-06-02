@@ -13,6 +13,8 @@
     "researchStatus": "verified source, needs owner feedback",
     "confidence": 4,
     "affiliateStatus": "dealer / affiliate later",
+    "imagePath": "/assets/options/comfort-seat.svg",
+    "imageAlt": "Illustration eines schwarzen Komfort-Motorradsitzes",
     "sourceLabel": "Suzuki Deutschland",
     "sourceUrl": "https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz"
   },
@@ -30,6 +32,8 @@
     "researchStatus": "verified source, needs EU fitment and return check",
     "confidence": 3,
     "affiliateStatus": "research affiliate later",
+    "imagePath": "/assets/options/comfort-seat.svg",
+    "imageAlt": "Illustration eines breiteren Touring-Motorradsitzes",
     "sourceLabel": "Sargent Cycle",
     "sourceUrl": "https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24"
   },
@@ -47,6 +51,8 @@
     "researchStatus": "category validated, product shortlist needed",
     "confidence": 3,
     "affiliateStatus": "strong affiliate candidate",
+    "imagePath": "/assets/options/mesh-pad.svg",
+    "imageAlt": "Illustration einer 3D-Mesh Motorrad-Sitzauflage",
     "sourceLabel": "Forum and category research",
     "sourceUrl": "https://www.gsxs1000.org/threads/gx-seat-options.48928/"
   },
@@ -64,6 +70,8 @@
     "researchStatus": "needs local provider database",
     "confidence": 2,
     "affiliateStatus": "service directory later",
+    "imagePath": "/assets/options/upholstery-workshop.svg",
+    "imageAlt": "Illustration einer Sitzbank im Sattler-Workshop",
     "sourceLabel": "Moto Seat Lab research backlog",
     "sourceUrl": "/de/diy/"
   }

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Motorcycle seat upholstery workshop illustration</title>
+  <desc id="desc">A motorcycle seat foam layer being shaped in a small upholstery workshop.</desc>
+  <rect width="960" height="540" fill="#f5f1e8"/>
+  <rect x="86" y="370" width="788" height="38" rx="8" fill="#c8bba7"/>
+  <rect x="118" y="406" width="74" height="54" fill="#857563"/>
+  <rect x="760" y="406" width="74" height="54" fill="#857563"/>
+  <path d="M176 306c74-47 158-69 253-65h158c71 0 128 22 171 67 15 16 10 40-10 50-35 17-97 11-169 2-88-12-169 14-265 16-67 1-121-7-163-25-27-11-25-33 1-44 8-3 16-3 24-1z" fill="#e69245"/>
+  <path d="M202 321c78 12 150 8 215-12 56-17 108-18 156-3" fill="none" stroke="#fff4df" stroke-width="14" stroke-linecap="round"/>
+  <path d="M194 345c99 14 188 10 266-13" fill="none" stroke="#8f4e19" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+  <path d="M662 206l78 78" stroke="#26313a" stroke-width="16" stroke-linecap="round"/>
+  <path d="M724 188l-82 82" stroke="#26313a" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="642" cy="270" r="23" fill="none" stroke="#126b73" stroke-width="10"/>
+  <circle cx="742" cy="188" r="23" fill="none" stroke="#126b73" stroke-width="10"/>
+  <path d="M120 186h178" stroke="#126b73" stroke-width="10" stroke-linecap="round"/>
+  <path d="M120 211h128" stroke="#e69245" stroke-width="10" stroke-linecap="round"/>
+  <path d="M476 145h102" stroke="#c8bba7" stroke-width="18" stroke-linecap="round"/>
+  <path d="M476 177h154" stroke="#c8bba7" stroke-width="18" stroke-linecap="round"/>
+</svg>

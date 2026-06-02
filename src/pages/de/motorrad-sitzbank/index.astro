@@ -1,0 +1,104 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import motorcycles from "../../../data/motorcycles/de-list.json";
+
+const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
+const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status !== "active");
+---
+
+<BaseLayout
+  title="Motorräder: Sitzbank-Komfort nach Modell"
+  description="Moto Seat Lab Motorradliste: starte mit deinem Modell, zuletzt bearbeitet ist Suzuki GSX-S1000GX."
+  canonicalPath="/de/motorrad-sitzbank/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Motorräder</p>
+      <h1>Wähle dein Motorrad. Wir starten mit Suzuki.</h1>
+      <p class="lead">
+        Die Navigation führt jetzt nicht mehr direkt in ein einzelnes Modell. Diese Liste wird später
+        nach Land, Segment und typischen Sitzbankproblemen erweitert.
+      </p>
+      <div class="actions">
+        <a class="button" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki GSX-S1000GX öffnen</a>
+        <a class="button secondary" href="#geplant">Geplante Modelle ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner grid two">
+      <article class="card last-bike-card">
+        <span class="badge">Zuletzt angesehen</span>
+        <h2 id="last-bike-title">Suzuki GSX-S1000GX</h2>
+        <p id="last-bike-note">
+          Dieses Modell ist aktuell der Referenz-Guide fuer Deutschland und wird beim naechsten Besuch
+          wieder zuerst angeboten.
+        </p>
+        <a class="button" id="last-bike-link" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Weiter zum Guide</a>
+      </article>
+
+      <article class="notice">
+        <h2>Warum diese Struktur?</h2>
+        <p>
+          Später bekommt jedes Motorrad eigene Sitzhöhe, Sitzbankoptionen, Quellen, Länderpriorität,
+          Produktkarten und Erfahrungsberichte. Die Suzuki bleibt dein aktueller Startpunkt.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner">
+      <p class="eyebrow">Aktiv</p>
+      <h2>Bereits bearbeitete Modelle</h2>
+      <div class="grid">
+        {activeMotorcycles.map((motorcycle) => (
+          <article class="card motorcycle-card">
+            <span class="badge">{motorcycle.segment}</span>
+            <h3>{motorcycle.name}</h3>
+            <p><strong>Fokus:</strong> {motorcycle.seatPainFocus}</p>
+            <p><strong>Warum jetzt:</strong> {motorcycle.whyNext}</p>
+            <a class="button" href={motorcycle.path}>Guide öffnen</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="geplant">
+    <div class="page-inner">
+      <p class="eyebrow">Roadmap</p>
+      <h2>Geplante Motorradmodelle</h2>
+      <p class="lead">
+        Diese Modelle sind Platzhalter fuer die naechsten Daten- und Content-Sprints. Reihenfolge und Auswahl
+        koennen wir nach Nachfrage, Land und Affiliate-Potenzial anpassen.
+      </p>
+      <div class="grid">
+        {plannedMotorcycles.map((motorcycle) => (
+          <article class="card motorcycle-card muted-card">
+            <span class="badge muted">{motorcycle.brand}</span>
+            <h3>{motorcycle.name}</h3>
+            <p><strong>Segment:</strong> {motorcycle.segment}</p>
+            <p><strong>Prioritaet:</strong> {motorcycle.countryPriority}</p>
+            <p><strong>Sitzbank-Fokus:</strong> {motorcycle.seatPainFocus}</p>
+            <span class="badge">geplant</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const lastBike = window.localStorage.getItem("motoseatlab_last_motorcycle");
+    const lastBikeTitle = document.querySelector("#last-bike-title");
+    const lastBikeNote = document.querySelector("#last-bike-note");
+    const lastBikeLink = document.querySelector("#last-bike-link");
+
+    if (lastBike === "suzuki-gsx-s1000gx" && lastBikeTitle && lastBikeNote && lastBikeLink) {
+      lastBikeTitle.textContent = "Suzuki GSX-S1000GX";
+      lastBikeNote.textContent = "Du warst zuletzt im GSX-S1000GX Guide. Deshalb steht dieses Modell hier weiterhin an erster Stelle.";
+      lastBikeLink.setAttribute("href", "/de/motorrad-sitzbank/suzuki-gsx-s1000gx/");
+    }
+  </script>
+</BaseLayout>

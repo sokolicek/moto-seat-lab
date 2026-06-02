@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Comfort motorcycle seat illustration</title>
+  <desc id="desc">A layered black touring motorcycle seat on a warm workshop background.</desc>
+  <rect width="960" height="540" fill="#f3efe6"/>
+  <path d="M118 374c118 38 232 44 342 18 74-17 126-49 182-72 72-30 130-28 202-6 22 7 42 20 52 40 8 16 3 36-13 46-52 34-166 30-286 18-168-17-300 28-444-3-45-10-75-20-87-34-8-9-1-17 52-7z" fill="#d9d0c1"/>
+  <path d="M145 298c50-49 126-74 230-76h280c78 0 140 31 188 92 20 26 14 63-14 79-41 24-126 21-221 10-129-14-227 21-352 22-75 1-135-11-179-36-26-15-30-48-9-70 21-22 47-15 77-21z" fill="#151d24"/>
+  <path d="M178 300c58-32 130-47 216-45h251c58 0 104 18 139 55 12 13 9 35-8 43-33 16-97 11-169 2-114-15-210 19-322 19-58 0-109-8-152-26-22-10-21-34 0-45 13-7 28-4 45-3z" fill="#313b44"/>
+  <path d="M212 289c65-18 129-25 193-22h226c43 0 77 9 101 27 8 6 6 18-3 22-24 10-72 7-128 0-93-11-181 14-278 15-46 0-85-5-118-15-18-5-15-21 7-27z" fill="#48535c"/>
+  <path d="M210 332c92 18 180 12 268-17 50-17 95-22 136-15" fill="none" stroke="#e69245" stroke-width="8" stroke-linecap="round"/>
+  <path d="M125 221h148" stroke="#126b73" stroke-width="10" stroke-linecap="round"/>
+  <path d="M126 243h92" stroke="#e69245" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="794" cy="170" r="54" fill="#126b73" opacity=".12"/>
+  <circle cx="814" cy="187" r="26" fill="#e69245" opacity=".2"/>
+</svg>

@@ -69,6 +69,7 @@ MVP implementation started.
 - Visual design system polished with stronger brand header, richer page background, improved cards, hero status blocks, footer layout, focus states, and mobile refinements.
 - First GSX-S1000GX seat option research shortlist added with source links, fitment notes, price notes, confidence levels, and affiliate readiness status.
 - GSX-S1000GX page now includes a simple seat option advisor that maps problem, riding use, and budget to the safest first option.
+- Navigation simplified with a Motorrad list page, remembered GSX-S1000GX as the current/last model, page jump navigation, and illustrated seat option cards.
 
 ## Not Started
 

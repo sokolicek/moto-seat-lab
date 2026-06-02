@@ -67,6 +67,8 @@ import disclosures from "../../../../data/disclosures/de.json";
   </section>
 
   <script>
+    window.localStorage.setItem("motoseatlab_last_motorcycle", "suzuki-gsx-s1000gx");
+
     const heroVideo = document.querySelector<HTMLVideoElement>(".hero-video");
     const videoToggle = document.querySelector<HTMLButtonElement>("[data-video-toggle]");
     const videoStorageKey = "motoseatlab_gsx_video_paused";
@@ -98,6 +100,18 @@ import disclosures from "../../../../data/disclosures/de.json";
       });
     }
   </script>
+
+  <section class="section compact-nav-section">
+    <div class="page-inner">
+      <nav class="page-jump-nav" aria-label="Seitensprungmarken">
+        <a href="#quick-check-title">Schnellcheck</a>
+        <a href="#loesungen">Lösungswege</a>
+        <a href="#optionen">Optionen</a>
+        <a href="#option-advisor-title">Mini-Berater</a>
+        <a href="#quellen">Quellen</a>
+      </nav>
+    </div>
+  </section>
 
   <section class="section visual-band">
     <div class="page-inner grid three-feature">
@@ -189,7 +203,7 @@ import disclosures from "../../../../data/disclosures/de.json";
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="optionen">
     <div class="page-inner">
       <p class="eyebrow">Erster Research-Shortlist</p>
       <h2>Konkrete Optionen fuer die GSX-S1000GX</h2>
@@ -298,7 +312,7 @@ import disclosures from "../../../../data/disclosures/de.json";
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="quellen">
     <div class="page-inner">
       <h2>Quellen und Vertrauensniveau</h2>
       <div class="grid">
