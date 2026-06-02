@@ -1,4 +1,4 @@
-# Motorkove Sedanky / Moto Seat Lab
+# Moto Seat Lab
 
 Concept-stage content project for a future multilingual website about motorcycle seat comfort, DIY seat modification, ready-made seat options, materials, tools, and rider-specific ergonomics.
 

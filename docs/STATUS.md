@@ -64,6 +64,6 @@ Recommended working language:
 ## Open Decisions
 
 - Website stack: Astro, Vite, or another static approach.
-- Brand name: Motorkove Sedanky vs Moto Seat Lab vs German-specific name.
+- Brand name is Moto Seat Lab.
 - First monetization path: Amazon only, or Amazon + motorcycle retailers.
 - Whether to publish first as blog/articles or as interactive guide.

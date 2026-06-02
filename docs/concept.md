@@ -1,10 +1,10 @@
 # Concept
 
-## Working Title
+## Project Name
 
 Moto Seat Lab
 
-Slovak working name: Motorkove Sedanky
+Former Slovak working name: Motorkove Sedanky
 
 ## One-Sentence Concept
 
@@ -74,4 +74,3 @@ Seat modification can affect:
 - warranty.
 
 These risks must be clearly stated.
-

@@ -1,9 +1,9 @@
 # Publication
 
-Recommended repository name:
+Repository name:
 
 ```text
-motorkove-sedanky
+moto-seat-lab
 ```
 
 Suggested description:
@@ -30,8 +30,8 @@ motorcycle-accessories
 ## Restore Later
 
 ```powershell
-git clone https://github.com/sokolicek/motorkove-sedanky.git
-cd motorkove-sedanky
+git clone https://github.com/sokolicek/moto-seat-lab.git
+cd moto-seat-lab
 ```
 
 Start with:
@@ -41,4 +41,3 @@ README.md
 docs/STATUS.md
 docs/roadmap.md
 ```
-
