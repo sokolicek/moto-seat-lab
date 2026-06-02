@@ -47,10 +47,10 @@
 </section>
 
 <script>
-  const form = document.querySelector("#seat-check");
-  const result = document.querySelector("#seat-check-result");
+  const form = document.querySelector<HTMLFormElement>("#seat-check");
+  const result = document.querySelector<HTMLElement>("#seat-check-result");
 
-  const recommendations = {
+  const recommendations: Record<string, string> = {
     touring:
       "Für längere Touren ist ein reiner Gel- oder Billig-Pad selten die ganze Lösung. Prüfe erst Druckzone und Sitzposition, dann OEM-Komfortsitz, Sattler oder ein gut passendes Aftermarket-Sitzsystem.",
     country:

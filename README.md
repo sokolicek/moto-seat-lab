@@ -111,4 +111,12 @@ npm run dev
 npm run build
 ```
 
+If Windows resolves `node` to the Codex app runtime instead of the system Node.js installation, use the direct Node.js path:
+
+```powershell
+& 'C:\Program Files\nodejs\node.exe' node_modules\astro\astro.js dev --host 127.0.0.1
+& 'C:\Program Files\nodejs\node.exe' node_modules\@astrojs\check\bin\astro-check.js
+& 'C:\Program Files\nodejs\node.exe' node_modules\astro\astro.js build
+```
+
 The MVP uses Astro, static German routes, and JSON data files. No database or admin UI is required for the first version.

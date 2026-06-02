@@ -51,16 +51,16 @@
 </section>
 
 <script>
-  const estimator = document.querySelector("#comfort-estimator");
-  const estimatorResult = document.querySelector("#comfort-estimator-result");
+  const estimator = document.querySelector<HTMLFormElement>("#comfort-estimator");
+  const estimatorResult = document.querySelector<HTMLElement>("#comfort-estimator-result");
 
-  const durationScore = {
+  const durationScore: Record<string, number> = {
     short: 3,
     medium: 2,
     long: 1
   };
 
-  const painAdvice = {
+  const painAdvice: Record<string, { label: string; action: string }> = {
     sitbones: {
       label: "Druckverteilung",
       action: "Prüfe Sitzbreite im Sitzknochenbereich, Schaumhärte und ob du bis auf die harte Basis durchsitzst."

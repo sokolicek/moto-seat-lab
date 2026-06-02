@@ -3,6 +3,7 @@
 !.env.example
 
 node_modules/
+.astro/
 dist/
 build/
 coverage/
@@ -16,4 +17,3 @@ tmp/
 
 .DS_Store
 Thumbs.db
-

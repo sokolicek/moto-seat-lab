@@ -54,6 +54,10 @@ MVP implementation started.
 - First qualitative comparison table added for stock seat, reversible add-ons, OEM/aftermarket, and upholsterer/DIY paths.
 - Buying guide expanded with product-category checks, affiliate readiness status, and a beginner purchase path.
 - DIY page expanded with a minimal documentation and test protocol.
+- Project dependencies installed and locked with `package-lock.json`.
+- Astro check passes with 0 errors, 0 warnings, and 0 hints.
+- Astro static build passes and generates 9 pages in `dist/`.
+- Local browser smoke test passed for the GSX-S1000GX page and both recommendation forms.
 
 ## Not Started
 
@@ -70,7 +74,7 @@ MVP implementation started.
 
 ## Next Best Step
 
-Install dependencies, run the Astro build, then improve the first real article draft and verify the new comfort triage interaction:
+Improve the first real article draft and add verified source/product placeholders:
 
 ```text
 Suzuki GSX-S1000GX Sitzbank Komfort:
