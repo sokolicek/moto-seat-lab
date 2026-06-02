@@ -7,9 +7,9 @@ const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, op
 <section class="card option-advisor" aria-labelledby="option-advisor-title">
   <div>
     <p class="eyebrow">Welche Option zuerst?</p>
-    <h2 id="option-advisor-title">Mini-Berater fuer Kauf oder Test</h2>
+    <h2 id="option-advisor-title">Mini-Berater für Kauf oder Test</h2>
     <p>
-      Drei Eingaben reichen fuer eine erste, vorsichtige Richtung. Die Logik bevorzugt reversible Tests,
+      Drei Eingaben reichen für eine erste, vorsichtige Richtung. Die Logik bevorzugt reversible Tests,
       solange Problem und Fahrprofil noch unscharf sind.
     </p>
   </div>
@@ -21,7 +21,7 @@ const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, op
         <option value="pressure">Druck / taubes Gefuehl</option>
         <option value="heat">Hitze / Schwitzen</option>
         <option value="slide">Rutschen nach vorne</option>
-        <option value="height">Sitzhoehe / Bodenkontakt</option>
+        <option value="height">Sitzhöhe / Bodenkontakt</option>
         <option value="custom">Sehr konkrete Schmerzstelle</option>
       </select>
     </div>
@@ -39,9 +39,9 @@ const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, op
     <div class="field">
       <label for="advisor-budget">Budget</label>
       <select id="advisor-budget" name="budget">
-        <option value="low">Erst guenstig testen</option>
+        <option value="low">Erst günstig testen</option>
         <option value="medium">Mittel, aber kein Blindkauf</option>
-        <option value="high">Ich will eine dauerhafte Loesung</option>
+        <option value="high">Ich will eine dauerhafte Lösung</option>
       </select>
     </div>
 
@@ -59,13 +59,13 @@ const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, op
 
   const reasons = {
     "suzuki-premium-seat-de":
-      "OEM ist der sauberste naechste Schritt, wenn du eine passende Plug-and-play Loesung willst und die Serienform nicht eindeutig das Problem ist.",
+      "OEM ist der sauberste nächste Schritt, wenn du eine passende Plug-and-play Lösung willst und die Serienform nicht eindeutig das Problem ist.",
     "sargent-world-sport-front":
-      "Aftermarket lohnt vor allem bei langen Touren und hohem Budget, wenn Rueckgabe, Importkosten und echte Erfahrungsberichte passen.",
+      "Aftermarket lohnt vor allem bei langen Touren und hohem Budget, wenn Rückgabe, Importkosten und echte Erfahrungsberichte passen.",
     "3d-mesh-first-test":
-      "3D-Mesh ist ein guter erster Test, weil es guenstig, reversibel und besonders bei Hitze oder unscharfem Problem sinnvoll ist.",
+      "3D-Mesh ist ein guter erster Test, weil es günstig, reversibel und besonders bei Hitze oder unscharfem Problem sinnvoll ist.",
     "local-upholstery-custom":
-      "Ein Sattler passt, wenn du eine konkrete Schmerzstelle, speziellen Koerperbau oder klare Form-/Hoehenanforderungen hast."
+      "Ein Sattler passt, wenn du eine konkrete Schmerzstelle, speziellen Körperbau oder klare Form-/Höhenanforderungen hast."
   };
 
   const chooseOption = (problem, use, budget) => {
@@ -94,7 +94,7 @@ const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, op
       <h3>${option.name}</h3>
       <p>${reasons[key]}</p>
       <p><strong>Vor dem Kauf:</strong> ${option.watchOut}</p>
-      <p><strong>Naechster Schritt:</strong> Quelle oeffnen, Passform/Rueckgabe pruefen und eine Vergleichsfahrt dokumentieren.</p>
+      <p><strong>Nächster Schritt:</strong> Quelle öffnen, Passform/Rückgabe prüfen und eine Vergleichsfahrt dokumentieren.</p>
       <p><a href="${option.sourceUrl}">${option.sourceLabel}</a></p>
     `;
   });
