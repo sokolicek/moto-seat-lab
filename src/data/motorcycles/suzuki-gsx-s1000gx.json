@@ -14,6 +14,26 @@
     "confidence": 0,
     "notes": "MVP placeholder. Official and measured values still need verification."
   },
+  "comfortModel": {
+    "beginnerInputs": [
+      "ride duration before discomfort",
+      "main pain location",
+      "rider height band",
+      "rider weight band",
+      "usual riding type",
+      "budget band"
+    ],
+    "nextResearchInputs": [
+      "seat height in millimeters",
+      "seat pan slope",
+      "usable seat width at sit bone zone",
+      "foam firmness estimate",
+      "footpeg to seat vertical distance",
+      "handlebar reach",
+      "wind pressure at touring speed"
+    ],
+    "notes": "The MVP uses qualitative triage first. Numeric load and posture calculations should only be enabled after validated measurement rules exist."
+  },
   "knownProblemsToResearch": [
     "pain after about one hour",
     "pressure on sit bones",

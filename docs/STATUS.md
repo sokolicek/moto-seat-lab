@@ -50,13 +50,15 @@ MVP implementation started.
 - Technical parameter model drafted.
 - Website stack selected: Astro.
 - MVP Astro skeleton created.
+- Beginner comfort triage tool added for the first GSX-S1000GX page.
+- First qualitative comparison table added for stock seat, reversible add-ons, OEM/aftermarket, and upholsterer/DIY paths.
 
 ## Not Started
 
 - Full website implementation.
 - Database implementation.
 - Data maintenance tool implementation.
-- Calculation function implementation.
+- Numeric calculation function implementation.
 - German final copy.
 - Product research.
 - Affiliate account setup.
@@ -66,7 +68,7 @@ MVP implementation started.
 
 ## Next Best Step
 
-Install dependencies, run the Astro build, then improve the first real article draft:
+Install dependencies, run the Astro build, then improve the first real article draft and verify the new comfort triage interaction:
 
 ```text
 Suzuki GSX-S1000GX Sitzbank Komfort:

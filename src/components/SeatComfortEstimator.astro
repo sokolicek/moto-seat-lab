@@ -1,0 +1,124 @@
+<section class="card" aria-labelledby="comfort-estimator-title">
+  <h2 id="comfort-estimator-title">Komfort-Einschätzung</h2>
+  <p>
+    Ein grober Einstieg für Anfänger: keine medizinische Bewertung, sondern eine Priorisierung,
+    ob du zuerst testen, kaufen oder individuell umbauen solltest.
+  </p>
+
+  <form class="questionnaire" id="comfort-estimator">
+    <div class="field">
+      <label for="ride-duration">Nach welcher Zeit wird es unangenehm?</label>
+      <select id="ride-duration" name="duration">
+        <option value="short">unter 45 Minuten</option>
+        <option value="medium">45 bis 90 Minuten</option>
+        <option value="long">über 90 Minuten</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="rider-size">Körpergröße</label>
+      <select id="rider-size" name="size">
+        <option value="average">170 bis 185 cm</option>
+        <option value="short">unter 170 cm</option>
+        <option value="tall">über 185 cm</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="rider-weight">Gewicht mit Motorradkleidung</label>
+      <select id="rider-weight" name="weight">
+        <option value="average">70 bis 95 kg</option>
+        <option value="light">unter 70 kg</option>
+        <option value="heavy">über 95 kg</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="pain-location">Hauptproblem</label>
+      <select id="pain-location" name="pain">
+        <option value="sitbones">Sitzknochen / punktueller Druck</option>
+        <option value="tailbone">Steißbein</option>
+        <option value="slide">Rutschen nach vorne</option>
+        <option value="knees">Knie / Hüfte</option>
+        <option value="heat">Hitze / Schwitzen</option>
+      </select>
+    </div>
+
+    <button class="button" type="submit">Priorität berechnen</button>
+  </form>
+
+  <div class="result-box" id="comfort-estimator-result" hidden></div>
+</section>
+
+<script>
+  const estimator = document.querySelector("#comfort-estimator");
+  const estimatorResult = document.querySelector("#comfort-estimator-result");
+
+  const durationScore = {
+    short: 3,
+    medium: 2,
+    long: 1
+  };
+
+  const painAdvice = {
+    sitbones: {
+      label: "Druckverteilung",
+      action: "Prüfe Sitzbreite im Sitzknochenbereich, Schaumhärte und ob du bis auf die harte Basis durchsitzst."
+    },
+    tailbone: {
+      label: "Entlastung am Steißbein",
+      action: "Vermeide einfach nur dickere Polsterung. Eine gezielte Aussparung oder Formänderung beim Sattler ist oft sinnvoller."
+    },
+    slide: {
+      label: "Sitzwinkel und Bezug",
+      action: "Prüfe zuerst Rutschen, Tankkontakt und Bezug. Mehr weicher Schaum kann das Problem verschlimmern."
+    },
+    knees: {
+      label: "Ergonomie statt nur Sitzbank",
+      action: "Sitzhöhe, Fußrastenposition und Kniewinkel mitdenken. Eine niedrigere Sitzbank kann den Komfort verschlechtern."
+    },
+    heat: {
+      label: "Sommer-Setup",
+      action: "Starte mit 3D-Mesh, atmungsaktiver Kleidung und Bezugsmaterial. Gel kann Wärme speichern."
+    }
+  };
+
+  estimator?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(estimator);
+    const duration = data.get("duration")?.toString() || "medium";
+    const size = data.get("size")?.toString() || "average";
+    const weight = data.get("weight")?.toString() || "average";
+    const pain = data.get("pain")?.toString() || "sitbones";
+    const advice = painAdvice[pain] || painAdvice.sitbones;
+
+    let complexity = durationScore[duration] || 2;
+    if (size !== "average") complexity += 1;
+    if (weight !== "average") complexity += 1;
+    if (pain === "tailbone" || pain === "knees") complexity += 1;
+
+    const level =
+      complexity >= 5
+        ? "Individuelle Lösung wahrscheinlich sinnvoll"
+        : complexity >= 3
+          ? "Erst messen und reversibel testen"
+          : "Mit einfacher Komfortmaßnahme starten";
+
+    const nextStep =
+      complexity >= 5
+        ? "Dokumentiere Beschwerden, mache Sitzfotos von oben/Seite und hole ein Sattler-Angebot ein."
+        : complexity >= 3
+          ? "Teste zuerst eine reversible Auflage und notiere nach jeder Fahrt Dauer, Schmerzstelle und Temperatur."
+          : "Starte mit Kleidung, Pausenrhythmus, 3D-Mesh oder dünner Auflage, bevor du die Sitzbank öffnest.";
+
+    if (estimatorResult) {
+      estimatorResult.hidden = false;
+      estimatorResult.innerHTML = `
+        <strong>${level}</strong>
+        <p><strong>Priorität:</strong> ${advice.label}</p>
+        <p>${advice.action}</p>
+        <p><strong>Nächster Schritt:</strong> ${nextStep}</p>
+      `;
+    }
+  });
+</script>

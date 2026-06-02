@@ -156,6 +156,26 @@ h3 {
   margin-top: 24px;
 }
 
+.spec-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.spec-strip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-muted);
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -233,6 +253,50 @@ h3 {
   border-radius: var(--radius);
   background: #fff8ed;
   padding: 16px;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.steps li + li {
+  margin-top: 10px;
+}
+
+.comparison-table {
+  display: grid;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.comparison-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 1fr 1.1fr;
+  border-top: 1px solid var(--color-border);
+}
+
+.comparison-row:first-child {
+  border-top: 0;
+}
+
+.comparison-row span {
+  padding: 12px;
+  border-left: 1px solid var(--color-border);
+}
+
+.comparison-row span:first-child {
+  border-left: 0;
+  font-weight: 700;
+}
+
+.comparison-row.header {
+  background: #dfecea;
+  color: var(--color-accent-strong);
+  font-weight: 800;
 }
 
 .questionnaire {
@@ -330,8 +394,18 @@ h3 {
 
   .hero-grid,
   .grid,
-  .grid.two {
+  .grid.two,
+  .comparison-row {
     grid-template-columns: 1fr;
+  }
+
+  .comparison-row span {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .comparison-row span:first-child {
+    border-top: 0;
   }
 
   .hero {

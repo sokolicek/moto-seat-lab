@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import Questionnaire from "../../../../components/Questionnaire.astro";
+import SeatComfortEstimator from "../../../../components/SeatComfortEstimator.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
@@ -22,6 +23,11 @@ import disclosures from "../../../../data/disclosures/de.json";
           Die GSX-S1000GX ist ein sportlicher Tourer. Komfort hängt nicht nur von der Sitzbank ab,
           sondern auch von Sitzform, Haltung, Knie­winkel, Kleidung, Hitze und Fahrdauer.
         </p>
+        <div class="spec-strip" aria-label="MVP Kontext">
+          <span>Modell: Suzuki GSX-S1000GX</span>
+          <span>Land: Deutschland</span>
+          <span>Status: MVP Recherche</span>
+        </div>
         <div class="actions">
           <a class="button" href="#quick-check-title">Schnellcheck starten</a>
           <a class="button secondary" href="#loesungen">Lösungen vergleichen</a>
@@ -40,6 +46,12 @@ import disclosures from "../../../../data/disclosures/de.json";
   <section class="section">
     <div class="page-inner grid two">
       <Questionnaire />
+      <SeatComfortEstimator />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
       <article class="card">
         <h2>Für wen ist dieser Guide?</h2>
         <p>
@@ -53,6 +65,15 @@ import disclosures from "../../../../data/disclosures/de.json";
           <li>Hitze</li>
           <li>Sitzhöhe</li>
         </ul>
+      </article>
+      <article class="card">
+        <h2>Was du dieses Wochenende testen kannst</h2>
+        <ol class="steps">
+          <li>Eine 60- bis 90-Minuten-Fahrt mit Notizen zu Schmerzstelle, Temperatur und Hose fahren.</li>
+          <li>Prüfen, ob du beim Bremsen oder in normaler Haltung nach vorne rutschst.</li>
+          <li>Eine dünne, reversible Auflage oder 3D-Mesh testen, aber nur einzeln, nicht alles gleichzeitig.</li>
+          <li>Nach der Fahrt vergleichen: gleicher Weg, ähnliche Temperatur, gleiche Kleidung.</li>
+        </ol>
       </article>
     </div>
   </section>
@@ -96,6 +117,47 @@ import disclosures from "../../../../data/disclosures/de.json";
           ))}
         </div>
       </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <h2>Seriensitz vs. mögliche Lösungen</h2>
+      <p class="lead">
+        Die Werte sind bewusst qualitativ, bis verifizierte Messdaten und echte Produktdaten eingepflegt sind.
+      </p>
+      <div class="comparison-table" role="table" aria-label="Sitzbank Vergleich">
+        <div class="comparison-row header" role="row">
+          <span role="columnheader">Option</span>
+          <span role="columnheader">Stärke</span>
+          <span role="columnheader">Risiko</span>
+          <span role="columnheader">Wann sinnvoll?</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <span role="cell">Seriensitz</span>
+          <span role="cell">passt zum Motorrad, keine Umbauten</span>
+          <span role="cell">kann nach 45-90 Minuten Druck erzeugen</span>
+          <span role="cell">Referenz für alle Tests</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <span role="cell">3D-Mesh / dünne Auflage</span>
+          <span role="cell">billig, reversibel, gut bei Hitze</span>
+          <span role="cell">ändert Sitzhöhe und Gefühl</span>
+          <span role="cell">erster Test vor teuren Käufen</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <span role="cell">OEM / Aftermarket</span>
+          <span role="cell">sauber, schnell, wiederverkaufbar</span>
+          <span role="cell">teuer und nicht automatisch passend</span>
+          <span role="cell">wenn Rückgabe und echte Erfahrungsberichte passen</span>
+        </div>
+        <div class="comparison-row" role="row">
+          <span role="cell">Sattler / DIY</span>
+          <span role="cell">Form kann gezielt verändert werden</span>
+          <span role="cell">Qualität, Abdichtung und Rückbau beachten</span>
+          <span role="cell">bei klarer Schmerzstelle oder Spezialanforderung</span>
+        </div>
+      </div>
     </div>
   </section>
 
