@@ -31,6 +31,7 @@ This file tracks local visual assets used by the Moto Seat Lab MVP.
 - Playback:
   - `autoplay`, `muted`, `loop`, `playsinline`.
   - No controls, because it is a decorative background.
+  - A small page-level pause/play toggle is provided for user comfort and stores preference in `localStorage`.
   - Static WebP poster/fallback: `public/assets/hero/touring-forest-curve.webp`.
 - Performance note:
   - Current file is suitable for local MVP validation.

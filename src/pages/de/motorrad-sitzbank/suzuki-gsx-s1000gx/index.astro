@@ -47,11 +47,49 @@ import disclosures from "../../../../data/disclosures/de.json";
           <a class="button" href="#quick-check-title">Schnellcheck starten</a>
           <a class="button secondary" href="#loesungen">Lösungen vergleichen</a>
         </div>
-        <p class="asset-note">Video-Hintergrund aus lokalem MVP-Asset, ohne Ton.</p>
+        <div class="media-note">
+          <p class="asset-note">Video-Hintergrund aus lokalem MVP-Asset, ohne Ton.</p>
+          <button class="video-toggle" type="button" aria-pressed="false" data-video-toggle>
+            Video pausieren
+          </button>
+        </div>
       </div>
       <SeatLayerGraphic />
     </div>
   </section>
+
+  <script>
+    const heroVideo = document.querySelector<HTMLVideoElement>(".hero-video");
+    const videoToggle = document.querySelector<HTMLButtonElement>("[data-video-toggle]");
+    const videoStorageKey = "motoseatlab_gsx_video_paused";
+
+    const setVideoState = (paused: boolean) => {
+      if (!heroVideo || !videoToggle) return;
+      videoToggle.setAttribute("aria-pressed", paused.toString());
+      videoToggle.textContent = paused ? "Video abspielen" : "Video pausieren";
+      if (paused) {
+        heroVideo.pause();
+      } else {
+        heroVideo.play().catch(() => {
+          videoToggle.textContent = "Video abspielen";
+          videoToggle.setAttribute("aria-pressed", "true");
+        });
+      }
+    };
+
+    if (heroVideo && videoToggle) {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const storedPaused = window.localStorage.getItem(videoStorageKey) === "true";
+      const shouldPause = prefersReducedMotion || storedPaused;
+      setVideoState(shouldPause);
+
+      videoToggle.addEventListener("click", () => {
+        const nextPaused = !heroVideo.paused;
+        window.localStorage.setItem(videoStorageKey, nextPaused.toString());
+        setVideoState(nextPaused);
+      });
+    }
+  </script>
 
   <section class="section visual-band">
     <div class="page-inner grid three-feature">

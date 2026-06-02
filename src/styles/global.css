@@ -163,6 +163,35 @@ main {
   font-size: 0.84rem;
 }
 
+.media-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.media-note .asset-note {
+  margin: 0;
+}
+
+.video-toggle {
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.video-toggle:hover,
+.video-toggle:focus {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .video-hero {
   position: relative;
   min-height: min(760px, calc(100vh - 64px));
