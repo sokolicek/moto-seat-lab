@@ -547,6 +547,28 @@ h3 {
   background: rgba(18, 107, 115, 0.08);
 }
 
+.decision-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0 18px;
+}
+
+.decision-strip span {
+  display: grid;
+  gap: 4px;
+  min-height: 84px;
+  border: 1px solid rgba(18, 107, 115, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--color-muted);
+  padding: 12px;
+}
+
+.decision-strip strong {
+  color: var(--color-accent-strong);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -637,6 +659,51 @@ h3 {
 .product-card {
   display: flex;
   flex-direction: column;
+}
+
+.solution-card {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.quick-facts {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.quick-facts span {
+  display: grid;
+  gap: 2px;
+  border: 1px solid rgba(18, 107, 115, 0.12);
+  border-radius: var(--radius);
+  background: rgba(244, 241, 233, 0.72);
+  padding: 9px 10px;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.quick-facts strong {
+  color: var(--color-accent-strong);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.card-details {
+  margin-top: 8px;
+  border-top: 1px solid rgba(216, 208, 193, 0.72);
+  padding-top: 10px;
+}
+
+.card-details summary {
+  color: var(--color-accent-strong);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.card-details p {
+  margin-bottom: 0;
 }
 
 .seat-option-card {
@@ -1188,6 +1255,7 @@ h3 {
 
   .hero-grid,
   .option-advisor,
+  .decision-strip,
   .grid,
   .grid.two,
   .grid.three-feature,

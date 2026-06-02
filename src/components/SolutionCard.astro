@@ -11,11 +11,16 @@ interface Props {
 const { title, summary, bestFor, notIdealFor, cost, confidence } = Astro.props;
 ---
 
-<article class="card">
+<article class="card solution-card">
   <span class="badge">{confidence}</span>
   <h3>{title}</h3>
   <p>{summary}</p>
-  <p><strong>Gut für:</strong> {bestFor}</p>
-  <p><strong>Nicht ideal für:</strong> {notIdealFor}</p>
-  <p><strong>Kosten:</strong> {cost}</p>
+  <div class="quick-facts">
+    <span><strong>Gut für</strong>{bestFor}</span>
+    <span><strong>Kosten</strong>{cost}</span>
+  </div>
+  <details class="card-details">
+    <summary>Grenzen anzeigen</summary>
+    <p><strong>Nicht ideal für:</strong> {notIdealFor}</p>
+  </details>
 </article>

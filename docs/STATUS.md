@@ -70,6 +70,7 @@ MVP implementation started.
 - First GSX-S1000GX seat option research shortlist added with source links, fitment notes, price notes, confidence levels, and affiliate readiness status.
 - GSX-S1000GX page now includes a simple seat option advisor that maps problem, riding use, and budget to the safest first option.
 - Navigation simplified with a Motorrad list page, remembered GSX-S1000GX as the current/last model, page jump navigation, and illustrated seat option cards.
+- GSX-S1000GX solution and option sections made more scannable with decision strips, compact facts, and expandable detail blocks.
 
 ## Not Started
 

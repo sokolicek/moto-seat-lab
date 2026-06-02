@@ -51,11 +51,16 @@ const {
   </div>
   <h3>{name}</h3>
   <p><strong>Passt zu:</strong> {fitment}</p>
-  <p><strong>Markt:</strong> {market}</p>
-  <p><strong>Preisnotiz:</strong> {priceNote}</p>
   <p><strong>Sinnvoll für:</strong> {bestFor}</p>
-  <p><strong>Aufpassen:</strong> {watchOut}</p>
-  <p><strong>Komfort-Logik:</strong> {comfortLogic}</p>
+  <div class="quick-facts">
+    <span><strong>Markt</strong>{market}</span>
+    <span><strong>Preis</strong>{priceNote}</span>
+  </div>
+  <details class="card-details">
+    <summary>Risiko und Komfort-Logik</summary>
+    <p><strong>Aufpassen:</strong> {watchOut}</p>
+    <p><strong>Komfort-Logik:</strong> {comfortLogic}</p>
+  </details>
   <div class="card-footer-line">
     <span>{researchStatus}</span>
     <span>{affiliateStatus}</span>
