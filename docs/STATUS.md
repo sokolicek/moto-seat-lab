@@ -32,6 +32,7 @@ Concept and content architecture.
 - Feature roadmap drafted.
 - Implementation notes drafted.
 - Data maintenance tool concept drafted.
+- News/community/source/translation concept drafted.
 - Data entry templates drafted.
 - Maintenance workflow drafted.
 - Validation and import rules drafted.

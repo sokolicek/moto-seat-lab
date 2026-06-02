@@ -17,6 +17,10 @@ The future website will need structured data for:
 - affiliate sources,
 - product offers,
 - recommendation paths,
+- news and external sources,
+- rider feedback,
+- translations,
+- moderation,
 - calculation rules.
 
 This file defines a conceptual data model. It is not yet a database schema.
@@ -42,6 +46,11 @@ erDiagram
   SEAT_OPTION ||--o{ PRODUCT_OFFER : sold_as
   RETAILER ||--o{ PRODUCT_OFFER : lists
   RIDER_PROFILE ||--o{ RECOMMENDATION_RESULT : receives
+  CONTENT_SOURCE ||--o{ NEWS_ITEM : publishes
+  CONTENT_SOURCE ||--o{ EXTERNAL_LINK : references
+  NEWS_ITEM ||--o{ TRANSLATED_CONTENT : translated_as
+  USER_FEEDBACK ||--o{ TRANSLATED_CONTENT : translated_as
+  USER_FEEDBACK ||--o{ MODERATION_EVENT : reviewed_by
 ```
 
 ## Motorcycle
@@ -367,6 +376,154 @@ Fields:
 - confidence_level,
 - missing_data,
 - formula_version,
+- created_at.
+
+## Content Source
+
+Represents a configured external source.
+
+Types:
+
+- motorcycle news website,
+- motorcycle forum,
+- manufacturer page,
+- aftermarket manufacturer,
+- retailer blog,
+- upholsterer website,
+- Reddit/community page,
+- YouTube channel,
+- owner club,
+- manual/admin source.
+
+Fields:
+
+- id,
+- name,
+- source_type,
+- website_url,
+- feed_url,
+- country,
+- language,
+- topic_categories,
+- seat_comfort_relevance,
+- allowed_use,
+- feed_enabled,
+- translation_enabled,
+- moderation_required,
+- trust_level,
+- last_checked_at,
+- notes.
+
+## News Item
+
+Represents an admin-curated external news/link item.
+
+Fields:
+
+- id,
+- source_id,
+- title_original,
+- title_translated,
+- summary_original,
+- summary_translated,
+- source_url,
+- canonical_url,
+- original_language,
+- target_language,
+- country_relevance,
+- motorcycle_model_relevance,
+- topic_tags,
+- published_at,
+- discovered_at,
+- translation_status,
+- moderation_status,
+- copyright_mode,
+- confidence_level,
+- admin_notes.
+
+## External Link
+
+Represents a directory link to a forum, community, shop, manufacturer, upholsterer, or useful website.
+
+Fields:
+
+- id,
+- source_id,
+- title,
+- url,
+- link_type,
+- country,
+- language,
+- motorcycle_brand,
+- motorcycle_model,
+- topic_tags,
+- registration_required,
+- quality_notes,
+- trust_level,
+- last_verified_at,
+- admin_notes.
+
+## User Feedback
+
+Represents feedback, submitted links, and rider experience reports.
+
+Fields:
+
+- id,
+- display_name,
+- email_private,
+- country,
+- language,
+- motorcycle_brand,
+- motorcycle_model,
+- motorcycle_year,
+- seat_type,
+- ride_duration_before_pain_min,
+- problem_description,
+- solution_tried,
+- result_summary,
+- cost,
+- source_link,
+- permission_to_publish,
+- moderation_status,
+- spam_score,
+- admin_notes,
+- created_at.
+
+## Translated Content
+
+Represents a translated summary or translated user feedback.
+
+Fields:
+
+- id,
+- source_entity_type,
+- source_entity_id,
+- source_language,
+- target_language,
+- translation_mode,
+- translated_title,
+- translated_summary,
+- translator,
+- machine_translation_provider,
+- admin_review_status,
+- published,
+- created_at,
+- updated_at.
+
+## Moderation Event
+
+Represents admin review of feedback, comments, source links, or news items.
+
+Fields:
+
+- id,
+- entity_type,
+- entity_id,
+- moderator,
+- action,
+- reason,
+- notes,
 - created_at.
 
 ## Calculation Rule

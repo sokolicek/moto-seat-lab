@@ -62,6 +62,7 @@ Pilot scope:
 - [Interactive tools concept](docs/interactive-tools.md)
 - [Beginner to expert funnel](docs/beginner-to-expert-funnel.md)
 - [Data maintenance tool](docs/data-maintenance-tool.md)
+- [News, community, source directory, and translation concept](docs/news-community-translation-concept.md)
 - [Data entry templates](docs/data-entry-templates.md)
 - [Maintenance workflow](docs/maintenance-workflow.md)
 - [Validation and import rules](docs/validation-and-import-rules.md)

@@ -14,6 +14,9 @@ Country Guides
 Materials And Tools
 Measurements And Ergonomics
 Buying Guides
+News And Updates
+Forum And Source Directory
+Rider Feedback
 Care And Maintenance
 Reviews And Tests
 Affiliate Shop
@@ -40,6 +43,9 @@ About / Roadmap
 |-- /materials/
 |-- /tools/
 |-- /measurements/
+|-- /news/
+|-- /sources/
+|-- /feedback/
 |-- /care/
 `-- /shop/
 ```
@@ -54,6 +60,16 @@ About / Roadmap
 6. Materials and tools guide
 7. Where to buy in Germany
 8. Roadmap / About
+
+Future optional pages:
+
+```text
+News and updates
+Motorcycle seat forums and communities
+Submit your seat experience
+Source directory by country
+Translated summaries by country/language
+```
 
 ## Content Modules
 
@@ -83,6 +99,8 @@ Main language
 Motorcycle market notes
 Common retailers
 Affiliate programs
+Relevant news sources
+Relevant forums and communities
 Shipping considerations
 Local workshops
 Legal/safety notes
@@ -100,3 +118,16 @@ Research sources
 - seat height impact estimator,
 - affiliate product comparison blocks.
 
+## Community And News Modules
+
+Future modules:
+
+```text
+Curated news item
+External forum link
+Source directory entry
+User feedback form
+Owner experience report
+Translated summary
+Admin moderation note
+```

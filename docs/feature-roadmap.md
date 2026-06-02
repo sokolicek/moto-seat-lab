@@ -82,3 +82,30 @@ Possible later:
 - photos of DIY builds,
 - model-specific pain reports,
 - verified upholsterer directory.
+
+## Phase 10 - News, Sources, And Translations
+
+Possible later:
+
+- admin-managed motorcycle seat news links,
+- source directory for forums, manufacturers, aftermarket brands, upholsterers, and shops,
+- country-specific source lists,
+- manually curated translated summaries,
+- admin-approved machine translation drafts,
+- feedback/link submission form,
+- moderation queue,
+- source health checks,
+- RSS/feed discovery only after moderation exists.
+
+Do not build this before the core guide, comparison, and feedback workflow are useful.
+
+## Phase 11 - Mini Forum
+
+Only after real community demand:
+
+- moderated comments under bike guides,
+- model-specific discussion threads,
+- user-submitted experience reports,
+- spam protection,
+- user accounts if truly needed,
+- trust/reputation markers.

@@ -11,6 +11,10 @@ The project needs an internal tool for collecting, validating, maintaining, and 
 - DIY material options,
 - product sources,
 - country availability,
+- news and external sources,
+- forum/source directory entries,
+- user feedback,
+- translated summaries,
 - source confidence.
 
 This tool is not the public website. It is the back-office workflow that keeps the future public recommendations reliable.
@@ -39,6 +43,9 @@ Seat Data Studio
 8. Mark data quality and confidence.
 9. Publish selected data to the public website.
 10. Update old data when manufacturers or retailers change information.
+11. Manage external news/forum/source links.
+12. Moderate rider feedback and submitted links.
+13. Approve translated summaries.
 
 ## Core Principle
 
@@ -248,6 +255,81 @@ Source fields:
 - archived copy if allowed,
 - confidence contribution.
 
+## News And Source Directory Management
+
+The admin tool should later support curated external sources.
+
+Admin sections:
+
+- content sources,
+- news/link queue,
+- forum and website directory,
+- manufacturer/aftermarket source list,
+- upholsterer directory,
+- source health checks,
+- blocked domains,
+- trusted domains.
+
+Admin can configure:
+
+- source name,
+- source type,
+- country,
+- language,
+- URL,
+- RSS/feed URL if available,
+- crawl/feed enabled,
+- translation enabled,
+- moderation required,
+- trust level,
+- allowed use mode.
+
+Allowed use modes:
+
+```text
+link_only
+short_summary
+manual_summary
+original_content
+user_submitted
+```
+
+## Feedback And Moderation
+
+The admin tool should support a moderation queue before anything user-submitted is published.
+
+Feedback types:
+
+- seat experience,
+- product fitment correction,
+- external link suggestion,
+- shop/upholsterer suggestion,
+- comment,
+- bug report,
+- translation correction.
+
+Moderation actions:
+
+- approve,
+- reject,
+- request clarification,
+- mark as private research note,
+- publish as experience report,
+- block as spam.
+
+## Translation Management
+
+Translation should be admin-controlled.
+
+Supported translation workflows:
+
+- native content written directly in target language,
+- machine translation draft reviewed by admin,
+- short translated summary for external source,
+- translated link page pointing to original source.
+
+Do not auto-publish translations without review for core advice, buying recommendations, safety warnings, or affiliate content.
+
 ## Confidence Levels
 
 ```text
@@ -422,4 +504,3 @@ Then later:
 2. Admin forms.
 3. Source tracking UI.
 4. Public website integration.
-
