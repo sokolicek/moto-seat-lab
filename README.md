@@ -55,6 +55,7 @@ Pilot scope:
 
 - [Project status](docs/STATUS.md)
 - [Project audit and MVP scope](docs/project-audit-and-mvp-scope.md)
+- [MVP specification](docs/mvp-spec.md)
 - [Concept](docs/concept.md)
 - [Audience](docs/audience.md)
 - [Content architecture](docs/content-architecture.md)

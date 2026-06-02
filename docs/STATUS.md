@@ -10,6 +10,7 @@ Concept and content architecture.
 
 - Project folder created.
 - Project audit and MVP scope drafted.
+- MVP specification drafted.
 - Concept documented.
 - Audience documented.
 - Content architecture drafted.
@@ -63,7 +64,7 @@ Concept and content architecture.
 
 ## Next Best Step
 
-Freeze MVP scope from `docs/project-audit-and-mvp-scope.md`, then write the first real article draft:
+Use `docs/mvp-spec.md` to create the first implementation skeleton, then write the first real article draft:
 
 ```text
 Suzuki GSX-S1000GX Sitzbank Komfort:
