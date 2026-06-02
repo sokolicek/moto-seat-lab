@@ -6,10 +6,13 @@ interface Props {
   title: string;
   description: string;
   canonicalPath?: string;
+  imagePath?: string;
+  preloadImagePath?: string;
 }
 
-const { title, description, canonicalPath = "/" } = Astro.props;
+const { title, description, canonicalPath = "/", imagePath, preloadImagePath } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com").toString();
+const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.com").toString() : undefined;
 ---
 
 <!doctype html>
@@ -20,9 +23,17 @@ const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com"
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {preloadImagePath && <link rel="preload" as="image" href={preloadImagePath} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
+    {image && <meta property="og:image:alt" content="Touring motorcycle riding through a forest road curve." />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={image} />}
   </head>
   <body>
     <div class="site-shell">

@@ -62,6 +62,7 @@ MVP implementation started.
 - Cookie bar reduced and moved to a less intrusive bottom-right layout.
 - Homepage expanded with a reusable diagnostic-map visual and beginner-friendly entry flow.
 - AI-generated German touring forest curve hero image added to the project and used on the German homepage.
+- Hero image registered in documentation and added to OpenGraph/Twitter sharing metadata.
 
 ## Not Started
 

@@ -61,6 +61,7 @@ Pilot scope:
 - [Content architecture](docs/content-architecture.md)
 - [Design system concept](docs/design-system-concept.md)
 - [Domain decision](docs/domain-decision.md)
+- [Asset register](docs/asset-register.md)
 - [Platform architecture](docs/platform-architecture.md)
 - [Functional architecture](docs/functional-architecture.md)
 - [Geo intent routing concept](docs/geo-intent-routing-concept.md)
