@@ -23,6 +23,7 @@ Concept and content architecture.
 - SEO/taxonomy drafted.
 - Solution decision tree drafted.
 - Interactive DIY tools concept drafted.
+- Beginner to expert funnel drafted.
 - Data model concept drafted.
 - Calculation model concept drafted.
 - Calculation input skeleton drafted.

@@ -15,6 +15,8 @@ The future website will need structured data for:
 - product categories,
 - countries,
 - affiliate sources,
+- product offers,
+- recommendation paths,
 - calculation rules.
 
 This file defines a conceptual data model. It is not yet a database schema.
@@ -37,6 +39,9 @@ erDiagram
   COUNTRY ||--o{ RETAILER : has
   RETAILER ||--o{ PRODUCT_CATEGORY : sells
   PRODUCT_CATEGORY ||--o{ AFFILIATE_PROGRAM : monetized_by
+  SEAT_OPTION ||--o{ PRODUCT_OFFER : sold_as
+  RETAILER ||--o{ PRODUCT_OFFER : lists
+  RIDER_PROFILE ||--o{ RECOMMENDATION_RESULT : receives
 ```
 
 ## Motorcycle
@@ -283,6 +288,86 @@ Fields:
 - recommendation_level,
 - warnings,
 - assumptions.
+
+## Solution Path
+
+Represents a human-friendly path before a specific product is selected.
+
+Types:
+
+- keep stock and test posture,
+- reversible add-on,
+- OEM accessory seat,
+- aftermarket seat,
+- professional upholsterer,
+- DIY modification,
+- spare-seat experiment.
+
+Fields:
+
+- id,
+- name,
+- type,
+- best_for,
+- not_ideal_for,
+- expected_benefit,
+- likely_downside,
+- cost_level,
+- effort_level,
+- reversibility,
+- ride_type_fit,
+- confidence_level,
+- notes.
+
+## Product Offer
+
+Represents a concrete purchasable option.
+
+Fields:
+
+- id,
+- seat_option_id,
+- retailer_id,
+- country,
+- product_name,
+- product_type,
+- price,
+- currency,
+- availability_status,
+- shipping_notes,
+- return_policy_notes,
+- warranty_notes,
+- source_url,
+- affiliate_url,
+- affiliate_disclosure_required,
+- last_verified_at,
+- fitment_confidence,
+- comfort_claim_source,
+- notes.
+
+## Recommendation Result
+
+Represents the output shown to a user.
+
+Fields:
+
+- id,
+- rider_profile_id,
+- motorcycle_id,
+- scenario_id,
+- primary_problem_category,
+- recommended_solution_path_ids,
+- product_offer_ids,
+- warnings,
+- why_recommended,
+- why_not_other_options,
+- cheaper_alternatives,
+- reversible_alternatives,
+- affiliate_disclosure,
+- confidence_level,
+- missing_data,
+- formula_version,
+- created_at.
 
 ## Calculation Rule
 

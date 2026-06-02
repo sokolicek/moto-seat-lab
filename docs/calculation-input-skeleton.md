@@ -6,67 +6,100 @@ Purpose: define which parameters are needed for Moto Seat Lab calculations and s
 
 The goal is progressive data entry:
 
-- basic inputs should be enough for a first useful estimate,
+- basic inputs should be enough for immediate beginner help,
 - additional inputs improve confidence and personalization,
 - special inputs support advanced calculations, measured bikes, and expert/maintenance workflows.
 
+The first user should not be forced into expert mode. If the user only knows "my original seat hurts after one hour", the tool should still produce useful next steps.
+
 ## Level 1: Basic Parameters
 
-These are the minimum fields for the first public calculator.
+These are the minimum fields for the first public calculator. They should feel like a short guided conversation, not a technical form.
 
-### Rider
+### Problem
 
-- height_cm
-- weight_kg
-- inseam_cm
-- age_range
+- current_seat_problem
 - pain_start_minutes
-- pain_location
+- pain_location_simple
+- seat_feels_too_hard
+- seat_feels_too_soft
+- sliding_forward
+- heat_discomfort
+- numbness_or_pressure
+
+### Goal
+
 - target_ride_duration_minutes
-- riding_experience_level
+- main_goal
+- preferred_solution_style
+- budget_level
+
+Recommended values for `preferred_solution_style`:
+
+- buy-ready
+- professional-upholsterer
+- reversible-add-on
+- DIY
+- not-sure
 
 ### Motorcycle
 
 - brand
 - model
 - year
-- motorcycle_category
-- stock_seat_height_mm
-- wet_weight_kg
-- riding_position_category
+- current_seat_is_original
+- country
 
-### Seat
+If the bike is known in the database, the system should fill in:
 
-- current_seat_type
-- stock_or_modified
-- estimated_seat_width_category
-- seat_feels_too_hard
-- seat_feels_too_soft
-- sliding_forward
-- heat_discomfort
+- motorcycle_category,
+- stock_seat_height_mm,
+- wet_weight_kg,
+- riding_position_category,
+- known OEM and aftermarket options.
 
 ### Use Case
 
 - main_use_case
 - typical_ride_duration_minutes
-- highway_percentage
-- country_road_percentage
-- city_percentage
-- offroad_percentage
+- highway_use_simple
+- country_road_use_simple
+- city_use_simple
+- offroad_use_simple
 - solo_or_passenger
 - luggage_use
 - season_or_temperature_range
 
 ### Basic Outputs
 
-- reach-to-ground risk
-- pressure risk
-- heat risk
-- long-ride risk
 - likely problem category
-- recommended first experiment
+- first realistic recommendation
+- buy-ready options if available
+- professional/custom option category
+- reversible quick fixes
+- DIY path only if the user wants it
+- expensive-option warning
+- fit-for-use warning
+- approximate cost bands
+- source and affiliate disclosure
 - missing data list
 - confidence level
+
+### Beginner Example
+
+Input:
+
+```text
+Suzuki GSX-S1000GX, original seat, pain after one hour, mostly longer trips, wants to buy rather than build.
+```
+
+Output:
+
+```text
+Show stock baseline, OEM premium/low seat if available, aftermarket options if verified, professional rebuild path, and reversible comfort tests.
+Warn that a low seat may reduce foam and worsen knee comfort.
+Do not ask for foam ILD, rider triangle coordinates, or sag yet.
+```
 
 ## Level 2: Additional Parameters
 

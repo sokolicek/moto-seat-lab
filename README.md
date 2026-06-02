@@ -59,6 +59,7 @@ Pilot scope:
 - [Content architecture](docs/content-architecture.md)
 - [Roadmap](docs/roadmap.md)
 - [Interactive tools concept](docs/interactive-tools.md)
+- [Beginner to expert funnel](docs/beginner-to-expert-funnel.md)
 - [Data maintenance tool](docs/data-maintenance-tool.md)
 - [Data entry templates](docs/data-entry-templates.md)
 - [Maintenance workflow](docs/maintenance-workflow.md)
