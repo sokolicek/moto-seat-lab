@@ -1,0 +1,101 @@
+---
+import seatOptions from "../data/products/gsx-s1000gx-seat-options.json";
+
+const optionMap = Object.fromEntries(seatOptions.map((option) => [option.key, option]));
+---
+
+<section class="card option-advisor" aria-labelledby="option-advisor-title">
+  <div>
+    <p class="eyebrow">Welche Option zuerst?</p>
+    <h2 id="option-advisor-title">Mini-Berater fuer Kauf oder Test</h2>
+    <p>
+      Drei Eingaben reichen fuer eine erste, vorsichtige Richtung. Die Logik bevorzugt reversible Tests,
+      solange Problem und Fahrprofil noch unscharf sind.
+    </p>
+  </div>
+
+  <form class="questionnaire" id="option-advisor">
+    <div class="field">
+      <label for="advisor-problem">Hauptproblem</label>
+      <select id="advisor-problem" name="problem">
+        <option value="pressure">Druck / taubes Gefuehl</option>
+        <option value="heat">Hitze / Schwitzen</option>
+        <option value="slide">Rutschen nach vorne</option>
+        <option value="height">Sitzhoehe / Bodenkontakt</option>
+        <option value="custom">Sehr konkrete Schmerzstelle</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="advisor-use">Nutzung</label>
+      <select id="advisor-use" name="use">
+        <option value="touring">Lange Touren</option>
+        <option value="weekend">Wochenende / Landstrasse</option>
+        <option value="short">Kurze Runden</option>
+        <option value="summer">Sommer / warme Laender</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="advisor-budget">Budget</label>
+      <select id="advisor-budget" name="budget">
+        <option value="low">Erst guenstig testen</option>
+        <option value="medium">Mittel, aber kein Blindkauf</option>
+        <option value="high">Ich will eine dauerhafte Loesung</option>
+      </select>
+    </div>
+
+    <button class="button" type="submit">Option vorschlagen</button>
+  </form>
+
+  <div class="advisor-result" id="option-advisor-result" hidden></div>
+</section>
+
+<script is:inline define:vars={{ optionMap }}>
+  const advisorForm = document.querySelector("#option-advisor");
+  const advisorResult = document.querySelector("#option-advisor-result");
+
+  const optionsByKey = optionMap;
+
+  const reasons = {
+    "suzuki-premium-seat-de":
+      "OEM ist der sauberste naechste Schritt, wenn du eine passende Plug-and-play Loesung willst und die Serienform nicht eindeutig das Problem ist.",
+    "sargent-world-sport-front":
+      "Aftermarket lohnt vor allem bei langen Touren und hohem Budget, wenn Rueckgabe, Importkosten und echte Erfahrungsberichte passen.",
+    "3d-mesh-first-test":
+      "3D-Mesh ist ein guter erster Test, weil es guenstig, reversibel und besonders bei Hitze oder unscharfem Problem sinnvoll ist.",
+    "local-upholstery-custom":
+      "Ein Sattler passt, wenn du eine konkrete Schmerzstelle, speziellen Koerperbau oder klare Form-/Hoehenanforderungen hast."
+  };
+
+  const chooseOption = (problem, use, budget) => {
+    if (problem === "heat" || use === "summer" || budget === "low") return "3d-mesh-first-test";
+    if (problem === "custom" || problem === "height") return "local-upholstery-custom";
+    if (budget === "high" && use === "touring") return "sargent-world-sport-front";
+    if (budget === "medium" && (use === "touring" || use === "weekend")) return "suzuki-premium-seat-de";
+    if (problem === "slide") return "local-upholstery-custom";
+    return "3d-mesh-first-test";
+  };
+
+  advisorForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(advisorForm);
+    const problem = data.get("problem")?.toString() || "pressure";
+    const use = data.get("use")?.toString() || "touring";
+    const budget = data.get("budget")?.toString() || "low";
+    const key = chooseOption(problem, use, budget);
+    const option = optionsByKey[key];
+
+    if (!advisorResult || !option) return;
+
+    advisorResult.hidden = false;
+    advisorResult.innerHTML = `
+      <span class="badge">Vorschlag</span>
+      <h3>${option.name}</h3>
+      <p>${reasons[key]}</p>
+      <p><strong>Vor dem Kauf:</strong> ${option.watchOut}</p>
+      <p><strong>Naechster Schritt:</strong> Quelle oeffnen, Passform/Rueckgabe pruefen und eine Vergleichsfahrt dokumentieren.</p>
+      <p><a href="${option.sourceUrl}">${option.sourceLabel}</a></p>
+    `;
+  });
+</script>

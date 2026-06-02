@@ -6,6 +6,7 @@ import SeatLayerGraphic from "../../../../components/SeatLayerGraphic.astro";
 import RiderProfileCard from "../../../../components/RiderProfileCard.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
 import SeatOptionCard from "../../../../components/SeatOptionCard.astro";
+import SeatOptionAdvisor from "../../../../components/SeatOptionAdvisor.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
 import seatOptions from "../../../../data/products/gsx-s1000gx-seat-options.json";
@@ -199,6 +200,12 @@ import disclosures from "../../../../data/disclosures/de.json";
       <div class="grid two">
         {seatOptions.map((option) => <SeatOptionCard {...option} />)}
       </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <SeatOptionAdvisor />
     </div>
   </section>
 

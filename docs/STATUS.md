@@ -68,6 +68,7 @@ MVP implementation started.
 - GSX-S1000GX hero video now has an accessible pause/play toggle with local preference storage.
 - Visual design system polished with stronger brand header, richer page background, improved cards, hero status blocks, footer layout, focus states, and mobile refinements.
 - First GSX-S1000GX seat option research shortlist added with source links, fitment notes, price notes, confidence levels, and affiliate readiness status.
+- GSX-S1000GX page now includes a simple seat option advisor that maps problem, riding use, and budget to the safest first option.
 
 ## Not Started
 

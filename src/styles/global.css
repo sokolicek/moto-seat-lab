@@ -666,6 +666,35 @@ h3 {
   font-weight: 800;
 }
 
+.option-advisor {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(280px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.option-advisor .questionnaire {
+  align-self: stretch;
+}
+
+.advisor-result {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(18, 107, 115, 0.2);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.1), transparent 42%),
+    #f2fbf9;
+  padding: 18px;
+}
+
+.advisor-result h3 {
+  margin-top: 10px;
+}
+
+.advisor-result p:last-child {
+  margin-bottom: 0;
+}
+
 .profile-card {
   border-top: 4px solid var(--color-accent);
 }
@@ -1087,6 +1116,7 @@ h3 {
   }
 
   .hero-grid,
+  .option-advisor,
   .grid,
   .grid.two,
   .grid.three-feature,
