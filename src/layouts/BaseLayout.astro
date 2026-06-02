@@ -39,8 +39,15 @@ const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.
     <div class="site-shell">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="brand" href="/de/">Moto Seat Lab</a>
+          <a class="brand" href="/de/" aria-label="Moto Seat Lab Startseite">
+            <span class="brand-mark" aria-hidden="true"><span></span></span>
+            <span>
+              <strong>Moto Seat Lab</strong>
+              <small>Sitzkomfort ohne Blindkauf</small>
+            </span>
+          </a>
           <nav class="nav-links" aria-label="Hauptnavigation">
+            <a href="/de/">Start</a>
             <a href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">GSX-S1000GX</a>
             <a href="/de/loesungen/">Lösungen</a>
             <a href="/de/kaufen/">Kaufen</a>
@@ -52,14 +59,17 @@ const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.
         <slot />
       </main>
       <footer class="site-footer">
-        <div class="page-inner">
-          <p>
-            Moto Seat Lab ist ein unabhängiges Konzeptprojekt. Empfehlungen sind keine Garantie für Passform,
-            Komfort oder medizinische Wirkung.
-          </p>
-          <p>
-            <a href="/de/datenschutz/">Datenschutz</a> ·
-            <a href="/de/cookies/">Cookies</a> ·
+        <div class="page-inner footer-grid">
+          <div>
+            <strong>Moto Seat Lab</strong>
+            <p>
+              Unabhängiges Konzeptprojekt für Sitzkomfort, Recherche und klare Kaufentscheidungen.
+              Keine Empfehlung ist eine Garantie für Passform, Komfort oder medizinische Wirkung.
+            </p>
+          </div>
+          <p class="footer-links">
+            <a href="/de/datenschutz/">Datenschutz</a>
+            <a href="/de/cookies/">Cookies</a>
             <a href="/de/impressum/">Impressum</a>
           </p>
         </div>

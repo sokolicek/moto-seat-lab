@@ -66,6 +66,7 @@ MVP implementation started.
 - GSX-S1000GX guide expanded with rider-profile cards for short rides, weekend rides, and longer touring.
 - Local MP4 video added as decorative background for the GSX-S1000GX hero with static poster fallback.
 - GSX-S1000GX hero video now has an accessible pause/play toggle with local preference storage.
+- Visual design system polished with stronger brand header, richer page background, improved cards, hero status blocks, footer layout, focus states, and mobile refinements.
 
 ## Not Started
 
@@ -76,7 +77,6 @@ MVP implementation started.
 - German final copy.
 - Real product research.
 - Affiliate account setup.
-- Visual design.
 - Real product cards.
 - Real country statistics.
 
