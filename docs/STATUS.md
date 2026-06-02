@@ -13,6 +13,8 @@ Concept and content architecture.
 - Audience documented.
 - Content architecture drafted.
 - Design system concept drafted.
+- Platform architecture drafted.
+- Functional architecture drafted.
 - Country/localization strategy drafted.
 - Bike database strategy drafted.
 - First motorcycle guide drafted: Suzuki GSX-S1000GX.

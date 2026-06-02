@@ -11,6 +11,7 @@
 ## Phase 2 - Structured Data
 
 - Motorcycle database.
+- Shared vehicle/product/domain model.
 - Stock seat database.
 - Aftermarket seat database.
 - Material database.
@@ -109,3 +110,35 @@ Only after real community demand:
 - spam protection,
 - user accounts if truly needed,
 - trust/reputation markers.
+
+## Phase 12 - Additional Advisory Domains
+
+Possible later expansion beyond seats:
+
+- motorcycle tire advisor,
+- windscreen/wind protection advisor,
+- luggage and passenger comfort advisor,
+- suspension comfort advisor,
+- workshop tools advisor.
+
+The first likely expansion is tires because it can reuse:
+
+- motorcycle database,
+- product catalog,
+- product offers,
+- affiliate links,
+- news/source directory,
+- forum/user feedback,
+- translated summaries,
+- recommendation engine.
+
+Tire-specific additions would include:
+
+- tire size,
+- speed rating,
+- load index,
+- use-case scoring,
+- wet/cold/weather behavior,
+- mileage expectation,
+- test and review references,
+- forum opinion aggregation.

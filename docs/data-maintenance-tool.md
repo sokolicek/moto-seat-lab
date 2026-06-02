@@ -21,7 +21,15 @@ This tool is not the public website. It is the back-office workflow that keeps t
 
 ## Working Name
 
-Seat Data Studio
+Seat Data Studio for the first module.
+
+Future broader name:
+
+```text
+Moto Data Studio
+```
+
+The admin tool should be designed so seat data is the first domain, not the only possible domain.
 
 ## Main Users
 
@@ -46,6 +54,7 @@ Seat Data Studio
 11. Manage external news/forum/source links.
 12. Moderate rider feedback and submitted links.
 13. Approve translated summaries.
+14. Add future advisory domains such as tires.
 
 ## Core Principle
 
@@ -222,6 +231,67 @@ Fields:
 - DIY difficulty,
 - affiliate eligibility,
 - country availability.
+
+## Generic Product Entry
+
+Use this for future domains beyond seats.
+
+Examples:
+
+- aftermarket motorcycle seat,
+- 3D mesh cover,
+- foam sheet,
+- upholstery tool,
+- motorcycle tire,
+- tire pressure gauge,
+- windscreen,
+- suspension comfort product.
+
+Required:
+
+- domain,
+- product type,
+- brand,
+- product name,
+- source URL,
+- country availability,
+- confidence level.
+
+Recommended:
+
+- variants,
+- fitment,
+- product attributes,
+- offers,
+- affiliate links,
+- return policy,
+- warranty,
+- test/review sources,
+- forum/user feedback sources.
+
+## Future Tire Entry
+
+If the platform expands into motorcycle tires, tire entries should include:
+
+- tire brand,
+- model,
+- front/rear usage,
+- tire size,
+- load index,
+- speed rating,
+- construction,
+- tube/tubeless,
+- tire category,
+- intended use,
+- wet grip notes,
+- cold-weather notes,
+- mileage expectation,
+- comfort/noise notes,
+- compatible motorcycles or fitment notes,
+- price/offers by country,
+- test/review links,
+- forum opinion links,
+- confidence level.
 
 ## Source Model
 

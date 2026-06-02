@@ -25,6 +25,24 @@ The future website will need structured data for:
 
 This file defines a conceptual data model. It is not yet a database schema.
 For detailed technical fields, see `docs/technical-parameter-model.md`.
+For the broader platform architecture, see `docs/platform-architecture.md`.
+
+## Platform Direction
+
+The current model is seat-first because motorcycle seat comfort is the first product domain. It should not become seat-only.
+
+Future architecture should separate:
+
+- shared platform core,
+- motorcycle/vehicle data,
+- generic product catalog,
+- product offers and affiliate links,
+- content/news/source system,
+- feedback/community/moderation,
+- translation/localization,
+- domain-specific modules.
+
+Seat comfort is the first module. Motorcycle tires are a likely future module and should reuse the same vehicle, product, source, affiliate, news, forum, translation, and recommendation systems.
 
 ## Main Entities
 
@@ -43,7 +61,12 @@ erDiagram
   COUNTRY ||--o{ RETAILER : has
   RETAILER ||--o{ PRODUCT_CATEGORY : sells
   PRODUCT_CATEGORY ||--o{ AFFILIATE_PROGRAM : monetized_by
+  DOMAIN ||--o{ PRODUCT : contains
+  PRODUCT ||--o{ PRODUCT_VARIANT : has
+  PRODUCT ||--o{ PRODUCT_FITMENT : fits
+  PRODUCT ||--o{ PRODUCT_ATTRIBUTE : describes
   SEAT_OPTION ||--o{ PRODUCT_OFFER : sold_as
+  PRODUCT ||--o{ PRODUCT_OFFER : sold_as
   RETAILER ||--o{ PRODUCT_OFFER : lists
   RIDER_PROFILE ||--o{ RECOMMENDATION_RESULT : receives
   CONTENT_SOURCE ||--o{ NEWS_ITEM : publishes
@@ -52,6 +75,115 @@ erDiagram
   USER_FEEDBACK ||--o{ TRANSLATED_CONTENT : translated_as
   USER_FEEDBACK ||--o{ MODERATION_EVENT : reviewed_by
 ```
+
+## Domain
+
+Represents a major advisory area.
+
+Examples:
+
+- seat comfort,
+- tires,
+- wind protection,
+- luggage,
+- suspension comfort,
+- tools/workshop.
+
+Fields:
+
+- id,
+- key,
+- name,
+- description,
+- enabled,
+- public_slug,
+- admin_enabled,
+- notes.
+
+## Product
+
+Generic product record used across seats, tires, tools, and other future areas.
+
+Fields:
+
+- id,
+- domain_id,
+- brand,
+- name,
+- product_type,
+- description,
+- manufacturer_url,
+- country_availability,
+- source_url,
+- confidence_level,
+- status.
+
+## Product Variant
+
+Fields:
+
+- id,
+- product_id,
+- name,
+- sku,
+- part_number,
+- variant_type,
+- attributes_json,
+- source_url,
+- confidence_level.
+
+Examples:
+
+- heated seat variant,
+- low seat variant,
+- tire size variant,
+- foam sheet thickness variant.
+
+## Product Fitment
+
+Fields:
+
+- id,
+- product_id,
+- product_variant_id,
+- motorcycle_id,
+- fitment_type,
+- year_from,
+- year_to,
+- market,
+- source_url,
+- confidence_level,
+- notes.
+
+For tires, fitment may reference tire size and motorcycle compatibility instead of a direct model-only claim.
+
+## Product Attribute
+
+Generic domain-specific attribute record.
+
+Fields:
+
+- id,
+- product_id,
+- product_variant_id,
+- domain,
+- attribute_key,
+- value,
+- unit,
+- source_url,
+- confidence_level,
+- notes.
+
+Examples:
+
+- `seat_height_delta_mm`,
+- `heating_available`,
+- `foam_density_kg_m3`,
+- `tire_width_mm`,
+- `tire_aspect_ratio`,
+- `tire_rim_diameter_in`,
+- `tire_speed_rating`,
+- `tire_load_index`.
 
 ## Motorcycle
 
