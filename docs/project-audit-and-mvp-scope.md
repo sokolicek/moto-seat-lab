@@ -58,6 +58,7 @@ The following topics are valid but too broad for first implementation:
 - multi-country localization,
 - Southeast Asia scooter/underbone commuter flows,
 - country-specific design variants,
+- automatic IP-based geo intent routing,
 - full admin studio,
 - full database,
 - forum,
@@ -72,6 +73,8 @@ The following topics are valid but too broad for first implementation:
 They should stay documented but explicitly outside the first MVP.
 
 Forum research confirms that Southeast Asian markets can be covered later, but they need different defaults: scooter/underbone first, low-cost fixes first, heat/rain comfort first, and premium imported seats only as advanced options.
+
+Geo intent routing should eventually use IP-derived country as a weak signal to choose these defaults, but first MVP should use Germany explicitly and show a manual country selector.
 
 ## Duplicate Or Overlapping Documents
 

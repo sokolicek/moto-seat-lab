@@ -25,6 +25,7 @@ The future website will need structured data for:
 - consent/cookies,
 - analytics/ads,
 - country market profiles,
+- geo intent routing,
 - calculation rules.
 
 This file defines a conceptual data model. It is not yet a database schema.
@@ -32,6 +33,7 @@ For detailed technical fields, see `docs/technical-parameter-model.md`.
 For the broader platform architecture, see `docs/platform-architecture.md`.
 For visitor continuity, cookies, ads, and privacy notes, see `docs/privacy-visitor-tracking-ads-concept.md`.
 For country-specific localization/design research, see `docs/research/country-localization-market-research.md`.
+For country-based recommendation routing, see `docs/geo-intent-routing-concept.md`.
 
 ## Platform Direction
 
@@ -86,6 +88,8 @@ erDiagram
   VISITOR_SESSION ||--o{ ANALYTICS_EVENT : records
   PRODUCT_OFFER ||--o{ AFFILIATE_CLICK : clicked_as
   COUNTRY ||--o{ COUNTRY_MARKET_PROFILE : configures
+  VISITOR_SESSION ||--o{ GEO_RESOLUTION : resolves
+  COUNTRY_MARKET_PROFILE ||--o{ SOLUTION_ORDER_RULE : orders
 ```
 
 ## Domain
@@ -834,6 +838,48 @@ Examples:
 - Germany: technical touring, OEM/aftermarket/upholsterer comparison first.
 - Slovakia: practical value, cheap reversible fixes and cross-border shops first.
 - Indonesia: scooter commuter, low-cost mesh/cover/foam repair first.
+
+## Geo Resolution
+
+Represents how the site resolved the visitor's country/market context.
+
+Fields:
+
+- id,
+- visitor_session_id,
+- ip_country_guess,
+- browser_language,
+- url_country,
+- saved_country,
+- selected_country,
+- final_country,
+- confidence_level,
+- created_at.
+
+The final country should prefer explicit user selection over IP-derived country.
+
+## Solution Order Rule
+
+Represents country/domain-specific ordering of solution paths.
+
+Fields:
+
+- id,
+- country_market_profile_id,
+- domain,
+- motorcycle_category,
+- use_case,
+- budget_level,
+- solution_path_key,
+- rank,
+- visibility,
+- reason,
+- enabled.
+
+Example:
+
+- Germany: show OEM and premium aftermarket earlier for touring bikes.
+- Indonesia: show cheap reversible add-ons, mesh covers, rain covers, and local foam repair earlier for scooters.
 
 ## Calculation Rule
 

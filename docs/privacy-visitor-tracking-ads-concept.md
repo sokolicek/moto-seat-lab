@@ -228,6 +228,8 @@ Recommended use:
 - rate limiting,
 - spam protection,
 - approximate country detection,
+- country market profile selection,
+- localized recommendation defaults,
 - fraud prevention,
 - admin audit logs.
 
@@ -235,6 +237,7 @@ Avoid:
 
 - using IP as the main visitor identity,
 - long-term behavioral profiles by IP,
+- hiding the country override from the user,
 - showing admin raw IPs unless needed,
 - exporting raw IPs unnecessarily.
 
@@ -245,6 +248,24 @@ Possible privacy measures:
 - short retention window,
 - store country derived from IP instead of raw IP where possible,
 - separate security logs from recommendation data.
+
+## Geo-Based Recommendation Routing
+
+IP-derived country may be used to choose the initial country market profile.
+
+Example:
+
+- Germany: OEM comfort seat, aftermarket seat, upholsterer, touring comparison.
+- Indonesia/Thailand/Malaysia: low-cost cushion, mesh cover, rain cover, foam repair, local upholsterer.
+
+Rules:
+
+- IP country is only a guess,
+- explicit user country selection wins,
+- URL country wins over IP,
+- saved first-party country preference wins over IP,
+- show "change country" near localized recommendations,
+- do not store raw IP in recommendation records.
 
 ## Data Model Additions
 

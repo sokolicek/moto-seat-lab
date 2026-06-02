@@ -61,6 +61,7 @@ Pilot scope:
 - [Design system concept](docs/design-system-concept.md)
 - [Platform architecture](docs/platform-architecture.md)
 - [Functional architecture](docs/functional-architecture.md)
+- [Geo intent routing concept](docs/geo-intent-routing-concept.md)
 - [SEO, analytics, and minimal cookie UX concept](docs/seo-analytics-cookie-ux-concept.md)
 - [Roadmap](docs/roadmap.md)
 - [Interactive tools concept](docs/interactive-tools.md)

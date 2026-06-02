@@ -16,6 +16,7 @@ Concept and content architecture.
 - Design system concept drafted.
 - Platform architecture drafted.
 - Functional architecture drafted.
+- Geo intent routing concept drafted.
 - SEO/analytics/minimal cookie UX concept drafted.
 - Country/localization strategy drafted.
 - Country localization market research drafted.

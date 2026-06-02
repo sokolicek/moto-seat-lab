@@ -76,13 +76,14 @@ Shared pipeline:
 ```text
 normalize user input
 resolve locale
+resolve country market profile
 resolve motorcycle
 resolve domain
 load domain data
 load compatible products/offers
 score solution paths
 apply warnings
-rank options
+rank options by country/domain solution order
 attach source confidence
 localize result
 ```
@@ -91,6 +92,8 @@ Shared functions:
 
 - unit conversion,
 - country/currency handling,
+- country market profile resolution,
+- solution order routing,
 - missing data detection,
 - confidence scoring,
 - product fitment filtering,
@@ -251,6 +254,7 @@ Shared functions:
 - clear saved local data,
 - apply data retention rules,
 - anonymize or minimize IP-related data.
+- resolve initial country from IP, browser language, URL, or saved preference.
 
 Rules:
 
@@ -259,6 +263,7 @@ Rules:
 - keep necessary cookies separate from analytics and advertising cookies,
 - do not block beginner help if optional cookies are rejected,
 - paid links and sponsored placements must be labeled.
+- country-based recommendation routing must always allow manual override.
 
 ## Recommended Function Boundaries
 
