@@ -2,6 +2,7 @@
 import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import Questionnaire from "../../../../components/Questionnaire.astro";
 import SeatComfortEstimator from "../../../../components/SeatComfortEstimator.astro";
+import SeatLayerGraphic from "../../../../components/SeatLayerGraphic.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
@@ -33,13 +34,36 @@ import disclosures from "../../../../data/disclosures/de.json";
           <a class="button secondary" href="#loesungen">Lösungen vergleichen</a>
         </div>
       </div>
-      <aside class="notice">
-        <h2>Keine Wunderbank</h2>
+      <SeatLayerGraphic />
+    </div>
+  </section>
+
+  <section class="section visual-band">
+    <div class="page-inner grid three-feature">
+      <article>
+        <span class="metric">01</span>
+        <h2>Druck ist nicht nur Härte.</h2>
         <p>
-          Ein teurer Sitz kann helfen, aber keine Sitzbank passt jedem Körper und jedem Fahrstil.
-          Deshalb zeigen wir Nutzen, Risiko und Unsicherheit.
+          Zu weicher Schaum kann durchsitzen, zu schmaler Schaum kann punktuell drücken,
+          und ein falscher Winkel kann dich immer wieder in dieselbe Stelle schieben.
         </p>
-      </aside>
+      </article>
+      <article>
+        <span class="metric">02</span>
+        <h2>Hitze verändert Komfort.</h2>
+        <p>
+          Im Sommer fühlen sich Bezug, Hose, Luftzirkulation und Gel anders an als im Frühjahr.
+          Deshalb sind Testbedingungen wichtig.
+        </p>
+      </article>
+      <article>
+        <span class="metric">03</span>
+        <h2>Ergonomie sitzt mit.</h2>
+        <p>
+          Sitzhöhe, Fußrasten, Lenkerreichweite und Winddruck entscheiden mit,
+          wie viel Gewicht auf der Sitzbank bleibt.
+        </p>
+      </article>
     </div>
   </section>
 

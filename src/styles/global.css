@@ -108,7 +108,7 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   gap: 28px;
-  align-items: start;
+  align-items: center;
 }
 
 .eyebrow {
@@ -203,6 +203,19 @@ h3 {
   background: #ede7dc;
 }
 
+.visual-band {
+  background: #1f2933;
+  color: #fff;
+}
+
+.visual-band h2 {
+  font-size: 1.35rem;
+}
+
+.visual-band p {
+  color: #d5dde3;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -211,6 +224,20 @@ h3 {
 
 .grid.two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid.three-feature {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.metric {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #f2a65a;
+  color: #f2a65a;
+  font-weight: 900;
 }
 
 .card {
@@ -314,6 +341,138 @@ h3 {
   padding: 16px;
 }
 
+.seat-graphic {
+  margin: 0;
+  border: 1px solid rgba(11, 81, 88, 0.16);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(242, 166, 90, 0.2), transparent 32%),
+    linear-gradient(145deg, #ffffff 0%, #e4efee 100%);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.seat-graphic-stage {
+  position: relative;
+  min-height: 310px;
+  padding: 28px 26px 22px;
+}
+
+.seat-shape {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 50px;
+  display: grid;
+  gap: 4px;
+  transform: perspective(600px) rotateX(2deg);
+}
+
+.seat-layer {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.seat-layer.cover {
+  min-height: 40px;
+  border-radius: 999px 999px 18px 18px;
+  background: linear-gradient(90deg, #141a20, #3c4852 60%, #111820);
+}
+
+.seat-layer.comfort {
+  margin: 0 10px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #1b7880, #49a6aa);
+}
+
+.seat-layer.support {
+  margin: 0 22px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f2a65a, #c96b26);
+}
+
+.seat-layer.pan {
+  margin: 0 40px;
+  min-height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #56636d, #242d35);
+}
+
+.rider-load {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  transform: translateX(-50%);
+  color: var(--color-warning);
+  font-weight: 900;
+}
+
+.rider-load i {
+  width: 2px;
+  height: 68px;
+  background: linear-gradient(#9b4d10, transparent);
+}
+
+.rider-load i::after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin: 58px 0 0 -5px;
+  border-right: 2px solid #9b4d10;
+  border-bottom: 2px solid #9b4d10;
+  transform: rotate(45deg);
+}
+
+.force-label {
+  position: absolute;
+  min-height: 30px;
+  border: 1px solid rgba(15, 111, 120, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-accent-strong);
+  padding: 5px 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.force-label.heat {
+  left: 22px;
+  top: 92px;
+}
+
+.force-label.slide {
+  right: 22px;
+  top: 112px;
+}
+
+.force-label.angle {
+  right: 42px;
+  bottom: 18px;
+}
+
+.seat-graphic figcaption {
+  display: grid;
+  gap: 4px;
+  border-top: 1px solid rgba(11, 81, 88, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 16px 18px;
+}
+
+.seat-graphic figcaption span {
+  color: var(--color-muted);
+}
+
 .steps {
   margin: 0;
   padding-left: 22px;
@@ -400,17 +559,17 @@ h3 {
 
 .cookie-bar {
   position: fixed;
-  left: 16px;
+  left: auto;
   right: 16px;
   bottom: 16px;
   z-index: 40;
-  max-width: 720px;
-  margin: 0 auto;
+  width: min(calc(100% - 32px), 520px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: #fff;
   box-shadow: var(--shadow-soft);
-  padding: 12px;
+  padding: 10px 12px;
+  font-size: 0.92rem;
 }
 
 .cookie-bar[hidden] {
@@ -454,9 +613,14 @@ h3 {
   .hero-grid,
   .grid,
   .grid.two,
+  .grid.three-feature,
   .timeline,
   .comparison-row {
     grid-template-columns: 1fr;
+  }
+
+  .seat-graphic-stage {
+    min-height: 280px;
   }
 
   .comparison-row span {

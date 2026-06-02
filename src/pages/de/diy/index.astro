@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
 ---
 
 <BaseLayout
@@ -18,11 +19,17 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
     </div>
   </section>
   <section class="section">
-    <div class="page-inner grid">
+    <div class="page-inner grid two">
+      <SeatLayerGraphic />
       <article class="card">
         <h2>Vorher dokumentieren</h2>
         <p>Fotos, Maße, Sitzhöhe, Breite und Druckpunkte festhalten. Ohne Ausgangspunkt kannst du keine Verbesserung beurteilen.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid">
       <article class="card">
         <h2>In Schichten denken</h2>
         <p>Stützschicht und Komfortschicht sind nicht dasselbe. Zu weicher Schaum kann auf langen Strecken schlechter werden.</p>

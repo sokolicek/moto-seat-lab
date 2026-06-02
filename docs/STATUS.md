@@ -58,6 +58,8 @@ MVP implementation started.
 - Astro check passes with 0 errors, 0 warnings, and 0 hints.
 - Astro static build passes and generates 9 pages in `dist/`.
 - Local browser smoke test passed for the GSX-S1000GX page and both recommendation forms.
+- Custom seat-layer visual graphic added to make the GSX-S1000GX and DIY pages more readable and distinctive.
+- Cookie bar reduced and moved to a less intrusive bottom-right layout.
 
 ## Not Started
 
