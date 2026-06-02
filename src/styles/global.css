@@ -360,6 +360,10 @@ h3 {
   flex-direction: column;
 }
 
+.profile-card {
+  border-top: 4px solid var(--color-accent);
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

@@ -1,0 +1,29 @@
+[
+  {
+    "key": "short_ride",
+    "label": "Kurze Runde",
+    "duration": "unter 1 Stunde",
+    "likelyProblem": "leichter Druck, Hitze oder ungewohnte Haltung",
+    "firstMove": "Kleidung, Pausenrhythmus, Sitzposition und 3D-Mesh prüfen.",
+    "avoid": "sofort teure Komplettsitzbank kaufen, wenn das Problem selten auftritt.",
+    "depth": "beginner"
+  },
+  {
+    "key": "weekend",
+    "label": "Wochenendtour",
+    "duration": "1 bis 3 Stunden",
+    "likelyProblem": "reproduzierbare Druckpunkte oder Rutschen nach vorn",
+    "firstMove": "Eine reversible Auflage testen und Beschwerden nach gleicher Strecke dokumentieren.",
+    "avoid": "Gel oder weichen Schaum als automatische Lösung betrachten.",
+    "depth": "practical"
+  },
+  {
+    "key": "touring",
+    "label": "Lange Tour",
+    "duration": "3+ Stunden",
+    "likelyProblem": "Sitzknochen, Steißbein, Hitze, Soziuskomfort oder Kniewinkel",
+    "firstMove": "Sattler, OEM/Aftermarket und Materialaufbau mit Rückgabe- oder Rückbauplan vergleichen.",
+    "avoid": "nur auf Herstellerwerbung achten, ohne Körperbau und Fahrstil mitzudenken.",
+    "depth": "advanced"
+  }
+]

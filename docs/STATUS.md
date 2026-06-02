@@ -63,6 +63,7 @@ MVP implementation started.
 - Homepage expanded with a reusable diagnostic-map visual and beginner-friendly entry flow.
 - AI-generated German touring forest curve hero image added to the project and used on the German homepage.
 - Hero image registered in documentation and added to OpenGraph/Twitter sharing metadata.
+- GSX-S1000GX guide expanded with rider-profile cards for short rides, weekend rides, and longer touring.
 
 ## Not Started
 

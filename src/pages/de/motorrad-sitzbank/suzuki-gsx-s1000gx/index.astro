@@ -3,9 +3,11 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import Questionnaire from "../../../../components/Questionnaire.astro";
 import SeatComfortEstimator from "../../../../components/SeatComfortEstimator.astro";
 import SeatLayerGraphic from "../../../../components/SeatLayerGraphic.astro";
+import RiderProfileCard from "../../../../components/RiderProfileCard.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
+import riderProfiles from "../../../../data/rider-profiles/gsx-s1000gx.json";
 import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
 import disclosures from "../../../../data/disclosures/de.json";
 ---
@@ -71,6 +73,19 @@ import disclosures from "../../../../data/disclosures/de.json";
     <div class="page-inner grid two">
       <Questionnaire />
       <SeatComfortEstimator />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <h2>Welche Art Fahrer bist du?</h2>
+      <p class="lead">
+        Die gleiche Sitzbank kann für kurze Runden reichen und auf Tour trotzdem scheitern.
+        Starte deshalb mit deiner echten Nutzung, nicht mit einem Produktnamen.
+      </p>
+      <div class="grid">
+        {riderProfiles.map((profile) => <RiderProfileCard {...profile} />)}
+      </div>
     </div>
   </section>
 

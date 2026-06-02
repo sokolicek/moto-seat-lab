@@ -1,0 +1,23 @@
+---
+interface Props {
+  label: string;
+  duration: string;
+  likelyProblem: string;
+  firstMove: string;
+  avoid: string;
+  depth: string;
+}
+
+const { label, duration, likelyProblem, firstMove, avoid, depth } = Astro.props;
+---
+
+<article class="card profile-card">
+  <div class="card-topline">
+    <span class="badge">{duration}</span>
+    <span class="badge muted">{depth}</span>
+  </div>
+  <h3>{label}</h3>
+  <p><strong>Typisches Problem:</strong> {likelyProblem}</p>
+  <p><strong>Erster Schritt:</strong> {firstMove}</p>
+  <p><strong>Nicht ideal:</strong> {avoid}</p>
+</article>
