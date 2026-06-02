@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ProductCategoryCard from "../../../components/ProductCategoryCard.astro";
 import productCategories from "../../../data/product-categories/seat-comfort.json";
 import disclosures from "../../../data/disclosures/de.json";
 ---
@@ -16,20 +17,74 @@ import disclosures from "../../../data/disclosures/de.json";
       <p class="lead">
         Starte nicht mit dem teuersten Produkt. Starte mit Problem, Rückgabemöglichkeit und Passform.
       </p>
+      <div class="actions">
+        <a class="button" href="#kaufmatrix">Kaufmatrix ansehen</a>
+        <a class="button secondary" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">GSX-S1000GX Guide</a>
+      </div>
     </div>
   </section>
+
+  <section class="section alt" id="kaufmatrix">
+    <div class="page-inner">
+      <h2>Einfacher Kaufpfad</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <span>1</span>
+          <div>
+            <h3>Problem benennen</h3>
+            <p>Druck, Hitze, Rutschen, Knie/Hüfte oder Soziuskomfort sind verschiedene Kaufentscheidungen.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>2</span>
+          <div>
+            <h3>Reversibel testen</h3>
+            <p>Erst günstige, rückbaubare Maßnahmen testen. Danach weißt du, ob teurer Kauf Sinn ergibt.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>3</span>
+          <div>
+            <h3>Passform und Rückgabe prüfen</h3>
+            <p>Teilenummer, Modelljahr, Sitzhöhe, Montage und Rückgaberegeln sind wichtiger als Werbetexte.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>4</span>
+          <div>
+            <h3>Ergebnis dokumentieren</h3>
+            <p>Gleiche Strecke, gleiche Kleidung, ähnliche Temperatur. Sonst vergleichst du Gefühle, keine Lösung.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="page-inner grid">
-      {productCategories.map((category) => (
-        <article class="card">
-          <h2>{category.name}</h2>
-          <p><strong>Hilft bei:</strong> {category.problemSolved}</p>
-          <p><strong>Grenzen:</strong> {category.limitations}</p>
-          <p><strong>Preisband:</strong> {category.priceBand}</p>
-        </article>
-      ))}
+      {productCategories.map((category) => <ProductCategoryCard {...category} />)}
     </div>
   </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="notice">
+        <h2>Noch keine echten Produkt-Rankings</h2>
+        <p>
+          Diese Seite ist absichtlich ehrlich: konkrete Produkte, Preise und Affiliate-Links werden erst ergänzt,
+          wenn Passform, Lieferbarkeit, Rückgabe und Erfahrungsberichte geprüft sind.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Späteres Datenmodell</h2>
+        <p>
+          Jede Empfehlung soll später Hersteller, Teilenummer, Preisbereich, Land, Modelljahr, Rückgabe,
+          Quelle, Affiliate-Status und Vertrauensniveau enthalten.
+        </p>
+      </article>
+    </div>
+  </section>
+
   <section class="section alt">
     <div class="page-inner notice">
       <h2>Affiliate-Hinweis</h2>

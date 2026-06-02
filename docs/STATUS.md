@@ -52,6 +52,8 @@ MVP implementation started.
 - MVP Astro skeleton created.
 - Beginner comfort triage tool added for the first GSX-S1000GX page.
 - First qualitative comparison table added for stock seat, reversible add-ons, OEM/aftermarket, and upholsterer/DIY paths.
+- Buying guide expanded with product-category checks, affiliate readiness status, and a beginner purchase path.
+- DIY page expanded with a minimal documentation and test protocol.
 
 ## Not Started
 
@@ -60,7 +62,7 @@ MVP implementation started.
 - Data maintenance tool implementation.
 - Numeric calculation function implementation.
 - German final copy.
-- Product research.
+- Real product research.
 - Affiliate account setup.
 - Visual design.
 - Real product cards.

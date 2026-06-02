@@ -4,27 +4,95 @@
     "name": "3D-Mesh Sitzauflage",
     "problemSolved": "Hitze, Schwitzen, leichte Druckverteilung",
     "limitations": "erhöht Sitzhöhe leicht und löst keine falsche Sitzform",
-    "priceBand": "niedrig"
+    "priceBand": "niedrig",
+    "firstTest": "Eine einzelne 60- bis 90-Minuten-Fahrt bei warmem Wetter mit gleicher Hose und gleicher Strecke.",
+    "avoidWhen": "du schon ohne Auflage kaum sicher mit den Füßen auf den Boden kommst.",
+    "buyingChecks": [
+      "passende Größe für die GSX-S1000GX Sitzfläche",
+      "sichere Befestigung ohne Rutschen",
+      "keine harten Nähte oder Kanten im Sitzbereich",
+      "einfache Rückgabe, falls Sitzhöhe oder Gefühl stören"
+    ],
+    "affiliateStatus": "affiliate candidate"
   },
   {
     "key": "air_cushion",
     "name": "Luftkissen",
     "problemSolved": "Druckentlastung auf längeren geraden Strecken",
     "limitations": "kann entkoppelt wirken und muss sehr niedrig aufgepumpt werden",
-    "priceBand": "mittel"
+    "priceBand": "mittel",
+    "firstTest": "Sehr wenig Luft verwenden und erst auf ruhiger Strecke testen, nicht direkt auf einer schnellen Tour.",
+    "avoidWhen": "du sportlich fährst und direkten Kontakt zum Motorrad brauchst.",
+    "buyingChecks": [
+      "Form passt zur Sitzbank und engt nicht an den Oberschenkeln ein",
+      "Ventil stört nicht beim Sitzen",
+      "Befestigung bleibt beim Auf- und Absteigen stabil",
+      "Material ist hitze- und UV-tauglich"
+    ],
+    "affiliateStatus": "affiliate candidate"
   },
   {
     "key": "gel_pad",
     "name": "Gel-Pad",
     "problemSolved": "kurzfristige Druckminderung für manche Fahrer",
     "limitations": "kann Hitze speichern und schlechte Form nicht reparieren",
-    "priceBand": "niedrig bis mittel"
+    "priceBand": "niedrig bis mittel",
+    "firstTest": "Nur als reversible Auflage testen, bevor Gel in die Sitzbank eingebaut wird.",
+    "avoidWhen": "dein Hauptproblem Hitze, Rutschen oder eine falsche Sitzform ist.",
+    "buyingChecks": [
+      "Dicke und Kantenverlauf prüfen",
+      "Temperaturverhalten bei Sonne beachten",
+      "Rückgabe möglich halten",
+      "nicht als Allheilmittel für Langstrecke betrachten"
+    ],
+    "affiliateStatus": "caution"
   },
   {
     "key": "professional_upholstery",
     "name": "Professioneller Sitzbankumbau",
     "problemSolved": "Form, Schaum, Breite und Bezug gezielt anpassen",
     "limitations": "Qualität hängt stark vom Sattler ab, Rückbau nicht immer möglich",
-    "priceBand": "mittel bis hoch"
+    "priceBand": "mittel bis hoch",
+    "firstTest": "Vorher Fotos, Maße, Beschwerden und gewünschte Nutzung dokumentieren.",
+    "avoidWhen": "du noch nicht weißt, ob Druck, Hitze, Rutschen oder Kniewinkel das eigentliche Problem ist.",
+    "buyingChecks": [
+      "Referenzarbeiten und echte Kundenfotos prüfen",
+      "Materialaufbau schriftlich klären",
+      "Wasserdichtigkeit und Bezug prüfen",
+      "Originalsitz oder Zweitsitz als Basis besprechen"
+    ],
+    "affiliateStatus": "service listing later"
+  },
+  {
+    "key": "oem_comfort_seat",
+    "name": "OEM Komfortsitz",
+    "problemSolved": "Plug-and-play Lösung ohne eigene Umbauten",
+    "limitations": "passt nicht automatisch zu jedem Körper und kann teuer sein",
+    "priceBand": "mittel bis hoch",
+    "firstTest": "Nur kaufen, wenn Teilenummer, Modelljahr und Rückgabe eindeutig sind.",
+    "avoidWhen": "du eine stark individuelle Schmerzstelle hast oder die OEM-Form dein Problem ist.",
+    "buyingChecks": [
+      "Teilenummer für Modelljahr prüfen",
+      "Sitzhöhe und eventuelle Änderung klären",
+      "Rückgabe bei montierter Ware prüfen",
+      "Besitzerberichte speziell zur GSX-S1000GX suchen"
+    ],
+    "affiliateStatus": "research needed"
+  },
+  {
+    "key": "aftermarket_seat",
+    "name": "Aftermarket Komplettsitz",
+    "problemSolved": "Langstreckenkomfort, breitere Auflage und definierte Form",
+    "limitations": "hochpreisig, Lieferzeit und Rückgabe können kritisch sein",
+    "priceBand": "hoch",
+    "firstTest": "Erst kaufen, wenn echte Erfahrungsberichte zum Motorradmodell und Rückgaberegeln passen.",
+    "avoidWhen": "du nur kurze Runden fährst oder unklar ist, woher der Schmerz kommt.",
+    "buyingChecks": [
+      "Lieferland, Zoll und Rückgabe prüfen",
+      "Sitzhöhe, Breite und Soziusbereich vergleichen",
+      "Bewertungen nach Körpergröße und Fahrtyp filtern",
+      "keine Herstellerwerbung mit Erfahrungswerten verwechseln"
+    ],
+    "affiliateStatus": "research needed"
   }
 ]

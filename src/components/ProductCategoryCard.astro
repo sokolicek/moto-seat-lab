@@ -1,0 +1,43 @@
+---
+interface Props {
+  name: string;
+  problemSolved: string;
+  limitations: string;
+  priceBand: string;
+  firstTest?: string;
+  avoidWhen?: string;
+  buyingChecks?: string[];
+  affiliateStatus?: string;
+}
+
+const {
+  name,
+  problemSolved,
+  limitations,
+  priceBand,
+  firstTest,
+  avoidWhen,
+  buyingChecks = [],
+  affiliateStatus = "not configured"
+} = Astro.props;
+---
+
+<article class="card product-card">
+  <div class="card-topline">
+    <span class="badge">{priceBand}</span>
+    <span class="badge muted">{affiliateStatus}</span>
+  </div>
+  <h2>{name}</h2>
+  <p><strong>Hilft bei:</strong> {problemSolved}</p>
+  <p><strong>Grenzen:</strong> {limitations}</p>
+  {firstTest && <p><strong>Erster Test:</strong> {firstTest}</p>}
+  {avoidWhen && <p><strong>Nicht kaufen, wenn:</strong> {avoidWhen}</p>}
+  {buyingChecks.length > 0 && (
+    <>
+      <h3>Vor dem Kauf prüfen</h3>
+      <ul class="compact-list">
+        {buyingChecks.map((check) => <li>{check}</li>)}
+      </ul>
+    </>
+  )}
+</article>
