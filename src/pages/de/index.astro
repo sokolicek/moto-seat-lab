@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import DiagnosticMap from "../../components/DiagnosticMap.astro";
 ---
 
 <BaseLayout
@@ -8,17 +9,39 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   canonicalPath="/de/"
 >
   <section class="hero">
-    <div class="page-inner">
-      <p class="eyebrow">Moto Seat Lab Deutschland</p>
-      <h1>Deine Motorradsitzbank tut nach einer Stunde weh?</h1>
-      <p class="lead">
-        Hier geht es nicht um Werbeversprechen, sondern um realistische Wege: reversible Auflagen,
-        OEM-Komfortsitz, Aftermarket-Sitz, Sattler oder DIY.
-      </p>
-      <div class="actions">
-        <a class="button" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki GSX-S1000GX prüfen</a>
-        <a class="button secondary" href="/de/loesungen/">Lösungswege verstehen</a>
+    <div class="page-inner hero-grid">
+      <div>
+        <p class="eyebrow">Moto Seat Lab Deutschland</p>
+        <h1>Deine Motorradsitzbank tut nach einer Stunde weh?</h1>
+        <p class="lead">
+          Starte nicht mit einem teuren Warenkorb. Starte mit Schmerzstelle, Fahrdauer,
+          Sitzhaltung und einem kleinen Test, den du wirklich vergleichen kannst.
+        </p>
+        <div class="actions">
+          <a class="button" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki GSX-S1000GX prüfen</a>
+          <a class="button secondary" href="/de/loesungen/">Lösungswege verstehen</a>
+        </div>
       </div>
+      <DiagnosticMap />
+    </div>
+  </section>
+  <section class="section visual-band">
+    <div class="page-inner grid three-feature">
+      <article>
+        <span class="metric">Start</span>
+        <h2>Für Anfänger verständlich.</h2>
+        <p>Keine Materialtabellen am Anfang. Erst die Frage: was tut wann, wo und unter welchen Bedingungen weh?</p>
+      </article>
+      <article>
+        <span class="metric">Praxis</span>
+        <h2>Erst reversible Tests.</h2>
+        <p>Kleidung, 3D-Mesh, Luftkissen oder Sitzposition können helfen, bevor die originale Bank geöffnet wird.</p>
+      </article>
+      <article>
+        <span class="metric">Tiefe</span>
+        <h2>Dann Daten und Vergleich.</h2>
+        <p>Wenn einfache Tests nicht reichen, kommen Sitzhöhe, Schaum, Anatomie, Sattler und Produktdaten dazu.</p>
+      </article>
     </div>
   </section>
   <section class="section alt">
@@ -34,6 +57,24 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <article class="card">
         <h2>Dann testen</h2>
         <p>Wenn du unsicher bist, starte mit reversiblen Tests, bevor du die originale Sitzbank veränderst.</p>
+      </article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="notice">
+        <h2>Aktueller MVP-Fokus</h2>
+        <p>
+          Der erste echte Guide ist bewusst eng: Deutschland, Deutsch, Suzuki GSX-S1000GX
+          und Sitzbankprobleme nach etwa einer Stunde.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Was noch nicht fertig ist</h2>
+        <p>
+          Konkrete Produktkarten, Preise, Affiliate-Links und belastbare Rankings kommen erst nach Quellenprüfung.
+          Bis dahin bleibt die Empfehlung transparent und vorsichtig.
+        </p>
       </article>
     </div>
   </section>

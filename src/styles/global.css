@@ -473,6 +473,82 @@ h3 {
   color: var(--color-muted);
 }
 
+.diagnostic-map {
+  margin: 0;
+  border: 1px solid rgba(11, 81, 88, 0.16);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(15, 111, 120, 0.08), transparent 42%),
+    linear-gradient(160deg, #ffffff, #eef5f3);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.diagnostic-map figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  border-bottom: 1px solid rgba(11, 81, 88, 0.12);
+}
+
+.diagnostic-map figcaption span {
+  color: var(--color-muted);
+}
+
+.diagnostic-flow {
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+}
+
+.flow-node {
+  border-radius: var(--radius);
+  padding: 16px;
+  color: #fff;
+}
+
+.flow-node span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.flow-node.problem {
+  background: linear-gradient(135deg, #1f2933, #38444f);
+}
+
+.flow-node.solution {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-strong));
+}
+
+.flow-line {
+  width: 2px;
+  height: 26px;
+  margin: 0 auto;
+  background: var(--color-border);
+}
+
+.flow-cluster {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flow-chip {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  border: 1px solid rgba(15, 111, 120, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--color-accent-strong);
+  font-weight: 800;
+}
+
 .steps {
   margin: 0;
   padding-left: 22px;

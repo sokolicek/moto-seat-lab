@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DiagnosticMap from "../components/DiagnosticMap.astro";
 ---
 
 <BaseLayout
@@ -21,13 +22,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <a class="button secondary" href="/de/">Deutsch starten</a>
         </div>
       </div>
-      <aside class="card">
-        <h2>Warum so schmal?</h2>
-        <p>
-          Das MVP startet bewusst mit einem Motorrad, einem Land und einem Problem. So bleiben Empfehlungen
-          nachvollziehbar statt beliebig.
-        </p>
-      </aside>
+      <DiagnosticMap />
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="page-inner grid three-feature">
+      <article class="card">
+        <h2>Schmal starten</h2>
+        <p>Ein Motorrad, ein Land, ein Problem. So bleiben Aussagen nachvollziehbar.</p>
+      </article>
+      <article class="card">
+        <h2>Praktisch bleiben</h2>
+        <p>Erst einfache Tests, dann Kaufentscheidung, dann tiefere Ergonomie.</p>
+      </article>
+      <article class="card">
+        <h2>Später skalieren</h2>
+        <p>Die Struktur ist vorbereitet für mehr Modelle, Länder, Sprachen und Produktdaten.</p>
+      </article>
     </div>
   </section>
 </BaseLayout>

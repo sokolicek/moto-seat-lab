@@ -60,6 +60,7 @@ MVP implementation started.
 - Local browser smoke test passed for the GSX-S1000GX page and both recommendation forms.
 - Custom seat-layer visual graphic added to make the GSX-S1000GX and DIY pages more readable and distinctive.
 - Cookie bar reduced and moved to a less intrusive bottom-right layout.
+- Homepage expanded with a reusable diagnostic-map visual and beginner-friendly entry flow.
 
 ## Not Started
 
