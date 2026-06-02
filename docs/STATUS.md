@@ -25,6 +25,7 @@ Concept and content architecture.
 - Interactive DIY tools concept drafted.
 - Data model concept drafted.
 - Calculation model concept drafted.
+- Calculation input skeleton drafted.
 - Seat comparison concept drafted.
 - Feature roadmap drafted.
 - Implementation notes drafted.
