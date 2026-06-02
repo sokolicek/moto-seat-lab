@@ -231,6 +231,35 @@ Rules:
 - non-affiliate alternatives remain allowed,
 - admin can disable affiliate links per country/source/page.
 
+### 9. Visitor Continuity, Consent, And Privacy
+
+Purpose:
+
+- let visitors continue where they stopped without forcing an account,
+- manage cookies and consent,
+- protect trust when analytics, affiliate links, paid links, or ads are used.
+
+Shared functions:
+
+- create anonymous visitor/session ID,
+- save questionnaire and comparison state,
+- restore last state,
+- store consent choices,
+- gate analytics scripts by consent,
+- gate advertising scripts by consent,
+- record affiliate clicks with disclosure state,
+- clear saved local data,
+- apply data retention rules,
+- anonymize or minimize IP-related data.
+
+Rules:
+
+- do not use IP as the main long-term visitor identity,
+- do not store raw IP on visitor profiles,
+- keep necessary cookies separate from analytics and advertising cookies,
+- do not block beginner help if optional cookies are rejected,
+- paid links and sponsored placements must be labeled.
+
 ## Recommended Function Boundaries
 
 Keep these as separate code modules later:
@@ -244,6 +273,7 @@ Keep these as separate code modules later:
 /recommendations
 /community
 /localization
+/privacy
 /admin
 /integrations
 ```
@@ -258,6 +288,7 @@ A function is ready only when:
 - it shows confidence,
 - it has admin-controlled sources,
 - it supports localization,
+- it respects consent and privacy configuration,
 - it does not hard-code affiliate priority,
 - it can be tested with one motorcycle and one domain,
 - it can be extended to another domain without rewriting the whole flow.

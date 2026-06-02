@@ -14,6 +14,7 @@ Build a motorcycle advisory platform with:
 - domain modules,
 - content and source system,
 - product and affiliate system,
+- visitor/session/privacy system,
 - recommendation engine,
 - admin/moderation workflow,
 - localization and translation layer.
@@ -40,6 +41,7 @@ flowchart TD
   B --> F["Product And Affiliate Service"]
   B --> G["Community And Moderation Service"]
   B --> H["Localization Service"]
+  B --> P["Visitor Privacy And Consent Service"]
   D --> I["Domain Modules"]
   I --> J["Seat Module"]
   I --> K["Future Tire Module"]
@@ -66,6 +68,10 @@ The shared core should know about:
 - retailers,
 - offers,
 - affiliate programs,
+- visitors and sessions,
+- consent records,
+- saved visitor state,
+- analytics and affiliate click events,
 - content pages,
 - news/link items,
 - feedback,
@@ -310,6 +316,35 @@ Entities:
 - `translated_content`
 - `localized_offer`
 - `localized_disclosure`
+
+### 8. Visitor, Privacy, And Monetization Control
+
+Purpose:
+
+- remember returning visitors safely,
+- let users continue where they stopped,
+- manage cookie consent,
+- control analytics, ads, affiliate tracking, and paid placements.
+
+Entities:
+
+- `visitor`
+- `visitor_session`
+- `consent_record`
+- `visitor_state`
+- `analytics_event`
+- `affiliate_click`
+- `sponsored_link`
+- `privacy_request`
+- `data_retention_policy`
+
+Recommendation:
+
+- use anonymous first-party visitor IDs for continuity,
+- avoid IP as the primary visitor identity,
+- keep raw IP out of long-term profiles,
+- do not load third-party advertising/tracking scripts before consent where required,
+- show affiliate and sponsored disclosures clearly.
 
 ## Forum Architecture
 

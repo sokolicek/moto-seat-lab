@@ -58,6 +58,9 @@
 - country-specific shops,
 - comparison tables,
 - optional price tracking.
+- privacy-first affiliate click tracking,
+- sponsored link disclosure,
+- ad/paid placement configuration.
 
 ## Phase 8 - Personal Seat Plan
 
@@ -73,6 +76,20 @@ Save/print a seat plan
 Buy materials or products
 Test and record results
 ```
+
+Support anonymous "continue where you left off" before requiring accounts.
+
+## Phase 8b - Visitor Continuity And Consent
+
+- first-party anonymous visitor/session ID,
+- cookie consent banner,
+- saved questionnaire/comparison state,
+- saved locale/theme/content-depth preferences,
+- clear saved data option,
+- consent-gated analytics,
+- consent-gated advertising scripts,
+- privacy/cookie policy pages,
+- data retention settings.
 
 ## Phase 9 - Community Input
 

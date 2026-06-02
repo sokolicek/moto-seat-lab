@@ -15,6 +15,8 @@ The project needs an internal tool for collecting, validating, maintaining, and 
 - forum/source directory entries,
 - user feedback,
 - translated summaries,
+- visitor consent settings,
+- affiliate/ad/sponsored link settings,
 - source confidence.
 
 This tool is not the public website. It is the back-office workflow that keeps the future public recommendations reliable.
@@ -55,6 +57,7 @@ The admin tool should be designed so seat data is the first domain, not the only
 12. Moderate rider feedback and submitted links.
 13. Approve translated summaries.
 14. Add future advisory domains such as tires.
+15. Configure cookies, consent categories, analytics, ads, and sponsored links.
 
 ## Core Principle
 
@@ -399,6 +402,36 @@ Supported translation workflows:
 - translated link page pointing to original source.
 
 Do not auto-publish translations without review for core advice, buying recommendations, safety warnings, or affiliate content.
+
+## Privacy, Cookies, Ads, And Paid Links Management
+
+The admin tool should later support privacy and monetization controls.
+
+Admin sections:
+
+- cookie categories,
+- consent banner settings,
+- analytics provider settings,
+- advertising provider settings,
+- affiliate programs,
+- sponsored links,
+- paid placements,
+- retention policies,
+- IP anonymization mode,
+- privacy/cookie policy versions.
+
+Admin can configure:
+
+- whether anonymous progress saving is enabled,
+- whether account saving is enabled,
+- whether analytics is enabled,
+- whether advertising is enabled,
+- whether third-party scripts load only after consent,
+- retention period for sessions,
+- retention period for analytics events,
+- retention period for affiliate clicks,
+- countries/languages where a specific consent mode applies,
+- disclosure text for affiliate and sponsored links.
 
 ## Confidence Levels
 

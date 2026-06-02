@@ -21,11 +21,15 @@ The future website will need structured data for:
 - rider feedback,
 - translations,
 - moderation,
+- visitor continuity,
+- consent/cookies,
+- analytics/ads,
 - calculation rules.
 
 This file defines a conceptual data model. It is not yet a database schema.
 For detailed technical fields, see `docs/technical-parameter-model.md`.
 For the broader platform architecture, see `docs/platform-architecture.md`.
+For visitor continuity, cookies, ads, and privacy notes, see `docs/privacy-visitor-tracking-ads-concept.md`.
 
 ## Platform Direction
 
@@ -74,6 +78,11 @@ erDiagram
   NEWS_ITEM ||--o{ TRANSLATED_CONTENT : translated_as
   USER_FEEDBACK ||--o{ TRANSLATED_CONTENT : translated_as
   USER_FEEDBACK ||--o{ MODERATION_EVENT : reviewed_by
+  VISITOR ||--o{ VISITOR_SESSION : has
+  VISITOR ||--o{ CONSENT_RECORD : gives
+  VISITOR ||--o{ VISITOR_STATE : saves
+  VISITOR_SESSION ||--o{ ANALYTICS_EVENT : records
+  PRODUCT_OFFER ||--o{ AFFILIATE_CLICK : clicked_as
 ```
 
 ## Domain
@@ -657,6 +666,140 @@ Fields:
 - reason,
 - notes,
 - created_at.
+
+## Visitor
+
+Represents an anonymous or future logged-in visitor.
+
+Fields:
+
+- id,
+- anonymous_id,
+- account_id,
+- first_seen_at,
+- last_seen_at,
+- country_guess,
+- preferred_language,
+- preferred_country,
+- consent_status_summary,
+- created_at,
+- updated_at.
+
+Do not store raw IP address on the visitor profile.
+
+## Visitor Session
+
+Fields:
+
+- id,
+- visitor_id,
+- session_token_hash,
+- started_at,
+- last_seen_at,
+- user_agent_hash,
+- ip_hash_or_truncated,
+- country_guess,
+- referrer_domain,
+- landing_page,
+- consent_snapshot_id,
+- security_flags.
+
+## Consent Record
+
+Fields:
+
+- id,
+- visitor_id,
+- session_id,
+- consent_version,
+- necessary_enabled,
+- preferences_enabled,
+- analytics_enabled,
+- advertising_enabled,
+- affiliate_tracking_enabled,
+- consent_source,
+- country,
+- language,
+- created_at,
+- withdrawn_at.
+
+## Visitor State
+
+Stores progress so a returning visitor can continue where they stopped.
+
+Fields:
+
+- id,
+- visitor_id,
+- state_type,
+- domain,
+- state_json,
+- expires_at,
+- created_at,
+- updated_at.
+
+Examples:
+
+- questionnaire progress,
+- chosen motorcycle,
+- selected country/language,
+- comparison shortlist,
+- DIY plan draft,
+- saved recommendation.
+
+## Analytics Event
+
+Fields:
+
+- id,
+- visitor_id,
+- session_id,
+- event_type,
+- domain,
+- page_path,
+- entity_type,
+- entity_id,
+- referrer_domain,
+- consent_snapshot_id,
+- event_data_json,
+- created_at.
+
+Store only when allowed by consent/configuration.
+
+## Affiliate Click
+
+Fields:
+
+- id,
+- visitor_id,
+- session_id,
+- product_offer_id,
+- retailer_id,
+- affiliate_program_id,
+- source_page,
+- canonical_url,
+- affiliate_url,
+- disclosure_shown,
+- consent_snapshot_id,
+- created_at.
+
+## Sponsored Link
+
+Fields:
+
+- id,
+- placement_key,
+- sponsor_name,
+- target_url,
+- country,
+- language,
+- domain,
+- starts_at,
+- ends_at,
+- paid_relationship_type,
+- disclosure_text,
+- enabled,
+- notes.
 
 ## Calculation Rule
 
