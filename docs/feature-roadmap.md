@@ -12,6 +12,7 @@
 
 - Motorcycle database.
 - Shared vehicle/product/domain model.
+- Country market profile model.
 - Stock seat database.
 - Aftermarket seat database.
 - Material database.
@@ -83,6 +84,7 @@ Support anonymous "continue where you left off" before requiring accounts.
 
 - first-party anonymous visitor/session ID,
 - cookie consent banner,
+- minimal bottom cookie UX,
 - saved questionnaire/comparison state,
 - saved locale/theme/content-depth preferences,
 - clear saved data option,
@@ -90,6 +92,20 @@ Support anonymous "continue where you left off" before requiring accounts.
 - consent-gated advertising scripts,
 - privacy/cookie policy pages,
 - data retention settings.
+
+## Phase 8c - SEO And Admin Analytics
+
+- Google Search Console setup,
+- sitemap,
+- robots.txt,
+- structured data,
+- hreflang for country/language pages,
+- canonical URLs,
+- affiliate/sponsored link validation,
+- admin traffic dashboard,
+- questionnaire funnel statistics,
+- product click statistics,
+- broken link and SEO issue dashboard.
 
 ## Phase 9 - Community Input
 

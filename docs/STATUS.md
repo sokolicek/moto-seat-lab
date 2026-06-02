@@ -9,13 +9,16 @@ Concept and content architecture.
 ## Done
 
 - Project folder created.
+- Project audit and MVP scope drafted.
 - Concept documented.
 - Audience documented.
 - Content architecture drafted.
 - Design system concept drafted.
 - Platform architecture drafted.
 - Functional architecture drafted.
+- SEO/analytics/minimal cookie UX concept drafted.
 - Country/localization strategy drafted.
+- Country localization market research drafted.
 - Bike database strategy drafted.
 - First motorcycle guide drafted: Suzuki GSX-S1000GX.
 - First country guide drafted: Germany.
@@ -58,7 +61,7 @@ Concept and content architecture.
 
 ## Next Best Step
 
-Write the first real article draft:
+Freeze MVP scope from `docs/project-audit-and-mvp-scope.md`, then write the first real article draft:
 
 ```text
 Suzuki GSX-S1000GX Sitzbank Komfort:

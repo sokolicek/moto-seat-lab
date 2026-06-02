@@ -150,12 +150,76 @@ Configurable:
 - affiliate programs,
 - legal notices,
 - content depth defaults.
+- country market profile,
+- default product price level,
+- default motorcycle categories,
+- default design variant.
 
 Initial priority:
 
 - German for public first page,
 - Slovak for working notes,
 - English for project documentation.
+
+## Country-Specific Design Variants
+
+The design should support different defaults by country. This is not only translation; the site should adapt to local motorcycle culture, buying power, device usage, and typical motorcycle categories.
+
+Example variants:
+
+- `technical_touring`: Germany, Austria, Switzerland.
+- `custom_artisan`: France, Italy.
+- `practical_value`: Slovakia, Hungary, Poland.
+- `availability_value`: Russia, Turkey.
+- `scooter_commuter_mobile`: Thailand, Indonesia, Malaysia.
+
+### Technical Touring
+
+Use for markets where premium touring, adventure bikes, and long-distance comfort are strong.
+
+Defaults:
+
+- left navigation on desktop,
+- comparison tables,
+- source confidence visible,
+- OEM/aftermarket/upholsterer options early,
+- expert sections easier to access.
+
+### Custom Artisan
+
+Use for markets with strong custom upholstery culture.
+
+Defaults:
+
+- more visual examples,
+- before/after blocks,
+- local artisan directory,
+- material explanation,
+- seat shape and sliding guidance.
+
+### Practical Value
+
+Use for price-sensitive European markets.
+
+Defaults:
+
+- price bands prominent,
+- cheap first tests,
+- cross-border/local shops,
+- DIY and local upholsterer paths,
+- premium products only when justified.
+
+### Scooter Commuter Mobile
+
+Use for hot, humid, scooter/commuter-heavy markets.
+
+Defaults:
+
+- mobile-first,
+- compact cards,
+- low-bandwidth/image-light option,
+- heat/rain solutions first,
+- mesh, cover, foam repair and local marketplace links before premium imports.
 
 ## Responsive Layout Targets
 

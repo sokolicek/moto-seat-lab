@@ -24,12 +24,14 @@ The future website will need structured data for:
 - visitor continuity,
 - consent/cookies,
 - analytics/ads,
+- country market profiles,
 - calculation rules.
 
 This file defines a conceptual data model. It is not yet a database schema.
 For detailed technical fields, see `docs/technical-parameter-model.md`.
 For the broader platform architecture, see `docs/platform-architecture.md`.
 For visitor continuity, cookies, ads, and privacy notes, see `docs/privacy-visitor-tracking-ads-concept.md`.
+For country-specific localization/design research, see `docs/research/country-localization-market-research.md`.
 
 ## Platform Direction
 
@@ -83,6 +85,7 @@ erDiagram
   VISITOR ||--o{ VISITOR_STATE : saves
   VISITOR_SESSION ||--o{ ANALYTICS_EVENT : records
   PRODUCT_OFFER ||--o{ AFFILIATE_CLICK : clicked_as
+  COUNTRY ||--o{ COUNTRY_MARKET_PROFILE : configures
 ```
 
 ## Domain
@@ -800,6 +803,37 @@ Fields:
 - disclosure_text,
 - enabled,
 - notes.
+
+## Country Market Profile
+
+Represents country-specific design, content, product, and recommendation defaults.
+
+Fields:
+
+- id,
+- country,
+- primary_language,
+- secondary_languages,
+- currency,
+- default_design_variant,
+- default_device_assumption,
+- market_group,
+- common_motorcycle_categories,
+- price_sensitivity,
+- premium_product_relevance,
+- default_solution_order,
+- climate_notes,
+- local_source_priorities,
+- affiliate_marketplaces,
+- cookie_consent_mode,
+- seo_locale_strategy,
+- admin_notes.
+
+Examples:
+
+- Germany: technical touring, OEM/aftermarket/upholsterer comparison first.
+- Slovakia: practical value, cheap reversible fixes and cross-border shops first.
+- Indonesia: scooter commuter, low-cost mesh/cover/foam repair first.
 
 ## Calculation Rule
 

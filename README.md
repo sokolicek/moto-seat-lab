@@ -54,12 +54,14 @@ Pilot scope:
 ## Documentation Map
 
 - [Project status](docs/STATUS.md)
+- [Project audit and MVP scope](docs/project-audit-and-mvp-scope.md)
 - [Concept](docs/concept.md)
 - [Audience](docs/audience.md)
 - [Content architecture](docs/content-architecture.md)
 - [Design system concept](docs/design-system-concept.md)
 - [Platform architecture](docs/platform-architecture.md)
 - [Functional architecture](docs/functional-architecture.md)
+- [SEO, analytics, and minimal cookie UX concept](docs/seo-analytics-cookie-ux-concept.md)
 - [Roadmap](docs/roadmap.md)
 - [Interactive tools concept](docs/interactive-tools.md)
 - [Beginner to expert funnel](docs/beginner-to-expert-funnel.md)
@@ -84,6 +86,7 @@ Pilot scope:
 - [Affiliate strategy](docs/monetization/affiliate-strategy.md)
 - [Research backlog](docs/research/research-backlog.md)
 - [Competitive landscape](docs/research/competitive-landscape.md)
+- [Country localization and market research](docs/research/country-localization-market-research.md)
 - [First German page outline](docs/content/first-german-page-outline.md)
 - [Solution decision tree](docs/content/solution-decision-tree.md)
 - [SEO and taxonomy](docs/content/seo-and-taxonomy.md)
