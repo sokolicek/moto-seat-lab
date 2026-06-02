@@ -57,6 +57,7 @@ Pilot scope:
 - [Concept](docs/concept.md)
 - [Audience](docs/audience.md)
 - [Content architecture](docs/content-architecture.md)
+- [Design system concept](docs/design-system-concept.md)
 - [Roadmap](docs/roadmap.md)
 - [Interactive tools concept](docs/interactive-tools.md)
 - [Beginner to expert funnel](docs/beginner-to-expert-funnel.md)

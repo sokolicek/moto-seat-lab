@@ -44,6 +44,37 @@ Good candidates:
 - budget ranges,
 - affiliate product category mappings,
 - warning text variants.
+- navigation position,
+- theme tokens,
+- font family and scale,
+- layout density,
+- image mode,
+- content depth defaults,
+- locale and unit preferences.
+
+## Design Configuration Principles
+
+The future frontend should not hard-code visual decisions into content pages.
+
+Keep configurable:
+
+- top/left/right/bottom navigation variants,
+- mobile/tablet/desktop layout variants,
+- light/dark/high-contrast themes,
+- image-rich and no-image modes,
+- beginner/advanced/expert content depth,
+- font choices,
+- chart colors,
+- page density.
+
+Recommended approach:
+
+- define design tokens in configuration,
+- map page templates to layout variants,
+- keep content as structured data or markdown,
+- keep product cards and comparison tables as reusable components,
+- make no-image mode a first-class layout option,
+- test small mobile, large mobile, tablet, laptop, desktop, and large monitor layouts before considering a page done.
 
 ## Data Quality Levels
 
@@ -146,4 +177,3 @@ Recommended order:
 3. Simple calculators in frontend code.
 4. Database only after data model stabilizes.
 5. Admin/config UI later.
-
