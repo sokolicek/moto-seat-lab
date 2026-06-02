@@ -19,3 +19,20 @@ This file tracks local visual assets used by the Moto Seat Lab MVP.
   - Do not present as a documentary photo.
   - Do not use as proof of any specific motorcycle model, place, product, or riding condition.
   - Replace with licensed photography later if the project needs real editorial imagery.
+
+## Hero Videos
+
+### `public/assets/video/gsx-s1000gx-forest-curve.mp4`
+
+- Type: local MP4 video supplied by the project owner.
+- Purpose: GSX-S1000GX guide hero background.
+- Usage:
+  - `src/pages/de/motorrad-sitzbank/suzuki-gsx-s1000gx/index.astro`
+- Playback:
+  - `autoplay`, `muted`, `loop`, `playsinline`.
+  - No controls, because it is a decorative background.
+  - Static WebP poster/fallback: `public/assets/hero/touring-forest-curve.webp`.
+- Performance note:
+  - Current file is suitable for local MVP validation.
+  - Before public deployment, optimize to a smaller WebM/MP4 pair and keep the hero background below a practical page-weight budget.
+  - Consider disabling video by default on mobile or slow connections.

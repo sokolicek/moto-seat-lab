@@ -17,9 +17,21 @@ import disclosures from "../../../../data/disclosures/de.json";
   description="Praktischer Guide für GSX-S1000GX Fahrer: Ursachen, schnelle Tests, OEM/Aftermarket/Sattler und DIY ohne falsche Versprechen."
   canonicalPath="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/"
 >
-  <section class="hero">
-    <div class="page-inner hero-grid">
-      <div>
+  <section class="hero video-hero gsx-video-hero">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/assets/hero/touring-forest-curve.webp"
+      aria-hidden="true"
+    >
+      <source src="/assets/video/gsx-s1000gx-forest-curve.mp4" type="video/mp4" />
+    </video>
+    <div class="page-inner hero-grid video-hero-inner">
+      <div class="video-hero-copy">
         <p class="eyebrow">Suzuki GSX-S1000GX · Deutschland</p>
         <h1>Sitzbank-Schmerzen nach einer Stunde? Erst die Ursache finden, dann kaufen.</h1>
         <p class="lead">
@@ -35,6 +47,7 @@ import disclosures from "../../../../data/disclosures/de.json";
           <a class="button" href="#quick-check-title">Schnellcheck starten</a>
           <a class="button secondary" href="#loesungen">Lösungen vergleichen</a>
         </div>
+        <p class="asset-note">Video-Hintergrund aus lokalem MVP-Asset, ohne Ton.</p>
       </div>
       <SeatLayerGraphic />
     </div>
