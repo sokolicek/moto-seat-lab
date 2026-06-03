@@ -77,6 +77,7 @@ MVP implementation started.
 - Website pages now expose the expanded seed data as unified lab cards: DIY materials, workshop tools, German buying channels, and technical motorcycle profile readiness.
 - Media asset workflow added with local downloads, source/license metadata, database tables, content links, stable image rendering, and a reusable attribution component.
 - GSX-S1000GX guide expanded with visual article sections, practical buying-vs-upholstery guidance, a comfort triage calculator, and an admin asset register with blocked manufacturer-image placeholders.
+- Motorcycle selector added to the homepage, motorcycle index, and GSX-S1000GX guide; navigation now clearly points to motorcycle selection.
 
 ## Not Started
 

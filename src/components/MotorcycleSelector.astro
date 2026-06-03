@@ -1,0 +1,57 @@
+---
+import motorcycles from "../data/motorcycles/de-list.json";
+
+interface Props {
+  currentSlug?: string;
+  compact?: boolean;
+}
+
+const { currentSlug = "suzuki-gsx-s1000gx", compact = false } = Astro.props;
+
+const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
+  motorcycle.path.split("/").filter(Boolean).at(-1) ?? motorcycle.name.toLowerCase().replaceAll("/", "").replaceAll(" ", "-");
+---
+
+<section class={`card motorcycle-selector ${compact ? "compact" : ""}`} aria-labelledby="motorcycle-selector-title">
+  <div>
+    <p class="eyebrow">Motorrad wählen</p>
+    <h2 id="motorcycle-selector-title">Mit welchem Motorrad willst du starten?</h2>
+    <p>
+      Suzuki GSX-S1000GX ist aktuell aktiv. Die anderen Modelle sind vorbereitet und werden nach und nach
+      mit Daten, Bildern und Sitzbankoptionen gefüllt.
+    </p>
+  </div>
+
+  <form class="motorcycle-selector-form" data-motorcycle-selector>
+    <label class="field" for="motorcycle-select">
+      <span>Modell</span>
+      <select id="motorcycle-select" name="motorcycle">
+        {motorcycles.map((motorcycle) => {
+          const slug = slugFromMotorcycle(motorcycle);
+          const enabled = motorcycle.status === "active" && motorcycle.path;
+          return (
+            <option
+              value={enabled ? motorcycle.path : `/de/motorrad-sitzbank/#geplant`}
+              selected={slug === currentSlug}
+            >
+              {motorcycle.name} {enabled ? "" : "· geplant"}
+            </option>
+          );
+        })}
+      </select>
+    </label>
+    <button class="button" type="submit">Öffnen</button>
+    <a class="button secondary" href="/de/motorrad-sitzbank/">Alle Motorräder</a>
+  </form>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-motorcycle-selector]").forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const select = form.querySelector<HTMLSelectElement>("select[name='motorcycle']");
+      const target = select?.value || "/de/motorrad-sitzbank/";
+      window.location.href = target;
+    });
+  });
+</script>

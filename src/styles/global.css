@@ -968,6 +968,44 @@ h3 {
   width: fit-content;
 }
 
+.motorcycle-selector {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 18px;
+  align-items: end;
+  border-color: rgba(18, 107, 115, 0.22);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.08), transparent 42%),
+    var(--color-surface);
+}
+
+.motorcycle-selector.compact {
+  grid-template-columns: minmax(0, 0.75fr) minmax(320px, 1fr);
+}
+
+.motorcycle-selector h2 {
+  font-size: clamp(1.35rem, 1.8vw, 1.9rem);
+}
+
+.motorcycle-selector-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.motorcycle-selector-form .field {
+  gap: 6px;
+}
+
+.motorcycle-selector-form .field span {
+  font-weight: 800;
+}
+
+.motorcycle-selector-form .button {
+  white-space: nowrap;
+}
+
 .profile-card {
   border-top: 4px solid var(--color-accent);
 }
@@ -1428,6 +1466,9 @@ h3 {
   .comfort-triage,
   .article-layout,
   .article-layout.reverse,
+  .motorcycle-selector,
+  .motorcycle-selector.compact,
+  .motorcycle-selector-form,
   .asset-admin-card,
   .asset-admin-grid.compact,
   .decision-strip,

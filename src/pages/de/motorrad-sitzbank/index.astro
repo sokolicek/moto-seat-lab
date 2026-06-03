@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
+import MotorcycleSelector from "../../../components/MotorcycleSelector.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
 import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
@@ -102,6 +103,12 @@ const measurementLabel: Record<string, string> = {
   </section>
 
   <section class="section">
+    <div class="page-inner">
+      <MotorcycleSelector />
+    </div>
+  </section>
+
+  <section class="section alt">
     <div class="page-inner">
       <p class="eyebrow">Aktiv</p>
       <h2>Bereits bearbeitete Modelle</h2>
