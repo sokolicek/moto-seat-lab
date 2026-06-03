@@ -1355,6 +1355,411 @@ INSERT INTO buying_channels (
     notes = EXCLUDED.notes,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+DELETE FROM content_media_links;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_seats_camden_commons',
+    'Motorcycle seats at Camden Town',
+    'General motorcycle seat and aftermarket seat visual for buying and category pages.',
+    '/assets/media/m01-camden.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg',
+    'https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg',
+    'Wikimedia Commons',
+    'Shadowgate',
+    'Creative Commons Attribution 2.0 Generic',
+    'CC BY 2.0',
+    'https://creativecommons.org/licenses/by/2.0/',
+    'usable_with_attribution',
+    true,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons',
+    'Several motorcycle seats displayed at a market stall',
+    'Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.',
+    '#4b4037',
+    '3 / 2',
+    'center',
+    '["card","section","buying"]'::jsonb,
+    'Use with visible attribution on pages where the image appears.',
+    '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'buying_channel',
+      'local_upholsterer_de',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'product_category',
+      'aftermarket_seat',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    'touring_seat_goldwing_commons',
+    'Honda Goldwing 1800 F6B detail',
+    'Touring motorcycle seat detail for long-distance comfort context.',
+    '/assets/media/m02-goldwing.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg',
+    'https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg',
+    'Wikimedia Commons',
+    'Addvisor',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons',
+    'Large touring motorcycle seat detail on a Honda Goldwing',
+    'Touring seats solve different problems than short city or sporty weekend seats.',
+    '#202125',
+    '4 / 3',
+    'center',
+    '["card","section","touring"]'::jsonb,
+    'Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab.',
+    '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'motorcycle_profile',
+      'bmw-r-1300-gs',
+      'card',
+      3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'solution_path',
+      'upholsterer_rebuild',
+      'section',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    'leather_sample_commons',
+    'Leather material sample',
+    'Leather and upholstery material texture for seat-cover discussions.',
+    '/assets/media/m03-leather.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG',
+    'https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG',
+    'Wikimedia Commons',
+    'Imapar Ltda',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons',
+    'Close-up sample of leather upholstery material',
+    'Cover material affects grip, water behavior, cleaning and heat feeling.',
+    '#6f4f3c',
+    '4 / 3',
+    'center',
+    '["card","material","section"]'::jsonb,
+    'Use as generic material texture, not as a specific motorcycle-seat cover product.',
+    '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sample_commons',
+      'seat_material',
+      'anti_slip_cover',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    'pexels_forest_curve_motorcyclist',
+    'Motorcyclist on curved forest road',
+    'Atmospheric riding image for touring and country-road context.',
+    '/assets/media/m04-curve.jpg',
+    'https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    'https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/',
+    'Pexels',
+    'Tiwi Riders',
+    'Pexels License',
+    'PEXELS',
+    'https://www.pexels.com/license/',
+    'usable_without_required_attribution',
+    false,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Tiwi Riders / Pexels',
+    'Motorcyclist riding through a curve on a forest road',
+    'Country-road posture, wind pressure and seat angle change the comfort problem.',
+    '#26352f',
+    '16 / 9',
+    'center',
+    '["hero","section","touring"]'::jsonb,
+    'Attribution is not required by Pexels, but the credit line can be shown in an asset register.',
+    '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'pexels_forest_curve_motorcyclist',
+      'motorcycle_profile',
+      'suzuki-gsx-s1000gx',
+      'hero',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    'unsplash_touring_motorcycle_road',
+    'Touring motorcycle beside farm road',
+    'Road-trip motorcycle image for long-distance and travel context.',
+    '/assets/media/m05-road.jpg',
+    'https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600',
+    'https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI',
+    'Unsplash',
+    'Donald Giannatti',
+    'Unsplash License',
+    'UNSPLASH',
+    'https://unsplash.com/license',
+    'usable_without_required_attribution',
+    false,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Donald Giannatti / Unsplash',
+    'Touring motorcycle parked beside an open road',
+    'Long rides need a different seat decision than short commutes.',
+    '#8d8170',
+    '16 / 9',
+    'center',
+    '["hero","section","touring"]'::jsonb,
+    'Do not use in a way that implies the photographer endorses the site.',
+    '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'solution_path',
+      'premium_touring_seat',
+      'section',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5,"media_assets":5,"content_media_links":7}'::jsonb);
 COMMIT;

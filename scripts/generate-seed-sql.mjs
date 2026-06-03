@@ -36,6 +36,7 @@ const technicalProfiles = await readJson("src/data/motorcycles/technical-profile
 const seatMaterials = await readJson("src/data/materials/seat-materials.json");
 const workshopTools = await readJson("src/data/tools/seat-tools.json");
 const buyingChannels = await readJson("src/data/marketplaces/de.json");
+const mediaAssets = await readJson("src/data/media/media-assets.json");
 const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
 
 add("BEGIN;");
@@ -337,6 +338,91 @@ for (const channel of buyingChannels) {
     updated_at = now();`);
 }
 counts.buying_channels = buyingChannels.length;
+
+add("DELETE FROM content_media_links;");
+for (const asset of mediaAssets) {
+  add(`INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(asset.key)},
+    ${sqlString(asset.title)},
+    ${sqlString(asset.description)},
+    ${sqlString(asset.localPath)},
+    ${sqlString(asset.downloadUrl)},
+    ${sqlString(asset.sourcePageUrl)},
+    ${sqlString(asset.sourceName)},
+    ${sqlString(asset.creator)},
+    ${sqlString(asset.licenseName)},
+    ${sqlString(asset.licenseCode)},
+    ${sqlString(asset.licenseUrl)},
+    ${sqlString(asset.rightsStatus)},
+    ${asset.attributionRequired ? "true" : "false"},
+    ${asset.shareAlikeRequired ? "true" : "false"},
+    ${asset.modificationAllowed ? "true" : "false"},
+    ${asset.commercialUseAllowed ? "true" : "false"},
+    ${asset.endorsementWarning === false ? "false" : "true"},
+    ${sqlString(asset.creditLine)},
+    ${sqlString(asset.alt)},
+    ${sqlString(asset.caption)},
+    ${sqlString(asset.dominantColor)},
+    ${sqlString(asset.aspectRatio)},
+    ${sqlString(asset.objectPosition)},
+    ${sqlJson(asset.recommendedUsage || [])},
+    ${sqlString(asset.notes)},
+    ${sqlJson(asset)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+
+  for (const link of asset.links || []) {
+    add(`INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      ${sqlString(asset.key)},
+      ${sqlString(link.entityType)},
+      ${sqlString(link.entityKey)},
+      ${sqlString(link.usage || "card")},
+      ${link.priority ?? 10}
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;`);
+  }
+}
+counts.media_assets = mediaAssets.length;
+counts.content_media_links = mediaAssets.reduce((sum, asset) => sum + (asset.links || []).length, 0);
 
 add(`INSERT INTO import_runs (label, row_counts)
 VALUES ('json seed import', ${sqlJson(counts)});`);

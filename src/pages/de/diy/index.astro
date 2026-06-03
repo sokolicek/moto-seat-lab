@@ -4,6 +4,7 @@ import LabDataCard from "../../../components/LabDataCard.astro";
 import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
 import seatMaterials from "../../../data/materials/seat-materials.json";
 import workshopTools from "../../../data/tools/seat-tools.json";
+import { getMediaForEntity } from "../../../lib/mediaAssets";
 
 const skillLabel: Record<string, string> = {
   beginner: "Einsteiger",
@@ -81,6 +82,7 @@ const researchLabel: Record<string, string> = {
             title={material.name}
             summary={material.comfortRole}
             badges={[researchLabel[material.researchStatus] ?? material.researchStatus]}
+            media={getMediaForEntity("seat_material", material.key)}
             facts={[
               { label: "Gut für", value: material.bestFor },
               { label: "Skill", value: skillLabel[material.skillLevel] ?? material.skillLevel },
@@ -113,6 +115,7 @@ const researchLabel: Record<string, string> = {
             title={tool.name}
             summary={tool.usedFor}
             badges={[skillLabel[tool.skillLevel] ?? tool.skillLevel]}
+            media={getMediaForEntity("workshop_tool", tool.key)}
             facts={[
               { label: "Nutzung", value: tool.usedFor },
               { label: "Kaufnotiz", value: tool.buyingNotes },

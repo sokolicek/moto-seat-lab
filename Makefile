@@ -1,4 +1,4 @@
-.PHONY: dev build check db-up db-down db-logs db-seed db-check db-reset db-psql db-adminer
+.PHONY: dev build check media-download db-up db-down db-logs db-seed db-check db-reset db-psql db-adminer
 
 dev:
 	npm run dev
@@ -8,6 +8,9 @@ build:
 
 check:
 	npm run check
+
+media-download:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/download-media-assets.ps1
 
 db-up:
 	docker compose up -d db

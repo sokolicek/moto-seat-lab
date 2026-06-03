@@ -149,6 +149,47 @@ CREATE TABLE IF NOT EXISTS buying_channels (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS media_assets (
+  key text PRIMARY KEY,
+  title text NOT NULL,
+  description text,
+  local_path text NOT NULL,
+  download_url text,
+  source_page_url text NOT NULL,
+  source_name text,
+  creator text,
+  license_name text NOT NULL,
+  license_code text NOT NULL,
+  license_url text,
+  rights_status text NOT NULL,
+  attribution_required boolean NOT NULL DEFAULT false,
+  share_alike_required boolean NOT NULL DEFAULT false,
+  modification_allowed boolean NOT NULL DEFAULT false,
+  commercial_use_allowed boolean NOT NULL DEFAULT false,
+  endorsement_warning boolean NOT NULL DEFAULT true,
+  credit_line text,
+  alt text NOT NULL,
+  caption text,
+  dominant_color text,
+  aspect_ratio text,
+  object_position text,
+  recommended_usage jsonb NOT NULL DEFAULT '[]'::jsonb,
+  notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS content_media_links (
+  media_key text NOT NULL REFERENCES media_assets(key) ON DELETE CASCADE,
+  entity_type text NOT NULL,
+  entity_key text NOT NULL,
+  usage text NOT NULL DEFAULT 'card',
+  priority integer NOT NULL DEFAULT 10,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (media_key, entity_type, entity_key, usage)
+);
+
 CREATE TABLE IF NOT EXISTS import_runs (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   label text NOT NULL,
@@ -164,6 +205,7 @@ CREATE INDEX IF NOT EXISTS idx_motorcycle_technical_profiles_status ON motorcycl
 CREATE INDEX IF NOT EXISTS idx_seat_materials_type ON seat_materials(material_type);
 CREATE INDEX IF NOT EXISTS idx_workshop_tools_type ON workshop_tools(tool_type);
 CREATE INDEX IF NOT EXISTS idx_buying_channels_country ON buying_channels(country_code);
+CREATE INDEX IF NOT EXISTS idx_content_media_links_entity ON content_media_links(entity_type, entity_key, usage, priority);
 
 CREATE OR REPLACE VIEW v_content_summary AS
 SELECT 'countries' AS item, count(*)::integer AS count FROM countries
@@ -186,7 +228,11 @@ SELECT 'seat_materials', count(*)::integer FROM seat_materials
 UNION ALL
 SELECT 'workshop_tools', count(*)::integer FROM workshop_tools
 UNION ALL
-SELECT 'buying_channels', count(*)::integer FROM buying_channels;
+SELECT 'buying_channels', count(*)::integer FROM buying_channels
+UNION ALL
+SELECT 'media_assets', count(*)::integer FROM media_assets
+UNION ALL
+SELECT 'content_media_links', count(*)::integer FROM content_media_links;
 
 CREATE OR REPLACE VIEW v_validation_issues AS
 SELECT
@@ -272,6 +318,35 @@ SELECT
   key,
   'buying channel has no affiliate potential'
 FROM buying_channels
-WHERE affiliate_potential IS NULL OR affiliate_potential = '';
+WHERE affiliate_potential IS NULL OR affiliate_potential = ''
+UNION ALL
+SELECT
+  'media_assets',
+  key,
+  'media asset has no local_path'
+FROM media_assets
+WHERE local_path IS NULL OR local_path = ''
+UNION ALL
+SELECT
+  'media_assets',
+  key,
+  'media asset needs credit_line when attribution is required'
+FROM media_assets
+WHERE attribution_required = true
+  AND (credit_line IS NULL OR credit_line = '')
+UNION ALL
+SELECT
+  'media_assets',
+  key,
+  'media asset has no source page URL'
+FROM media_assets
+WHERE source_page_url IS NULL OR source_page_url = ''
+UNION ALL
+SELECT
+  'media_assets',
+  key,
+  'media asset has no alt text'
+FROM media_assets
+WHERE alt IS NULL OR alt = '';
 
 COMMIT;

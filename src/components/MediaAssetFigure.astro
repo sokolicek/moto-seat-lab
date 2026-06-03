@@ -1,0 +1,37 @@
+---
+import type { MediaAsset } from "../lib/mediaAssets";
+
+interface Props {
+  asset: MediaAsset;
+  variant?: "card" | "section" | "hero";
+  showCaption?: boolean;
+  showCredit?: boolean;
+}
+
+const { asset, variant = "card", showCaption = true, showCredit = true } = Astro.props;
+const style = [
+  asset.aspectRatio ? `--media-aspect-ratio: ${asset.aspectRatio}` : "",
+  asset.objectPosition ? `--media-object-position: ${asset.objectPosition}` : "",
+  asset.dominantColor ? `--media-bg: ${asset.dominantColor}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
+---
+
+<figure class={`media-asset ${variant}`} style={style}>
+  <img src={asset.localPath} alt={asset.alt} loading="lazy" decoding="async" />
+  {(showCaption || (showCredit && asset.attributionRequired)) && (
+    <figcaption>
+      {showCaption && asset.caption && <span>{asset.caption}</span>}
+      {showCredit && asset.attributionRequired && (
+        <small>
+          {asset.creditLine}
+          {" "}
+          <a href={asset.sourcePageUrl}>Quelle</a>
+          {" / "}
+          <a href={asset.licenseUrl}>{asset.licenseCode}</a>
+        </small>
+      )}
+    </figcaption>
+  )}
+</figure>

@@ -7,6 +7,7 @@ import productCategories from "../../../data/product-categories/seat-comfort.jso
 import seatOptions from "../../../data/products/gsx-s1000gx-seat-options.json";
 import buyingChannels from "../../../data/marketplaces/de.json";
 import disclosures from "../../../data/disclosures/de.json";
+import { getMediaForEntity } from "../../../lib/mediaAssets";
 
 const affiliateLabel: Record<string, string> = {
   low: "Affiliate niedrig",
@@ -99,6 +100,7 @@ const channelLabel: Record<string, string> = {
             title={channel.name}
             summary={channel.bestFor}
             badges={[affiliateLabel[channel.affiliatePotential] ?? channel.affiliatePotential]}
+            media={getMediaForEntity("buying_channel", channel.key)}
             facts={[
               { label: "Land", value: channel.country },
               { label: "Vertrauen", value: `${channel.trustLevel}/5` },
