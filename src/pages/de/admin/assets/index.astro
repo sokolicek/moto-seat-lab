@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import MediaAssetFigure from "../../../../components/MediaAssetFigure.astro";
+import { mediaAssetRegistry } from "../../../../lib/mediaAssets";
+
+const activeAssets = mediaAssetRegistry.filter((asset) => asset.status === "active");
+const blockedAssets = mediaAssetRegistry.filter((asset) => asset.status !== "active");
+---
+
+<BaseLayout
+  title="Moto Seat Lab Asset Register"
+  description="Lokaler Admin-Überblick über Bildquellen, Lizenzen, Rechte und öffentliche Nutzbarkeit."
+  canonicalPath="/de/admin/assets/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Admin · Medien</p>
+      <h1>Asset Register</h1>
+      <p class="lead">
+        Jeder sichtbare Bildbaustein braucht Quelle, Lizenz, lokale Datei, Alt-Text und klare Nutzungsregeln.
+        Produktbilder von Herstellern bleiben blockiert, bis Rechte dokumentiert sind.
+      </p>
+      <div class="spec-strip">
+        <span>{activeAssets.length} aktiv</span>
+        <span>{blockedAssets.length} blockiert / geplant</span>
+        <span>{mediaAssetRegistry.length} gesamt</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <h2>Aktive Bilder</h2>
+      <div class="asset-admin-grid">
+        {activeAssets.map((asset) => (
+          <article class="card asset-admin-card">
+            <MediaAssetFigure asset={asset} variant="card" />
+            <div>
+              <div class="card-topline">
+                <span class="badge">{asset.licenseCode}</span>
+                <span class="badge muted">{asset.sourceName}</span>
+                {asset.attributionRequired && <span class="badge confidence">Attribution nötig</span>}
+              </div>
+              <h3>{asset.title}</h3>
+              <p>{asset.description}</p>
+              <div class="quick-facts">
+                <span><strong>Lokal</strong>{asset.localPath}</span>
+                <span><strong>Rechte</strong>{asset.rightsStatus}</span>
+                <span><strong>Creator</strong>{asset.creator}</span>
+              </div>
+              <p class="source-link"><a href={asset.sourcePageUrl}>Quelle öffnen</a></p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner">
+      <h2>Blockierte oder geplante Bilder</h2>
+      <p class="lead">
+        Diese Einträge sind bewusst im System, aber nicht für öffentliche Darstellung freigegeben.
+      </p>
+      <div class="asset-admin-grid compact">
+        {blockedAssets.map((asset) => (
+          <article class="notice asset-admin-card">
+            <div class="card-topline">
+              <span class="badge confidence">{asset.licenseCode}</span>
+              <span class="badge muted">{asset.status}</span>
+            </div>
+            <h3>{asset.title}</h3>
+            <p>{asset.description}</p>
+            <div class="quick-facts">
+              <span><strong>Quelle</strong>{asset.sourceName}</span>
+              <span><strong>Regel</strong>{asset.notes}</span>
+              <span><strong>Public?</strong>Nein, bis Rechte geklärt sind.</span>
+            </div>
+            <p class="source-link"><a href={asset.sourcePageUrl}>Quelle öffnen</a></p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -101,6 +101,7 @@ CREATE TABLE IF NOT EXISTS motorcycle_technical_profiles (
   seat_comfort_risks jsonb NOT NULL DEFAULT '[]'::jsonb,
   required_measurements jsonb NOT NULL DEFAULT '[]'::jsonb,
   notes text,
+  status text NOT NULL DEFAULT 'active',
   source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
@@ -179,6 +180,9 @@ CREATE TABLE IF NOT EXISTS media_assets (
   created_at timestamptz NOT NULL DEFAULT now(),
   updated_at timestamptz NOT NULL DEFAULT now()
 );
+
+ALTER TABLE media_assets
+  ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'active';
 
 CREATE TABLE IF NOT EXISTS content_media_links (
   media_key text NOT NULL REFERENCES media_assets(key) ON DELETE CASCADE,

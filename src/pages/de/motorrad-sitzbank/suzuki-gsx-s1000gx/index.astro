@@ -7,12 +7,19 @@ import RiderProfileCard from "../../../../components/RiderProfileCard.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
 import SeatOptionCard from "../../../../components/SeatOptionCard.astro";
 import SeatOptionAdvisor from "../../../../components/SeatOptionAdvisor.astro";
+import ComfortTriageCalculator from "../../../../components/ComfortTriageCalculator.astro";
+import MediaAssetFigure from "../../../../components/MediaAssetFigure.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
 import seatOptions from "../../../../data/products/gsx-s1000gx-seat-options.json";
 import riderProfiles from "../../../../data/rider-profiles/gsx-s1000gx.json";
 import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
 import disclosures from "../../../../data/disclosures/de.json";
+import { getMediaByKey } from "../../../../lib/mediaAssets";
+
+const forestCurveImage = getMediaByKey("pexels_forest_curve_motorcyclist");
+const touringRoadImage = getMediaByKey("unsplash_touring_motorcycle_road");
+const touringSeatImage = getMediaByKey("touring_seat_goldwing_commons");
 ---
 
 <BaseLayout
@@ -108,6 +115,7 @@ import disclosures from "../../../../data/disclosures/de.json";
         <a href="#loesungen">Lösungswege</a>
         <a href="#optionen">Optionen</a>
         <a href="#option-advisor-title">Mini-Berater</a>
+        <a href="#komfort-triage">Triage-Rechner</a>
         <a href="#quellen">Quellen</a>
       </nav>
     </div>
@@ -146,6 +154,45 @@ import disclosures from "../../../../data/disclosures/de.json";
     <div class="page-inner grid two">
       <Questionnaire />
       <SeatComfortEstimator />
+    </div>
+  </section>
+
+  <section class="section alt" id="artikel">
+    <div class="page-inner article-layout">
+      <article class="article-copy">
+        <p class="eyebrow">Artikel · GSX-S1000GX</p>
+        <h2>Wenn die originale Sitzbank nach einer Stunde nervt</h2>
+        <p>
+          Der erste Reflex ist oft: “Ich brauche ein besseres Sitzpolster.” Manchmal stimmt das.
+          Bei der GSX-S1000GX kann der Auslöser aber auch eine Kombination aus Sitzwinkel,
+          sportlicher Haltung, Winddruck, Hose, Temperatur und zu wenig Auflagefläche sein.
+        </p>
+        <p>
+          Darum arbeitet Moto Seat Lab von billig und reversibel nach teuer und dauerhaft:
+          erst gleiche Teststrecke dokumentieren, dann 3D-Mesh oder dünne Auflage testen,
+          danach OEM/Aftermarket vergleichen und erst bei klarer Schmerzstelle gezielt umbauen.
+        </p>
+        <div class="decision-strip" aria-label="GSX Entscheidungslogik">
+          <span><strong>Hitze?</strong> Luft und Bezug vor Gel testen</span>
+          <span><strong>Druckpunkt?</strong> Breite, Schaum und Kanten prüfen</span>
+          <span><strong>Touring?</strong> Rückgabe und Langstreckenberichte zählen</span>
+        </div>
+      </article>
+      {forestCurveImage && <MediaAssetFigure asset={forestCurveImage} variant="section" />}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="card">
+        <h2>Drei schnelle Wege, ohne die Sitzbank zu ruinieren</h2>
+        <ol class="steps">
+          <li><strong>Referenzfahrt:</strong> 60 bis 90 Minuten, gleiche Hose, Temperatur notieren, Schmerzstelle markieren.</li>
+          <li><strong>Reversibler Test:</strong> 3D-Mesh oder dünne Auflage einzeln testen, keine Kombination aus fünf Änderungen.</li>
+          <li><strong>Entscheidung:</strong> Nur wenn das Problem klarer wird, OEM, Sargent oder Sattler vergleichen.</li>
+        </ol>
+      </article>
+      {touringSeatImage && <MediaAssetFigure asset={touringSeatImage} variant="section" />}
     </div>
   </section>
 
@@ -225,6 +272,32 @@ import disclosures from "../../../../data/disclosures/de.json";
   <section class="section alt">
     <div class="page-inner">
       <SeatOptionAdvisor />
+    </div>
+  </section>
+
+  <section class="section" id="komfort-triage">
+    <div class="page-inner">
+      <ComfortTriageCalculator />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner article-layout reverse">
+      {touringRoadImage && <MediaAssetFigure asset={touringRoadImage} variant="section" />}
+      <article class="article-copy">
+        <p class="eyebrow">Kaufen vs. Umbauen</p>
+        <h2>Wann ein teurer Sitz Sinn ergibt und wann nicht</h2>
+        <p>
+          Ein Premium-Sitz kann auf langen Strecken eine sehr gute Entscheidung sein, wenn Rückgabe,
+          Modelljahr, Sitzhöhe und echte Erfahrungsberichte passen. Er ist aber kein magischer Filter
+          gegen falsche Ergonomie.
+        </p>
+        <p>
+          Für kurze Runden oder unscharfe Beschwerden ist ein teurer Touring-Sitz oft zu früh.
+          Für eine klare Schmerzstelle, spezielle Körpermaße oder Sitzhöhe ist ein guter Sattler
+          manchmal ehrlicher als der nächste Online-Kauf.
+        </p>
+      </article>
     </div>
   </section>
 

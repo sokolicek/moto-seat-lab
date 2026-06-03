@@ -1361,7 +1361,7 @@ INSERT INTO media_assets (
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -1390,6 +1390,7 @@ INSERT INTO media_assets (
     'center',
     '["card","section","buying"]'::jsonb,
     'Use with visible attribution on pages where the image appears.',
+    'active',
     '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
     now()
   )
@@ -1418,6 +1419,7 @@ INSERT INTO media_assets (
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO content_media_links (
@@ -1449,7 +1451,7 @@ INSERT INTO media_assets (
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -1478,6 +1480,7 @@ INSERT INTO media_assets (
     'center',
     '["card","section","touring"]'::jsonb,
     'Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab.',
+    'active',
     '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
     now()
   )
@@ -1506,6 +1509,7 @@ INSERT INTO media_assets (
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO content_media_links (
@@ -1537,7 +1541,7 @@ INSERT INTO media_assets (
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -1566,6 +1570,7 @@ INSERT INTO media_assets (
     'center',
     '["card","material","section"]'::jsonb,
     'Use as generic material texture, not as a specific motorcycle-seat cover product.',
+    'active',
     '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
     now()
   )
@@ -1594,6 +1599,7 @@ INSERT INTO media_assets (
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO content_media_links (
@@ -1613,7 +1619,7 @@ INSERT INTO media_assets (
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -1642,6 +1648,7 @@ INSERT INTO media_assets (
     'center',
     '["hero","section","touring"]'::jsonb,
     'Attribution is not required by Pexels, but the credit line can be shown in an asset register.',
+    'active',
     '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
     now()
   )
@@ -1670,6 +1677,7 @@ INSERT INTO media_assets (
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO content_media_links (
@@ -1689,7 +1697,7 @@ INSERT INTO media_assets (
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -1718,6 +1726,7 @@ INSERT INTO media_assets (
     'center',
     '["hero","section","touring"]'::jsonb,
     'Do not use in a way that implies the photographer endorses the site.',
+    'active',
     '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
     now()
   )
@@ -1746,6 +1755,7 @@ INSERT INTO media_assets (
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO content_media_links (
@@ -1760,6 +1770,162 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'suzuki_premium_seat_permission_needed',
+    'Suzuki Premium-Sitz Set official product image',
+    'Planned official Suzuki OEM product photo for the GSX-S1000GX premium seat.',
+    '/assets/options/comfort-seat.svg',
+    NULL,
+    'https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz',
+    'Suzuki Deutschland',
+    'Suzuki / rights holder unknown',
+    'Permission needed before public reuse',
+    'PERMISSION_NEEDED',
+    'https://motorrad.suzuki.de/',
+    'permission_needed',
+    true,
+    false,
+    false,
+    false,
+    true,
+    'Image permission required from Suzuki before public use',
+    'Placeholder for Suzuki premium seat product image',
+    'Official product photo is tracked but not approved for public display yet.',
+    '#202125',
+    '16 / 9',
+    'center',
+    '["product","card"]'::jsonb,
+    'Use only after written permission, press-kit terms, or an affiliate/product API license is documented.',
+    'permission_needed',
+    '{"key":"suzuki_premium_seat_permission_needed","title":"Suzuki Premium-Sitz Set official product image","description":"Planned official Suzuki OEM product photo for the GSX-S1000GX premium seat.","localPath":"/assets/options/comfort-seat.svg","downloadUrl":"","sourcePageUrl":"https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz","sourceName":"Suzuki Deutschland","creator":"Suzuki / rights holder unknown","licenseName":"Permission needed before public reuse","licenseCode":"PERMISSION_NEEDED","licenseUrl":"https://motorrad.suzuki.de/","rightsStatus":"permission_needed","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":false,"commercialUseAllowed":false,"endorsementWarning":true,"creditLine":"Image permission required from Suzuki before public use","alt":"Placeholder for Suzuki premium seat product image","caption":"Official product photo is tracked but not approved for public display yet.","dominantColor":"#202125","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card"],"links":[{"entityType":"seat_option","entityKey":"suzuki-premium-seat-de","usage":"planned_product_image","priority":1}],"status":"permission_needed","notes":"Use only after written permission, press-kit terms, or an affiliate/product API license is documented."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'suzuki_premium_seat_permission_needed',
+      'seat_option',
+      'suzuki-premium-seat-de',
+      'planned_product_image',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'sargent_world_sport_permission_needed',
+    'Sargent World Sport official product image',
+    'Planned official Sargent product photo for the GSX-S1000GX World Sport front seat.',
+    '/assets/options/comfort-seat.svg',
+    NULL,
+    'https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24',
+    'Sargent Cycle',
+    'Sargent Cycle / rights holder unknown',
+    'Permission needed before public reuse',
+    'PERMISSION_NEEDED',
+    'https://www.sargentcycle.com/',
+    'permission_needed',
+    true,
+    false,
+    false,
+    false,
+    true,
+    'Image permission required from Sargent Cycle before public use',
+    'Placeholder for Sargent World Sport product image',
+    'Official product photo is tracked but not approved for public display yet.',
+    '#202125',
+    '16 / 9',
+    'center',
+    '["product","card"]'::jsonb,
+    'Use only after written permission, press-kit terms, or an affiliate/product API license is documented.',
+    'permission_needed',
+    '{"key":"sargent_world_sport_permission_needed","title":"Sargent World Sport official product image","description":"Planned official Sargent product photo for the GSX-S1000GX World Sport front seat.","localPath":"/assets/options/comfort-seat.svg","downloadUrl":"","sourcePageUrl":"https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24","sourceName":"Sargent Cycle","creator":"Sargent Cycle / rights holder unknown","licenseName":"Permission needed before public reuse","licenseCode":"PERMISSION_NEEDED","licenseUrl":"https://www.sargentcycle.com/","rightsStatus":"permission_needed","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":false,"commercialUseAllowed":false,"endorsementWarning":true,"creditLine":"Image permission required from Sargent Cycle before public use","alt":"Placeholder for Sargent World Sport product image","caption":"Official product photo is tracked but not approved for public display yet.","dominantColor":"#202125","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card"],"links":[{"entityType":"seat_option","entityKey":"sargent-world-sport-front","usage":"planned_product_image","priority":1}],"status":"permission_needed","notes":"Use only after written permission, press-kit terms, or an affiliate/product API license is documented."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'sargent_world_sport_permission_needed',
+      'seat_option',
+      'sargent-world-sport-front',
+      'planned_product_image',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5,"media_assets":5,"content_media_links":7}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5,"media_assets":7,"content_media_links":9}'::jsonb);
 COMMIT;

@@ -1,0 +1,116 @@
+<section class="card comfort-triage" aria-labelledby="comfort-triage-title">
+  <div>
+    <p class="eyebrow">Triage-Rechner</p>
+    <h2 id="comfort-triage-title">Was ist der sinnvollste erste Schritt?</h2>
+    <p>
+      Dieser Rechner ist bewusst konservativ. Er schätzt kein medizinisches Problem und keine exakte Sitzdruckkraft,
+      sondern priorisiert sichere, bezahlbare und überprüfbare nächste Schritte.
+    </p>
+  </div>
+
+  <form class="questionnaire triage-form" id="comfort-triage">
+    <div class="field">
+      <label for="triage-age">Alter</label>
+      <input id="triage-age" name="age" type="number" min="16" max="90" value="45" />
+    </div>
+    <div class="field">
+      <label for="triage-height">Körpergröße in cm</label>
+      <input id="triage-height" name="height" type="number" min="145" max="215" value="178" />
+    </div>
+    <div class="field">
+      <label for="triage-weight">Gewicht mit Kleidung in kg</label>
+      <input id="triage-weight" name="weight" type="number" min="45" max="160" value="85" />
+    </div>
+    <div class="field">
+      <label for="triage-duration">Wann beginnt der Schmerz?</label>
+      <select id="triage-duration" name="duration">
+        <option value="45">nach 45 Minuten</option>
+        <option value="60">nach 60 Minuten</option>
+        <option value="90">nach 90 Minuten</option>
+        <option value="120">erst nach 2 Stunden</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="triage-ride">Fahrprofil</label>
+      <select id="triage-ride" name="ride">
+        <option value="touring">lange Touren / Autobahn</option>
+        <option value="country">Landstraße</option>
+        <option value="city">Stadt / kurze Wege</option>
+        <option value="summer">Sommer / Hitze</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="triage-pain">Hauptproblem</label>
+      <select id="triage-pain" name="pain">
+        <option value="pressure">Druck / taubes Gefühl</option>
+        <option value="heat">Hitze / Schwitzen</option>
+        <option value="slide">Rutschen nach vorne</option>
+        <option value="tailbone">Steißbein</option>
+        <option value="knees">Knie / Hüfte</option>
+      </select>
+    </div>
+    <button class="button" type="submit">Triage berechnen</button>
+  </form>
+
+  <div class="advisor-result" id="comfort-triage-result" hidden></div>
+</section>
+
+<script>
+  const triageForm = document.querySelector<HTMLFormElement>("#comfort-triage");
+  const triageResult = document.querySelector<HTMLElement>("#comfort-triage-result");
+
+  const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(max, value));
+
+  triageForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(triageForm);
+    const age = Number(data.get("age") || 45);
+    const height = Number(data.get("height") || 178);
+    const weight = Number(data.get("weight") || 85);
+    const duration = Number(data.get("duration") || 60);
+    const ride = String(data.get("ride") || "touring");
+    const pain = String(data.get("pain") || "pressure");
+
+    let complexity = 0;
+    if (duration <= 60) complexity += 2;
+    if (weight > 95 || weight < 65) complexity += 1;
+    if (height > 188 || height < 168) complexity += 1;
+    if (age >= 55) complexity += 1;
+    if (pain === "tailbone" || pain === "knees") complexity += 2;
+    if (pain === "heat" || ride === "summer") complexity -= 1;
+    complexity = clamp(complexity, 0, 7);
+
+    const loadBand = weight > 95 ? "höhere Schaumstützung prüfen" : weight < 65 ? "nicht zu hart aufbauen" : "mittlere Stützung plausibel";
+    const heightBand = height > 188 ? "Kniewinkel und Lenkerreichweite mitmessen" : height < 168 ? "Sitzhöhe und Bodenkontakt beachten" : "Standard-Ergonomie zuerst beobachten";
+
+    let recommendation = "3D-Mesh oder dünne Auflage zuerst testen";
+    let why = "Das Problem ist noch nicht eindeutig genug für einen teuren Blindkauf.";
+    if (pain === "heat" || ride === "summer") {
+      recommendation = "3D-Mesh, Hose und Bezug zuerst testen";
+      why = "Bei Hitze ist Luftzirkulation oft wichtiger als mehr Polster oder Gel.";
+    } else if (pain === "slide") {
+      recommendation = "Sitzwinkel, Bezug und Sattler-Check priorisieren";
+      why = "Vorrutschen wird durch mehr weichen Schaum oft schlechter.";
+    } else if (complexity >= 5) {
+      recommendation = "Sattler oder vermessener Komfortumbau";
+      why = "Körperdaten, frühe Schmerzzeit und Problemtyp sprechen für eine gezielte Formänderung.";
+    } else if (complexity >= 3 && ride === "touring") {
+      recommendation = "OEM/Aftermarket nur mit Rückgabe gegen Seriensitz vergleichen";
+      why = "Touring kann eine bessere Sitzform brauchen, aber teure Sitze müssen zur Anatomie passen.";
+    }
+
+    if (triageResult) {
+      triageResult.hidden = false;
+      triageResult.innerHTML = `
+        <span class="badge">Priorität ${complexity}/7</span>
+        <h3>${recommendation}</h3>
+        <p>${why}</p>
+        <div class="quick-facts">
+          <span><strong>Körperdaten</strong>${loadBand}; ${heightBand}</span>
+          <span><strong>Vorher messen</strong>Sitzhöhe, nutzbare Breite, Schmerzstelle, Temperatur und Fahrdauer</span>
+          <span><strong>Nicht tun</strong>Nicht mehrere Änderungen gleichzeitig testen und nicht blind Schaum wegschneiden</span>
+        </div>
+      `;
+    }
+  });
+</script>

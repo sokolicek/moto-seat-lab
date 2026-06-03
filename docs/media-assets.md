@@ -10,6 +10,7 @@ Moto Seat Lab stores every public image as a tracked media asset. The goal is to
 - `src/components/MediaAssetFigure.astro` renders images with stable sizing and optional attribution.
 - `src/lib/mediaAssets.ts` resolves images by `entityType`, `entityKey`, and `usage`.
 - `db/schema.sql` stores media assets in `media_assets` and entity links in `content_media_links`.
+- `/de/admin/assets/` shows the local asset register, including blocked manufacturer-image placeholders.
 
 ## Required Metadata
 
@@ -35,6 +36,8 @@ Every image needs:
 - `usable_without_required_attribution`: can be used commercially, attribution is optional but still useful in the asset register.
 - `placeholder_only`: local placeholder or illustration, not a real product image.
 - `permission_needed`: do not show publicly until written permission or an official API license exists.
+
+`permission_needed` records may stay in the database as planning entries, but public page helpers only return active assets.
 
 ## Adding A New Image
 

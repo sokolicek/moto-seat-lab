@@ -346,7 +346,7 @@ for (const asset of mediaAssets) {
     source_name, creator, license_name, license_code, license_url, rights_status,
     attribution_required, share_alike_required, modification_allowed,
     commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
-    dominant_color, aspect_ratio, object_position, recommended_usage, notes,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
     source_data, updated_at
   )
   VALUES (
@@ -375,6 +375,7 @@ for (const asset of mediaAssets) {
     ${sqlString(asset.objectPosition)},
     ${sqlJson(asset.recommendedUsage || [])},
     ${sqlString(asset.notes)},
+    ${sqlString(asset.status || "active")},
     ${sqlJson(asset)},
     now()
   )
@@ -403,6 +404,7 @@ for (const asset of mediaAssets) {
     object_position = EXCLUDED.object_position,
     recommended_usage = EXCLUDED.recommended_usage,
     notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();`);
 

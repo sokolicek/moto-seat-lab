@@ -2,6 +2,7 @@ import mediaAssets from "../data/media/media-assets.json";
 
 export type MediaAsset = (typeof mediaAssets)[number];
 
+export const mediaAssetRegistry = mediaAssets;
 export const allMediaAssets = mediaAssets.filter((asset) => asset.status === "active");
 
 export const getMediaByKey = (key: string) => allMediaAssets.find((asset) => asset.key === key);
