@@ -92,6 +92,63 @@ CREATE TABLE IF NOT EXISTS research_sources (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS motorcycle_technical_profiles (
+  motorcycle_slug text PRIMARY KEY REFERENCES motorcycles(slug) ON DELETE CASCADE,
+  seat_height_mm integer,
+  wet_weight_kg integer,
+  riding_triangle_status text NOT NULL DEFAULT 'research_needed',
+  usage_profile jsonb NOT NULL DEFAULT '[]'::jsonb,
+  seat_comfort_risks jsonb NOT NULL DEFAULT '[]'::jsonb,
+  required_measurements jsonb NOT NULL DEFAULT '[]'::jsonb,
+  notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS seat_materials (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  material_type text NOT NULL,
+  comfort_role text,
+  best_for text,
+  avoid_when text,
+  skill_level text,
+  price_band text,
+  durability_notes text,
+  research_status text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS workshop_tools (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  tool_type text NOT NULL,
+  skill_level text,
+  used_for text,
+  risk_notes text,
+  buying_notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS buying_channels (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  channel_type text NOT NULL,
+  country_code text REFERENCES countries(code) ON DELETE SET NULL,
+  best_for text,
+  affiliate_potential text,
+  trust_level integer CHECK (trust_level BETWEEN 1 AND 5),
+  notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
 CREATE TABLE IF NOT EXISTS import_runs (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   label text NOT NULL,
@@ -103,6 +160,10 @@ CREATE INDEX IF NOT EXISTS idx_motorcycles_brand ON motorcycles(brand);
 CREATE INDEX IF NOT EXISTS idx_motorcycles_status ON motorcycles(status);
 CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_slug ON seat_options(motorcycle_slug);
 CREATE INDEX IF NOT EXISTS idx_research_sources_motorcycle_slug ON research_sources(motorcycle_slug);
+CREATE INDEX IF NOT EXISTS idx_motorcycle_technical_profiles_status ON motorcycle_technical_profiles(riding_triangle_status);
+CREATE INDEX IF NOT EXISTS idx_seat_materials_type ON seat_materials(material_type);
+CREATE INDEX IF NOT EXISTS idx_workshop_tools_type ON workshop_tools(tool_type);
+CREATE INDEX IF NOT EXISTS idx_buying_channels_country ON buying_channels(country_code);
 
 CREATE OR REPLACE VIEW v_content_summary AS
 SELECT 'countries' AS item, count(*)::integer AS count FROM countries
@@ -117,7 +178,15 @@ SELECT 'product_categories', count(*)::integer FROM product_categories
 UNION ALL
 SELECT 'seat_options', count(*)::integer FROM seat_options
 UNION ALL
-SELECT 'research_sources', count(*)::integer FROM research_sources;
+SELECT 'research_sources', count(*)::integer FROM research_sources
+UNION ALL
+SELECT 'technical_profiles', count(*)::integer FROM motorcycle_technical_profiles
+UNION ALL
+SELECT 'seat_materials', count(*)::integer FROM seat_materials
+UNION ALL
+SELECT 'workshop_tools', count(*)::integer FROM workshop_tools
+UNION ALL
+SELECT 'buying_channels', count(*)::integer FROM buying_channels;
 
 CREATE OR REPLACE VIEW v_validation_issues AS
 SELECT
@@ -175,6 +244,34 @@ SELECT
   key,
   'product category has no buying checks'
 FROM product_categories
-WHERE buying_checks IS NULL OR jsonb_array_length(buying_checks) = 0;
+WHERE buying_checks IS NULL OR jsonb_array_length(buying_checks) = 0
+UNION ALL
+SELECT
+  'motorcycle_technical_profiles',
+  motorcycle_slug,
+  'technical profile has no required measurements'
+FROM motorcycle_technical_profiles
+WHERE required_measurements IS NULL OR jsonb_array_length(required_measurements) = 0
+UNION ALL
+SELECT
+  'seat_materials',
+  key,
+  'seat material has no comfort role'
+FROM seat_materials
+WHERE comfort_role IS NULL OR comfort_role = ''
+UNION ALL
+SELECT
+  'workshop_tools',
+  key,
+  'workshop tool has no risk notes'
+FROM workshop_tools
+WHERE risk_notes IS NULL OR risk_notes = ''
+UNION ALL
+SELECT
+  'buying_channels',
+  key,
+  'buying channel has no affiliate potential'
+FROM buying_channels
+WHERE affiliate_potential IS NULL OR affiliate_potential = '';
 
 COMMIT;

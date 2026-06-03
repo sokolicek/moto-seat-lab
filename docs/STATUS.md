@@ -73,6 +73,7 @@ MVP implementation started.
 - GSX-S1000GX solution and option sections made more scannable with decision strips, compact facts, and expandable detail blocks.
 - Local PostgreSQL database layer added with Docker Compose, schema, JSON seed import, Makefile commands, and optional Adminer.
 - Database validation views and `make db-check` added for local data quality checks after seeding.
+- Database seed expanded with technical motorcycle profiles, seat materials, workshop tools, and German buying channels.
 
 ## Not Started
 

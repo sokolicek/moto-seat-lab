@@ -777,6 +777,584 @@ INSERT INTO research_sources (
     '{"title":"Global forum seat pain research","url":"https://github.com/sokolicek/moto-seat-lab/blob/main/docs/research/global-forum-seat-pain-research.md","type":"research_note","confidence":2,"notes":"Anecdotal pain-point research, not product proof."}'::jsonb,
     now()
   );
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-gsx-s1000gx',
+    NULL,
+    NULL,
+    'research_needed',
+    '["sport_touring","country_road","highway","weekend_touring"]'::jsonb,
+    '["pressure_after_60_min","heat","forward_slide","knee_angle"]'::jsonb,
+    '["seat_height_mm","usable_seat_width_sitbone_zone_mm","seat_pan_slope_deg","footpeg_to_seat_vertical_mm","handlebar_reach_mm"]'::jsonb,
+    'Active pilot model. Official and measured values still need verification before numeric calculations.',
+    '{"motorcycleSlug":"suzuki-gsx-s1000gx","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["sport_touring","country_road","highway","weekend_touring"],"seatComfortRisks":["pressure_after_60_min","heat","forward_slide","knee_angle"],"requiredMeasurements":["seat_height_mm","usable_seat_width_sitbone_zone_mm","seat_pan_slope_deg","footpeg_to_seat_vertical_mm","handlebar_reach_mm"],"notes":"Active pilot model. Official and measured values still need verification before numeric calculations."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'bmw-r-1300-gs',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","two_up","long_distance"]'::jsonb,
+    '["seat_height","long_distance_pressure","passenger_comfort"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","handlebar_reach_mm","footpeg_position_mm"]'::jsonb,
+    'High-priority DACH model for future verified guide.',
+    '{"motorcycleSlug":"bmw-r-1300-gs","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","two_up","long_distance"],"seatComfortRisks":["seat_height","long_distance_pressure","passenger_comfort"],"requiredMeasurements":["seat_height_mm","seat_width_mm","handlebar_reach_mm","footpeg_position_mm"],"notes":"High-priority DACH model for future verified guide."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'bmw-r-1250-gs',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","used_market","two_up"]'::jsonb,
+    '["seat_height","accessory_choice_overload","long_distance_pressure"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","seat_options_oem_aftermarket"]'::jsonb,
+    'Large used market and many seat variants.',
+    '{"motorcycleSlug":"bmw-r-1250-gs","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","used_market","two_up"],"seatComfortRisks":["seat_height","accessory_choice_overload","long_distance_pressure"],"requiredMeasurements":["seat_height_mm","seat_width_mm","seat_options_oem_aftermarket"],"notes":"Large used market and many seat variants."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-tracer-9-9-gt',
+    NULL,
+    NULL,
+    'research_needed',
+    '["sport_touring","weekend_touring","country_road"]'::jsonb,
+    '["forward_slide","touring_pressure","wind_pressure"]'::jsonb,
+    '["seat_slope_deg","seat_height_mm","wind_pressure_notes"]'::jsonb,
+    'Useful comparison class for GSX-S1000GX.',
+    '{"motorcycleSlug":"yamaha-tracer-9-9-gt","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["sport_touring","weekend_touring","country_road"],"seatComfortRisks":["forward_slide","touring_pressure","wind_pressure"],"requiredMeasurements":["seat_slope_deg","seat_height_mm","wind_pressure_notes"],"notes":"Useful comparison class for GSX-S1000GX."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'honda-crf1100l-africa-twin',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure","travel","light_offroad"]'::jsonb,
+    '["seat_height","standing_transition","long_distance_pressure"]'::jsonb,
+    '["low_high_seat_positions","standing_clearance","seat_width_mm"]'::jsonb,
+    'Adventure/offroad movement changes seat requirements.',
+    '{"motorcycleSlug":"honda-crf1100l-africa-twin","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure","travel","light_offroad"],"seatComfortRisks":["seat_height","standing_transition","long_distance_pressure"],"requiredMeasurements":["low_high_seat_positions","standing_clearance","seat_width_mm"],"notes":"Adventure/offroad movement changes seat requirements."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    '3d_mesh_spacer_fabric',
+    '3D-Mesh / Abstandsgestrick',
+    'cover_addon',
+    'Luftzirkulation, Feuchtigkeitsabstand, leichter Druckausgleich',
+    'Sommer, Stadt, Touren bei Hitze, reversible Tests vor teuren Umbauten',
+    'Sitzhöhe ist bereits kritisch oder die Auflage rutscht auf dem Bezug',
+    'beginner',
+    'low_to_medium',
+    'Abhängig von Befestigung, UV-Belastung und Kantenverarbeitung.',
+    'category_validated',
+    '{"key":"3d_mesh_spacer_fabric","name":"3D-Mesh / Abstandsgestrick","materialType":"cover_addon","comfortRole":"Luftzirkulation, Feuchtigkeitsabstand, leichter Druckausgleich","bestFor":"Sommer, Stadt, Touren bei Hitze, reversible Tests vor teuren Umbauten","avoidWhen":"Sitzhöhe ist bereits kritisch oder die Auflage rutscht auf dem Bezug","skillLevel":"beginner","priceBand":"low_to_medium","durabilityNotes":"Abhängig von Befestigung, UV-Belastung und Kantenverarbeitung.","researchStatus":"category_validated"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'gel_insert',
+    'Gel-Einlage',
+    'insert',
+    'kurzfristige Druckverteilung für manche Fahrer',
+    'gezielte Druckminderung, wenn Hitze nicht das Hauptproblem ist',
+    'Sommerhitze, zu weicher Serienschaum, falsche Sitzform',
+    'intermediate',
+    'low_to_medium',
+    'Kanten, Dicke und Temperaturverhalten vor Einbau testen.',
+    'needs_product_testing',
+    '{"key":"gel_insert","name":"Gel-Einlage","materialType":"insert","comfortRole":"kurzfristige Druckverteilung für manche Fahrer","bestFor":"gezielte Druckminderung, wenn Hitze nicht das Hauptproblem ist","avoidWhen":"Sommerhitze, zu weicher Serienschaum, falsche Sitzform","skillLevel":"intermediate","priceBand":"low_to_medium","durabilityNotes":"Kanten, Dicke und Temperaturverhalten vor Einbau testen.","researchStatus":"needs_product_testing"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'pu_comfort_foam',
+    'PU-Komfortschaum',
+    'foam',
+    'Basis-Komfortlage, Formkorrektur, Druckverteilung',
+    'Sattlerumbau, gezielte Formänderung, längere Nutzung',
+    'ohne Messung einfach nur weicher gemacht werden soll',
+    'professional',
+    'medium',
+    'Dichte, Härte und Aufbau müssen zum Fahrergewicht passen.',
+    'needs_specification',
+    '{"key":"pu_comfort_foam","name":"PU-Komfortschaum","materialType":"foam","comfortRole":"Basis-Komfortlage, Formkorrektur, Druckverteilung","bestFor":"Sattlerumbau, gezielte Formänderung, längere Nutzung","avoidWhen":"ohne Messung einfach nur weicher gemacht werden soll","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Dichte, Härte und Aufbau müssen zum Fahrergewicht passen.","researchStatus":"needs_specification"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'memory_foam',
+    'Visco-/Memory-Schaum',
+    'foam',
+    'Anpassung an Körperform, weicheres Sitzgefühl',
+    'kurze bis mittlere Touren, wenn Einsinken kontrolliert bleibt',
+    'Hitze, sportliches Fahren oder wenn direkter Kontakt nötig ist',
+    'professional',
+    'medium',
+    'Temperaturabhängig; kann im Sommer anders wirken als im Frühjahr.',
+    'needs_testing',
+    '{"key":"memory_foam","name":"Visco-/Memory-Schaum","materialType":"foam","comfortRole":"Anpassung an Körperform, weicheres Sitzgefühl","bestFor":"kurze bis mittlere Touren, wenn Einsinken kontrolliert bleibt","avoidWhen":"Hitze, sportliches Fahren oder wenn direkter Kontakt nötig ist","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Temperaturabhängig; kann im Sommer anders wirken als im Frühjahr.","researchStatus":"needs_testing"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'anti_slip_cover',
+    'Rutschhemmender Bezug',
+    'cover',
+    'weniger Vorrutschen, stabilere Sitzposition',
+    'Rutschen nach vorne, sportliches Touring, häufiges Bremsen',
+    'zu viel Bewegungsfreiheit auf Landstraße gebraucht wird',
+    'professional',
+    'medium',
+    'Abrieb, Wasseraufnahme, Nähte und Reinigung prüfen.',
+    'needs_supplier_data',
+    '{"key":"anti_slip_cover","name":"Rutschhemmender Bezug","materialType":"cover","comfortRole":"weniger Vorrutschen, stabilere Sitzposition","bestFor":"Rutschen nach vorne, sportliches Touring, häufiges Bremsen","avoidWhen":"zu viel Bewegungsfreiheit auf Landstraße gebraucht wird","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Abrieb, Wasseraufnahme, Nähte und Reinigung prüfen.","researchStatus":"needs_supplier_data"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'seat_heating_pad',
+    'Sitzheizungs-Matte',
+    'electrical',
+    'Winterkomfort, Temperaturstabilität',
+    'kalte Länder, Pendeln, lange Touren im Frühjahr/Herbst',
+    'keine saubere elektrische Absicherung und Abdichtung möglich ist',
+    'professional',
+    'medium_to_high',
+    'Elektrik, Wasserdichtigkeit und Garantie immer vorab klären.',
+    'needs_safety_review',
+    '{"key":"seat_heating_pad","name":"Sitzheizungs-Matte","materialType":"electrical","comfortRole":"Winterkomfort, Temperaturstabilität","bestFor":"kalte Länder, Pendeln, lange Touren im Frühjahr/Herbst","avoidWhen":"keine saubere elektrische Absicherung und Abdichtung möglich ist","skillLevel":"professional","priceBand":"medium_to_high","durabilityNotes":"Elektrik, Wasserdichtigkeit und Garantie immer vorab klären.","researchStatus":"needs_safety_review"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'staple_remover',
+    'Klammerentferner',
+    'disassembly',
+    'beginner',
+    'alte Bezugsklammern sauber entfernen',
+    'Sitzwanne nicht beschädigen, Schutzbrille verwenden.',
+    'Stabiler Griff und flache Spitze sind wichtiger als ein billiges Set.',
+    '{"key":"staple_remover","name":"Klammerentferner","toolType":"disassembly","skillLevel":"beginner","usedFor":"alte Bezugsklammern sauber entfernen","riskNotes":"Sitzwanne nicht beschädigen, Schutzbrille verwenden.","buyingNotes":"Stabiler Griff und flache Spitze sind wichtiger als ein billiges Set."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'electric_stapler',
+    'Elektro- oder Drucklufttacker',
+    'assembly',
+    'intermediate',
+    'Bezug wieder an der Sitzwanne befestigen',
+    'Zu lange Klammern können Sitzwanne oder Bezug beschädigen.',
+    'Vorher Klammerlänge und Material der Sitzwanne prüfen.',
+    '{"key":"electric_stapler","name":"Elektro- oder Drucklufttacker","toolType":"assembly","skillLevel":"intermediate","usedFor":"Bezug wieder an der Sitzwanne befestigen","riskNotes":"Zu lange Klammern können Sitzwanne oder Bezug beschädigen.","buyingNotes":"Vorher Klammerlänge und Material der Sitzwanne prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'foam_knife',
+    'Schaummesser / elektrisches Messer',
+    'foam_shaping',
+    'intermediate',
+    'Schaum grob schneiden und Übergänge formen',
+    'Zu viel Material ist schnell weg; immer in kleinen Schritten arbeiten.',
+    'Erst an Reststücken üben.',
+    '{"key":"foam_knife","name":"Schaummesser / elektrisches Messer","toolType":"foam_shaping","skillLevel":"intermediate","usedFor":"Schaum grob schneiden und Übergänge formen","riskNotes":"Zu viel Material ist schnell weg; immer in kleinen Schritten arbeiten.","buyingNotes":"Erst an Reststücken üben."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'spray_adhesive',
+    'Kontakt- oder Sprühkleber',
+    'adhesive',
+    'intermediate',
+    'Schaumlagen und Bezugshilfen fixieren',
+    'Lüftung, Temperatur, Ablüftzeit und Materialverträglichkeit beachten.',
+    'Nur Kleber verwenden, der für Schaum und Bezugsmaterial geeignet ist.',
+    '{"key":"spray_adhesive","name":"Kontakt- oder Sprühkleber","toolType":"adhesive","skillLevel":"intermediate","usedFor":"Schaumlagen und Bezugshilfen fixieren","riskNotes":"Lüftung, Temperatur, Ablüftzeit und Materialverträglichkeit beachten.","buyingNotes":"Nur Kleber verwenden, der für Schaum und Bezugsmaterial geeignet ist."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'measuring_tape_marker',
+    'Maßband und Markierstift',
+    'measurement',
+    'beginner',
+    'Sitzbreite, Kanten, Schmerzpunkte und Änderungen dokumentieren',
+    'Ohne Vorher-Nachher-Maße ist ein Umbau schwer vergleichbar.',
+    'Einfaches Werkzeug, aber für reproduzierbare Tests zentral.',
+    '{"key":"measuring_tape_marker","name":"Maßband und Markierstift","toolType":"measurement","skillLevel":"beginner","usedFor":"Sitzbreite, Kanten, Schmerzpunkte und Änderungen dokumentieren","riskNotes":"Ohne Vorher-Nachher-Maße ist ein Umbau schwer vergleichbar.","buyingNotes":"Einfaches Werkzeug, aber für reproduzierbare Tests zentral."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'heat_gun',
+    'Heißluftföhn',
+    'cover_work',
+    'advanced',
+    'Bezug vorsichtig anpassen und Falten reduzieren',
+    'Überhitzung kann Bezug, Nähte oder Schaum zerstören.',
+    'Nur mit Temperaturkontrolle und viel Abstand verwenden.',
+    '{"key":"heat_gun","name":"Heißluftföhn","toolType":"cover_work","skillLevel":"advanced","usedFor":"Bezug vorsichtig anpassen und Falten reduzieren","riskNotes":"Überhitzung kann Bezug, Nähte oder Schaum zerstören.","buyingNotes":"Nur mit Temperaturkontrolle und viel Abstand verwenden."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    'suzuki_dealer_de',
+    'Suzuki Vertragshändler',
+    'oem_dealer',
+    'de',
+    'OEM Zubehör, Teilenummern, Passformklärung, Garantiefragen',
+    'low',
+    4,
+    'Wichtig für Premium-Sitz und offizielle Zubehörteile.',
+    '{"key":"suzuki_dealer_de","name":"Suzuki Vertragshändler","channelType":"oem_dealer","country":"DE","bestFor":"OEM Zubehör, Teilenummern, Passformklärung, Garantiefragen","affiliatePotential":"low","trustLevel":4,"notes":"Wichtig für Premium-Sitz und offizielle Zubehörteile."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    'amazon_de',
+    'Amazon.de',
+    'marketplace',
+    'de',
+    '3D-Mesh, einfache Auflagen, Werkzeug, schnelle Rückgabe',
+    'high',
+    3,
+    'Gut für reversible Tests, aber Produktqualität stark prüfen.',
+    '{"key":"amazon_de","name":"Amazon.de","channelType":"marketplace","country":"DE","bestFor":"3D-Mesh, einfache Auflagen, Werkzeug, schnelle Rückgabe","affiliatePotential":"high","trustLevel":3,"notes":"Gut für reversible Tests, aber Produktqualität stark prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    'louis_de',
+    'Louis',
+    'motorcycle_retailer',
+    'de',
+    'Motorradzubehör, Auflagen, Werkzeug, Filialberatung',
+    'medium',
+    4,
+    'Relevanter deutscher Händler für spätere Produktkarten.',
+    '{"key":"louis_de","name":"Louis","channelType":"motorcycle_retailer","country":"DE","bestFor":"Motorradzubehör, Auflagen, Werkzeug, Filialberatung","affiliatePotential":"medium","trustLevel":4,"notes":"Relevanter deutscher Händler für spätere Produktkarten."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    'polo_de',
+    'Polo Motorrad',
+    'motorcycle_retailer',
+    'de',
+    'Motorradzubehör, Werkzeug, Bekleidung und Komforttests',
+    'medium',
+    4,
+    'Interessant für Preisvergleiche und stationären Kauf.',
+    '{"key":"polo_de","name":"Polo Motorrad","channelType":"motorcycle_retailer","country":"DE","bestFor":"Motorradzubehör, Werkzeug, Bekleidung und Komforttests","affiliatePotential":"medium","trustLevel":4,"notes":"Interessant für Preisvergleiche und stationären Kauf."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    'local_upholsterer_de',
+    'Lokaler Sitzbank-Sattler',
+    'service_provider',
+    'de',
+    'individuelle Form, Schaumaufbau, Bezug, Sitzheizung',
+    'service_directory',
+    3,
+    'Später als kuratiertes Verzeichnis mit Fotos, Regionen und Spezialisierung.',
+    '{"key":"local_upholsterer_de","name":"Lokaler Sitzbank-Sattler","channelType":"service_provider","country":"DE","bestFor":"individuelle Form, Schaumaufbau, Bezug, Sitzheizung","affiliatePotential":"service_directory","trustLevel":3,"notes":"Später als kuratiertes Verzeichnis mit Fotos, Regionen und Spezialisierung."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5}'::jsonb);
 COMMIT;

@@ -45,3 +45,7 @@ Current checks include:
 - research sources must have URLs,
 - solution paths must have a cost band,
 - product categories must have buying checks.
+- technical profiles must have required measurements,
+- seat materials must have a comfort role,
+- workshop tools must have risk notes,
+- buying channels must have affiliate potential.

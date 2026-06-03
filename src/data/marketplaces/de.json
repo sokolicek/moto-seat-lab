@@ -1,0 +1,52 @@
+[
+  {
+    "key": "suzuki_dealer_de",
+    "name": "Suzuki Vertragshändler",
+    "channelType": "oem_dealer",
+    "country": "DE",
+    "bestFor": "OEM Zubehör, Teilenummern, Passformklärung, Garantiefragen",
+    "affiliatePotential": "low",
+    "trustLevel": 4,
+    "notes": "Wichtig für Premium-Sitz und offizielle Zubehörteile."
+  },
+  {
+    "key": "amazon_de",
+    "name": "Amazon.de",
+    "channelType": "marketplace",
+    "country": "DE",
+    "bestFor": "3D-Mesh, einfache Auflagen, Werkzeug, schnelle Rückgabe",
+    "affiliatePotential": "high",
+    "trustLevel": 3,
+    "notes": "Gut für reversible Tests, aber Produktqualität stark prüfen."
+  },
+  {
+    "key": "louis_de",
+    "name": "Louis",
+    "channelType": "motorcycle_retailer",
+    "country": "DE",
+    "bestFor": "Motorradzubehör, Auflagen, Werkzeug, Filialberatung",
+    "affiliatePotential": "medium",
+    "trustLevel": 4,
+    "notes": "Relevanter deutscher Händler für spätere Produktkarten."
+  },
+  {
+    "key": "polo_de",
+    "name": "Polo Motorrad",
+    "channelType": "motorcycle_retailer",
+    "country": "DE",
+    "bestFor": "Motorradzubehör, Werkzeug, Bekleidung und Komforttests",
+    "affiliatePotential": "medium",
+    "trustLevel": 4,
+    "notes": "Interessant für Preisvergleiche und stationären Kauf."
+  },
+  {
+    "key": "local_upholsterer_de",
+    "name": "Lokaler Sitzbank-Sattler",
+    "channelType": "service_provider",
+    "country": "DE",
+    "bestFor": "individuelle Form, Schaumaufbau, Bezug, Sitzheizung",
+    "affiliatePotential": "service_directory",
+    "trustLevel": 3,
+    "notes": "Später als kuratiertes Verzeichnis mit Fotos, Regionen und Spezialisierung."
+  }
+]

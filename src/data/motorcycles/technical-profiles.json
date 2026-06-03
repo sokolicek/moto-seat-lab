@@ -1,0 +1,58 @@
+[
+  {
+    "motorcycleSlug": "suzuki-gsx-s1000gx",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["sport_touring", "country_road", "highway", "weekend_touring"],
+    "seatComfortRisks": ["pressure_after_60_min", "heat", "forward_slide", "knee_angle"],
+    "requiredMeasurements": [
+      "seat_height_mm",
+      "usable_seat_width_sitbone_zone_mm",
+      "seat_pan_slope_deg",
+      "footpeg_to_seat_vertical_mm",
+      "handlebar_reach_mm"
+    ],
+    "notes": "Active pilot model. Official and measured values still need verification before numeric calculations."
+  },
+  {
+    "motorcycleSlug": "bmw-r-1300-gs",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "two_up", "long_distance"],
+    "seatComfortRisks": ["seat_height", "long_distance_pressure", "passenger_comfort"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "handlebar_reach_mm", "footpeg_position_mm"],
+    "notes": "High-priority DACH model for future verified guide."
+  },
+  {
+    "motorcycleSlug": "bmw-r-1250-gs",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "used_market", "two_up"],
+    "seatComfortRisks": ["seat_height", "accessory_choice_overload", "long_distance_pressure"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "seat_options_oem_aftermarket"],
+    "notes": "Large used market and many seat variants."
+  },
+  {
+    "motorcycleSlug": "yamaha-tracer-9-9-gt",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["sport_touring", "weekend_touring", "country_road"],
+    "seatComfortRisks": ["forward_slide", "touring_pressure", "wind_pressure"],
+    "requiredMeasurements": ["seat_slope_deg", "seat_height_mm", "wind_pressure_notes"],
+    "notes": "Useful comparison class for GSX-S1000GX."
+  },
+  {
+    "motorcycleSlug": "honda-crf1100l-africa-twin",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure", "travel", "light_offroad"],
+    "seatComfortRisks": ["seat_height", "standing_transition", "long_distance_pressure"],
+    "requiredMeasurements": ["low_high_seat_positions", "standing_clearance", "seat_width_mm"],
+    "notes": "Adventure/offroad movement changes seat requirements."
+  }
+]

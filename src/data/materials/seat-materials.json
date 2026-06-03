@@ -1,0 +1,74 @@
+[
+  {
+    "key": "3d_mesh_spacer_fabric",
+    "name": "3D-Mesh / Abstandsgestrick",
+    "materialType": "cover_addon",
+    "comfortRole": "Luftzirkulation, Feuchtigkeitsabstand, leichter Druckausgleich",
+    "bestFor": "Sommer, Stadt, Touren bei Hitze, reversible Tests vor teuren Umbauten",
+    "avoidWhen": "Sitzhöhe ist bereits kritisch oder die Auflage rutscht auf dem Bezug",
+    "skillLevel": "beginner",
+    "priceBand": "low_to_medium",
+    "durabilityNotes": "Abhängig von Befestigung, UV-Belastung und Kantenverarbeitung.",
+    "researchStatus": "category_validated"
+  },
+  {
+    "key": "gel_insert",
+    "name": "Gel-Einlage",
+    "materialType": "insert",
+    "comfortRole": "kurzfristige Druckverteilung für manche Fahrer",
+    "bestFor": "gezielte Druckminderung, wenn Hitze nicht das Hauptproblem ist",
+    "avoidWhen": "Sommerhitze, zu weicher Serienschaum, falsche Sitzform",
+    "skillLevel": "intermediate",
+    "priceBand": "low_to_medium",
+    "durabilityNotes": "Kanten, Dicke und Temperaturverhalten vor Einbau testen.",
+    "researchStatus": "needs_product_testing"
+  },
+  {
+    "key": "pu_comfort_foam",
+    "name": "PU-Komfortschaum",
+    "materialType": "foam",
+    "comfortRole": "Basis-Komfortlage, Formkorrektur, Druckverteilung",
+    "bestFor": "Sattlerumbau, gezielte Formänderung, längere Nutzung",
+    "avoidWhen": "ohne Messung einfach nur weicher gemacht werden soll",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Dichte, Härte und Aufbau müssen zum Fahrergewicht passen.",
+    "researchStatus": "needs_specification"
+  },
+  {
+    "key": "memory_foam",
+    "name": "Visco-/Memory-Schaum",
+    "materialType": "foam",
+    "comfortRole": "Anpassung an Körperform, weicheres Sitzgefühl",
+    "bestFor": "kurze bis mittlere Touren, wenn Einsinken kontrolliert bleibt",
+    "avoidWhen": "Hitze, sportliches Fahren oder wenn direkter Kontakt nötig ist",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Temperaturabhängig; kann im Sommer anders wirken als im Frühjahr.",
+    "researchStatus": "needs_testing"
+  },
+  {
+    "key": "anti_slip_cover",
+    "name": "Rutschhemmender Bezug",
+    "materialType": "cover",
+    "comfortRole": "weniger Vorrutschen, stabilere Sitzposition",
+    "bestFor": "Rutschen nach vorne, sportliches Touring, häufiges Bremsen",
+    "avoidWhen": "zu viel Bewegungsfreiheit auf Landstraße gebraucht wird",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Abrieb, Wasseraufnahme, Nähte und Reinigung prüfen.",
+    "researchStatus": "needs_supplier_data"
+  },
+  {
+    "key": "seat_heating_pad",
+    "name": "Sitzheizungs-Matte",
+    "materialType": "electrical",
+    "comfortRole": "Winterkomfort, Temperaturstabilität",
+    "bestFor": "kalte Länder, Pendeln, lange Touren im Frühjahr/Herbst",
+    "avoidWhen": "keine saubere elektrische Absicherung und Abdichtung möglich ist",
+    "skillLevel": "professional",
+    "priceBand": "medium_to_high",
+    "durabilityNotes": "Elektrik, Wasserdichtigkeit und Garantie immer vorab klären.",
+    "researchStatus": "needs_safety_review"
+  }
+]

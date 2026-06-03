@@ -32,6 +32,10 @@ const solutionPaths = await readJson("src/data/solution-paths/seat-comfort.json"
 const productCategories = await readJson("src/data/product-categories/seat-comfort.json");
 const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
 const countryProfile = await readJson("src/data/country-profiles/de.json");
+const technicalProfiles = await readJson("src/data/motorcycles/technical-profiles.json");
+const seatMaterials = await readJson("src/data/materials/seat-materials.json");
+const workshopTools = await readJson("src/data/tools/seat-tools.json");
+const buyingChannels = await readJson("src/data/marketplaces/de.json");
 const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
 
 add("BEGIN;");
@@ -212,6 +216,127 @@ for (const source of sources) {
   );`);
 }
 counts.research_sources = sources.length;
+
+for (const profile of technicalProfiles) {
+  add(`INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(profile.motorcycleSlug)},
+    ${profile.seatHeightMm ?? "NULL"},
+    ${profile.wetWeightKg ?? "NULL"},
+    ${sqlString(profile.ridingTriangleStatus)},
+    ${sqlJson(profile.usageProfile || [])},
+    ${sqlJson(profile.seatComfortRisks || [])},
+    ${sqlJson(profile.requiredMeasurements || [])},
+    ${sqlString(profile.notes)},
+    ${sqlJson(profile)},
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.technical_profiles = technicalProfiles.length;
+
+for (const material of seatMaterials) {
+  add(`INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(material.key)},
+    ${sqlString(material.name)},
+    ${sqlString(material.materialType)},
+    ${sqlString(material.comfortRole)},
+    ${sqlString(material.bestFor)},
+    ${sqlString(material.avoidWhen)},
+    ${sqlString(material.skillLevel)},
+    ${sqlString(material.priceBand)},
+    ${sqlString(material.durabilityNotes)},
+    ${sqlString(material.researchStatus)},
+    ${sqlJson(material)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.seat_materials = seatMaterials.length;
+
+for (const tool of workshopTools) {
+  add(`INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(tool.key)},
+    ${sqlString(tool.name)},
+    ${sqlString(tool.toolType)},
+    ${sqlString(tool.skillLevel)},
+    ${sqlString(tool.usedFor)},
+    ${sqlString(tool.riskNotes)},
+    ${sqlString(tool.buyingNotes)},
+    ${sqlJson(tool)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.workshop_tools = workshopTools.length;
+
+for (const channel of buyingChannels) {
+  add(`INSERT INTO buying_channels (
+    key, name, channel_type, country_code, best_for, affiliate_potential,
+    trust_level, notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(channel.key)},
+    ${sqlString(channel.name)},
+    ${sqlString(channel.channelType)},
+    ${sqlString((channel.country || "DE").toLowerCase())},
+    ${sqlString(channel.bestFor)},
+    ${sqlString(channel.affiliatePotential)},
+    ${channel.trustLevel ?? "NULL"},
+    ${sqlString(channel.notes)},
+    ${sqlJson(channel)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    channel_type = EXCLUDED.channel_type,
+    country_code = EXCLUDED.country_code,
+    best_for = EXCLUDED.best_for,
+    affiliate_potential = EXCLUDED.affiliate_potential,
+    trust_level = EXCLUDED.trust_level,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.buying_channels = buyingChannels.length;
 
 add(`INSERT INTO import_runs (label, row_counts)
 VALUES ('json seed import', ${sqlJson(counts)});`);

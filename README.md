@@ -141,6 +141,10 @@ The seed imports the current JSON content into PostgreSQL tables:
 - `product_categories`
 - `seat_options`
 - `research_sources`
+- `motorcycle_technical_profiles`
+- `seat_materials`
+- `workshop_tools`
+- `buying_channels`
 
 Open a shell:
 

@@ -1,0 +1,56 @@
+[
+  {
+    "key": "staple_remover",
+    "name": "Klammerentferner",
+    "toolType": "disassembly",
+    "skillLevel": "beginner",
+    "usedFor": "alte Bezugsklammern sauber entfernen",
+    "riskNotes": "Sitzwanne nicht beschädigen, Schutzbrille verwenden.",
+    "buyingNotes": "Stabiler Griff und flache Spitze sind wichtiger als ein billiges Set."
+  },
+  {
+    "key": "electric_stapler",
+    "name": "Elektro- oder Drucklufttacker",
+    "toolType": "assembly",
+    "skillLevel": "intermediate",
+    "usedFor": "Bezug wieder an der Sitzwanne befestigen",
+    "riskNotes": "Zu lange Klammern können Sitzwanne oder Bezug beschädigen.",
+    "buyingNotes": "Vorher Klammerlänge und Material der Sitzwanne prüfen."
+  },
+  {
+    "key": "foam_knife",
+    "name": "Schaummesser / elektrisches Messer",
+    "toolType": "foam_shaping",
+    "skillLevel": "intermediate",
+    "usedFor": "Schaum grob schneiden und Übergänge formen",
+    "riskNotes": "Zu viel Material ist schnell weg; immer in kleinen Schritten arbeiten.",
+    "buyingNotes": "Erst an Reststücken üben."
+  },
+  {
+    "key": "spray_adhesive",
+    "name": "Kontakt- oder Sprühkleber",
+    "toolType": "adhesive",
+    "skillLevel": "intermediate",
+    "usedFor": "Schaumlagen und Bezugshilfen fixieren",
+    "riskNotes": "Lüftung, Temperatur, Ablüftzeit und Materialverträglichkeit beachten.",
+    "buyingNotes": "Nur Kleber verwenden, der für Schaum und Bezugsmaterial geeignet ist."
+  },
+  {
+    "key": "measuring_tape_marker",
+    "name": "Maßband und Markierstift",
+    "toolType": "measurement",
+    "skillLevel": "beginner",
+    "usedFor": "Sitzbreite, Kanten, Schmerzpunkte und Änderungen dokumentieren",
+    "riskNotes": "Ohne Vorher-Nachher-Maße ist ein Umbau schwer vergleichbar.",
+    "buyingNotes": "Einfaches Werkzeug, aber für reproduzierbare Tests zentral."
+  },
+  {
+    "key": "heat_gun",
+    "name": "Heißluftföhn",
+    "toolType": "cover_work",
+    "skillLevel": "advanced",
+    "usedFor": "Bezug vorsichtig anpassen und Falten reduzieren",
+    "riskNotes": "Überhitzung kann Bezug, Nähte oder Schaum zerstören.",
+    "buyingNotes": "Nur mit Temperaturkontrolle und viel Abstand verwenden."
+  }
+]
