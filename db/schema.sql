@@ -104,4 +104,77 @@ CREATE INDEX IF NOT EXISTS idx_motorcycles_status ON motorcycles(status);
 CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_slug ON seat_options(motorcycle_slug);
 CREATE INDEX IF NOT EXISTS idx_research_sources_motorcycle_slug ON research_sources(motorcycle_slug);
 
+CREATE OR REPLACE VIEW v_content_summary AS
+SELECT 'countries' AS item, count(*)::integer AS count FROM countries
+UNION ALL
+SELECT 'motorcycles', count(*)::integer FROM motorcycles
+UNION ALL
+SELECT 'active_motorcycles', count(*)::integer FROM motorcycles WHERE status = 'active'
+UNION ALL
+SELECT 'solution_paths', count(*)::integer FROM solution_paths
+UNION ALL
+SELECT 'product_categories', count(*)::integer FROM product_categories
+UNION ALL
+SELECT 'seat_options', count(*)::integer FROM seat_options
+UNION ALL
+SELECT 'research_sources', count(*)::integer FROM research_sources;
+
+CREATE OR REPLACE VIEW v_validation_issues AS
+SELECT
+  'motorcycles' AS table_name,
+  slug AS record_key,
+  'active motorcycle has no guide_path' AS issue
+FROM motorcycles
+WHERE status = 'active'
+  AND (guide_path IS NULL OR guide_path = '')
+UNION ALL
+SELECT
+  'seat_options',
+  key,
+  'seat option has no motorcycle_slug'
+FROM seat_options
+WHERE motorcycle_slug IS NULL
+UNION ALL
+SELECT
+  'seat_options',
+  key,
+  'seat option has no source_url'
+FROM seat_options
+WHERE source_url IS NULL OR source_url = ''
+UNION ALL
+SELECT
+  'seat_options',
+  key,
+  'seat option has no image_path'
+FROM seat_options
+WHERE image_path IS NULL OR image_path = ''
+UNION ALL
+SELECT
+  'seat_options',
+  key,
+  'seat option confidence is missing'
+FROM seat_options
+WHERE confidence IS NULL
+UNION ALL
+SELECT
+  'research_sources',
+  title,
+  'research source has no URL'
+FROM research_sources
+WHERE url IS NULL OR url = ''
+UNION ALL
+SELECT
+  'solution_paths',
+  key,
+  'solution path has no cost band'
+FROM solution_paths
+WHERE cost IS NULL OR cost = ''
+UNION ALL
+SELECT
+  'product_categories',
+  key,
+  'product category has no buying checks'
+FROM product_categories
+WHERE buying_checks IS NULL OR jsonb_array_length(buying_checks) = 0;
+
 COMMIT;

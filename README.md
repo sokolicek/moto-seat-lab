@@ -130,6 +130,7 @@ Requires Docker Desktop.
 copy .env.example .env
 make db-up
 make db-seed
+make db-check
 ```
 
 The seed imports the current JSON content into PostgreSQL tables:

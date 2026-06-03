@@ -14,6 +14,7 @@ The current database is intentionally simple:
 copy .env.example .env
 make db-up
 make db-seed
+make db-check
 make db-psql
 ```
 
@@ -32,3 +33,15 @@ Use:
 - Username: `motoseatlab`
 - Password: `motoseatlab_dev`
 - Database: `motoseatlab`
+
+## Validation
+
+`make db-check` prints `v_content_summary`, lists `v_validation_issues`, and exits with a failure when required editorial fields are missing.
+
+Current checks include:
+
+- active motorcycles must have a guide path,
+- seat options must have a motorcycle, source URL, image, and confidence,
+- research sources must have URLs,
+- solution paths must have a cost band,
+- product categories must have buying checks.

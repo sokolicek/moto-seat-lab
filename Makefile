@@ -1,4 +1,4 @@
-.PHONY: dev build check db-up db-down db-logs db-seed db-reset db-psql db-adminer
+.PHONY: dev build check db-up db-down db-logs db-seed db-check db-reset db-psql db-adminer
 
 dev:
 	npm run dev
@@ -20,6 +20,9 @@ db-logs:
 
 db-seed:
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-seed.ps1
+
+db-check:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-check.ps1
 
 db-reset:
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-reset.ps1
