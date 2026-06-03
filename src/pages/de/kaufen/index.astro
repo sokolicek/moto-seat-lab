@@ -1,10 +1,26 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LabDataCard from "../../../components/LabDataCard.astro";
 import ProductCategoryCard from "../../../components/ProductCategoryCard.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import productCategories from "../../../data/product-categories/seat-comfort.json";
 import seatOptions from "../../../data/products/gsx-s1000gx-seat-options.json";
+import buyingChannels from "../../../data/marketplaces/de.json";
 import disclosures from "../../../data/disclosures/de.json";
+
+const affiliateLabel: Record<string, string> = {
+  low: "Affiliate niedrig",
+  medium: "Affiliate möglich",
+  high: "Affiliate stark",
+  service_directory: "Service-Verzeichnis",
+};
+
+const channelLabel: Record<string, string> = {
+  oem_dealer: "OEM Händler",
+  marketplace: "Marktplatz",
+  motorcycle_retailer: "Motorradhandel",
+  service_provider: "Sattler / Service",
+};
 ---
 
 <BaseLayout
@@ -65,6 +81,35 @@ import disclosures from "../../../data/disclosures/de.json";
   <section class="section">
     <div class="page-inner grid">
       {productCategories.map((category) => <ProductCategoryCard {...category} />)}
+    </div>
+  </section>
+
+  <section class="section alt" id="kaufkanaele">
+    <div class="page-inner">
+      <p class="eyebrow">Deutschland Datenbank</p>
+      <h2>Kaufkanäle nach Zweck, nicht nach Werbung.</h2>
+      <p class="lead">
+        Der Kaufpfad trennt bewusst OEM, Marktplatz, Motorradhandel und Sattler. So kann Moto Seat Lab später
+        echte Preise, Rückgabe, Affiliate-Status und Vertrauensniveau sauber vergleichen.
+      </p>
+      <div class="lab-data-grid">
+        {buyingChannels.map((channel) => (
+          <LabDataCard
+            eyebrow={channelLabel[channel.channelType] ?? channel.channelType}
+            title={channel.name}
+            summary={channel.bestFor}
+            badges={[affiliateLabel[channel.affiliatePotential] ?? channel.affiliatePotential]}
+            facts={[
+              { label: "Land", value: channel.country },
+              { label: "Vertrauen", value: `${channel.trustLevel}/5` },
+              { label: "Am besten für", value: channel.bestFor },
+            ]}
+            detailTitle="Notiz für spätere Produktkarten"
+            detailItems={[channel.notes]}
+            tone={channel.trustLevel >= 4 ? "success" : "default"}
+          />
+        ))}
+      </div>
     </div>
   </section>
 

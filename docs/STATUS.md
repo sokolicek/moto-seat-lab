@@ -1,6 +1,6 @@
 # Project Status
 
-Date: 2026-06-02
+Date: 2026-06-03
 
 ## Phase
 
@@ -74,6 +74,7 @@ MVP implementation started.
 - Local PostgreSQL database layer added with Docker Compose, schema, JSON seed import, Makefile commands, and optional Adminer.
 - Database validation views and `make db-check` added for local data quality checks after seeding.
 - Database seed expanded with technical motorcycle profiles, seat materials, workshop tools, and German buying channels.
+- Website pages now expose the expanded seed data as unified lab cards: DIY materials, workshop tools, German buying channels, and technical motorcycle profile readiness.
 
 ## Not Started
 

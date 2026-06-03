@@ -1,9 +1,61 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LabDataCard from "../../../components/LabDataCard.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
+import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
 
 const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
 const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status !== "active");
+const slugifyMotorcycleName = (name: string) => name.toLowerCase().replaceAll("/", "").replaceAll(" ", "-");
+const motorcyclesBySlug = new Map(
+  motorcycles.map((motorcycle) => {
+    const slug = motorcycle.path.split("/").filter(Boolean).at(-1) ?? slugifyMotorcycleName(motorcycle.name);
+    return [slug, motorcycle];
+  })
+);
+
+const profileLabel: Record<string, string> = {
+  sport_touring: "Sport-Touring",
+  country_road: "Landstraße",
+  highway: "Autobahn",
+  weekend_touring: "Wochenende",
+  adventure_touring: "Adventure Touring",
+  two_up: "Sozius",
+  long_distance: "Langstrecke",
+  used_market: "Gebrauchtmarkt",
+  adventure: "Adventure",
+  travel: "Reise",
+  light_offroad: "leichtes Gelände",
+};
+
+const riskLabel: Record<string, string> = {
+  pressure_after_60_min: "Druck nach 60 Min.",
+  heat: "Hitze",
+  forward_slide: "Vorrutschen",
+  knee_angle: "Kniewinkel",
+  seat_height: "Sitzhöhe",
+  long_distance_pressure: "Langstreckendruck",
+  passenger_comfort: "Soziuskomfort",
+  accessory_choice_overload: "zu viele Zubehör-Optionen",
+  touring_pressure: "Touring-Druck",
+  wind_pressure: "Winddruck",
+  standing_transition: "Sitzen/Stehen Wechsel",
+};
+
+const measurementLabel: Record<string, string> = {
+  seat_height_mm: "Sitzhöhe",
+  usable_seat_width_sitbone_zone_mm: "nutzbare Breite im Sitzknochenbereich",
+  seat_pan_slope_deg: "Sitzwannenneigung",
+  footpeg_to_seat_vertical_mm: "Fußrasten-Sitz-Höhe",
+  handlebar_reach_mm: "Lenkerreichweite",
+  seat_width_mm: "Sitzbreite",
+  footpeg_position_mm: "Fußrastenposition",
+  seat_options_oem_aftermarket: "OEM/Aftermarket Sitzoptionen",
+  seat_slope_deg: "Sitzneigung",
+  wind_pressure_notes: "Winddruck-Notizen",
+  low_high_seat_positions: "niedrige/hohe Sitzposition",
+  standing_clearance: "Stehfreiheit",
+};
 ---
 
 <BaseLayout
@@ -72,7 +124,7 @@ const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status 
       <h2>Geplante Motorradmodelle</h2>
       <p class="lead">
         Diese Modelle sind Platzhalter für die nächsten Daten- und Content-Sprints. Reihenfolge und Auswahl
-        koennen wir nach Nachfrage, Land und Affiliate-Potenzial anpassen.
+        können wir nach Nachfrage, Land und Affiliate-Potenzial anpassen.
       </p>
       <div class="grid">
         {plannedMotorcycles.map((motorcycle) => (
@@ -85,6 +137,41 @@ const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status 
             <span class="badge">geplant</span>
           </article>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="technikprofile">
+    <div class="page-inner">
+      <p class="eyebrow">Technische Profile</p>
+      <h2>Vorbereitet für spätere Komfort-Berechnungen.</h2>
+      <p class="lead">
+        Die Zahlen sind noch nicht verifiziert. Genau deshalb zeigt die Seite jetzt offen, welche Messungen
+        fehlen, bevor Sitzdruck, Kniewinkel oder Langstreckenrisiko seriös berechnet werden.
+      </p>
+      <div class="lab-data-grid">
+        {technicalProfiles.map((profile) => {
+          const motorcycle = motorcyclesBySlug.get(profile.motorcycleSlug);
+          return (
+            <LabDataCard
+              eyebrow={profile.ridingTriangleStatus === "research_needed" ? "Messung offen" : profile.ridingTriangleStatus}
+              title={motorcycle?.name ?? profile.motorcycleSlug}
+              summary={motorcycle?.seatPainFocus ?? profile.notes}
+              badges={profile.usageProfile.map((item) => profileLabel[item] ?? item)}
+              facts={[
+                { label: "Sitzhöhe", value: profile.seatHeightMm ? `${profile.seatHeightMm} mm` : "noch nicht verifiziert" },
+                { label: "Gewicht nass", value: profile.wetWeightKg ? `${profile.wetWeightKg} kg` : "noch nicht verifiziert" },
+                { label: "Hauptrisiken", value: profile.seatComfortRisks.map((item) => riskLabel[item] ?? item).join(", ") },
+              ]}
+              detailTitle="Benötigte Messungen"
+              detailItems={[
+                ...profile.requiredMeasurements.map((item) => measurementLabel[item] ?? item),
+                profile.notes,
+              ]}
+              tone={profile.motorcycleSlug === "suzuki-gsx-s1000gx" ? "success" : "default"}
+            />
+          );
+        })}
       </div>
     </div>
   </section>

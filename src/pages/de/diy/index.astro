@@ -1,6 +1,31 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LabDataCard from "../../../components/LabDataCard.astro";
 import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
+import seatMaterials from "../../../data/materials/seat-materials.json";
+import workshopTools from "../../../data/tools/seat-tools.json";
+
+const skillLabel: Record<string, string> = {
+  beginner: "Einsteiger",
+  intermediate: "mittel",
+  advanced: "fortgeschritten",
+  professional: "Sattler / Profi",
+};
+
+const priceLabel: Record<string, string> = {
+  low_to_medium: "niedrig bis mittel",
+  medium: "mittel",
+  medium_to_high: "mittel bis hoch",
+};
+
+const researchLabel: Record<string, string> = {
+  category_validated: "Kategorie plausibel",
+  needs_product_testing: "Produkttest nötig",
+  needs_specification: "Spezifikation offen",
+  needs_testing: "Test nötig",
+  needs_supplier_data: "Lieferantendaten nötig",
+  needs_safety_review: "Sicherheitsprüfung nötig",
+};
 ---
 
 <BaseLayout
@@ -38,6 +63,66 @@ import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
         <h2>Wasser und Bezug ernst nehmen</h2>
         <p>Schlechter Bezug, falscher Kleber oder undichte Membran können den Sitz langfristig zerstören.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="materialien">
+    <div class="page-inner">
+      <p class="eyebrow">Aus der Materialdatenbank</p>
+      <h2>Materialien: erst reversibel, dann schneiden.</h2>
+      <p class="lead">
+        Diese Liste ist noch keine Kaufempfehlung. Sie hilft dir, die richtige Klasse von Lösung zu wählen,
+        bevor du Geld, Zeit oder die Originalsitzbank riskierst.
+      </p>
+      <div class="lab-data-grid">
+        {seatMaterials.map((material) => (
+          <LabDataCard
+            eyebrow={material.materialType}
+            title={material.name}
+            summary={material.comfortRole}
+            badges={[researchLabel[material.researchStatus] ?? material.researchStatus]}
+            facts={[
+              { label: "Gut für", value: material.bestFor },
+              { label: "Skill", value: skillLabel[material.skillLevel] ?? material.skillLevel },
+              { label: "Preisband", value: priceLabel[material.priceBand] ?? material.priceBand },
+            ]}
+            detailTitle="Grenzen und Haltbarkeit"
+            detailItems={[
+              `Nicht ideal, wenn: ${material.avoidWhen}`,
+              material.durabilityNotes,
+            ]}
+            tone={material.researchStatus.includes("safety") ? "warning" : "default"}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="werkzeug">
+    <div class="page-inner">
+      <p class="eyebrow">Werkstatt-Check</p>
+      <h2>Werkzeug nach Risiko auswählen.</h2>
+      <p class="lead">
+        Nicht jedes Werkzeug gehört sofort in Anfängerhände. Die Seite soll später aus deinem Ziel,
+        deiner Erfahrung und dem Sitzbankzustand automatisch einen sicheren Werkzeugpfad vorschlagen.
+      </p>
+      <div class="lab-data-grid compact">
+        {workshopTools.map((tool) => (
+          <LabDataCard
+            eyebrow={tool.toolType}
+            title={tool.name}
+            summary={tool.usedFor}
+            badges={[skillLabel[tool.skillLevel] ?? tool.skillLevel]}
+            facts={[
+              { label: "Nutzung", value: tool.usedFor },
+              { label: "Kaufnotiz", value: tool.buyingNotes },
+            ]}
+            detailTitle="Risiko"
+            detailItems={[tool.riskNotes]}
+            tone={tool.skillLevel === "advanced" ? "warning" : "default"}
+          />
+        ))}
+      </div>
     </div>
   </section>
 

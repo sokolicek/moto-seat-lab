@@ -1,0 +1,59 @@
+---
+interface Fact {
+  label: string;
+  value: string | number | null | undefined;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  badges?: string[];
+  facts?: Fact[];
+  detailTitle?: string;
+  detailItems?: string[];
+  tone?: "default" | "warning" | "success";
+}
+
+const {
+  eyebrow,
+  title,
+  summary,
+  badges = [],
+  facts = [],
+  detailTitle = "Details",
+  detailItems = [],
+  tone = "default",
+} = Astro.props;
+
+const visibleFacts = facts.filter((fact) => fact.value !== undefined && fact.value !== null && String(fact.value).trim() !== "");
+---
+
+<article class={`card lab-data-card ${tone}`}>
+  <div class="card-topline">
+    <span class="badge muted">{eyebrow}</span>
+    {badges.map((badge) => <span class="badge">{badge}</span>)}
+  </div>
+  <h3>{title}</h3>
+  <p>{summary}</p>
+
+  {visibleFacts.length > 0 && (
+    <div class="quick-facts compact-facts">
+      {visibleFacts.map((fact) => (
+        <span>
+          <strong>{fact.label}</strong>
+          {fact.value}
+        </span>
+      ))}
+    </div>
+  )}
+
+  {detailItems.length > 0 && (
+    <details class="card-details">
+      <summary>{detailTitle}</summary>
+      <ul class="compact-list">
+        {detailItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </details>
+  )}
+</article>
