@@ -27,7 +27,8 @@ const counts = {};
 const add = (sql) => rows.push(sql);
 
 const motorcycles = await readJson("src/data/motorcycles/de-list.json");
-const seatOptions = await readJson("src/data/products/gsx-s1000gx-seat-options.json");
+const gsxSeatOptions = await readJson("src/data/products/gsx-s1000gx-seat-options.json");
+const bmwSeatOptions = await readJson("src/data/products/bmw-seat-options.json");
 const solutionPaths = await readJson("src/data/solution-paths/seat-comfort.json");
 const productCategories = await readJson("src/data/product-categories/seat-comfort.json");
 const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
@@ -39,6 +40,20 @@ const workshopSupplies = await readJson("src/data/supplies/seat-supplies.json");
 const buyingChannels = await readJson("src/data/marketplaces/de.json");
 const mediaAssets = await readJson("src/data/media/media-assets.json");
 const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
+const seatOptions = [
+  ...gsxSeatOptions.map((option) => ({
+    ...option,
+    motorcycleSlug: "suzuki-gsx-s1000gx",
+  })),
+  ...bmwSeatOptions.flatMap((option) =>
+    (option.motorcycleSlugs || ["bmw-r-1300-gs"]).map((motorcycleSlug) => ({
+      ...option,
+      key: option.motorcycleSlugs?.length > 1 ? `${option.key}-${motorcycleSlug}` : option.key,
+      originalKey: option.key,
+      motorcycleSlug,
+    }))
+  ),
+];
 
 add("BEGIN;");
 
@@ -159,7 +174,7 @@ for (const option of seatOptions) {
   )
   VALUES (
     ${sqlString(option.key)},
-    'suzuki-gsx-s1000gx',
+    ${sqlString(option.motorcycleSlug)},
     ${sqlString(option.name)},
     ${sqlString(option.maker)},
     ${sqlString(option.type)},

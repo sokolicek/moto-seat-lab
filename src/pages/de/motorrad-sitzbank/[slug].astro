@@ -3,9 +3,11 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
 import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
 import MotorcycleSelector from "../../../components/MotorcycleSelector.astro";
+import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
 import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
+import bmwSeatOptions from "../../../data/products/bmw-seat-options.json";
 import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
 
@@ -29,7 +31,7 @@ export function getStaticPaths() {
 
 const { motorcycle, profile } = Astro.props;
 const slug = slugFromPath(motorcycle.path);
-const media = getMediaForEntity("motorcycle_profile", slug);
+const media = getMediaForEntity("motorcycle_profile", slug, "hero") ?? getMediaForEntity("motorcycle_profile", slug);
 
 const profileLabel: Record<string, string> = {
   sport_touring: "Sport-Touring",
@@ -89,6 +91,24 @@ const measurementLabel: Record<string, string> = {
 const usage = profile?.usageProfile ?? [];
 const risks = profile?.seatComfortRisks ?? [];
 const measurements = profile?.requiredMeasurements ?? [];
+const isBmwGuide = motorcycle.brand === "BMW";
+const bmwOptions = isBmwGuide
+  ? bmwSeatOptions.filter((option) => option.motorcycleSlugs?.includes(slug))
+  : [];
+const bmwGermanyPriority = [
+  {
+    title: "1. Sofort entlasten",
+    text: "3D-Mesh, Luftkissen oder Gelauflage testen. Das ist billig, reversibel und zeigt schnell, ob Druck, Hitze oder Form das Hauptproblem ist.",
+  },
+  {
+    title: "2. Deutsche BMW-Lösung prüfen",
+    text: "Wenn der Test hilft, kommen Wunderlich, Touratech oder andere DACH-Anbieter in Frage. Fitment, Sitzhöhe, Heizung und Rückgabe vorher klären.",
+  },
+  {
+    title: "3. Weltweite Premiumsitze vergleichen",
+    text: "Sargent und ähnliche Anbieter erst nach dem lokalen Vergleich bewerten. Import, Rückgabe, Zoll und echte Langstreckenberichte zählen mehr als Marketing.",
+  },
+];
 ---
 
 <BaseLayout
@@ -130,18 +150,45 @@ const measurements = profile?.requiredMeasurements ?? [];
         <p>
           Dieses Profil ist auf Suzuki-GSX-S1000GX-Niveau als Datenstruktur vorbereitet:
           Zielgruppe, Komfortfokus, Messpunkte und erste Entscheidungspfade sind vorhanden.
-          Konkrete Produktkarten und Preise fehlen noch.
+          {isBmwGuide
+            ? " Für BMW in Deutschland gibt es bereits eine erste geprüfte Reihenfolge: schnelle Auflage, deutsche BMW-Sitzbank, dann globale Premiumoption."
+            : " Konkrete Produktkarten und Preise fehlen noch."}
         </p>
       </article>
       <article class="notice">
-        <h2>Noch kein finales Ranking</h2>
+        <h2>{isBmwGuide ? "BMW: ehrlich starten" : "Noch kein finales Ranking"}</h2>
         <p>
-          Für {motorcycle.name} werden OEM-Zubehör, Aftermarket-Sitze, lokale Sattler und Forumserfahrungen
-          erst nach Quellenprüfung ergänzt.
+          {isBmwGuide
+            ? "Nicht sofort die teuerste Sitzbank kaufen: zuerst reproduzierbar testen, ob eine Auflage schon genug bringt. Danach erst Sitzbank, Sattler oder Importlösung."
+            : `Für ${motorcycle.name} werden OEM-Zubehör, Aftermarket-Sitze, lokale Sattler und Forumserfahrungen erst nach Quellenprüfung ergänzt.`}
         </p>
       </article>
     </div>
   </section>
+
+  {bmwOptions.length > 0 && (
+    <section class="section" id="deutschland-optionen">
+      <div class="page-inner">
+        <p class="eyebrow">Deutschland · BMW-Priorität</p>
+        <h2>Erst schnelle Entlastung, dann BMW-Sitze vergleichen.</h2>
+        <p class="lead">
+          Für BMW-GS-Fahrer in Deutschland ist der sinnvollste Anfang nicht automatisch die teuerste Sitzbank.
+          Der Ablauf soll Geld sparen: erst testen, dann lokal vergleichen, dann Premium importieren.
+        </p>
+        <div class="timeline-grid">
+          {bmwGermanyPriority.map((item) => (
+            <article class="mini-panel">
+              <span class="badge">{item.title}</span>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+        <div class="grid two option-grid">
+          {bmwOptions.map((option) => <SeatOptionCard {...option} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section" id="messungen">
     <div class="page-inner">

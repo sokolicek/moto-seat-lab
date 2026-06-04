@@ -37,3 +37,31 @@ This file tracks local visual assets used by the Moto Seat Lab MVP.
   - Current file is suitable for local MVP validation.
   - Before public deployment, optimize to a smaller WebM/MP4 pair and keep the hero background below a practical page-weight budget.
   - Consider disabling video by default on mobile or slow connections.
+
+## Motorcycle Reference Images
+
+These images are tracked in `src/data/media/media-assets.json`, downloaded locally with `make media-download`, and seeded into PostgreSQL with `make db-seed`.
+
+### `public/assets/media/m06-bmw-r1300gs.jpg`
+
+- Type: licensed Wikimedia Commons photo.
+- Source: `https://commons.wikimedia.org/wiki/File:BMW_R1300_GS_Trophy.jpg`
+- Creator: AVMOTO.
+- License: CC BY-SA 4.0.
+- Usage: BMW R 1300 GS guide reference/context image.
+- Constraint: show attribution and do not imply BMW, the creator, or Wikimedia endorses Moto Seat Lab.
+
+### `public/assets/media/m07-bmw-r1250gs.jpg`
+
+- Type: licensed Wikimedia Commons photo.
+- Source: `https://commons.wikimedia.org/wiki/File:BMW_R_1250_GS_(1).jpg`
+- Creator: Cjp24.
+- License: CC BY-SA 4.0.
+- Usage: BMW R 1250 GS guide reference/context image.
+- Constraint: show attribution and do not imply BMW, the creator, or Wikimedia endorses Moto Seat Lab.
+
+## Product Image Placeholders
+
+- Wunderlich, Touratech, Suzuki, and Sargent product photos are currently tracked as `permission_needed` assets.
+- Do not copy manufacturer product photos into the public site until written permission, a press-kit license, or a product/affiliate API license is documented.
+- Use the project-owned SVG illustrations in `public/assets/options/` for interim product-category cards.

@@ -1074,6 +1074,35 @@ h3 {
   gap: 14px;
 }
 
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.mini-panel {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 150px;
+  border: 1px solid rgba(18, 107, 115, 0.16);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.08), transparent 45%),
+    rgba(255, 255, 255, 0.82);
+  padding: 16px;
+}
+
+.mini-panel p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.option-grid {
+  margin-top: 16px;
+}
+
 .timeline-item {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1537,6 +1566,7 @@ h3 {
   .lab-data-grid,
   .lab-data-grid.compact,
   .timeline,
+  .timeline-grid,
   .comparison-row {
     grid-template-columns: 1fr;
   }

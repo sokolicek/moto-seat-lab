@@ -81,6 +81,9 @@ MVP implementation started.
 - Motorcycle selector now previews active vs planned model status in-place, including segment, comfort focus, and roadmap note for planned models.
 - Database and website expanded with all 9 motorcycle technical profiles, 6 workshop supplies, wider media links for motorcycles/tools/supplies, and a public image gallery at `/de/bilder/`.
 - All non-Suzuki motorcycles now have clickable draft guide pages with baseline comfort profile, measurements, risks, first decision paths, and media.
+- BMW Germany guides now include a practical recommendation order: quick reversible relief first, then German/DACH BMW seat options such as Wunderlich and Touratech, then global premium comparison such as Sargent.
+- BMW R 1300 GS and R 1250 GS reference photos were added as local Wikimedia Commons assets with attribution and database links.
+- Database seed now includes BMW seat option records in addition to GSX-S1000GX options.
 
 ## Not Started
 

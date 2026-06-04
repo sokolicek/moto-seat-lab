@@ -576,7 +576,7 @@ INSERT INTO seat_options (
     'Illustration eines schwarzen Komfort-Motorradsitzes',
     'Suzuki Deutschland',
     'https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz',
-    '{"key":"suzuki-premium-seat-de","name":"Suzuki Premium-Sitz Set","maker":"Suzuki","type":"OEM comfort seat","fitment":"GSX-S1000GX, Teilenummer 45100-48820-000 / 45100-48820","market":"Deutschland / Suzuki OEM","priceNote":"Suzuki Deutschland listete 431,55 EUR; Suzuki USA listete 449,95 USD. Vor Kauf lokal erneut prüfen.","bestFor":"Fahrer, die eine plug-and-play Lösung mit OEM-Passform wollen und keine stark individuelle Schmerzstelle haben.","watchOut":"Nicht automatisch die beste Lösung, wenn die originale Sitzform oder Sitzneigung dein Hauptproblem ist.","comfortLogic":"Zweilagige Urethanschaum-Konstruktion, griffigere Oberflaeche und laut Suzuki geringere Oberflaechentemperatur bei Sonne.","researchStatus":"verified source, needs owner feedback","confidence":4,"affiliateStatus":"dealer / affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines schwarzen Komfort-Motorradsitzes","sourceLabel":"Suzuki Deutschland","sourceUrl":"https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz"}'::jsonb,
+    '{"key":"suzuki-premium-seat-de","name":"Suzuki Premium-Sitz Set","maker":"Suzuki","type":"OEM comfort seat","fitment":"GSX-S1000GX, Teilenummer 45100-48820-000 / 45100-48820","market":"Deutschland / Suzuki OEM","priceNote":"Suzuki Deutschland listete 431,55 EUR; Suzuki USA listete 449,95 USD. Vor Kauf lokal erneut prüfen.","bestFor":"Fahrer, die eine plug-and-play Lösung mit OEM-Passform wollen und keine stark individuelle Schmerzstelle haben.","watchOut":"Nicht automatisch die beste Lösung, wenn die originale Sitzform oder Sitzneigung dein Hauptproblem ist.","comfortLogic":"Zweilagige Urethanschaum-Konstruktion, griffigere Oberflaeche und laut Suzuki geringere Oberflaechentemperatur bei Sonne.","researchStatus":"verified source, needs owner feedback","confidence":4,"affiliateStatus":"dealer / affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines schwarzen Komfort-Motorradsitzes","sourceLabel":"Suzuki Deutschland","sourceUrl":"https://motorrad.suzuki.de/modelle/street/gsx-s1000gx/zubehoer/premium-sitz","motorcycleSlug":"suzuki-gsx-s1000gx"}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -623,7 +623,7 @@ INSERT INTO seat_options (
     'Illustration eines breiteren Touring-Motorradsitzes',
     'Sargent Cycle',
     'https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24',
-    '{"key":"sargent-world-sport-front","name":"Sargent World Sport Front Seat","maker":"Sargent","type":"aftermarket front seat","fitment":"GSX-S1000GX 2024+ laut Sargent Produktseiten","market":"USA / UK Import möglich","priceNote":"US-Listenpreise für Front-Sitz lagen je nach Variante um 429,95 bis 639,95 USD; UK-Import kann Zoll, Versand und Rückgabe verändern.","bestFor":"Tourenfahrer mit Budget, die eine breitere definierte Sitzform und einen Komplettsitz statt Auflage suchen.","watchOut":"Teuer, Rückgabe/Restocking Fee, Lieferzeit und Importkosten vorher klären. Für kurze Runden oft überdimensioniert.","comfortLogic":"Sargent nennt breiteren Sitzpan, Performance-Plus/DTX Varianten und optionale Heizung je nach Ausfuehrung.","researchStatus":"verified source, needs EU fitment and return check","confidence":3,"affiliateStatus":"research affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines breiteren Touring-Motorradsitzes","sourceLabel":"Sargent Cycle","sourceUrl":"https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24"}'::jsonb,
+    '{"key":"sargent-world-sport-front","name":"Sargent World Sport Front Seat","maker":"Sargent","type":"aftermarket front seat","fitment":"GSX-S1000GX 2024+ laut Sargent Produktseiten","market":"USA / UK Import möglich","priceNote":"US-Listenpreise für Front-Sitz lagen je nach Variante um 429,95 bis 639,95 USD; UK-Import kann Zoll, Versand und Rückgabe verändern.","bestFor":"Tourenfahrer mit Budget, die eine breitere definierte Sitzform und einen Komplettsitz statt Auflage suchen.","watchOut":"Teuer, Rückgabe/Restocking Fee, Lieferzeit und Importkosten vorher klären. Für kurze Runden oft überdimensioniert.","comfortLogic":"Sargent nennt breiteren Sitzpan, Performance-Plus/DTX Varianten und optionale Heizung je nach Ausfuehrung.","researchStatus":"verified source, needs EU fitment and return check","confidence":3,"affiliateStatus":"research affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines breiteren Touring-Motorradsitzes","sourceLabel":"Sargent Cycle","sourceUrl":"https://www.sargentcycle.com/seats/suzuki/gsxs1000/gsxs1000gx?order=relevance%3Adesc&show=24","motorcycleSlug":"suzuki-gsx-s1000gx"}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -670,7 +670,7 @@ INSERT INTO seat_options (
     'Illustration einer 3D-Mesh Motorrad-Sitzauflage',
     'Forum and category research',
     'https://www.gsxs1000.org/threads/gx-seat-options.48928/',
-    '{"key":"3d-mesh-first-test","name":"3D-Mesh Auflage als erster Test","maker":"Generic / mehrere Anbieter","type":"reversible add-on","fitment":"Größe und Befestigung müssen zur GSX-S1000GX Sitzfläche passen","market":"Amazon, Motorradshops, Direktanbieter","priceNote":"Niedrige bis mittlere Kosten; konkrete Links erst nach Affiliate- und Qualitätsprüfung.","bestFor":"Hitze, Schwitzen, leichtes Druckgefühl und alle, die vor einem teuren Sitz erst etwas Rückbaubares testen wollen.","watchOut":"Erhöht die Sitzhöhe leicht, kann rutschen und löst keine falsche Sitzform.","comfortLogic":"Mehr Luftzirkulation zwischen Hose und Sitz; sinnvoll vor allem bei warmem Wetter und längeren Etappen.","researchStatus":"category validated, product shortlist needed","confidence":3,"affiliateStatus":"strong affiliate candidate","imagePath":"/assets/options/mesh-pad.svg","imageAlt":"Illustration einer 3D-Mesh Motorrad-Sitzauflage","sourceLabel":"Forum and category research","sourceUrl":"https://www.gsxs1000.org/threads/gx-seat-options.48928/"}'::jsonb,
+    '{"key":"3d-mesh-first-test","name":"3D-Mesh Auflage als erster Test","maker":"Generic / mehrere Anbieter","type":"reversible add-on","fitment":"Größe und Befestigung müssen zur GSX-S1000GX Sitzfläche passen","market":"Amazon, Motorradshops, Direktanbieter","priceNote":"Niedrige bis mittlere Kosten; konkrete Links erst nach Affiliate- und Qualitätsprüfung.","bestFor":"Hitze, Schwitzen, leichtes Druckgefühl und alle, die vor einem teuren Sitz erst etwas Rückbaubares testen wollen.","watchOut":"Erhöht die Sitzhöhe leicht, kann rutschen und löst keine falsche Sitzform.","comfortLogic":"Mehr Luftzirkulation zwischen Hose und Sitz; sinnvoll vor allem bei warmem Wetter und längeren Etappen.","researchStatus":"category validated, product shortlist needed","confidence":3,"affiliateStatus":"strong affiliate candidate","imagePath":"/assets/options/mesh-pad.svg","imageAlt":"Illustration einer 3D-Mesh Motorrad-Sitzauflage","sourceLabel":"Forum and category research","sourceUrl":"https://www.gsxs1000.org/threads/gx-seat-options.48928/","motorcycleSlug":"suzuki-gsx-s1000gx"}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -717,7 +717,289 @@ INSERT INTO seat_options (
     'Illustration einer Sitzbank im Sattler-Workshop',
     'Moto Seat Lab research backlog',
     '/de/diy/',
-    '{"key":"local-upholstery-custom","name":"Lokaler Sattler / Sitzbankumbau","maker":"Regionaler Sattler","type":"custom upholstery","fitment":"Originalsitz oder Zweitsitz als Basis","market":"Deutschland / DACH lokal","priceNote":"Preis stark abhaengig von Schaumaufbau, Bezug, Naehten, Heizung und Abdichtung.","bestFor":"Klare Schmerzstelle, spezieller Körperbau, Wunsch nach anderer Form, Höhe oder Bezug.","watchOut":"Qualität variiert stark. Fotos, Materialaufbau, Wasserdichtigkeit und Rückbau vorher schriftlich klären.","comfortLogic":"Form, Breite, Kanten, Schaumhaerte und Bezug koennen gezielt an den Fahrer angepasst werden.","researchStatus":"needs local provider database","confidence":2,"affiliateStatus":"service directory later","imagePath":"/assets/options/upholstery-workshop.svg","imageAlt":"Illustration einer Sitzbank im Sattler-Workshop","sourceLabel":"Moto Seat Lab research backlog","sourceUrl":"/de/diy/"}'::jsonb,
+    '{"key":"local-upholstery-custom","name":"Lokaler Sattler / Sitzbankumbau","maker":"Regionaler Sattler","type":"custom upholstery","fitment":"Originalsitz oder Zweitsitz als Basis","market":"Deutschland / DACH lokal","priceNote":"Preis stark abhaengig von Schaumaufbau, Bezug, Naehten, Heizung und Abdichtung.","bestFor":"Klare Schmerzstelle, spezieller Körperbau, Wunsch nach anderer Form, Höhe oder Bezug.","watchOut":"Qualität variiert stark. Fotos, Materialaufbau, Wasserdichtigkeit und Rückbau vorher schriftlich klären.","comfortLogic":"Form, Breite, Kanten, Schaumhaerte und Bezug koennen gezielt an den Fahrer angepasst werden.","researchStatus":"needs local provider database","confidence":2,"affiliateStatus":"service directory later","imagePath":"/assets/options/upholstery-workshop.svg","imageAlt":"Illustration einer Sitzbank im Sattler-Workshop","sourceLabel":"Moto Seat Lab research backlog","sourceUrl":"/de/diy/","motorcycleSlug":"suzuki-gsx-s1000gx"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'bmw-fast-relief-seat-pad-bmw-r-1300-gs',
+    'bmw-r-1300-gs',
+    'Schnelle Entlastung: 3D-Mesh oder Luftkissen',
+    'Generic / mehrere Anbieter',
+    'reversible first relief',
+    'BMW GS-Sitzfläche vor Kauf messen; besonders auf Befestigung und Sitzhöhe achten',
+    'Deutschland / Amazon, Louis, Polo, SW-Motech, Zubehörhandel',
+    'niedrig bis mittel; ideal als erster Test vor 350-700 EUR Sitzbankkauf',
+    'Schnelle Hilfe bei Hitze, leichtem Druck oder unklarer Ursache nach 45-90 Minuten.',
+    'Kann rutschen, Sitzhöhe erhöhen und löst keine falsche Sitzform oder Kniewinkelprobleme.',
+    'Reversibel, billig und vergleichbar: gleicher Weg, gleiche Hose, ähnliche Temperatur.',
+    'category validated, product shortlist needed',
+    4,
+    'strong affiliate candidate',
+    '/assets/options/mesh-pad.svg',
+    'Illustration einer 3D-Mesh Motorrad-Sitzauflage',
+    'SW-Motech TRAVELLER / category reference',
+    'https://sw-motech.us/en-us/c/ergonomics/comfort-cushions',
+    '{"key":"bmw-fast-relief-seat-pad-bmw-r-1300-gs","motorcycleSlugs":["bmw-r-1300-gs","bmw-r-1250-gs"],"name":"Schnelle Entlastung: 3D-Mesh oder Luftkissen","maker":"Generic / mehrere Anbieter","type":"reversible first relief","fitment":"BMW GS-Sitzfläche vor Kauf messen; besonders auf Befestigung und Sitzhöhe achten","market":"Deutschland / Amazon, Louis, Polo, SW-Motech, Zubehörhandel","priceNote":"niedrig bis mittel; ideal als erster Test vor 350-700 EUR Sitzbankkauf","bestFor":"Schnelle Hilfe bei Hitze, leichtem Druck oder unklarer Ursache nach 45-90 Minuten.","watchOut":"Kann rutschen, Sitzhöhe erhöhen und löst keine falsche Sitzform oder Kniewinkelprobleme.","comfortLogic":"Reversibel, billig und vergleichbar: gleicher Weg, gleiche Hose, ähnliche Temperatur.","researchStatus":"category validated, product shortlist needed","confidence":4,"affiliateStatus":"strong affiliate candidate","imagePath":"/assets/options/mesh-pad.svg","imageAlt":"Illustration einer 3D-Mesh Motorrad-Sitzauflage","sourceLabel":"SW-Motech TRAVELLER / category reference","sourceUrl":"https://sw-motech.us/en-us/c/ergonomics/comfort-cushions","originalKey":"bmw-fast-relief-seat-pad","motorcycleSlug":"bmw-r-1300-gs"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'bmw-fast-relief-seat-pad-bmw-r-1250-gs',
+    'bmw-r-1250-gs',
+    'Schnelle Entlastung: 3D-Mesh oder Luftkissen',
+    'Generic / mehrere Anbieter',
+    'reversible first relief',
+    'BMW GS-Sitzfläche vor Kauf messen; besonders auf Befestigung und Sitzhöhe achten',
+    'Deutschland / Amazon, Louis, Polo, SW-Motech, Zubehörhandel',
+    'niedrig bis mittel; ideal als erster Test vor 350-700 EUR Sitzbankkauf',
+    'Schnelle Hilfe bei Hitze, leichtem Druck oder unklarer Ursache nach 45-90 Minuten.',
+    'Kann rutschen, Sitzhöhe erhöhen und löst keine falsche Sitzform oder Kniewinkelprobleme.',
+    'Reversibel, billig und vergleichbar: gleicher Weg, gleiche Hose, ähnliche Temperatur.',
+    'category validated, product shortlist needed',
+    4,
+    'strong affiliate candidate',
+    '/assets/options/mesh-pad.svg',
+    'Illustration einer 3D-Mesh Motorrad-Sitzauflage',
+    'SW-Motech TRAVELLER / category reference',
+    'https://sw-motech.us/en-us/c/ergonomics/comfort-cushions',
+    '{"key":"bmw-fast-relief-seat-pad-bmw-r-1250-gs","motorcycleSlugs":["bmw-r-1300-gs","bmw-r-1250-gs"],"name":"Schnelle Entlastung: 3D-Mesh oder Luftkissen","maker":"Generic / mehrere Anbieter","type":"reversible first relief","fitment":"BMW GS-Sitzfläche vor Kauf messen; besonders auf Befestigung und Sitzhöhe achten","market":"Deutschland / Amazon, Louis, Polo, SW-Motech, Zubehörhandel","priceNote":"niedrig bis mittel; ideal als erster Test vor 350-700 EUR Sitzbankkauf","bestFor":"Schnelle Hilfe bei Hitze, leichtem Druck oder unklarer Ursache nach 45-90 Minuten.","watchOut":"Kann rutschen, Sitzhöhe erhöhen und löst keine falsche Sitzform oder Kniewinkelprobleme.","comfortLogic":"Reversibel, billig und vergleichbar: gleicher Weg, gleiche Hose, ähnliche Temperatur.","researchStatus":"category validated, product shortlist needed","confidence":4,"affiliateStatus":"strong affiliate candidate","imagePath":"/assets/options/mesh-pad.svg","imageAlt":"Illustration einer 3D-Mesh Motorrad-Sitzauflage","sourceLabel":"SW-Motech TRAVELLER / category reference","sourceUrl":"https://sw-motech.us/en-us/c/ergonomics/comfort-cushions","originalKey":"bmw-fast-relief-seat-pad","motorcycleSlug":"bmw-r-1250-gs"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'wunderlich-aktivkomfort-r1300gs',
+    'bmw-r-1300-gs',
+    'Wunderlich AKTIVKOMFORT Sitzbank',
+    'Wunderlich',
+    'German aftermarket seat',
+    'BMW R 1300 GS je nach Variante, Höhe, Heizung und Modelljahr prüfen',
+    'Deutschland / DACH',
+    'Wunderlich listete R 1300 GS Varianten um ca. 359-449 EUR; vor Kauf erneut prüfen.',
+    'BMW-Fahrer in Deutschland, die eine deutsche Plug-and-play Lösung mit ergonomischer Form suchen.',
+    'Variante, Sitzhöhe, Heizung, Rückgabe und echte Langstreckenberichte prüfen.',
+    'Wunderlich bewirbt ergonomische 3D-Kontur, aktive Sitzhaltung und Thermo-Pro Oberfläche je nach Variante.',
+    'verified source, needs owner feedback',
+    4,
+    'dealer / affiliate later',
+    '/assets/options/comfort-seat.svg',
+    'Illustration einer Komfort-Sitzbank',
+    'Wunderlich R 1300 GS AKTIVKOMFORT',
+    'https://www.wunderlich.de/en/wunderlich-aktivkomfort-rider-seat-r-1300-gs-13100-002',
+    '{"key":"wunderlich-aktivkomfort-r1300gs","motorcycleSlugs":["bmw-r-1300-gs"],"name":"Wunderlich AKTIVKOMFORT Sitzbank","maker":"Wunderlich","type":"German aftermarket seat","fitment":"BMW R 1300 GS je nach Variante, Höhe, Heizung und Modelljahr prüfen","market":"Deutschland / DACH","priceNote":"Wunderlich listete R 1300 GS Varianten um ca. 359-449 EUR; vor Kauf erneut prüfen.","bestFor":"BMW-Fahrer in Deutschland, die eine deutsche Plug-and-play Lösung mit ergonomischer Form suchen.","watchOut":"Variante, Sitzhöhe, Heizung, Rückgabe und echte Langstreckenberichte prüfen.","comfortLogic":"Wunderlich bewirbt ergonomische 3D-Kontur, aktive Sitzhaltung und Thermo-Pro Oberfläche je nach Variante.","researchStatus":"verified source, needs owner feedback","confidence":4,"affiliateStatus":"dealer / affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration einer Komfort-Sitzbank","sourceLabel":"Wunderlich R 1300 GS AKTIVKOMFORT","sourceUrl":"https://www.wunderlich.de/en/wunderlich-aktivkomfort-rider-seat-r-1300-gs-13100-002","originalKey":"wunderlich-aktivkomfort-r1300gs","motorcycleSlug":"bmw-r-1300-gs"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'touratech-fresh-touch-r1300gs',
+    'bmw-r-1300-gs',
+    'Touratech Fresh Touch Komfortsitz',
+    'Touratech',
+    'German touring seat',
+    'BMW R 1300 GS, Heizung/ohne Heizung und Fahrer/Sozius-Variante prüfen',
+    'Deutschland / international',
+    'hoch; konkrete Variante und Preis vor Kauf prüfen.',
+    'Lange Touren, warme Bedingungen und Fahrer, die eine BMW-spezifische Touring-Lösung suchen.',
+    'Teuer; nicht blind kaufen, Rückgabe und Sitzhöhe vorher klären.',
+    'Fresh Touch Oberfläche zielt auf geringere Aufheizung, Touring-Form und direkten Austausch.',
+    'verified source, needs owner feedback',
+    3,
+    'dealer / affiliate later',
+    '/assets/options/comfort-seat.svg',
+    'Illustration einer Touring-Komfort-Sitzbank',
+    'Touratech BMW R 1300 GS Komfortsitz',
+    'https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html',
+    '{"key":"touratech-fresh-touch-r1300gs","motorcycleSlugs":["bmw-r-1300-gs"],"name":"Touratech Fresh Touch Komfortsitz","maker":"Touratech","type":"German touring seat","fitment":"BMW R 1300 GS, Heizung/ohne Heizung und Fahrer/Sozius-Variante prüfen","market":"Deutschland / international","priceNote":"hoch; konkrete Variante und Preis vor Kauf prüfen.","bestFor":"Lange Touren, warme Bedingungen und Fahrer, die eine BMW-spezifische Touring-Lösung suchen.","watchOut":"Teuer; nicht blind kaufen, Rückgabe und Sitzhöhe vorher klären.","comfortLogic":"Fresh Touch Oberfläche zielt auf geringere Aufheizung, Touring-Form und direkten Austausch.","researchStatus":"verified source, needs owner feedback","confidence":3,"affiliateStatus":"dealer / affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration einer Touring-Komfort-Sitzbank","sourceLabel":"Touratech BMW R 1300 GS Komfortsitz","sourceUrl":"https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html","originalKey":"touratech-fresh-touch-r1300gs","motorcycleSlug":"bmw-r-1300-gs"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'sargent-world-sport-bmw-gs-bmw-r-1300-gs',
+    'bmw-r-1300-gs',
+    'Sargent World Sport Adventure Touring',
+    'Sargent',
+    'global aftermarket seat',
+    'BMW R 1200/1250 GS/GSA oder R 1300 GS je nach Produktlinie separat prüfen',
+    'USA / EU-Import und Händler',
+    'hoch; Versand, Zoll, Rückgabe und Heizungs-/Höhenvariante beachten.',
+    'Langstreckenfahrer mit Budget, die eine globale Premium-Alternative vergleichen wollen.',
+    'Import, Rückgabe, Modelljahr, Heizungsanschluss und Sitzhöhe vor Kauf klären.',
+    'Breitere Touring-Form und Sargent-Schaumkonzept; interessant nach deutschem Vergleich.',
+    'verified source, needs EU return check',
+    3,
+    'research affiliate later',
+    '/assets/options/comfort-seat.svg',
+    'Illustration eines breiteren Adventure-Touring-Sitzes',
+    'Sargent BMW GS seats',
+    'https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1',
+    '{"key":"sargent-world-sport-bmw-gs-bmw-r-1300-gs","motorcycleSlugs":["bmw-r-1300-gs","bmw-r-1250-gs"],"name":"Sargent World Sport Adventure Touring","maker":"Sargent","type":"global aftermarket seat","fitment":"BMW R 1200/1250 GS/GSA oder R 1300 GS je nach Produktlinie separat prüfen","market":"USA / EU-Import und Händler","priceNote":"hoch; Versand, Zoll, Rückgabe und Heizungs-/Höhenvariante beachten.","bestFor":"Langstreckenfahrer mit Budget, die eine globale Premium-Alternative vergleichen wollen.","watchOut":"Import, Rückgabe, Modelljahr, Heizungsanschluss und Sitzhöhe vor Kauf klären.","comfortLogic":"Breitere Touring-Form und Sargent-Schaumkonzept; interessant nach deutschem Vergleich.","researchStatus":"verified source, needs EU return check","confidence":3,"affiliateStatus":"research affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines breiteren Adventure-Touring-Sitzes","sourceLabel":"Sargent BMW GS seats","sourceUrl":"https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1","originalKey":"sargent-world-sport-bmw-gs","motorcycleSlug":"bmw-r-1300-gs"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    motorcycle_slug = EXCLUDED.motorcycle_slug,
+    name = EXCLUDED.name,
+    maker = EXCLUDED.maker,
+    option_type = EXCLUDED.option_type,
+    fitment = EXCLUDED.fitment,
+    market = EXCLUDED.market,
+    price_note = EXCLUDED.price_note,
+    best_for = EXCLUDED.best_for,
+    watch_out = EXCLUDED.watch_out,
+    comfort_logic = EXCLUDED.comfort_logic,
+    research_status = EXCLUDED.research_status,
+    confidence = EXCLUDED.confidence,
+    affiliate_status = EXCLUDED.affiliate_status,
+    image_path = EXCLUDED.image_path,
+    image_alt = EXCLUDED.image_alt,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_options (
+    key, motorcycle_slug, name, maker, option_type, fitment, market, price_note,
+    best_for, watch_out, comfort_logic, research_status, confidence,
+    affiliate_status, image_path, image_alt, source_label, source_url, source_data, updated_at
+  )
+  VALUES (
+    'sargent-world-sport-bmw-gs-bmw-r-1250-gs',
+    'bmw-r-1250-gs',
+    'Sargent World Sport Adventure Touring',
+    'Sargent',
+    'global aftermarket seat',
+    'BMW R 1200/1250 GS/GSA oder R 1300 GS je nach Produktlinie separat prüfen',
+    'USA / EU-Import und Händler',
+    'hoch; Versand, Zoll, Rückgabe und Heizungs-/Höhenvariante beachten.',
+    'Langstreckenfahrer mit Budget, die eine globale Premium-Alternative vergleichen wollen.',
+    'Import, Rückgabe, Modelljahr, Heizungsanschluss und Sitzhöhe vor Kauf klären.',
+    'Breitere Touring-Form und Sargent-Schaumkonzept; interessant nach deutschem Vergleich.',
+    'verified source, needs EU return check',
+    3,
+    'research affiliate later',
+    '/assets/options/comfort-seat.svg',
+    'Illustration eines breiteren Adventure-Touring-Sitzes',
+    'Sargent BMW GS seats',
+    'https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1',
+    '{"key":"sargent-world-sport-bmw-gs-bmw-r-1250-gs","motorcycleSlugs":["bmw-r-1300-gs","bmw-r-1250-gs"],"name":"Sargent World Sport Adventure Touring","maker":"Sargent","type":"global aftermarket seat","fitment":"BMW R 1200/1250 GS/GSA oder R 1300 GS je nach Produktlinie separat prüfen","market":"USA / EU-Import und Händler","priceNote":"hoch; Versand, Zoll, Rückgabe und Heizungs-/Höhenvariante beachten.","bestFor":"Langstreckenfahrer mit Budget, die eine globale Premium-Alternative vergleichen wollen.","watchOut":"Import, Rückgabe, Modelljahr, Heizungsanschluss und Sitzhöhe vor Kauf klären.","comfortLogic":"Breitere Touring-Form und Sargent-Schaumkonzept; interessant nach deutschem Vergleich.","researchStatus":"verified source, needs EU return check","confidence":3,"affiliateStatus":"research affiliate later","imagePath":"/assets/options/comfort-seat.svg","imageAlt":"Illustration eines breiteren Adventure-Touring-Sitzes","sourceLabel":"Sargent BMW GS seats","sourceUrl":"https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1","originalKey":"sargent-world-sport-bmw-gs","motorcycleSlug":"bmw-r-1250-gs"}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -2378,6 +2660,456 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'bmw_r1300gs_trophy_commons',
+    'BMW R 1300 GS Trophy',
+    'BMW R 1300 GS reference image for the German BMW comfort guide.',
+    '/assets/media/m06-bmw-r1300gs.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/BMW_R1300_GS_Trophy.jpg',
+    'https://commons.wikimedia.org/wiki/File:BMW_R1300_GS_Trophy.jpg',
+    'Wikimedia Commons',
+    'AVMOTO',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: AVMOTO, CC BY-SA 4.0, via Wikimedia Commons',
+    'BMW R 1300 GS Trophy motorcycle',
+    'BMW GS riders in Germany should usually test reversible relief first, then compare German/DACH touring seats.',
+    '#293039',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab.',
+    'active',
+    '{"key":"bmw_r1300gs_trophy_commons","title":"BMW R 1300 GS Trophy","description":"BMW R 1300 GS reference image for the German BMW comfort guide.","localPath":"/assets/media/m06-bmw-r1300gs.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/BMW_R1300_GS_Trophy.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:BMW_R1300_GS_Trophy.jpg","sourceName":"Wikimedia Commons","creator":"AVMOTO","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: AVMOTO, CC BY-SA 4.0, via Wikimedia Commons","alt":"BMW R 1300 GS Trophy motorcycle","caption":"BMW GS riders in Germany should usually test reversible relief first, then compare German/DACH touring seats.","dominantColor":"#293039","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"hero","priority":1},{"entityType":"seat_option","entityKey":"wunderlich-aktivkomfort-r1300gs","usage":"context","priority":2},{"entityType":"seat_option","entityKey":"touratech-fresh-touch-r1300gs","usage":"context","priority":2}],"status":"active","notes":"Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1300gs_trophy_commons',
+      'motorcycle_profile',
+      'bmw-r-1300-gs',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1300gs_trophy_commons',
+      'seat_option',
+      'wunderlich-aktivkomfort-r1300gs',
+      'context',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1300gs_trophy_commons',
+      'seat_option',
+      'touratech-fresh-touch-r1300gs',
+      'context',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'bmw_r1250gs_commons',
+    'BMW R 1250 GS',
+    'BMW R 1250 GS reference image for the German BMW comfort guide and used-market comparison.',
+    '/assets/media/m07-bmw-r1250gs.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/BMW_R_1250_GS_(1).jpg',
+    'https://commons.wikimedia.org/wiki/File:BMW_R_1250_GS_(1).jpg',
+    'Wikimedia Commons',
+    'Cjp24',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Cjp24, CC BY-SA 4.0, via Wikimedia Commons',
+    'BMW R 1250 GS motorcycle',
+    'The R 1250 GS is a strong used-market reference for BMW seat comfort research.',
+    '#31332f',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab.',
+    'active',
+    '{"key":"bmw_r1250gs_commons","title":"BMW R 1250 GS","description":"BMW R 1250 GS reference image for the German BMW comfort guide and used-market comparison.","localPath":"/assets/media/m07-bmw-r1250gs.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/BMW_R_1250_GS_(1).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:BMW_R_1250_GS_(1).jpg","sourceName":"Wikimedia Commons","creator":"Cjp24","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Cjp24, CC BY-SA 4.0, via Wikimedia Commons","alt":"BMW R 1250 GS motorcycle","caption":"The R 1250 GS is a strong used-market reference for BMW seat comfort research.","dominantColor":"#31332f","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1250-gs","usage":"hero","priority":1},{"entityType":"seat_option","entityKey":"sargent-world-sport-bmw-gs","usage":"context","priority":2},{"entityType":"seat_option","entityKey":"bmw-fast-relief-seat-pad","usage":"context","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1250gs_commons',
+      'motorcycle_profile',
+      'bmw-r-1250-gs',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1250gs_commons',
+      'seat_option',
+      'sargent-world-sport-bmw-gs',
+      'context',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_r1250gs_commons',
+      'seat_option',
+      'bmw-fast-relief-seat-pad',
+      'context',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'bmw_fast_relief_mesh_project',
+    '3D mesh seat pad illustration',
+    'Project-owned illustration for reversible fast-relief seat pad recommendations.',
+    '/assets/options/mesh-pad.svg',
+    NULL,
+    '/de/admin/assets/',
+    'Moto Seat Lab',
+    'Moto Seat Lab',
+    'Project-owned illustration',
+    'OWNED',
+    '/de/admin/assets/',
+    'project_owned',
+    false,
+    false,
+    true,
+    true,
+    false,
+    'Illustration: Moto Seat Lab',
+    'Illustration einer 3D-Mesh Sitzauflage',
+    'A reversible pad is the safest first experiment before buying a full aftermarket seat.',
+    '#24443e',
+    '16 / 9',
+    'center',
+    '["product","card","quick_relief"]'::jsonb,
+    'Use as a generic category illustration, not as a specific manufacturer product image.',
+    'active',
+    '{"key":"bmw_fast_relief_mesh_project","title":"3D mesh seat pad illustration","description":"Project-owned illustration for reversible fast-relief seat pad recommendations.","localPath":"/assets/options/mesh-pad.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration einer 3D-Mesh Sitzauflage","caption":"A reversible pad is the safest first experiment before buying a full aftermarket seat.","dominantColor":"#24443e","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card","quick_relief"],"links":[{"entityType":"seat_option","entityKey":"bmw-fast-relief-seat-pad","usage":"product","priority":1},{"entityType":"product_category","entityKey":"mesh_or_air_pad","usage":"card","priority":1}],"status":"active","notes":"Use as a generic category illustration, not as a specific manufacturer product image."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_fast_relief_mesh_project',
+      'seat_option',
+      'bmw-fast-relief-seat-pad',
+      'product',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_fast_relief_mesh_project',
+      'product_category',
+      'mesh_or_air_pad',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'wunderlich_aktivkomfort_permission_needed',
+    'Wunderlich AKTIVKOMFORT product image placeholder',
+    'Tracked official product image need for Wunderlich BMW comfort-seat options.',
+    '/assets/options/comfort-seat.svg',
+    NULL,
+    'https://www.wunderlich.de/en/wunderlich-aktivkomfort-rider-seat-r-1300-gs-13100-002',
+    'Wunderlich',
+    'Wunderlich / rights holder unknown',
+    'Permission needed before public reuse',
+    'PERMISSION_NEEDED',
+    'https://www.wunderlich.de/',
+    'permission_needed',
+    true,
+    false,
+    false,
+    false,
+    true,
+    'Image permission required from Wunderlich before public use',
+    'Placeholder for Wunderlich AKTIVKOMFORT product image',
+    'Official product photo is tracked but not approved for public display yet.',
+    '#202125',
+    '16 / 9',
+    'center',
+    '["product","card"]'::jsonb,
+    'Use only after written permission, press-kit terms, or an affiliate/product API license is documented.',
+    'permission_needed',
+    '{"key":"wunderlich_aktivkomfort_permission_needed","title":"Wunderlich AKTIVKOMFORT product image placeholder","description":"Tracked official product image need for Wunderlich BMW comfort-seat options.","localPath":"/assets/options/comfort-seat.svg","downloadUrl":"","sourcePageUrl":"https://www.wunderlich.de/en/wunderlich-aktivkomfort-rider-seat-r-1300-gs-13100-002","sourceName":"Wunderlich","creator":"Wunderlich / rights holder unknown","licenseName":"Permission needed before public reuse","licenseCode":"PERMISSION_NEEDED","licenseUrl":"https://www.wunderlich.de/","rightsStatus":"permission_needed","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":false,"commercialUseAllowed":false,"endorsementWarning":true,"creditLine":"Image permission required from Wunderlich before public use","alt":"Placeholder for Wunderlich AKTIVKOMFORT product image","caption":"Official product photo is tracked but not approved for public display yet.","dominantColor":"#202125","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card"],"links":[{"entityType":"seat_option","entityKey":"wunderlich-aktivkomfort-r1300gs","usage":"planned_product_image","priority":1}],"status":"permission_needed","notes":"Use only after written permission, press-kit terms, or an affiliate/product API license is documented."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'wunderlich_aktivkomfort_permission_needed',
+      'seat_option',
+      'wunderlich-aktivkomfort-r1300gs',
+      'planned_product_image',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'touratech_fresh_touch_permission_needed',
+    'Touratech Fresh Touch product image placeholder',
+    'Tracked official product image need for Touratech BMW comfort-seat options.',
+    '/assets/options/comfort-seat.svg',
+    NULL,
+    'https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html',
+    'Touratech',
+    'Touratech / rights holder unknown',
+    'Permission needed before public reuse',
+    'PERMISSION_NEEDED',
+    'https://www.touratech.com/',
+    'permission_needed',
+    true,
+    false,
+    false,
+    false,
+    true,
+    'Image permission required from Touratech before public use',
+    'Placeholder for Touratech Fresh Touch product image',
+    'Official product photo is tracked but not approved for public display yet.',
+    '#202125',
+    '16 / 9',
+    'center',
+    '["product","card"]'::jsonb,
+    'Use only after written permission, press-kit terms, or an affiliate/product API license is documented.',
+    'permission_needed',
+    '{"key":"touratech_fresh_touch_permission_needed","title":"Touratech Fresh Touch product image placeholder","description":"Tracked official product image need for Touratech BMW comfort-seat options.","localPath":"/assets/options/comfort-seat.svg","downloadUrl":"","sourcePageUrl":"https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html","sourceName":"Touratech","creator":"Touratech / rights holder unknown","licenseName":"Permission needed before public reuse","licenseCode":"PERMISSION_NEEDED","licenseUrl":"https://www.touratech.com/","rightsStatus":"permission_needed","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":false,"commercialUseAllowed":false,"endorsementWarning":true,"creditLine":"Image permission required from Touratech before public use","alt":"Placeholder for Touratech Fresh Touch product image","caption":"Official product photo is tracked but not approved for public display yet.","dominantColor":"#202125","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card"],"links":[{"entityType":"seat_option","entityKey":"touratech-fresh-touch-r1300gs","usage":"planned_product_image","priority":1}],"status":"permission_needed","notes":"Use only after written permission, press-kit terms, or an affiliate/product API license is documented."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touratech_fresh_touch_permission_needed',
+      'seat_option',
+      'touratech-fresh-touch-r1300gs',
+      'planned_product_image',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":9,"seat_materials":6,"workshop_tools":6,"workshop_supplies":6,"buying_channels":5,"media_assets":7,"content_media_links":25}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":9,"seat_materials":6,"workshop_tools":6,"workshop_supplies":6,"buying_channels":5,"media_assets":12,"content_media_links":35}'::jsonb);
 COMMIT;
