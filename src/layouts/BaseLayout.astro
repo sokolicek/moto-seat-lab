@@ -15,6 +15,20 @@ const { title, description, canonicalPath = "/", imagePath, preloadImagePath } =
 const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com").toString();
 const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.com").toString() : undefined;
 const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
+const buyingShortcuts = [
+  { label: "Kaufen Übersicht", href: "/de/kaufen/", note: "Startseite für Kaufentscheidungen" },
+  { label: "Schnelle Hilfe", href: "/de/kaufen/#schnellhilfe", note: "Auflage, Mesh, Gel, Airpad" },
+  { label: "Kaufmatrix", href: "/de/kaufen/#kaufmatrix", note: "Problem, Rückgabe, Passform" },
+  { label: "Kaufkanäle", href: "/de/kaufen/#kaufkanaele", note: "OEM, Händler, Marktplatz, Sattler" },
+  { label: "Produktkarten", href: "/de/kaufen/#produktkandidaten", note: "Beispiele mit Quelle und Risiko" },
+];
+const diyShortcuts = [
+  { label: "DIY Übersicht", href: "/de/diy/", note: "Sicher starten" },
+  { label: "Materialien", href: "/de/diy/#materialien", note: "Schaum, Gel, Mesh, Bezug" },
+  { label: "Werkzeug", href: "/de/diy/#werkzeug", note: "Was du wirklich brauchst" },
+  { label: "Präparate", href: "/de/diy/#pruefmittel", note: "Kleber, Klammern, Pflege" },
+  { label: "Minimalprotokoll", href: "/de/diy/#minimalprotokoll", note: "Messen, testen, dokumentieren" },
+];
 ---
 
 <!doctype html>
@@ -74,8 +88,46 @@ const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
               </div>
             </details>
             <a href="/de/loesungen/">Lösungen</a>
-            <a href="/de/kaufen/">Kaufen</a>
-            <a href="/de/diy/">DIY</a>
+            <details class="nav-dropdown shortcut-dropdown">
+              <summary>
+                <span>Kaufen</span>
+                <span class="dropdown-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="dropdown-panel shortcut-panel">
+                <div class="dropdown-head">
+                  <strong>Kaufpfade</strong>
+                  <a href="/de/kaufen/">Zur Kaufseite</a>
+                </div>
+                <div class="dropdown-shortcuts">
+                  {buyingShortcuts.map((shortcut) => (
+                    <a class="dropdown-shortcut" href={shortcut.href}>
+                      <strong>{shortcut.label}</strong>
+                      <span>{shortcut.note}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </details>
+            <details class="nav-dropdown shortcut-dropdown">
+              <summary>
+                <span>DIY</span>
+                <span class="dropdown-caret" aria-hidden="true"></span>
+              </summary>
+              <div class="dropdown-panel shortcut-panel">
+                <div class="dropdown-head">
+                  <strong>DIY-Schnellzugriff</strong>
+                  <a href="/de/diy/">Zur DIY-Seite</a>
+                </div>
+                <div class="dropdown-shortcuts">
+                  {diyShortcuts.map((shortcut) => (
+                    <a class="dropdown-shortcut" href={shortcut.href}>
+                      <strong>{shortcut.label}</strong>
+                      <span>{shortcut.note}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </details>
             <a href="/de/bilder/">Bilder</a>
           </nav>
         </div>
@@ -113,5 +165,28 @@ const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
       </footer>
     </div>
     <CookieBar />
+    <script>
+      const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("toggle", () => {
+          if (!(dropdown instanceof HTMLDetailsElement) || !dropdown.open) return;
+          dropdowns.forEach((otherDropdown) => {
+            if (otherDropdown !== dropdown && otherDropdown instanceof HTMLDetailsElement) {
+              otherDropdown.open = false;
+            }
+          });
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        if (target.closest(".nav-dropdown")) return;
+        dropdowns.forEach((dropdown) => {
+          if (dropdown instanceof HTMLDetailsElement) dropdown.open = false;
+        });
+      });
+    </script>
   </body>
 </html>

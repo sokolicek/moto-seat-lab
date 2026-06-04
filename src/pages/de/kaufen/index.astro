@@ -79,9 +79,17 @@ const channelLabel: Record<string, string> = {
     </div>
   </section>
 
-  <section class="section">
-    <div class="page-inner grid">
-      {productCategories.map((category) => <ProductCategoryCard {...category} />)}
+  <section class="section" id="schnellhilfe">
+    <div class="page-inner">
+      <p class="eyebrow">Schnelle Kaufhilfe</p>
+      <h2>Erst kleine Lösung, dann teure Sitzbank.</h2>
+      <p class="lead">
+        Diese Kategorien sind als kurzer Einstieg gedacht: Was kann sofort helfen, was ist nur ein Test
+        und wann lohnt sich erst ein kompletter Sitzbankkauf?
+      </p>
+      <div class="grid">
+        {productCategories.map((category) => <ProductCategoryCard {...category} />)}
+      </div>
     </div>
   </section>
 
@@ -115,7 +123,7 @@ const channelLabel: Record<string, string> = {
     </div>
   </section>
 
-  <section class="section alt">
+  <section class="section alt" id="produktkandidaten">
     <div class="page-inner">
       <p class="eyebrow">GSX-S1000GX Beispiel</p>
       <h2>Erste Produkt- und Servicekandidaten</h2>

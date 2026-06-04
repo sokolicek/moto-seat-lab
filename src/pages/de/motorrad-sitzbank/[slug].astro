@@ -2,7 +2,6 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
 import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
-import MotorcycleSelector from "../../../components/MotorcycleSelector.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
@@ -128,46 +127,60 @@ const bmwGermanyPriority = [
           <span>Status: Basisprofil</span>
         </div>
         <div class="actions">
-          <a class="button" href="#messungen">Messungen ansehen</a>
-          <a class="button secondary" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki Referenz vergleichen</a>
+          <a class="button" href="#sofortloesungen">Sofortlösungen</a>
+          <a class="button secondary" href="#andere-sitze">Andere Sitze</a>
+          <a class="button secondary" href="#diy-messung">DIY / Messung</a>
         </div>
       </div>
       {media && <MediaAssetFigure asset={media} variant="section" />}
     </div>
   </section>
 
-  <section class="section compact-nav-section">
-    <div class="page-inner">
-      <MotorcycleSelector currentSlug={slug} compact />
+  <section class="section compact-nav-section model-focus-nav">
+    <div class="page-inner page-jump-nav" aria-label="Abschnitte für dieses Motorrad">
+      <a href="#sofortloesungen">Sofortlösungen</a>
+      <a href="#andere-sitze">Andere Sitze</a>
+      <a href="#diy-messung">DIY / Messung</a>
+      <a href="#naechster-sprint">Nächste Recherche</a>
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="page-inner grid two">
-      <article class="card">
-        <span class="badge">Warum dieses Modell?</span>
-        <h2>{motorcycle.whyNext}</h2>
-        <p>
-          Dieses Profil ist auf Suzuki-GSX-S1000GX-Niveau als Datenstruktur vorbereitet:
-          Zielgruppe, Komfortfokus, Messpunkte und erste Entscheidungspfade sind vorhanden.
-          {isBmwGuide
-            ? " Für BMW in Deutschland gibt es bereits eine erste geprüfte Reihenfolge: schnelle Auflage, deutsche BMW-Sitzbank, dann globale Premiumoption."
-            : " Konkrete Produktkarten und Preise fehlen noch."}
-        </p>
-      </article>
-      <article class="notice">
-        <h2>{isBmwGuide ? "BMW: ehrlich starten" : "Noch kein finales Ranking"}</h2>
-        <p>
-          {isBmwGuide
-            ? "Nicht sofort die teuerste Sitzbank kaufen: zuerst reproduzierbar testen, ob eine Auflage schon genug bringt. Danach erst Sitzbank, Sattler oder Importlösung."
-            : `Für ${motorcycle.name} werden OEM-Zubehör, Aftermarket-Sitze, lokale Sattler und Forumserfahrungen erst nach Quellenprüfung ergänzt.`}
-        </p>
-      </article>
+  <section class="section alt" id="sofortloesungen">
+    <div class="page-inner">
+      <div class="grid two">
+        <article class="card">
+          <span class="badge">Sofort anfangen</span>
+          <h2>Erst reversible Entlastung testen.</h2>
+          <p>
+            Du hast {motorcycle.name} gewählt. Jetzt geht es nicht mehr um Modellauswahl, sondern um schnelle,
+            saubere Entscheidungen: gleiche Strecke fahren, Problem notieren und eine reversible Lösung testen.
+            {isBmwGuide
+              ? " Für BMW in Deutschland ist die Reihenfolge: schnelle Auflage, deutsche BMW-Sitzbank, dann globale Premiumoption."
+              : " Für dieses Basisprofil sind konkrete Produktkarten noch offen, aber die Reihenfolge bleibt gleich."}
+          </p>
+        </article>
+        <article class="notice">
+          <h2>{isBmwGuide ? "BMW: nicht blind teuer kaufen" : "Noch kein finales Ranking"}</h2>
+          <p>
+            {isBmwGuide
+              ? "Nicht sofort die teuerste Sitzbank kaufen: zuerst reproduzierbar testen, ob eine Auflage schon genug bringt. Danach erst Sitzbank, Sattler oder Importlösung."
+              : `Für ${motorcycle.name} werden OEM-Zubehör, Aftermarket-Sitze, lokale Sattler und Forumserfahrungen erst nach Quellenprüfung ergänzt.`}
+          </p>
+        </article>
+      </div>
+      <div class="decision-strip">
+        <span><strong>Unklare Ursache?</strong> reversible Auflage oder 3D-Mesh testen</span>
+        <span><strong>Langstrecke?</strong> Sitzbreite, Schaumstützung und Rückgabe prüfen</span>
+        <span><strong>Individuelle Schmerzen?</strong> Sattler erst nach Fotos und Messung</span>
+      </div>
+      <div class="grid">
+        {solutionPaths.map((path) => <SolutionCard {...path} />)}
+      </div>
     </div>
   </section>
 
   {bmwOptions.length > 0 && (
-    <section class="section" id="deutschland-optionen">
+    <section class="section" id="andere-sitze">
       <div class="page-inner">
         <p class="eyebrow">Deutschland · BMW-Priorität</p>
         <h2>Erst schnelle Entlastung, dann BMW-Sitze vergleichen.</h2>
@@ -190,10 +203,24 @@ const bmwGermanyPriority = [
     </section>
   )}
 
-  <section class="section" id="messungen">
+  {!isBmwGuide && (
+    <section class="section" id="andere-sitze">
+      <div class="page-inner">
+        <p class="eyebrow">Andere Sitze</p>
+        <h2>OEM, Aftermarket und Sattler erst nach Quellenprüfung.</h2>
+        <div class="decision-strip">
+          <span><strong>OEM</strong> Zubehörsitz, niedrige/hohe Variante und Heizungsoption prüfen</span>
+          <span><strong>Aftermarket</strong> Hersteller, Modelljahr, Rückgabe und echte Fahrberichte sammeln</span>
+          <span><strong>Sattler</strong> erst mit Fotos, Maßen und klarer Schmerzbeschreibung anfragen</span>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" id="diy-messung">
     <div class="page-inner">
       <p class="eyebrow">Technisches Profil</p>
-      <h2>Was wir vor echten Empfehlungen messen müssen.</h2>
+      <h2>DIY und Messung: was vor echten Empfehlungen fehlt.</h2>
       <div class="grid two">
         <LabDataCard
           eyebrow="Nutzung"
@@ -225,22 +252,7 @@ const bmwGermanyPriority = [
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="page-inner">
-      <p class="eyebrow">Erste Entscheidung</p>
-      <h2>Was du jetzt schon sinnvoll testen kannst.</h2>
-      <div class="decision-strip">
-        <span><strong>Unklare Ursache?</strong> reversible Auflage oder 3D-Mesh testen</span>
-        <span><strong>Langstrecke?</strong> Sitzbreite, Schaumstützung und Rückgabe prüfen</span>
-        <span><strong>Individuelle Schmerzen?</strong> Sattler erst nach Fotos und Messung</span>
-      </div>
-      <div class="grid">
-        {solutionPaths.map((path) => <SolutionCard {...path} />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="section" id="naechster-sprint">
     <div class="page-inner grid two">
       <article class="card">
         <h2>Nächster Daten-Sprint</h2>
