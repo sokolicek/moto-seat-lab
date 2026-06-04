@@ -32,6 +32,11 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
           return (
             <option
               value={enabled ? motorcycle.path : `/de/motorrad-sitzbank/#geplant`}
+              data-status={motorcycle.status}
+              data-name={motorcycle.name}
+              data-segment={motorcycle.segment}
+              data-focus={motorcycle.seatPainFocus}
+              data-why={motorcycle.whyNext}
               selected={slug === currentSlug}
             >
               {motorcycle.name} {enabled ? "" : "· geplant"}
@@ -43,14 +48,61 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
     <button class="button" type="submit">Öffnen</button>
     <a class="button secondary" href="/de/motorrad-sitzbank/">Alle Motorräder</a>
   </form>
+
+  <div class="motorcycle-selector-result" data-motorcycle-selector-result aria-live="polite"></div>
 </section>
 
 <script>
   document.querySelectorAll<HTMLFormElement>("[data-motorcycle-selector]").forEach((form) => {
+    const shell = form.closest(".motorcycle-selector");
+    const result = shell?.querySelector<HTMLElement>("[data-motorcycle-selector-result]");
+    const select = form.querySelector<HTMLSelectElement>("select[name='motorcycle']");
+
+    const renderSelection = () => {
+      const option = select?.selectedOptions[0];
+      if (!option || !result) return;
+
+      const status = option.dataset.status || "planned";
+      const name = option.dataset.name || option.textContent?.trim() || "Motorrad";
+      const segment = option.dataset.segment || "";
+      const focus = option.dataset.focus || "";
+      const why = option.dataset.why || "";
+
+      if (status === "active") {
+        result.className = "motorcycle-selector-result active";
+        result.innerHTML = `
+          <span class="badge">Aktiv</span>
+          <strong>${name}</strong>
+          <p>${focus}</p>
+        `;
+        return;
+      }
+
+      result.className = "motorcycle-selector-result planned";
+      result.innerHTML = `
+        <span class="badge confidence">Geplant</span>
+        <strong>${name}</strong>
+        <p><strong>${segment}</strong> · ${focus}</p>
+        <p>${why}</p>
+        <p class="muted-line">Noch kein eigener Guide. Du kannst die Roadmap öffnen oder mit Suzuki als Referenzmodell weiterarbeiten.</p>
+      `;
+    };
+
+    renderSelection();
+    select?.addEventListener("change", renderSelection);
+
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const select = form.querySelector<HTMLSelectElement>("select[name='motorcycle']");
+      const option = select?.selectedOptions[0];
+      const status = option?.dataset.status || "planned";
       const target = select?.value || "/de/motorrad-sitzbank/";
+      if (status !== "active") {
+        renderSelection();
+        if (target.includes("#")) {
+          window.location.href = target;
+        }
+        return;
+      }
       window.location.href = target;
     });
   });
