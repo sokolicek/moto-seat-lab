@@ -222,6 +222,114 @@
     ]
   },
   {
+    "key": "honda-africa-twin-advpulse-review-video",
+    "status": "source_page_video_candidate",
+    "topic": "Honda Africa Twin Sitzzeit und Offroad-Komfort",
+    "providerUrl": "https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "sourcePageUrl": "https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/",
+    "title": "ADV Pulse: 2020 Honda Africa Twin CRF1100L tested",
+    "channelName": "ADV Pulse",
+    "language": "en",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "The source page introduces an in-depth road and off-road test video and explicitly mentions extended seat time and comfort improvements.",
+    "editorSummary": "Guter Modellkandidat für die Africa Twin: Sitzzeit, Bewegungsfreiheit, Straße/Offroad-Wechsel und Komfort über längere Teststrecken.",
+    "whatToLookFor": [
+      "Wie sich die Sitzposition zwischen Straße und leichtem Gelände verändert",
+      "Ob Sitzhöhe und Bewegungsfreiheit als Vorteil oder Problem beschrieben werden",
+      "Welche Aussagen auf Langstrecke und welche auf Offroad-Testbedingungen bezogen sind"
+    ],
+    "fitFor": ["Honda CRF1100L Africa Twin", "Adventure", "Sitzzeit"],
+    "riskNotes": "Kein reines Sitzbankvideo. Nur sitzrelevante Beobachtungen in das Modellprofil übernehmen.",
+    "embedPolicy": "Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.",
+    "links": [
+      { "entityType": "motorcycle_profile", "entityKey": "honda-crf1100l-africa-twin", "usage": "review_context", "priority": 1 }
+    ]
+  },
+  {
+    "key": "kawasaki-versys-1000-rider-video-review",
+    "status": "source_page_video_candidate",
+    "topic": "Kawasaki Versys 1000 LT Komfort und Legroom",
+    "providerUrl": "https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "sourcePageUrl": "https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/",
+    "title": "Rider Magazine: Kawasaki Versys 1000 LT video review",
+    "channelName": "Rider Magazine",
+    "language": "en",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "The Rider Magazine page includes a video review and describes generous legroom, upright seating and solo/two-up comfort.",
+    "editorSummary": "Relevanter Kandidat für Versys 1000: aufrechte Sitzposition, Beinwinkel, Langstreckenkomfort und Soziusbetrieb.",
+    "whatToLookFor": [
+      "Ob die Sitzbank nach mehreren Stunden noch stützt oder einsinkt",
+      "Wie Beinwinkel und aufrechte Haltung beschrieben werden",
+      "Ob Solo- und Soziusbetrieb getrennt betrachtet werden"
+    ],
+    "fitFor": ["Kawasaki Versys 1000", "Crossover Touring", "Sozius"],
+    "riskNotes": "Älterer LT-Test; Modelljahr und Sitzbankgeneration vor konkreten Empfehlungen prüfen.",
+    "embedPolicy": "Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.",
+    "links": [
+      { "entityType": "motorcycle_profile", "entityKey": "kawasaki-versys-1000", "usage": "review_context", "priority": 1 }
+    ]
+  },
+  {
+    "key": "suzuki-vstrom-1050-rideout-video-candidate",
+    "status": "source_page_video_candidate",
+    "topic": "Suzuki V-Strom 1050 Touring-Kontext",
+    "providerUrl": "https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "sourcePageUrl": "https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/",
+    "title": "Suzuki Ride Out: V-Strom 1050 La Fuente",
+    "channelName": "Suzuki Netherlands",
+    "language": "nl",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "Suzuki Netherlands publishes a Ride Out video page for the V-Strom 1050.",
+    "editorSummary": "Modellkontext für V-Strom 1050. Sitzrelevanz muss noch manuell geprüft werden: Haltung, Touring-Einsatz, Sitzhöhe und Winddruck.",
+    "whatToLookFor": [
+      "Ob die Fahrhaltung touristisch oder sportlich wirkt",
+      "Ob Sitzhöhe, Windschutz oder Langstrecke sichtbar/erwähnt werden",
+      "Welche Aussagen reine Herstellerinszenierung sind"
+    ],
+    "fitFor": ["Suzuki V-Strom 1050", "Touring-Kontext", "OEM-Kontext"],
+    "riskNotes": "Herstellerinhalt ist nicht neutral. Nur als Modell-/Nutzungskontext verwenden.",
+    "embedPolicy": "Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.",
+    "links": [
+      { "entityType": "motorcycle_profile", "entityKey": "suzuki-v-strom-1050", "usage": "oem_context", "priority": 1 }
+    ]
+  },
+  {
+    "key": "yamaha-mt07-motorcyclist-review-video",
+    "status": "source_page_video_candidate",
+    "topic": "Yamaha MT-07 Alltag und Komfort",
+    "providerUrl": "https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "sourcePageUrl": "https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/",
+    "title": "Motorcyclist: 2021 Yamaha MT-07 review",
+    "channelName": "Motorcyclist",
+    "language": "en",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "The Motorcyclist review page references related road-test and MC Commute video content for the MT-07.",
+    "editorSummary": "Nützlich als Kandidat für MT-07: Alltag, kurze Fahrten, Sitzkomfort und Budget-Naked-Bike-Erwartung.",
+    "whatToLookFor": [
+      "Wann der Sitz auf kurzen und mittleren Fahrten unangenehm wird",
+      "Ob die Sitzneigung oder dünne Polsterung erwähnt wird",
+      "Welche Aussagen für Einsteiger und Stadt/Landstraße relevant sind"
+    ],
+    "fitFor": ["Yamaha MT-07", "Naked Bike", "Budget-Komfort"],
+    "riskNotes": "Review ist kein Sitzbank-Spezialvideo. Komfortaussagen nur als Kontext übernehmen.",
+    "embedPolicy": "Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.",
+    "links": [
+      { "entityType": "motorcycle_profile", "entityKey": "yamaha-mt-07", "usage": "review_context", "priority": 1 }
+    ]
+  },
+  {
     "key": "bmw-r1300gs-option719-comfort-candidate",
     "status": "source_page_video_candidate",
     "topic": "BMW R 1300 GS Option 719 Komfortsitze",

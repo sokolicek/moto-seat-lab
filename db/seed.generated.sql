@@ -4524,6 +4524,552 @@ INSERT INTO media_assets (
     source_data, updated_at
   )
   VALUES (
+    'honda_africa_twin_crf1100l_commons',
+    'Honda CRF1100L Africa Twin',
+    'Honda CRF1100L Africa Twin reference image for adventure and mixed-road seat comfort research.',
+    '/assets/media/m18-honda-africa-twin.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/2020_Honda_CRF1100L_Africa_Twin_MT.jpg',
+    'https://commons.wikimedia.org/wiki/File:2020_Honda_CRF1100L_Africa_Twin_MT.jpg',
+    'Wikimedia Commons',
+    'Chanokchon',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons',
+    'Honda CRF1100L Africa Twin motorcycle',
+    'Adventure seats need a balance between touring support, seat height and standing/off-road movement.',
+    '#4b4d43',
+    '1 / 1',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Honda or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"honda_africa_twin_crf1100l_commons","title":"Honda CRF1100L Africa Twin","description":"Honda CRF1100L Africa Twin reference image for adventure and mixed-road seat comfort research.","localPath":"/assets/media/m18-honda-africa-twin.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/2020_Honda_CRF1100L_Africa_Twin_MT.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:2020_Honda_CRF1100L_Africa_Twin_MT.jpg","sourceName":"Wikimedia Commons","creator":"Chanokchon","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons","alt":"Honda CRF1100L Africa Twin motorcycle","caption":"Adventure seats need a balance between touring support, seat height and standing/off-road movement.","dominantColor":"#4b4d43","aspectRatio":"1 / 1","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-crf1100l-africa-twin","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Honda or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'honda_africa_twin_crf1100l_commons',
+      'motorcycle_profile',
+      'honda-crf1100l-africa-twin',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'suzuki_vstrom_1050_commons',
+    'Suzuki V-Strom 1050',
+    'Suzuki V-Strom 1050 reference image for Suzuki adventure-touring comparison.',
+    '/assets/media/m19-suzuki-v-strom-1050.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Suzuki_V-Strom_1050.jpg',
+    'https://commons.wikimedia.org/wiki/File:Suzuki_V-Strom_1050.jpg',
+    'Wikimedia Commons',
+    'ShunyaIshiwatari',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: ShunyaIshiwatari, CC BY-SA 4.0, via Wikimedia Commons',
+    'Suzuki V-Strom 1050 motorcycle',
+    'The V-Strom 1050 is a useful Suzuki comparison for adjustable touring ergonomics and seat height.',
+    '#46433d',
+    '16 / 9',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Suzuki or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"suzuki_vstrom_1050_commons","title":"Suzuki V-Strom 1050","description":"Suzuki V-Strom 1050 reference image for Suzuki adventure-touring comparison.","localPath":"/assets/media/m19-suzuki-v-strom-1050.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Suzuki_V-Strom_1050.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Suzuki_V-Strom_1050.jpg","sourceName":"Wikimedia Commons","creator":"ShunyaIshiwatari","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: ShunyaIshiwatari, CC BY-SA 4.0, via Wikimedia Commons","alt":"Suzuki V-Strom 1050 motorcycle","caption":"The V-Strom 1050 is a useful Suzuki comparison for adjustable touring ergonomics and seat height.","dominantColor":"#46433d","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-v-strom-1050","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Suzuki or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'suzuki_vstrom_1050_commons',
+      'motorcycle_profile',
+      'suzuki-v-strom-1050',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'yamaha_mt07_commons',
+    'Yamaha MT-07',
+    'Yamaha MT-07 reference image for naked-bike and budget comfort research.',
+    '/assets/media/m23-yamaha-mt-07.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Yamaha_MT-07.jpg',
+    'https://commons.wikimedia.org/wiki/File:Yamaha_MT-07.jpg',
+    'Wikimedia Commons',
+    'Na-Thur',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Na-Thur, CC BY-SA 3.0, via Wikimedia Commons',
+    'Yamaha MT-07 motorcycle',
+    'Naked-bike seats often need budget-friendly short-ride relief before expensive custom work.',
+    '#34332e',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"yamaha_mt07_commons","title":"Yamaha MT-07","description":"Yamaha MT-07 reference image for naked-bike and budget comfort research.","localPath":"/assets/media/m23-yamaha-mt-07.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Yamaha_MT-07.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Yamaha_MT-07.jpg","sourceName":"Wikimedia Commons","creator":"Na-Thur","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Na-Thur, CC BY-SA 3.0, via Wikimedia Commons","alt":"Yamaha MT-07 motorcycle","caption":"Naked-bike seats often need budget-friendly short-ride relief before expensive custom work.","dominantColor":"#34332e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"yamaha-mt-07","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'yamaha_mt07_commons',
+      'motorcycle_profile',
+      'yamaha-mt-07',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'kawasaki_versys_1000_commons',
+    'Kawasaki Versys 1000',
+    'Kawasaki Versys 1000 reference image for crossover touring comfort research.',
+    '/assets/media/m20-kawasaki-versys-1000.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_Versys_1000_DSCF0396.jpg',
+    'https://commons.wikimedia.org/wiki/File:Kawasaki_Versys_1000_DSCF0396.jpg',
+    'Wikimedia Commons',
+    'Addvisor',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons',
+    'Kawasaki Versys 1000 motorcycle',
+    'The Versys 1000 is a crossover-tourer where legroom, seat width and long stints matter.',
+    '#303b2e',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
+    'download_pending',
+    '{"key":"kawasaki_versys_1000_commons","title":"Kawasaki Versys 1000","description":"Kawasaki Versys 1000 reference image for crossover touring comfort research.","localPath":"/assets/media/m20-kawasaki-versys-1000.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_Versys_1000_DSCF0396.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Kawasaki_Versys_1000_DSCF0396.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Versys 1000 motorcycle","caption":"The Versys 1000 is a crossover-tourer where legroom, seat width and long stints matter.","dominantColor":"#303b2e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'kawasaki_versys_1000_commons',
+      'motorcycle_profile',
+      'kawasaki-versys-1000',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'ducati_multistrada_v4_commons',
+    'Ducati Multistrada V4 S',
+    'Ducati Multistrada V4 S reference image for premium adventure-touring comparison.',
+    '/assets/media/m21-ducati-multistrada-v4.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Ducati_Multistrada_V4_S_-_EICMA_2024.jpg',
+    'https://commons.wikimedia.org/wiki/File:Ducati_Multistrada_V4_S_-_EICMA_2024.jpg',
+    'Wikimedia Commons',
+    'Saggittarius A',
+    'Creative Commons Attribution 4.0 International',
+    'CC BY 4.0',
+    'https://creativecommons.org/licenses/by/4.0/',
+    'usable_with_attribution',
+    true,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons',
+    'Ducati Multistrada V4 S motorcycle',
+    'Premium adventure bikes need separate checks for heat, seat height, rider/passenger seats and OEM comfort packages.',
+    '#5a4a42',
+    '4 / 5',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
+    'download_pending',
+    '{"key":"ducati_multistrada_v4_commons","title":"Ducati Multistrada V4 S","description":"Ducati Multistrada V4 S reference image for premium adventure-touring comparison.","localPath":"/assets/media/m21-ducati-multistrada-v4.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourceName":"Wikimedia Commons","creator":"Saggittarius A","licenseName":"Creative Commons Attribution 4.0 International","licenseCode":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons","alt":"Ducati Multistrada V4 S motorcycle","caption":"Premium adventure bikes need separate checks for heat, seat height, rider/passenger seats and OEM comfort packages.","dominantColor":"#5a4a42","aspectRatio":"4 / 5","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'ducati_multistrada_v4_commons',
+      'motorcycle_profile',
+      'ducati-multistrada-v4',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'honda_nc750x_commons',
+    'Honda NC750X',
+    'Honda NC750X reference image for commuting and practical crossover comfort research.',
+    '/assets/media/m22-honda-nc750x.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Nc750x.jpg',
+    'https://commons.wikimedia.org/wiki/File:Nc750x.jpg',
+    'Wikimedia Commons',
+    'ウェルワィ',
+    'Creative Commons Attribution 3.0 Unported',
+    'CC BY 3.0',
+    'https://creativecommons.org/licenses/by/3.0/',
+    'usable_with_attribution',
+    true,
+    false,
+    true,
+    true,
+    true,
+    'Photo: ウェルワィ, CC BY 3.0, via Wikimedia Commons',
+    'Honda NC750X motorcycle',
+    'Practical crossover bikes need commuting comfort, medium-distance relief and budget-safe upgrades.',
+    '#51534f',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
+    'download_pending',
+    '{"key":"honda_nc750x_commons","title":"Honda NC750X","description":"Honda NC750X reference image for commuting and practical crossover comfort research.","localPath":"/assets/media/m22-honda-nc750x.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Nc750x.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Nc750x.jpg","sourceName":"Wikimedia Commons","creator":"ウェルワィ","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: ウェルワィ, CC BY 3.0, via Wikimedia Commons","alt":"Honda NC750X motorcycle","caption":"Practical crossover bikes need commuting comfort, medium-distance relief and budget-safe upgrades.","dominantColor":"#51534f","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'honda_nc750x_commons',
+      'motorcycle_profile',
+      'honda-nc750x',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'kawasaki_z900_commons',
+    'Kawasaki Z900',
+    'Kawasaki Z900 reference image for naked-bike comfort and sporty road posture research.',
+    '/assets/media/m24-kawasaki-z900.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/KawasakiZ900.jpg',
+    'https://commons.wikimedia.org/wiki/File:KawasakiZ900.jpg',
+    'Wikimedia Commons',
+    'T.doi.z900',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: T.doi.z900, CC BY-SA 4.0, via Wikimedia Commons',
+    'Kawasaki Z900 motorcycle',
+    'Sporty naked bikes need different seat advice than touring machines: short pressure, sliding and knee angle dominate.',
+    '#313830',
+    '3 / 2',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
+    'download_pending',
+    '{"key":"kawasaki_z900_commons","title":"Kawasaki Z900","description":"Kawasaki Z900 reference image for naked-bike comfort and sporty road posture research.","localPath":"/assets/media/m24-kawasaki-z900.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/KawasakiZ900.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:KawasakiZ900.jpg","sourceName":"Wikimedia Commons","creator":"T.doi.z900","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: T.doi.z900, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Z900 motorcycle","caption":"Sporty naked bikes need different seat advice than touring machines: short pressure, sliding and knee angle dominate.","dominantColor":"#313830","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-z900","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'kawasaki_z900_commons',
+      'motorcycle_profile',
+      'kawasaki-z900',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
     'honda_forza_350_commons',
     'Honda Forza 350',
     'Honda Forza 350 reference image for scooter and Southeast Asia comfort research.',
@@ -5780,6 +6326,262 @@ INSERT INTO video_resources (
     embed_policy, source_data, updated_at
   )
   VALUES (
+    'honda-africa-twin-advpulse-review-video',
+    'source_page_video_candidate',
+    'Honda Africa Twin Sitzzeit und Offroad-Komfort',
+    'youtube',
+    NULL,
+    'https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/',
+    NULL,
+    'https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/',
+    'ADV Pulse: 2020 Honda Africa Twin CRF1100L tested',
+    'ADV Pulse',
+    'en',
+    NULL,
+    NULL,
+    'The source page introduces an in-depth road and off-road test video and explicitly mentions extended seat time and comfort improvements.',
+    'Guter Modellkandidat für die Africa Twin: Sitzzeit, Bewegungsfreiheit, Straße/Offroad-Wechsel und Komfort über längere Teststrecken.',
+    '["Wie sich die Sitzposition zwischen Straße und leichtem Gelände verändert","Ob Sitzhöhe und Bewegungsfreiheit als Vorteil oder Problem beschrieben werden","Welche Aussagen auf Langstrecke und welche auf Offroad-Testbedingungen bezogen sind"]'::jsonb,
+    '["Honda CRF1100L Africa Twin","Adventure","Sitzzeit"]'::jsonb,
+    'Kein reines Sitzbankvideo. Nur sitzrelevante Beobachtungen in das Modellprofil übernehmen.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"honda-africa-twin-advpulse-review-video","status":"source_page_video_candidate","topic":"Honda Africa Twin Sitzzeit und Offroad-Komfort","providerUrl":"https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.advpulse.com/adv-bikes/watch-2020-honda-africa-twin-crf1100l-tested/","title":"ADV Pulse: 2020 Honda Africa Twin CRF1100L tested","channelName":"ADV Pulse","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The source page introduces an in-depth road and off-road test video and explicitly mentions extended seat time and comfort improvements.","editorSummary":"Guter Modellkandidat für die Africa Twin: Sitzzeit, Bewegungsfreiheit, Straße/Offroad-Wechsel und Komfort über längere Teststrecken.","whatToLookFor":["Wie sich die Sitzposition zwischen Straße und leichtem Gelände verändert","Ob Sitzhöhe und Bewegungsfreiheit als Vorteil oder Problem beschrieben werden","Welche Aussagen auf Langstrecke und welche auf Offroad-Testbedingungen bezogen sind"],"fitFor":["Honda CRF1100L Africa Twin","Adventure","Sitzzeit"],"riskNotes":"Kein reines Sitzbankvideo. Nur sitzrelevante Beobachtungen in das Modellprofil übernehmen.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"honda-crf1100l-africa-twin","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'honda-africa-twin-advpulse-review-video',
+      'motorcycle_profile',
+      'honda-crf1100l-africa-twin',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki-versys-1000-rider-video-review',
+    'source_page_video_candidate',
+    'Kawasaki Versys 1000 LT Komfort und Legroom',
+    'youtube',
+    NULL,
+    'https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/',
+    NULL,
+    'https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/',
+    'Rider Magazine: Kawasaki Versys 1000 LT video review',
+    'Rider Magazine',
+    'en',
+    NULL,
+    NULL,
+    'The Rider Magazine page includes a video review and describes generous legroom, upright seating and solo/two-up comfort.',
+    'Relevanter Kandidat für Versys 1000: aufrechte Sitzposition, Beinwinkel, Langstreckenkomfort und Soziusbetrieb.',
+    '["Ob die Sitzbank nach mehreren Stunden noch stützt oder einsinkt","Wie Beinwinkel und aufrechte Haltung beschrieben werden","Ob Solo- und Soziusbetrieb getrennt betrachtet werden"]'::jsonb,
+    '["Kawasaki Versys 1000","Crossover Touring","Sozius"]'::jsonb,
+    'Älterer LT-Test; Modelljahr und Sitzbankgeneration vor konkreten Empfehlungen prüfen.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"kawasaki-versys-1000-rider-video-review","status":"source_page_video_candidate","topic":"Kawasaki Versys 1000 LT Komfort und Legroom","providerUrl":"https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://ridermagazine.com/2015/08/20/video-review-kawasaki-versys-1000-lt/","title":"Rider Magazine: Kawasaki Versys 1000 LT video review","channelName":"Rider Magazine","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The Rider Magazine page includes a video review and describes generous legroom, upright seating and solo/two-up comfort.","editorSummary":"Relevanter Kandidat für Versys 1000: aufrechte Sitzposition, Beinwinkel, Langstreckenkomfort und Soziusbetrieb.","whatToLookFor":["Ob die Sitzbank nach mehreren Stunden noch stützt oder einsinkt","Wie Beinwinkel und aufrechte Haltung beschrieben werden","Ob Solo- und Soziusbetrieb getrennt betrachtet werden"],"fitFor":["Kawasaki Versys 1000","Crossover Touring","Sozius"],"riskNotes":"Älterer LT-Test; Modelljahr und Sitzbankgeneration vor konkreten Empfehlungen prüfen.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'kawasaki-versys-1000-rider-video-review',
+      'motorcycle_profile',
+      'kawasaki-versys-1000',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-vstrom-1050-rideout-video-candidate',
+    'source_page_video_candidate',
+    'Suzuki V-Strom 1050 Touring-Kontext',
+    'youtube',
+    NULL,
+    'https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/',
+    NULL,
+    'https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/',
+    'Suzuki Ride Out: V-Strom 1050 La Fuente',
+    'Suzuki Netherlands',
+    'nl',
+    NULL,
+    NULL,
+    'Suzuki Netherlands publishes a Ride Out video page for the V-Strom 1050.',
+    'Modellkontext für V-Strom 1050. Sitzrelevanz muss noch manuell geprüft werden: Haltung, Touring-Einsatz, Sitzhöhe und Winddruck.',
+    '["Ob die Fahrhaltung touristisch oder sportlich wirkt","Ob Sitzhöhe, Windschutz oder Langstrecke sichtbar/erwähnt werden","Welche Aussagen reine Herstellerinszenierung sind"]'::jsonb,
+    '["Suzuki V-Strom 1050","Touring-Kontext","OEM-Kontext"]'::jsonb,
+    'Herstellerinhalt ist nicht neutral. Nur als Modell-/Nutzungskontext verwenden.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"suzuki-vstrom-1050-rideout-video-candidate","status":"source_page_video_candidate","topic":"Suzuki V-Strom 1050 Touring-Kontext","providerUrl":"https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.suzuki.nl/motoren/over-suzuki-motoren/suzuki-ride-out/vstrom1050-la-fuente/","title":"Suzuki Ride Out: V-Strom 1050 La Fuente","channelName":"Suzuki Netherlands","language":"nl","duration":"","thumbnailUrl":"","fetchedDescription":"Suzuki Netherlands publishes a Ride Out video page for the V-Strom 1050.","editorSummary":"Modellkontext für V-Strom 1050. Sitzrelevanz muss noch manuell geprüft werden: Haltung, Touring-Einsatz, Sitzhöhe und Winddruck.","whatToLookFor":["Ob die Fahrhaltung touristisch oder sportlich wirkt","Ob Sitzhöhe, Windschutz oder Langstrecke sichtbar/erwähnt werden","Welche Aussagen reine Herstellerinszenierung sind"],"fitFor":["Suzuki V-Strom 1050","Touring-Kontext","OEM-Kontext"],"riskNotes":"Herstellerinhalt ist nicht neutral. Nur als Modell-/Nutzungskontext verwenden.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-v-strom-1050","usage":"oem_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'suzuki-vstrom-1050-rideout-video-candidate',
+      'motorcycle_profile',
+      'suzuki-v-strom-1050',
+      'oem_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-mt07-motorcyclist-review-video',
+    'source_page_video_candidate',
+    'Yamaha MT-07 Alltag und Komfort',
+    'youtube',
+    NULL,
+    'https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/',
+    NULL,
+    'https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/',
+    'Motorcyclist: 2021 Yamaha MT-07 review',
+    'Motorcyclist',
+    'en',
+    NULL,
+    NULL,
+    'The Motorcyclist review page references related road-test and MC Commute video content for the MT-07.',
+    'Nützlich als Kandidat für MT-07: Alltag, kurze Fahrten, Sitzkomfort und Budget-Naked-Bike-Erwartung.',
+    '["Wann der Sitz auf kurzen und mittleren Fahrten unangenehm wird","Ob die Sitzneigung oder dünne Polsterung erwähnt wird","Welche Aussagen für Einsteiger und Stadt/Landstraße relevant sind"]'::jsonb,
+    '["Yamaha MT-07","Naked Bike","Budget-Komfort"]'::jsonb,
+    'Review ist kein Sitzbank-Spezialvideo. Komfortaussagen nur als Kontext übernehmen.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"yamaha-mt07-motorcyclist-review-video","status":"source_page_video_candidate","topic":"Yamaha MT-07 Alltag und Komfort","providerUrl":"https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.motorcyclistonline.com/story/reviews/2021-yamaha-mt-07/","title":"Motorcyclist: 2021 Yamaha MT-07 review","channelName":"Motorcyclist","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The Motorcyclist review page references related road-test and MC Commute video content for the MT-07.","editorSummary":"Nützlich als Kandidat für MT-07: Alltag, kurze Fahrten, Sitzkomfort und Budget-Naked-Bike-Erwartung.","whatToLookFor":["Wann der Sitz auf kurzen und mittleren Fahrten unangenehm wird","Ob die Sitzneigung oder dünne Polsterung erwähnt wird","Welche Aussagen für Einsteiger und Stadt/Landstraße relevant sind"],"fitFor":["Yamaha MT-07","Naked Bike","Budget-Komfort"],"riskNotes":"Review ist kein Sitzbank-Spezialvideo. Komfortaussagen nur als Kontext übernehmen.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"yamaha-mt-07","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'yamaha-mt07-motorcyclist-review-video',
+      'motorcycle_profile',
+      'yamaha-mt-07',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
     'bmw-r1300gs-option719-comfort-candidate',
     'source_page_video_candidate',
     'BMW R 1300 GS Option 719 Komfortsitze',
@@ -5838,5 +6640,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52,"video_resources":9,"content_video_links":18}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":30,"content_media_links":59,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

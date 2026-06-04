@@ -106,6 +106,10 @@ MVP implementation started.
 - Video thumbnails no longer link users away to YouTube; both thumbnails and load buttons now create an on-page `youtube-nocookie.com` iframe with the current local origin.
 - Two stale DIY YouTube IDs were removed from the ready set and replaced with curated embed candidates from motorcycle-seat forum/product contexts.
 - Video seed import now deletes stale `video_resources` before re-importing, preventing orphaned broken video keys in PostgreSQL.
+- Motorcycle media sprint added active Commons-backed hero images for Honda CRF1100L Africa Twin, Suzuki V-Strom 1050, and Yamaha MT-07.
+- Additional Commons image candidates were documented for Kawasaki Versys 1000, Ducati Multistrada V4 S, Honda NC750X, and Kawasaki Z900; they remain `download_pending` because Wikimedia returned rate-limit errors during this sprint.
+- Model video candidates were added for Honda Africa Twin, Suzuki V-Strom 1050, Kawasaki Versys 1000, and Yamaha MT-07, and the generic motorcycle profile navigation now shows `Videos` only when a model has video resources.
+- Current database seed has 30 media assets, 13 video resources, 59 media links, and 22 video links with zero validation issues.
 
 ## Not Started
 
