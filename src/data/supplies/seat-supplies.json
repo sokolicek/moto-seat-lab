@@ -58,5 +58,75 @@
     "bestFor": "saubere Klebeflächen, kleine Reparaturen, Vorbereitung vor Messfotos",
     "riskNotes": "Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.",
     "buyingNotes": "Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen."
+  },
+  {
+    "key": "upholstery_vinyl",
+    "name": "Motorrad-geeigneter Kunstleder-/Vinylbezug",
+    "supplyType": "cover_material",
+    "skillLevel": "professional",
+    "usedFor": "neuen Bezug nähen oder Sitzbank neu beziehen",
+    "bestFor": "Design, Grip, Wasserverhalten und Reparatur einer alten Sitzbank",
+    "riskNotes": "Billiges Material kann reißen, ausbleichen oder Wasser an Nähten ziehen.",
+    "buyingNotes": "UV-Beständigkeit, Dehnung, Rückseite, Griff und Nahtverhalten prüfen."
+  },
+  {
+    "key": "bonded_nylon_thread",
+    "name": "UV-beständiger Polsterfaden",
+    "supplyType": "sewing",
+    "skillLevel": "professional",
+    "usedFor": "haltbare Nähte bei Kunstleder, Vinyl und Keder",
+    "bestFor": "Sattlerarbeit, neue Bezüge, sichtbare Ziernähte",
+    "riskNotes": "Falsche Stärke oder Nadel führt zu Fehlstichen und schwachen Nähten.",
+    "buyingNotes": "Fadenstärke passend zur Maschine, Nadel und Materialdicke wählen."
+  },
+  {
+    "key": "hook_loop_straps",
+    "name": "Klett-/Gurtband für reversible Auflagen",
+    "supplyType": "mounting",
+    "skillLevel": "beginner",
+    "usedFor": "3D-Mesh, Luftkissen oder Testauflagen ohne dauerhaften Umbau sichern",
+    "bestFor": "erste Tests, Pendeln, Hitze, Scooter und Budget-Lösungen",
+    "riskNotes": "Darf Sitzschloss, Lack, Verkleidung und Fahrkontrolle nicht stören.",
+    "buyingNotes": "Breite, Kanten, UV-Beständigkeit und einfache Demontage beachten."
+  },
+  {
+    "key": "pattern_paper_transfer_film",
+    "name": "Schnittmusterpapier / Transferfolie",
+    "supplyType": "patterning",
+    "skillLevel": "intermediate",
+    "usedFor": "Bezugsteile, Nahtverlauf und Schaumzonen vor dem Schneiden planen",
+    "bestFor": "Vorbereitung, Dokumentation, Sattler-Briefing, wiederholbare Umbauten",
+    "riskNotes": "Ungenaue Muster übertragen Fehler direkt auf teures Bezugsmaterial.",
+    "buyingNotes": "Transparentes, reißfestes Material erleichtert das Übertragen von Konturen."
+  },
+  {
+    "key": "foam_sample_pack",
+    "name": "Schaumstoff-Musterpaket",
+    "supplyType": "testing",
+    "skillLevel": "beginner",
+    "usedFor": "Härte, Rückstellung und Haptik verschiedener Schäume vor dem Kauf vergleichen",
+    "bestFor": "Einsteiger, Materialwahl, Gespräch mit Sattler oder Lieferant",
+    "riskNotes": "Kleine Muster ersetzen keinen Sitztest, helfen aber beim Aussortieren.",
+    "buyingNotes": "Dichte, Stauchhärte und Materialtyp sollten angegeben sein."
+  },
+  {
+    "key": "waterproof_seam_tape",
+    "name": "Nahtdichtband / Seam Tape",
+    "supplyType": "sealing",
+    "skillLevel": "professional",
+    "usedFor": "Nähte und kritische Übergänge gegen Wasser schützen",
+    "bestFor": "perforierte Bezüge, Neubezug, Ganzjahresfahrer",
+    "riskNotes": "Temperatur, Kleber und Bezugsmaterial müssen zusammenpassen.",
+    "buyingNotes": "Nur mit Teststück verwenden; manche Bänder brauchen Wärme oder Druck."
+  },
+  {
+    "key": "temporary_test_cover",
+    "name": "Temporärer Testbezug",
+    "supplyType": "testing",
+    "skillLevel": "beginner",
+    "usedFor": "neue Schaumform kurz testen, bevor der finale Bezug genäht wird",
+    "bestFor": "DIY-Prototypen, Sattler-Briefing, Sitzform-Vergleich",
+    "riskNotes": "Nicht für Dauerbetrieb oder Nässe gedacht.",
+    "buyingNotes": "Rutschfest genug wählen, aber schnell abnehmbar halten."
   }
 ]

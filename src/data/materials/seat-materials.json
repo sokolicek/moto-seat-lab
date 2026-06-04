@@ -70,5 +70,89 @@
     "priceBand": "medium_to_high",
     "durabilityNotes": "Elektrik, Wasserdichtigkeit und Garantie immer vorab klären.",
     "researchStatus": "needs_safety_review"
+  },
+  {
+    "key": "latex_foam_layer",
+    "name": "Latex-Schaumlage",
+    "materialType": "foam",
+    "comfortRole": "elastische Komfortlage mit schneller Rückstellung",
+    "bestFor": "Fahrer, die weiches Einsinken vermeiden und trotzdem Druckspitzen reduzieren wollen",
+    "avoidWhen": "Wasserabdichtung unklar ist oder die Sitzbank sehr flach bleiben muss",
+    "skillLevel": "professional",
+    "priceBand": "medium_to_high",
+    "durabilityNotes": "Feuchte, Kleberverträglichkeit und Alterung vor Einsatz klären.",
+    "researchStatus": "needs_supplier_data"
+  },
+  {
+    "key": "eva_closed_cell_foam",
+    "name": "EVA-/geschlossenzelliger Schaum",
+    "materialType": "support_foam",
+    "comfortRole": "stabile Stützlage, Kantenaufbau, Höhenkorrektur",
+    "bestFor": "leichte Formkorrekturen, Adventure-/Offroad-Sitze, Schutz vor Durchsitzen",
+    "avoidWhen": "nur weicher Komfort gesucht wird",
+    "skillLevel": "intermediate",
+    "priceBand": "low_to_medium",
+    "durabilityNotes": "Kann zu hart wirken; dünn und nur gezielt einsetzen.",
+    "researchStatus": "needs_testing"
+  },
+  {
+    "key": "rebond_foam",
+    "name": "Verbundschaum / Rebond Foam",
+    "materialType": "support_foam",
+    "comfortRole": "tragfähige Basis- oder Reparaturschicht",
+    "bestFor": "schwere Fahrer, abgesessene Sitzbänke, Unterbau vor Komfortlage",
+    "avoidWhen": "direkt als oberste Komfortlage verwendet werden soll",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Dichte und Härte müssen zur Komfortlage passen.",
+    "researchStatus": "needs_specification"
+  },
+  {
+    "key": "perforated_vinyl_cover",
+    "name": "Perforierter Vinyl-/Kunstlederbezug",
+    "materialType": "cover",
+    "comfortRole": "Oberfläche, Grip, Wärmegefühl und Optik",
+    "bestFor": "Sitzbank-Neubezug, bessere Haptik, Design-Varianten",
+    "avoidWhen": "Wasserabdichtung und Nahtführung nicht sauber gelöst sind",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Perforation kann Wasserwege schaffen; Membran und Nähte mitdenken.",
+    "researchStatus": "needs_supplier_data"
+  },
+  {
+    "key": "memory_foam_thin_layer",
+    "name": "Dünne Memory-Foam-Komfortlage",
+    "materialType": "comfort_foam",
+    "comfortRole": "weiche Druckverteilung direkt unter dem Bezug",
+    "bestFor": "kurze bis mittlere Touren, leichte Druckpunkte, Testaufbau vor großem Umbau",
+    "avoidWhen": "Hitze, schwere Fahrer oder tiefe Sitzmulden das Hauptproblem sind",
+    "skillLevel": "intermediate",
+    "priceBand": "medium",
+    "durabilityNotes": "Zu dick oder zu weich kann Wärme stauen und den Fahrer tiefer einsinken lassen.",
+    "researchStatus": "needs_testing"
+  },
+  {
+    "key": "ventilation_spacer_fabric",
+    "name": "Abstandsgewirke / Belüftungslage",
+    "materialType": "ventilation_layer",
+    "comfortRole": "Luftspalt gegen Hitze und Feuchtigkeit",
+    "bestFor": "Sommer, Stadt, Scooter, Pendeln und reversible Auflagen",
+    "avoidWhen": "Sitzhöhe oder Standfestigkeit bereits kritisch ist",
+    "skillLevel": "beginner",
+    "priceBand": "low_to_medium",
+    "durabilityNotes": "Kanten sauber einfassen, sonst scheuert oder wandert die Lage.",
+    "researchStatus": "needs_supplier_data"
+  },
+  {
+    "key": "waterproof_membrane_layer",
+    "name": "Wasserdichte Membranlage",
+    "materialType": "barrier",
+    "comfortRole": "Schutz gegen Wasser im Schaum nach Nähten oder perforiertem Bezug",
+    "bestFor": "Neubezug, perforierte Bezüge, Ganzjahresbetrieb und Laternenparker",
+    "avoidWhen": "Belüftung wichtiger ist und die Nähte ohnehin nicht geöffnet werden",
+    "skillLevel": "professional",
+    "priceBand": "medium",
+    "durabilityNotes": "Falten, Nahtlöcher und Kleberverträglichkeit vorher testen.",
+    "researchStatus": "needs_specification"
   }
 ]

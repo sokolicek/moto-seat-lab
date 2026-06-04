@@ -52,5 +52,68 @@
     "usedFor": "Bezug vorsichtig anpassen und Falten reduzieren",
     "riskNotes": "Überhitzung kann Bezug, Nähte oder Schaum zerstören.",
     "buyingNotes": "Nur mit Temperaturkontrolle und viel Abstand verwenden."
+  },
+  {
+    "key": "contour_gauge",
+    "name": "Konturenlehre",
+    "toolType": "measurement",
+    "skillLevel": "beginner",
+    "usedFor": "Sitzform, Kanten und Vorher-Nachher-Profil dokumentieren",
+    "riskNotes": "Hilft nur, wenn Fotos und Maße konsequent abgelegt werden.",
+    "buyingNotes": "Breite Lehre wählen; für Sitzbank besser als sehr kurze Bastelvarianten."
+  },
+  {
+    "key": "digital_angle_finder",
+    "name": "Digitaler Winkelmesser",
+    "toolType": "measurement",
+    "skillLevel": "beginner",
+    "usedFor": "Sitzneigung, Sitzwanne und Vergleich vor/nach Umbau messen",
+    "riskNotes": "Messpunkt markieren, sonst sind Werte nicht reproduzierbar.",
+    "buyingNotes": "Magnet ist nett, aber flache Auflage und Nullfunktion sind wichtiger."
+  },
+  {
+    "key": "foam_rasp_sanding_block",
+    "name": "Schaumraspel und Schleifklotz",
+    "toolType": "foam_shaping",
+    "skillLevel": "intermediate",
+    "usedFor": "Übergänge glätten und Kanten kontrolliert entschärfen",
+    "riskNotes": "Staub, Wellen und asymmetrische Form vermeiden; langsam arbeiten.",
+    "buyingNotes": "Mehrere Körnungen und Reststücke zum Üben einplanen."
+  },
+  {
+    "key": "industrial_walking_foot_machine",
+    "name": "Industrie-Nähmaschine mit Walking Foot",
+    "toolType": "cover_work",
+    "skillLevel": "professional",
+    "usedFor": "mehrlagige Bezüge, Kunstleder, Nähte und Keder sauber verarbeiten",
+    "riskNotes": "Falsche Maschine, Nadel oder Fadenspannung ruiniert Bezug und Nähte.",
+    "buyingNotes": "Nur sinnvoll, wenn regelmäßig Bezüge genäht werden oder ein Sattler damit arbeitet."
+  },
+  {
+    "key": "hot_wire_foam_cutter",
+    "name": "Heißdraht-Schneider für Schaum",
+    "toolType": "foam_shaping",
+    "skillLevel": "professional",
+    "usedFor": "gerade Schnitte und kontrollierte Schaumform bei geeigneten Schäumen",
+    "riskNotes": "Dämpfe, Brandgefahr und Materialverträglichkeit beachten; nicht jeder Schaum ist geeignet.",
+    "buyingNotes": "Für Einsteiger meist übertrieben; erst Reststücke und Schutzmaßnahmen klären."
+  },
+  {
+    "key": "hog_ring_pliers",
+    "name": "Hog-Ring-Zange / Polsterklammerzange",
+    "toolType": "cover_work",
+    "skillLevel": "intermediate",
+    "usedFor": "Bezug, Gurte oder Unterzüge an geeigneten Sitzkonstruktionen fixieren",
+    "riskNotes": "Nur verwenden, wenn die Sitzbankkonstruktion dafür ausgelegt ist.",
+    "buyingNotes": "Zange und Klammergröße zusammen wählen; rostfreie Klammern bevorzugen."
+  },
+  {
+    "key": "infrared_thermometer",
+    "name": "Infrarot-Thermometer",
+    "toolType": "measurement",
+    "skillLevel": "beginner",
+    "usedFor": "Oberflächentemperatur von Bezug, Auflage und Sitzbank im Sommer vergleichen",
+    "riskNotes": "Messabstand und Materialoberfläche beeinflussen den Wert.",
+    "buyingNotes": "Ein einfaches Gerät reicht für Vorher/Nachher-Vergleiche."
   }
 ]

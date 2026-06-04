@@ -88,5 +88,105 @@
     "path": "/de/motorrad-sitzbank/honda-nc750x/",
     "seatPainFocus": "Pendeln, kurze bis mittlere Touren, Budget-Lösungen",
     "whyNext": "Wichtig für günstigere, alltagstaugliche Empfehlungen."
+  },
+  {
+    "name": "KTM 1290 Super Adventure",
+    "brand": "KTM",
+    "segment": "Adventure Touring",
+    "countryPriority": "Österreich / DACH",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/ktm-1290-super-adventure/",
+    "seatPainFocus": "hohe Sitzbank, sportliches Adventure-Fahren, lange Etappen, Hitze",
+    "whyNext": "Österreichischer DACH-Kandidat mit sportlicher Adventure-Ergonomie."
+  },
+  {
+    "name": "Triumph Tiger 1200 Rally Pro",
+    "brand": "Triumph",
+    "segment": "Adventure Touring",
+    "countryPriority": "Europa / UK",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/triumph-tiger-1200-rally-pro/",
+    "seatPainFocus": "Langstrecke, hohe Sitzposition, Sozius, Reisegepäck",
+    "whyNext": "Starker Vergleich zu BMW GS und Ducati Multistrada."
+  },
+  {
+    "name": "Moto Guzzi V85 TT",
+    "brand": "Moto Guzzi",
+    "segment": "Mittelklasse Adventure / Retro Touring",
+    "countryPriority": "Italien / Europa",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/moto-guzzi-v85-tt/",
+    "seatPainFocus": "mittlere Touren, aufrechte Haltung, klassische Sitzbankform, Reisekomfort",
+    "whyNext": "Guter Kontrast zwischen klassischer Sitzbank und moderner Adventure-Kategorie."
+  },
+  {
+    "name": "Royal Enfield Himalayan",
+    "brand": "Royal Enfield",
+    "segment": "Budget Adventure / Reiseenduro",
+    "countryPriority": "Europa / Asien",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/royal-enfield-himalayan/",
+    "seatPainFocus": "Budget-Lösungen, lange einfache Etappen, Schotter, Sitzhöhe",
+    "whyNext": "Wichtig für preisbewusste Fahrer und spätere Asien-Lokalisierung."
+  },
+  {
+    "name": "Honda Forza 350",
+    "brand": "Honda",
+    "segment": "Maxi-Scooter",
+    "countryPriority": "Europa / Thailand / Südostasien",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/honda-forza-350/",
+    "seatPainFocus": "Stadt, Pendeln, Hitze, breite Scooter-Sitzbank, günstige Auflagen",
+    "whyNext": "Erster Scooter-Kandidat für andere Sitzprobleme und Asien-Märkte."
+  },
+  {
+    "name": "Yamaha MT-07",
+    "brand": "Yamaha",
+    "segment": "Naked Bike / Einsteiger",
+    "countryPriority": "Europa",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/yamaha-mt-07/",
+    "seatPainFocus": "kurze Sitzbank, Stadt, Landstraße, Budget-Polsterung",
+    "whyNext": "Sehr verbreitetes Modell für junge Fahrer und günstige DIY-Lösungen."
+  },
+  {
+    "name": "Kawasaki Z900",
+    "brand": "Kawasaki",
+    "segment": "Naked Bike",
+    "countryPriority": "Europa",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/kawasaki-z900/",
+    "seatPainFocus": "sportliche Haltung, Druckpunkte nach 60 Minuten, Rutschen",
+    "whyNext": "Guter Kandidat für sportliche Straßennutzung ohne Touring-Fokus."
+  },
+  {
+    "name": "Harley-Davidson Street Glide",
+    "brand": "Harley-Davidson",
+    "segment": "Cruiser / Bagger",
+    "countryPriority": "Europa / USA",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/harley-davidson-street-glide/",
+    "seatPainFocus": "breite Sitzfläche, Rückenstütze, Sozius, lange Etappen",
+    "whyNext": "Wichtig für Cruiser-Komfort, Rückenstützen und Premium-Sattelmarkt."
+  },
+  {
+    "name": "Vespa GTS 300",
+    "brand": "Vespa",
+    "segment": "Urban Scooter",
+    "countryPriority": "Italien / Europa",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/vespa-gts-300/",
+    "seatPainFocus": "Stadt, kurze Strecken, Hitze, schmale Sitzbank, Alltag",
+    "whyNext": "Ergänzt Scooter-Nutzung mit urbanem Premium-/Lifestyle-Fokus."
+  },
+  {
+    "name": "CFMOTO 800MT",
+    "brand": "CFMOTO",
+    "segment": "Budget Adventure Touring",
+    "countryPriority": "Europa / Asien",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/cfmoto-800mt/",
+    "seatPainFocus": "Preis-Leistung, lange Etappen, Zubehörvergleich, Budget-Upgrades",
+    "whyNext": "Hilft bei Empfehlungen für preisbewusste Adventure-Fahrer."
   }
 ]

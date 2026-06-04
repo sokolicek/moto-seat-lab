@@ -60,6 +60,57 @@ These images are tracked in `src/data/media/media-assets.json`, downloaded local
 - Usage: BMW R 1250 GS guide reference/context image.
 - Constraint: show attribution and do not imply BMW, the creator, or Wikimedia endorses Moto Seat Lab.
 
+### `public/assets/media/m08-ktm-1290-super-adventure.jpg`
+
+- Type: licensed Wikimedia Commons photo.
+- Source: `https://commons.wikimedia.org/wiki/File:KTM_1290_Super_Adventure.jpeg`
+- Creator: San Andreas.
+- License: CC BY-SA 3.0.
+- Usage: KTM 1290 Super Adventure guide reference/context image.
+- Constraint: show attribution and do not imply KTM, the creator, or Wikimedia endorses Moto Seat Lab.
+
+### `public/assets/media/m09-triumph-tiger-1200.jpg`
+
+- Type: licensed Wikimedia Commons photo.
+- Source: `https://commons.wikimedia.org/wiki/File:2023_Triumph_Tiger_1200_Rally_Pro.jpg`
+- Creator: Tasjamescullen.
+- License: CC BY-SA 4.0.
+- Usage: Triumph Tiger 1200 Rally Pro guide reference/context image.
+- Constraint: show attribution and do not imply Triumph, the creator, or Wikimedia endorses Moto Seat Lab.
+
+### `public/assets/media/m10-moto-guzzi-v85tt.jpg`
+
+- Type: licensed Wikimedia Commons photo.
+- Source: `https://commons.wikimedia.org/wiki/File:Moto_Guzzi_V85TT.jpg`
+- Creator: Corvettec6r.
+- License: CC BY-SA 4.0.
+- Usage: Moto Guzzi V85 TT guide reference/context image.
+- Constraint: show attribution and do not imply Moto Guzzi, the creator, or Wikimedia endorses Moto Seat Lab.
+
+### `public/assets/media/m11-royal-enfield-himalayan.jpg`
+
+- Type: Wikimedia Commons CC0 photo.
+- Source: `https://commons.wikimedia.org/wiki/File:Royal_Enfield_Himalayan_DB2K5442.jpg`
+- Creator: Ashley Pomeroy.
+- License: CC0 1.0.
+- Usage: Royal Enfield Himalayan guide reference/context image.
+- Constraint: do not imply Royal Enfield, the creator, or Wikimedia endorses Moto Seat Lab.
+
+## Pending Downloads
+
+The following sources and licenses are tracked in `src/data/media/media-assets.json`, but they are marked `download_pending` until local files are available. Wikimedia returned thumbnail/download restrictions during the current media sprint.
+
+- `m12-honda-forza-350.jpg`: Honda Forza 350, Chanokchon, CC BY-SA 4.0.
+- `m13-foam-rubber-swatches.jpg`: foam rubber swatches, Zinnmann, CC BY-SA 3.0.
+- `m14-staple-gun.jpg`: staple gun tacker, Jpquidores, CC BY 3.0.
+- `m15-leather-sewing-machine.jpg`: leather sewing machine, Vyacheslav Kirillin, CC BY-SA 4.0.
+- `m16-furriers-staple-gun.jpg`: furrier's staple gun, Kürschner, public domain.
+- `m17-hot-wire-foam-cutter.jpg`: foam cutter heater wire support, Wikimedia Commons contributor, CC BY-SA 3.0.
+
+## Source-Only Research Indexes
+
+- `motorcycle_seats_commons_category`: Wikimedia Commons Motorcycle seats category. Use only as a research index; every image from the category still needs its own source, license, creator, attribution, and local download review before use.
+
 ## Product Image Placeholders
 
 - Wunderlich, Touratech, Suzuki, and Sargent product photos are currently tracked as `permission_needed` assets.

@@ -84,6 +84,13 @@ MVP implementation started.
 - BMW Germany guides now include a practical recommendation order: quick reversible relief first, then German/DACH BMW seat options such as Wunderlich and Touratech, then global premium comparison such as Sargent.
 - BMW R 1300 GS and R 1250 GS reference photos were added as local Wikimedia Commons assets with attribution and database links.
 - Database seed now includes BMW seat option records in addition to GSX-S1000GX options.
+- Motorcycle database expanded with KTM 1290 Super Adventure, Triumph Tiger 1200 Rally Pro, Moto Guzzi V85 TT, Royal Enfield Himalayan, and Honda Forza 350 draft profiles.
+- DIY database expanded with additional foam/material classes, measuring tools, shaping tools, sewing tools, cover material, thread, straps, and patterning supplies.
+- Four additional Wikimedia Commons motorcycle images were downloaded locally and linked to new profiles; four verified source images remain `download_pending` because Wikimedia thumbnail download limits blocked them during this sprint.
+- Motorcycle database expanded again with Yamaha MT-07, Kawasaki Z900, Harley-Davidson Street Glide, Vespa GTS 300, and CFMOTO 800MT draft profiles.
+- DIY database expanded again with memory foam, ventilation spacer fabric, waterproof membrane, hot-wire foam cutter, hog-ring pliers, infrared thermometer, foam sample packs, seam tape, and temporary test covers.
+- Media registry now tracks three more research candidates: a public-domain staple-gun image, a CC BY-SA hot-wire foam-cutter image, and the Wikimedia Commons Motorcycle seats category as a source-only index for future curation.
+- Current local dev server may need a restart before newly added `public/assets/media/*` files are served by Astro; data pages already render the new motorcycles and DIY entries.
 
 ## Not Started
 

@@ -269,6 +269,286 @@ INSERT INTO motorcycles (
     why_next = EXCLUDED.why_next,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'ktm-1290-super-adventure',
+    'KTM',
+    'KTM 1290 Super Adventure',
+    'Adventure Touring',
+    'Österreich / DACH',
+    'draft',
+    '/de/motorrad-sitzbank/ktm-1290-super-adventure/',
+    'hohe Sitzbank, sportliches Adventure-Fahren, lange Etappen, Hitze',
+    'Österreichischer DACH-Kandidat mit sportlicher Adventure-Ergonomie.',
+    '{"name":"KTM 1290 Super Adventure","brand":"KTM","segment":"Adventure Touring","countryPriority":"Österreich / DACH","status":"draft","path":"/de/motorrad-sitzbank/ktm-1290-super-adventure/","seatPainFocus":"hohe Sitzbank, sportliches Adventure-Fahren, lange Etappen, Hitze","whyNext":"Österreichischer DACH-Kandidat mit sportlicher Adventure-Ergonomie.","slug":"ktm-1290-super-adventure"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'triumph-tiger-1200-rally-pro',
+    'Triumph',
+    'Triumph Tiger 1200 Rally Pro',
+    'Adventure Touring',
+    'Europa / UK',
+    'draft',
+    '/de/motorrad-sitzbank/triumph-tiger-1200-rally-pro/',
+    'Langstrecke, hohe Sitzposition, Sozius, Reisegepäck',
+    'Starker Vergleich zu BMW GS und Ducati Multistrada.',
+    '{"name":"Triumph Tiger 1200 Rally Pro","brand":"Triumph","segment":"Adventure Touring","countryPriority":"Europa / UK","status":"draft","path":"/de/motorrad-sitzbank/triumph-tiger-1200-rally-pro/","seatPainFocus":"Langstrecke, hohe Sitzposition, Sozius, Reisegepäck","whyNext":"Starker Vergleich zu BMW GS und Ducati Multistrada.","slug":"triumph-tiger-1200-rally-pro"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'moto-guzzi-v85-tt',
+    'Moto Guzzi',
+    'Moto Guzzi V85 TT',
+    'Mittelklasse Adventure / Retro Touring',
+    'Italien / Europa',
+    'draft',
+    '/de/motorrad-sitzbank/moto-guzzi-v85-tt/',
+    'mittlere Touren, aufrechte Haltung, klassische Sitzbankform, Reisekomfort',
+    'Guter Kontrast zwischen klassischer Sitzbank und moderner Adventure-Kategorie.',
+    '{"name":"Moto Guzzi V85 TT","brand":"Moto Guzzi","segment":"Mittelklasse Adventure / Retro Touring","countryPriority":"Italien / Europa","status":"draft","path":"/de/motorrad-sitzbank/moto-guzzi-v85-tt/","seatPainFocus":"mittlere Touren, aufrechte Haltung, klassische Sitzbankform, Reisekomfort","whyNext":"Guter Kontrast zwischen klassischer Sitzbank und moderner Adventure-Kategorie.","slug":"moto-guzzi-v85-tt"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'royal-enfield-himalayan',
+    'Royal Enfield',
+    'Royal Enfield Himalayan',
+    'Budget Adventure / Reiseenduro',
+    'Europa / Asien',
+    'draft',
+    '/de/motorrad-sitzbank/royal-enfield-himalayan/',
+    'Budget-Lösungen, lange einfache Etappen, Schotter, Sitzhöhe',
+    'Wichtig für preisbewusste Fahrer und spätere Asien-Lokalisierung.',
+    '{"name":"Royal Enfield Himalayan","brand":"Royal Enfield","segment":"Budget Adventure / Reiseenduro","countryPriority":"Europa / Asien","status":"draft","path":"/de/motorrad-sitzbank/royal-enfield-himalayan/","seatPainFocus":"Budget-Lösungen, lange einfache Etappen, Schotter, Sitzhöhe","whyNext":"Wichtig für preisbewusste Fahrer und spätere Asien-Lokalisierung.","slug":"royal-enfield-himalayan"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'honda-forza-350',
+    'Honda',
+    'Honda Forza 350',
+    'Maxi-Scooter',
+    'Europa / Thailand / Südostasien',
+    'draft',
+    '/de/motorrad-sitzbank/honda-forza-350/',
+    'Stadt, Pendeln, Hitze, breite Scooter-Sitzbank, günstige Auflagen',
+    'Erster Scooter-Kandidat für andere Sitzprobleme und Asien-Märkte.',
+    '{"name":"Honda Forza 350","brand":"Honda","segment":"Maxi-Scooter","countryPriority":"Europa / Thailand / Südostasien","status":"draft","path":"/de/motorrad-sitzbank/honda-forza-350/","seatPainFocus":"Stadt, Pendeln, Hitze, breite Scooter-Sitzbank, günstige Auflagen","whyNext":"Erster Scooter-Kandidat für andere Sitzprobleme und Asien-Märkte.","slug":"honda-forza-350"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-mt-07',
+    'Yamaha',
+    'Yamaha MT-07',
+    'Naked Bike / Einsteiger',
+    'Europa',
+    'draft',
+    '/de/motorrad-sitzbank/yamaha-mt-07/',
+    'kurze Sitzbank, Stadt, Landstraße, Budget-Polsterung',
+    'Sehr verbreitetes Modell für junge Fahrer und günstige DIY-Lösungen.',
+    '{"name":"Yamaha MT-07","brand":"Yamaha","segment":"Naked Bike / Einsteiger","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/yamaha-mt-07/","seatPainFocus":"kurze Sitzbank, Stadt, Landstraße, Budget-Polsterung","whyNext":"Sehr verbreitetes Modell für junge Fahrer und günstige DIY-Lösungen.","slug":"yamaha-mt-07"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki-z900',
+    'Kawasaki',
+    'Kawasaki Z900',
+    'Naked Bike',
+    'Europa',
+    'draft',
+    '/de/motorrad-sitzbank/kawasaki-z900/',
+    'sportliche Haltung, Druckpunkte nach 60 Minuten, Rutschen',
+    'Guter Kandidat für sportliche Straßennutzung ohne Touring-Fokus.',
+    '{"name":"Kawasaki Z900","brand":"Kawasaki","segment":"Naked Bike","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/kawasaki-z900/","seatPainFocus":"sportliche Haltung, Druckpunkte nach 60 Minuten, Rutschen","whyNext":"Guter Kandidat für sportliche Straßennutzung ohne Touring-Fokus.","slug":"kawasaki-z900"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'harley-davidson-street-glide',
+    'Harley-Davidson',
+    'Harley-Davidson Street Glide',
+    'Cruiser / Bagger',
+    'Europa / USA',
+    'draft',
+    '/de/motorrad-sitzbank/harley-davidson-street-glide/',
+    'breite Sitzfläche, Rückenstütze, Sozius, lange Etappen',
+    'Wichtig für Cruiser-Komfort, Rückenstützen und Premium-Sattelmarkt.',
+    '{"name":"Harley-Davidson Street Glide","brand":"Harley-Davidson","segment":"Cruiser / Bagger","countryPriority":"Europa / USA","status":"draft","path":"/de/motorrad-sitzbank/harley-davidson-street-glide/","seatPainFocus":"breite Sitzfläche, Rückenstütze, Sozius, lange Etappen","whyNext":"Wichtig für Cruiser-Komfort, Rückenstützen und Premium-Sattelmarkt.","slug":"harley-davidson-street-glide"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'vespa-gts-300',
+    'Vespa',
+    'Vespa GTS 300',
+    'Urban Scooter',
+    'Italien / Europa',
+    'draft',
+    '/de/motorrad-sitzbank/vespa-gts-300/',
+    'Stadt, kurze Strecken, Hitze, schmale Sitzbank, Alltag',
+    'Ergänzt Scooter-Nutzung mit urbanem Premium-/Lifestyle-Fokus.',
+    '{"name":"Vespa GTS 300","brand":"Vespa","segment":"Urban Scooter","countryPriority":"Italien / Europa","status":"draft","path":"/de/motorrad-sitzbank/vespa-gts-300/","seatPainFocus":"Stadt, kurze Strecken, Hitze, schmale Sitzbank, Alltag","whyNext":"Ergänzt Scooter-Nutzung mit urbanem Premium-/Lifestyle-Fokus.","slug":"vespa-gts-300"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycles (
+    slug, brand, model, segment, country_priority, status, guide_path,
+    seat_pain_focus, why_next, source_data, updated_at
+  )
+  VALUES (
+    'cfmoto-800mt',
+    'CFMOTO',
+    'CFMOTO 800MT',
+    'Budget Adventure Touring',
+    'Europa / Asien',
+    'draft',
+    '/de/motorrad-sitzbank/cfmoto-800mt/',
+    'Preis-Leistung, lange Etappen, Zubehörvergleich, Budget-Upgrades',
+    'Hilft bei Empfehlungen für preisbewusste Adventure-Fahrer.',
+    '{"name":"CFMOTO 800MT","brand":"CFMOTO","segment":"Budget Adventure Touring","countryPriority":"Europa / Asien","status":"draft","path":"/de/motorrad-sitzbank/cfmoto-800mt/","seatPainFocus":"Preis-Leistung, lange Etappen, Zubehörvergleich, Budget-Upgrades","whyNext":"Hilft bei Empfehlungen für preisbewusste Adventure-Fahrer.","slug":"cfmoto-800mt"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (slug) DO UPDATE SET
+    brand = EXCLUDED.brand,
+    model = EXCLUDED.model,
+    segment = EXCLUDED.segment,
+    country_priority = EXCLUDED.country_priority,
+    status = EXCLUDED.status,
+    guide_path = EXCLUDED.guide_path,
+    seat_pain_focus = EXCLUDED.seat_pain_focus,
+    why_next = EXCLUDED.why_next,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO solution_paths (
     key, title, summary, best_for, not_ideal_for, cost, confidence, source_data, updated_at
   )
@@ -1293,6 +1573,266 @@ INSERT INTO motorcycle_technical_profiles (
     notes = EXCLUDED.notes,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'ktm-1290-super-adventure',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","sport_touring","long_distance","light_offroad"]'::jsonb,
+    '["seat_height","heat","standing_transition","long_distance_pressure"]'::jsonb,
+    '["seat_height_mm","standing_clearance","seat_heat_notes","footpeg_position_mm"]'::jsonb,
+    'Sporty adventure posture and high seat need separate standing/sitting comfort checks.',
+    '{"motorcycleSlug":"ktm-1290-super-adventure","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","sport_touring","long_distance","light_offroad"],"seatComfortRisks":["seat_height","heat","standing_transition","long_distance_pressure"],"requiredMeasurements":["seat_height_mm","standing_clearance","seat_heat_notes","footpeg_position_mm"],"notes":"Sporty adventure posture and high seat need separate standing/sitting comfort checks."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'triumph-tiger-1200-rally-pro',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","two_up","long_distance","travel"]'::jsonb,
+    '["seat_height","passenger_comfort","long_distance_pressure","seat_width"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","passenger_seat_width_mm","handlebar_reach_mm"]'::jsonb,
+    'Large adventure touring model where rider/passenger seat split and luggage posture matter.',
+    '{"motorcycleSlug":"triumph-tiger-1200-rally-pro","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","two_up","long_distance","travel"],"seatComfortRisks":["seat_height","passenger_comfort","long_distance_pressure","seat_width"],"requiredMeasurements":["seat_height_mm","seat_width_mm","passenger_seat_width_mm","handlebar_reach_mm"],"notes":"Large adventure touring model where rider/passenger seat split and luggage posture matter."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'moto-guzzi-v85-tt',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","weekend_touring","travel","country_road"]'::jsonb,
+    '["seat_width","touring_pressure","wind_pressure","seat_height"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","seat_slope_deg","wind_pressure_notes"]'::jsonb,
+    'Midweight retro adventure model with upright seating and touring use.',
+    '{"motorcycleSlug":"moto-guzzi-v85-tt","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","weekend_touring","travel","country_road"],"seatComfortRisks":["seat_width","touring_pressure","wind_pressure","seat_height"],"requiredMeasurements":["seat_height_mm","seat_width_mm","seat_slope_deg","wind_pressure_notes"],"notes":"Midweight retro adventure model with upright seating and touring use."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'royal-enfield-himalayan',
+    NULL,
+    NULL,
+    'research_needed',
+    '["budget","travel","light_offroad","adventure"]'::jsonb,
+    '["budget_solution_fit","standing_transition","long_distance_pressure","seat_height"]'::jsonb,
+    '["seat_height_mm","standing_clearance","seat_width_mm","budget_solution_options"]'::jsonb,
+    'Budget adventure model where low-cost pads, local upholsterers and repairability are important.',
+    '{"motorcycleSlug":"royal-enfield-himalayan","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["budget","travel","light_offroad","adventure"],"seatComfortRisks":["budget_solution_fit","standing_transition","long_distance_pressure","seat_height"],"requiredMeasurements":["seat_height_mm","standing_clearance","seat_width_mm","budget_solution_options"],"notes":"Budget adventure model where low-cost pads, local upholsterers and repairability are important."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'honda-forza-350',
+    NULL,
+    NULL,
+    'research_needed',
+    '["city","commuting","budget","hot_weather"]'::jsonb,
+    '["heat","short_ride_pressure","seat_width","forward_slide"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","commute_duration_notes","seat_heat_notes"]'::jsonb,
+    'Scooter profile for urban comfort, heat and low-cost reversible solutions.',
+    '{"motorcycleSlug":"honda-forza-350","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["city","commuting","budget","hot_weather"],"seatComfortRisks":["heat","short_ride_pressure","seat_width","forward_slide"],"requiredMeasurements":["seat_height_mm","seat_width_mm","commute_duration_notes","seat_heat_notes"],"notes":"Scooter profile for urban comfort, heat and low-cost reversible solutions."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-mt-07',
+    NULL,
+    NULL,
+    'research_needed',
+    '["naked","city","country_road","budget"]'::jsonb,
+    '["short_ride_pressure","forward_slide","thin_padding","passenger_comfort"]'::jsonb,
+    '["seat_height_mm","seat_width_front_mm","seat_width_rear_mm","sit_bone_width_mm","ride_duration_notes"]'::jsonb,
+    'Popular naked-bike profile for quick comfort pads, anti-slide covers and low-cost foam experiments.',
+    '{"motorcycleSlug":"yamaha-mt-07","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["naked","city","country_road","budget"],"seatComfortRisks":["short_ride_pressure","forward_slide","thin_padding","passenger_comfort"],"requiredMeasurements":["seat_height_mm","seat_width_front_mm","seat_width_rear_mm","sit_bone_width_mm","ride_duration_notes"],"notes":"Popular naked-bike profile for quick comfort pads, anti-slide covers and low-cost foam experiments."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki-z900',
+    NULL,
+    NULL,
+    'research_needed',
+    '["naked","sporty_road","country_road","weekend_touring"]'::jsonb,
+    '["pressure_after_60_min","forward_slide","seat_slope","thin_padding"]'::jsonb,
+    '["seat_height_mm","seat_slope_deg","seat_width_front_mm","sit_bone_width_mm","handlebar_reach_notes"]'::jsonb,
+    'Sporty naked-bike profile where anti-slide and pressure-point fixes are more relevant than full touring saddles.',
+    '{"motorcycleSlug":"kawasaki-z900","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["naked","sporty_road","country_road","weekend_touring"],"seatComfortRisks":["pressure_after_60_min","forward_slide","seat_slope","thin_padding"],"requiredMeasurements":["seat_height_mm","seat_slope_deg","seat_width_front_mm","sit_bone_width_mm","handlebar_reach_notes"],"notes":"Sporty naked-bike profile where anti-slide and pressure-point fixes are more relevant than full touring saddles."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'harley-davidson-street-glide',
+    NULL,
+    NULL,
+    'research_needed',
+    '["cruiser","long_distance","two_up","premium"]'::jsonb,
+    '["lower_back_support","long_distance_pressure","passenger_comfort","heat"]'::jsonb,
+    '["seat_height_mm","seat_bucket_depth_mm","backrest_position_mm","passenger_seat_width_mm","ride_duration_notes"]'::jsonb,
+    'Cruiser and bagger profile for back support, passenger comfort, premium seats and long-distance pressure control.',
+    '{"motorcycleSlug":"harley-davidson-street-glide","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["cruiser","long_distance","two_up","premium"],"seatComfortRisks":["lower_back_support","long_distance_pressure","passenger_comfort","heat"],"requiredMeasurements":["seat_height_mm","seat_bucket_depth_mm","backrest_position_mm","passenger_seat_width_mm","ride_duration_notes"],"notes":"Cruiser and bagger profile for back support, passenger comfort, premium seats and long-distance pressure control."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'vespa-gts-300',
+    NULL,
+    NULL,
+    'research_needed',
+    '["scooter","city","commuting","hot_weather"]'::jsonb,
+    '["heat","seat_width","short_ride_pressure","cover_slipperiness"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","commute_duration_notes","cover_temperature_notes"]'::jsonb,
+    'Urban scooter profile for hot weather, everyday use and reversible seat covers or breathable pads.',
+    '{"motorcycleSlug":"vespa-gts-300","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["scooter","city","commuting","hot_weather"],"seatComfortRisks":["heat","seat_width","short_ride_pressure","cover_slipperiness"],"requiredMeasurements":["seat_height_mm","seat_width_mm","commute_duration_notes","cover_temperature_notes"],"notes":"Urban scooter profile for hot weather, everyday use and reversible seat covers or breathable pads."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'cfmoto-800mt',
+    NULL,
+    NULL,
+    'research_needed',
+    '["budget_adventure","travel","two_up","country_road"]'::jsonb,
+    '["pressure_after_60_min","seat_height","passenger_comfort","accessory_choice_overload"]'::jsonb,
+    '["seat_height_mm","seat_width_front_mm","seat_width_rear_mm","sit_bone_width_mm","luggage_load_notes"]'::jsonb,
+    'Budget adventure profile for comparing low-cost pads, local upholstery and value-oriented aftermarket options.',
+    '{"motorcycleSlug":"cfmoto-800mt","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["budget_adventure","travel","two_up","country_road"],"seatComfortRisks":["pressure_after_60_min","seat_height","passenger_comfort","accessory_choice_overload"],"requiredMeasurements":["seat_height_mm","seat_width_front_mm","seat_width_rear_mm","sit_bone_width_mm","luggage_load_notes"],"notes":"Budget adventure profile for comparing low-cost pads, local upholstery and value-oriented aftermarket options."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO seat_materials (
     key, name, material_type, comfort_role, best_for, avoid_when,
     skill_level, price_band, durability_notes, research_status, source_data, updated_at
@@ -1473,6 +2013,216 @@ INSERT INTO seat_materials (
     research_status = EXCLUDED.research_status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'latex_foam_layer',
+    'Latex-Schaumlage',
+    'foam',
+    'elastische Komfortlage mit schneller Rückstellung',
+    'Fahrer, die weiches Einsinken vermeiden und trotzdem Druckspitzen reduzieren wollen',
+    'Wasserabdichtung unklar ist oder die Sitzbank sehr flach bleiben muss',
+    'professional',
+    'medium_to_high',
+    'Feuchte, Kleberverträglichkeit und Alterung vor Einsatz klären.',
+    'needs_supplier_data',
+    '{"key":"latex_foam_layer","name":"Latex-Schaumlage","materialType":"foam","comfortRole":"elastische Komfortlage mit schneller Rückstellung","bestFor":"Fahrer, die weiches Einsinken vermeiden und trotzdem Druckspitzen reduzieren wollen","avoidWhen":"Wasserabdichtung unklar ist oder die Sitzbank sehr flach bleiben muss","skillLevel":"professional","priceBand":"medium_to_high","durabilityNotes":"Feuchte, Kleberverträglichkeit und Alterung vor Einsatz klären.","researchStatus":"needs_supplier_data"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'eva_closed_cell_foam',
+    'EVA-/geschlossenzelliger Schaum',
+    'support_foam',
+    'stabile Stützlage, Kantenaufbau, Höhenkorrektur',
+    'leichte Formkorrekturen, Adventure-/Offroad-Sitze, Schutz vor Durchsitzen',
+    'nur weicher Komfort gesucht wird',
+    'intermediate',
+    'low_to_medium',
+    'Kann zu hart wirken; dünn und nur gezielt einsetzen.',
+    'needs_testing',
+    '{"key":"eva_closed_cell_foam","name":"EVA-/geschlossenzelliger Schaum","materialType":"support_foam","comfortRole":"stabile Stützlage, Kantenaufbau, Höhenkorrektur","bestFor":"leichte Formkorrekturen, Adventure-/Offroad-Sitze, Schutz vor Durchsitzen","avoidWhen":"nur weicher Komfort gesucht wird","skillLevel":"intermediate","priceBand":"low_to_medium","durabilityNotes":"Kann zu hart wirken; dünn und nur gezielt einsetzen.","researchStatus":"needs_testing"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'rebond_foam',
+    'Verbundschaum / Rebond Foam',
+    'support_foam',
+    'tragfähige Basis- oder Reparaturschicht',
+    'schwere Fahrer, abgesessene Sitzbänke, Unterbau vor Komfortlage',
+    'direkt als oberste Komfortlage verwendet werden soll',
+    'professional',
+    'medium',
+    'Dichte und Härte müssen zur Komfortlage passen.',
+    'needs_specification',
+    '{"key":"rebond_foam","name":"Verbundschaum / Rebond Foam","materialType":"support_foam","comfortRole":"tragfähige Basis- oder Reparaturschicht","bestFor":"schwere Fahrer, abgesessene Sitzbänke, Unterbau vor Komfortlage","avoidWhen":"direkt als oberste Komfortlage verwendet werden soll","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Dichte und Härte müssen zur Komfortlage passen.","researchStatus":"needs_specification"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'perforated_vinyl_cover',
+    'Perforierter Vinyl-/Kunstlederbezug',
+    'cover',
+    'Oberfläche, Grip, Wärmegefühl und Optik',
+    'Sitzbank-Neubezug, bessere Haptik, Design-Varianten',
+    'Wasserabdichtung und Nahtführung nicht sauber gelöst sind',
+    'professional',
+    'medium',
+    'Perforation kann Wasserwege schaffen; Membran und Nähte mitdenken.',
+    'needs_supplier_data',
+    '{"key":"perforated_vinyl_cover","name":"Perforierter Vinyl-/Kunstlederbezug","materialType":"cover","comfortRole":"Oberfläche, Grip, Wärmegefühl und Optik","bestFor":"Sitzbank-Neubezug, bessere Haptik, Design-Varianten","avoidWhen":"Wasserabdichtung und Nahtführung nicht sauber gelöst sind","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Perforation kann Wasserwege schaffen; Membran und Nähte mitdenken.","researchStatus":"needs_supplier_data"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'memory_foam_thin_layer',
+    'Dünne Memory-Foam-Komfortlage',
+    'comfort_foam',
+    'weiche Druckverteilung direkt unter dem Bezug',
+    'kurze bis mittlere Touren, leichte Druckpunkte, Testaufbau vor großem Umbau',
+    'Hitze, schwere Fahrer oder tiefe Sitzmulden das Hauptproblem sind',
+    'intermediate',
+    'medium',
+    'Zu dick oder zu weich kann Wärme stauen und den Fahrer tiefer einsinken lassen.',
+    'needs_testing',
+    '{"key":"memory_foam_thin_layer","name":"Dünne Memory-Foam-Komfortlage","materialType":"comfort_foam","comfortRole":"weiche Druckverteilung direkt unter dem Bezug","bestFor":"kurze bis mittlere Touren, leichte Druckpunkte, Testaufbau vor großem Umbau","avoidWhen":"Hitze, schwere Fahrer oder tiefe Sitzmulden das Hauptproblem sind","skillLevel":"intermediate","priceBand":"medium","durabilityNotes":"Zu dick oder zu weich kann Wärme stauen und den Fahrer tiefer einsinken lassen.","researchStatus":"needs_testing"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'ventilation_spacer_fabric',
+    'Abstandsgewirke / Belüftungslage',
+    'ventilation_layer',
+    'Luftspalt gegen Hitze und Feuchtigkeit',
+    'Sommer, Stadt, Scooter, Pendeln und reversible Auflagen',
+    'Sitzhöhe oder Standfestigkeit bereits kritisch ist',
+    'beginner',
+    'low_to_medium',
+    'Kanten sauber einfassen, sonst scheuert oder wandert die Lage.',
+    'needs_supplier_data',
+    '{"key":"ventilation_spacer_fabric","name":"Abstandsgewirke / Belüftungslage","materialType":"ventilation_layer","comfortRole":"Luftspalt gegen Hitze und Feuchtigkeit","bestFor":"Sommer, Stadt, Scooter, Pendeln und reversible Auflagen","avoidWhen":"Sitzhöhe oder Standfestigkeit bereits kritisch ist","skillLevel":"beginner","priceBand":"low_to_medium","durabilityNotes":"Kanten sauber einfassen, sonst scheuert oder wandert die Lage.","researchStatus":"needs_supplier_data"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_materials (
+    key, name, material_type, comfort_role, best_for, avoid_when,
+    skill_level, price_band, durability_notes, research_status, source_data, updated_at
+  )
+  VALUES (
+    'waterproof_membrane_layer',
+    'Wasserdichte Membranlage',
+    'barrier',
+    'Schutz gegen Wasser im Schaum nach Nähten oder perforiertem Bezug',
+    'Neubezug, perforierte Bezüge, Ganzjahresbetrieb und Laternenparker',
+    'Belüftung wichtiger ist und die Nähte ohnehin nicht geöffnet werden',
+    'professional',
+    'medium',
+    'Falten, Nahtlöcher und Kleberverträglichkeit vorher testen.',
+    'needs_specification',
+    '{"key":"waterproof_membrane_layer","name":"Wasserdichte Membranlage","materialType":"barrier","comfortRole":"Schutz gegen Wasser im Schaum nach Nähten oder perforiertem Bezug","bestFor":"Neubezug, perforierte Bezüge, Ganzjahresbetrieb und Laternenparker","avoidWhen":"Belüftung wichtiger ist und die Nähte ohnehin nicht geöffnet werden","skillLevel":"professional","priceBand":"medium","durabilityNotes":"Falten, Nahtlöcher und Kleberverträglichkeit vorher testen.","researchStatus":"needs_specification"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    material_type = EXCLUDED.material_type,
+    comfort_role = EXCLUDED.comfort_role,
+    best_for = EXCLUDED.best_for,
+    avoid_when = EXCLUDED.avoid_when,
+    skill_level = EXCLUDED.skill_level,
+    price_band = EXCLUDED.price_band,
+    durability_notes = EXCLUDED.durability_notes,
+    research_status = EXCLUDED.research_status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO workshop_tools (
     key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
   )
@@ -1600,6 +2350,167 @@ INSERT INTO workshop_tools (
     'Überhitzung kann Bezug, Nähte oder Schaum zerstören.',
     'Nur mit Temperaturkontrolle und viel Abstand verwenden.',
     '{"key":"heat_gun","name":"Heißluftföhn","toolType":"cover_work","skillLevel":"advanced","usedFor":"Bezug vorsichtig anpassen und Falten reduzieren","riskNotes":"Überhitzung kann Bezug, Nähte oder Schaum zerstören.","buyingNotes":"Nur mit Temperaturkontrolle und viel Abstand verwenden."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'contour_gauge',
+    'Konturenlehre',
+    'measurement',
+    'beginner',
+    'Sitzform, Kanten und Vorher-Nachher-Profil dokumentieren',
+    'Hilft nur, wenn Fotos und Maße konsequent abgelegt werden.',
+    'Breite Lehre wählen; für Sitzbank besser als sehr kurze Bastelvarianten.',
+    '{"key":"contour_gauge","name":"Konturenlehre","toolType":"measurement","skillLevel":"beginner","usedFor":"Sitzform, Kanten und Vorher-Nachher-Profil dokumentieren","riskNotes":"Hilft nur, wenn Fotos und Maße konsequent abgelegt werden.","buyingNotes":"Breite Lehre wählen; für Sitzbank besser als sehr kurze Bastelvarianten."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'digital_angle_finder',
+    'Digitaler Winkelmesser',
+    'measurement',
+    'beginner',
+    'Sitzneigung, Sitzwanne und Vergleich vor/nach Umbau messen',
+    'Messpunkt markieren, sonst sind Werte nicht reproduzierbar.',
+    'Magnet ist nett, aber flache Auflage und Nullfunktion sind wichtiger.',
+    '{"key":"digital_angle_finder","name":"Digitaler Winkelmesser","toolType":"measurement","skillLevel":"beginner","usedFor":"Sitzneigung, Sitzwanne und Vergleich vor/nach Umbau messen","riskNotes":"Messpunkt markieren, sonst sind Werte nicht reproduzierbar.","buyingNotes":"Magnet ist nett, aber flache Auflage und Nullfunktion sind wichtiger."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'foam_rasp_sanding_block',
+    'Schaumraspel und Schleifklotz',
+    'foam_shaping',
+    'intermediate',
+    'Übergänge glätten und Kanten kontrolliert entschärfen',
+    'Staub, Wellen und asymmetrische Form vermeiden; langsam arbeiten.',
+    'Mehrere Körnungen und Reststücke zum Üben einplanen.',
+    '{"key":"foam_rasp_sanding_block","name":"Schaumraspel und Schleifklotz","toolType":"foam_shaping","skillLevel":"intermediate","usedFor":"Übergänge glätten und Kanten kontrolliert entschärfen","riskNotes":"Staub, Wellen und asymmetrische Form vermeiden; langsam arbeiten.","buyingNotes":"Mehrere Körnungen und Reststücke zum Üben einplanen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'industrial_walking_foot_machine',
+    'Industrie-Nähmaschine mit Walking Foot',
+    'cover_work',
+    'professional',
+    'mehrlagige Bezüge, Kunstleder, Nähte und Keder sauber verarbeiten',
+    'Falsche Maschine, Nadel oder Fadenspannung ruiniert Bezug und Nähte.',
+    'Nur sinnvoll, wenn regelmäßig Bezüge genäht werden oder ein Sattler damit arbeitet.',
+    '{"key":"industrial_walking_foot_machine","name":"Industrie-Nähmaschine mit Walking Foot","toolType":"cover_work","skillLevel":"professional","usedFor":"mehrlagige Bezüge, Kunstleder, Nähte und Keder sauber verarbeiten","riskNotes":"Falsche Maschine, Nadel oder Fadenspannung ruiniert Bezug und Nähte.","buyingNotes":"Nur sinnvoll, wenn regelmäßig Bezüge genäht werden oder ein Sattler damit arbeitet."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'hot_wire_foam_cutter',
+    'Heißdraht-Schneider für Schaum',
+    'foam_shaping',
+    'professional',
+    'gerade Schnitte und kontrollierte Schaumform bei geeigneten Schäumen',
+    'Dämpfe, Brandgefahr und Materialverträglichkeit beachten; nicht jeder Schaum ist geeignet.',
+    'Für Einsteiger meist übertrieben; erst Reststücke und Schutzmaßnahmen klären.',
+    '{"key":"hot_wire_foam_cutter","name":"Heißdraht-Schneider für Schaum","toolType":"foam_shaping","skillLevel":"professional","usedFor":"gerade Schnitte und kontrollierte Schaumform bei geeigneten Schäumen","riskNotes":"Dämpfe, Brandgefahr und Materialverträglichkeit beachten; nicht jeder Schaum ist geeignet.","buyingNotes":"Für Einsteiger meist übertrieben; erst Reststücke und Schutzmaßnahmen klären."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'hog_ring_pliers',
+    'Hog-Ring-Zange / Polsterklammerzange',
+    'cover_work',
+    'intermediate',
+    'Bezug, Gurte oder Unterzüge an geeigneten Sitzkonstruktionen fixieren',
+    'Nur verwenden, wenn die Sitzbankkonstruktion dafür ausgelegt ist.',
+    'Zange und Klammergröße zusammen wählen; rostfreie Klammern bevorzugen.',
+    '{"key":"hog_ring_pliers","name":"Hog-Ring-Zange / Polsterklammerzange","toolType":"cover_work","skillLevel":"intermediate","usedFor":"Bezug, Gurte oder Unterzüge an geeigneten Sitzkonstruktionen fixieren","riskNotes":"Nur verwenden, wenn die Sitzbankkonstruktion dafür ausgelegt ist.","buyingNotes":"Zange und Klammergröße zusammen wählen; rostfreie Klammern bevorzugen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    tool_type = EXCLUDED.tool_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_tools (
+    key, name, tool_type, skill_level, used_for, risk_notes, buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'infrared_thermometer',
+    'Infrarot-Thermometer',
+    'measurement',
+    'beginner',
+    'Oberflächentemperatur von Bezug, Auflage und Sitzbank im Sommer vergleichen',
+    'Messabstand und Materialoberfläche beeinflussen den Wert.',
+    'Ein einfaches Gerät reicht für Vorher/Nachher-Vergleiche.',
+    '{"key":"infrared_thermometer","name":"Infrarot-Thermometer","toolType":"measurement","skillLevel":"beginner","usedFor":"Oberflächentemperatur von Bezug, Auflage und Sitzbank im Sommer vergleichen","riskNotes":"Messabstand und Materialoberfläche beeinflussen den Wert.","buyingNotes":"Ein einfaches Gerät reicht für Vorher/Nachher-Vergleiche."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1755,6 +2666,188 @@ INSERT INTO workshop_supplies (
     'Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.',
     'Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen.',
     '{"key":"isopropyl_cleaner","name":"Isopropanol / Oberflächenreiniger","supplyType":"surface_prep","skillLevel":"beginner","usedFor":"Klebeflächen entfetten und Markierungen vor dem Aufbau vorbereiten","bestFor":"saubere Klebeflächen, kleine Reparaturen, Vorbereitung vor Messfotos","riskNotes":"Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.","buyingNotes":"Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'upholstery_vinyl',
+    'Motorrad-geeigneter Kunstleder-/Vinylbezug',
+    'cover_material',
+    'professional',
+    'neuen Bezug nähen oder Sitzbank neu beziehen',
+    'Design, Grip, Wasserverhalten und Reparatur einer alten Sitzbank',
+    'Billiges Material kann reißen, ausbleichen oder Wasser an Nähten ziehen.',
+    'UV-Beständigkeit, Dehnung, Rückseite, Griff und Nahtverhalten prüfen.',
+    '{"key":"upholstery_vinyl","name":"Motorrad-geeigneter Kunstleder-/Vinylbezug","supplyType":"cover_material","skillLevel":"professional","usedFor":"neuen Bezug nähen oder Sitzbank neu beziehen","bestFor":"Design, Grip, Wasserverhalten und Reparatur einer alten Sitzbank","riskNotes":"Billiges Material kann reißen, ausbleichen oder Wasser an Nähten ziehen.","buyingNotes":"UV-Beständigkeit, Dehnung, Rückseite, Griff und Nahtverhalten prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'bonded_nylon_thread',
+    'UV-beständiger Polsterfaden',
+    'sewing',
+    'professional',
+    'haltbare Nähte bei Kunstleder, Vinyl und Keder',
+    'Sattlerarbeit, neue Bezüge, sichtbare Ziernähte',
+    'Falsche Stärke oder Nadel führt zu Fehlstichen und schwachen Nähten.',
+    'Fadenstärke passend zur Maschine, Nadel und Materialdicke wählen.',
+    '{"key":"bonded_nylon_thread","name":"UV-beständiger Polsterfaden","supplyType":"sewing","skillLevel":"professional","usedFor":"haltbare Nähte bei Kunstleder, Vinyl und Keder","bestFor":"Sattlerarbeit, neue Bezüge, sichtbare Ziernähte","riskNotes":"Falsche Stärke oder Nadel führt zu Fehlstichen und schwachen Nähten.","buyingNotes":"Fadenstärke passend zur Maschine, Nadel und Materialdicke wählen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'hook_loop_straps',
+    'Klett-/Gurtband für reversible Auflagen',
+    'mounting',
+    'beginner',
+    '3D-Mesh, Luftkissen oder Testauflagen ohne dauerhaften Umbau sichern',
+    'erste Tests, Pendeln, Hitze, Scooter und Budget-Lösungen',
+    'Darf Sitzschloss, Lack, Verkleidung und Fahrkontrolle nicht stören.',
+    'Breite, Kanten, UV-Beständigkeit und einfache Demontage beachten.',
+    '{"key":"hook_loop_straps","name":"Klett-/Gurtband für reversible Auflagen","supplyType":"mounting","skillLevel":"beginner","usedFor":"3D-Mesh, Luftkissen oder Testauflagen ohne dauerhaften Umbau sichern","bestFor":"erste Tests, Pendeln, Hitze, Scooter und Budget-Lösungen","riskNotes":"Darf Sitzschloss, Lack, Verkleidung und Fahrkontrolle nicht stören.","buyingNotes":"Breite, Kanten, UV-Beständigkeit und einfache Demontage beachten."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'pattern_paper_transfer_film',
+    'Schnittmusterpapier / Transferfolie',
+    'patterning',
+    'intermediate',
+    'Bezugsteile, Nahtverlauf und Schaumzonen vor dem Schneiden planen',
+    'Vorbereitung, Dokumentation, Sattler-Briefing, wiederholbare Umbauten',
+    'Ungenaue Muster übertragen Fehler direkt auf teures Bezugsmaterial.',
+    'Transparentes, reißfestes Material erleichtert das Übertragen von Konturen.',
+    '{"key":"pattern_paper_transfer_film","name":"Schnittmusterpapier / Transferfolie","supplyType":"patterning","skillLevel":"intermediate","usedFor":"Bezugsteile, Nahtverlauf und Schaumzonen vor dem Schneiden planen","bestFor":"Vorbereitung, Dokumentation, Sattler-Briefing, wiederholbare Umbauten","riskNotes":"Ungenaue Muster übertragen Fehler direkt auf teures Bezugsmaterial.","buyingNotes":"Transparentes, reißfestes Material erleichtert das Übertragen von Konturen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'foam_sample_pack',
+    'Schaumstoff-Musterpaket',
+    'testing',
+    'beginner',
+    'Härte, Rückstellung und Haptik verschiedener Schäume vor dem Kauf vergleichen',
+    'Einsteiger, Materialwahl, Gespräch mit Sattler oder Lieferant',
+    'Kleine Muster ersetzen keinen Sitztest, helfen aber beim Aussortieren.',
+    'Dichte, Stauchhärte und Materialtyp sollten angegeben sein.',
+    '{"key":"foam_sample_pack","name":"Schaumstoff-Musterpaket","supplyType":"testing","skillLevel":"beginner","usedFor":"Härte, Rückstellung und Haptik verschiedener Schäume vor dem Kauf vergleichen","bestFor":"Einsteiger, Materialwahl, Gespräch mit Sattler oder Lieferant","riskNotes":"Kleine Muster ersetzen keinen Sitztest, helfen aber beim Aussortieren.","buyingNotes":"Dichte, Stauchhärte und Materialtyp sollten angegeben sein."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'waterproof_seam_tape',
+    'Nahtdichtband / Seam Tape',
+    'sealing',
+    'professional',
+    'Nähte und kritische Übergänge gegen Wasser schützen',
+    'perforierte Bezüge, Neubezug, Ganzjahresfahrer',
+    'Temperatur, Kleber und Bezugsmaterial müssen zusammenpassen.',
+    'Nur mit Teststück verwenden; manche Bänder brauchen Wärme oder Druck.',
+    '{"key":"waterproof_seam_tape","name":"Nahtdichtband / Seam Tape","supplyType":"sealing","skillLevel":"professional","usedFor":"Nähte und kritische Übergänge gegen Wasser schützen","bestFor":"perforierte Bezüge, Neubezug, Ganzjahresfahrer","riskNotes":"Temperatur, Kleber und Bezugsmaterial müssen zusammenpassen.","buyingNotes":"Nur mit Teststück verwenden; manche Bänder brauchen Wärme oder Druck."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'temporary_test_cover',
+    'Temporärer Testbezug',
+    'testing',
+    'beginner',
+    'neue Schaumform kurz testen, bevor der finale Bezug genäht wird',
+    'DIY-Prototypen, Sattler-Briefing, Sitzform-Vergleich',
+    'Nicht für Dauerbetrieb oder Nässe gedacht.',
+    'Rutschfest genug wählen, aber schnell abnehmbar halten.',
+    '{"key":"temporary_test_cover","name":"Temporärer Testbezug","supplyType":"testing","skillLevel":"beginner","usedFor":"neue Schaumform kurz testen, bevor der finale Bezug genäht wird","bestFor":"DIY-Prototypen, Sattler-Briefing, Sitzform-Vergleich","riskNotes":"Nicht für Dauerbetrieb oder Nässe gedacht.","buyingNotes":"Rutschfest genug wählen, aber schnell abnehmbar halten."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -3110,6 +4203,936 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'ktm_1290_super_adventure_commons',
+    'KTM 1290 Super Adventure',
+    'KTM 1290 Super Adventure reference image for DACH adventure-touring seat research.',
+    '/assets/media/m08-ktm-1290-super-adventure.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/KTM_1290_Super_Adventure.jpeg',
+    'https://commons.wikimedia.org/wiki/File:KTM_1290_Super_Adventure.jpeg',
+    'Wikimedia Commons',
+    'San Andreas',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: San Andreas, CC BY-SA 3.0, via Wikimedia Commons',
+    'KTM 1290 Super Adventure motorcycle',
+    'Sporty adventure seats need separate checks for heat, height, standing transition and long-distance pressure.',
+    '#2d2f2b',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying KTM or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"ktm_1290_super_adventure_commons","title":"KTM 1290 Super Adventure","description":"KTM 1290 Super Adventure reference image for DACH adventure-touring seat research.","localPath":"/assets/media/m08-ktm-1290-super-adventure.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/KTM_1290_Super_Adventure.jpeg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:KTM_1290_Super_Adventure.jpeg","sourceName":"Wikimedia Commons","creator":"San Andreas","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: San Andreas, CC BY-SA 3.0, via Wikimedia Commons","alt":"KTM 1290 Super Adventure motorcycle","caption":"Sporty adventure seats need separate checks for heat, height, standing transition and long-distance pressure.","dominantColor":"#2d2f2b","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"ktm-1290-super-adventure","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying KTM or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'ktm_1290_super_adventure_commons',
+      'motorcycle_profile',
+      'ktm-1290-super-adventure',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'triumph_tiger_1200_commons',
+    'Triumph Tiger 1200 Rally Pro',
+    'Triumph Tiger 1200 Rally Pro reference image for large adventure-touring comparison.',
+    '/assets/media/m09-triumph-tiger-1200.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/2023_Triumph_Tiger_1200_Rally_Pro.jpg',
+    'https://commons.wikimedia.org/wiki/File:2023_Triumph_Tiger_1200_Rally_Pro.jpg',
+    'Wikimedia Commons',
+    'Tasjamescullen',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Tasjamescullen, CC BY-SA 4.0, via Wikimedia Commons',
+    'Triumph Tiger 1200 Rally Pro motorcycle',
+    'Large adventure touring bikes often need separate rider and passenger comfort decisions.',
+    '#42433c',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Triumph or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"triumph_tiger_1200_commons","title":"Triumph Tiger 1200 Rally Pro","description":"Triumph Tiger 1200 Rally Pro reference image for large adventure-touring comparison.","localPath":"/assets/media/m09-triumph-tiger-1200.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/2023_Triumph_Tiger_1200_Rally_Pro.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:2023_Triumph_Tiger_1200_Rally_Pro.jpg","sourceName":"Wikimedia Commons","creator":"Tasjamescullen","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tasjamescullen, CC BY-SA 4.0, via Wikimedia Commons","alt":"Triumph Tiger 1200 Rally Pro motorcycle","caption":"Large adventure touring bikes often need separate rider and passenger comfort decisions.","dominantColor":"#42433c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"triumph-tiger-1200-rally-pro","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Triumph or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'triumph_tiger_1200_commons',
+      'motorcycle_profile',
+      'triumph-tiger-1200-rally-pro',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'moto_guzzi_v85tt_commons',
+    'Moto Guzzi V85 TT',
+    'Moto Guzzi V85 TT reference image for middleweight retro-adventure seat research.',
+    '/assets/media/m10-moto-guzzi-v85tt.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Moto_Guzzi_V85TT.jpg',
+    'https://commons.wikimedia.org/wiki/File:Moto_Guzzi_V85TT.jpg',
+    'Wikimedia Commons',
+    'Corvettec6r',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Corvettec6r, CC BY-SA 4.0, via Wikimedia Commons',
+    'Moto Guzzi V85 TT motorcycle',
+    'Retro-adventure seats are useful for comparing upright posture and classic seat shapes.',
+    '#4a4940',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Moto Guzzi or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"moto_guzzi_v85tt_commons","title":"Moto Guzzi V85 TT","description":"Moto Guzzi V85 TT reference image for middleweight retro-adventure seat research.","localPath":"/assets/media/m10-moto-guzzi-v85tt.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Moto_Guzzi_V85TT.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Moto_Guzzi_V85TT.jpg","sourceName":"Wikimedia Commons","creator":"Corvettec6r","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Corvettec6r, CC BY-SA 4.0, via Wikimedia Commons","alt":"Moto Guzzi V85 TT motorcycle","caption":"Retro-adventure seats are useful for comparing upright posture and classic seat shapes.","dominantColor":"#4a4940","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"moto-guzzi-v85-tt","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Moto Guzzi or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'moto_guzzi_v85tt_commons',
+      'motorcycle_profile',
+      'moto-guzzi-v85-tt',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'royal_enfield_himalayan_commons',
+    'Royal Enfield Himalayan',
+    'Royal Enfield Himalayan reference image for budget adventure and Asia-market seat research.',
+    '/assets/media/m11-royal-enfield-himalayan.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Royal_Enfield_Himalayan_DB2K5442.jpg',
+    'https://commons.wikimedia.org/wiki/File:Royal_Enfield_Himalayan_DB2K5442.jpg',
+    'Wikimedia Commons',
+    'Ashley Pomeroy',
+    'Creative Commons CC0 1.0 Universal Public Domain Dedication',
+    'CC0',
+    'https://creativecommons.org/publicdomain/zero/1.0/',
+    'public_domain_dedication',
+    false,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Ashley Pomeroy, CC0, via Wikimedia Commons',
+    'Royal Enfield Himalayan motorcycle',
+    'Budget adventure bikes need low-cost pads, local repairability and practical touring comfort.',
+    '#555043',
+    '16 / 9',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'CC0 asset; credit can still be shown in the asset register as courtesy.',
+    'active',
+    '{"key":"royal_enfield_himalayan_commons","title":"Royal Enfield Himalayan","description":"Royal Enfield Himalayan reference image for budget adventure and Asia-market seat research.","localPath":"/assets/media/m11-royal-enfield-himalayan.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Royal_Enfield_Himalayan_DB2K5442.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Royal_Enfield_Himalayan_DB2K5442.jpg","sourceName":"Wikimedia Commons","creator":"Ashley Pomeroy","licenseName":"Creative Commons CC0 1.0 Universal Public Domain Dedication","licenseCode":"CC0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/","rightsStatus":"public_domain_dedication","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Ashley Pomeroy, CC0, via Wikimedia Commons","alt":"Royal Enfield Himalayan motorcycle","caption":"Budget adventure bikes need low-cost pads, local repairability and practical touring comfort.","dominantColor":"#555043","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"royal-enfield-himalayan","usage":"hero","priority":1}],"status":"active","notes":"CC0 asset; credit can still be shown in the asset register as courtesy."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'royal_enfield_himalayan_commons',
+      'motorcycle_profile',
+      'royal-enfield-himalayan',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'honda_forza_350_commons',
+    'Honda Forza 350',
+    'Honda Forza 350 reference image for scooter and Southeast Asia comfort research.',
+    '/assets/media/m12-honda-forza-350.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2020_Honda_Forza_350.jpg/621px-2020_Honda_Forza_350.jpg',
+    'https://commons.wikimedia.org/wiki/File:2020_Honda_Forza_350.jpg',
+    'Wikimedia Commons',
+    'Chanokchon',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons',
+    'Honda Forza 350 scooter',
+    'Scooter seats shift the problem toward heat, commuting, wide seat shape and affordable pads.',
+    '#3c4652',
+    '1 / 1',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'download_pending',
+    '{"key":"honda_forza_350_commons","title":"Honda Forza 350","description":"Honda Forza 350 reference image for scooter and Southeast Asia comfort research.","localPath":"/assets/media/m12-honda-forza-350.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2020_Honda_Forza_350.jpg/621px-2020_Honda_Forza_350.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:2020_Honda_Forza_350.jpg","sourceName":"Wikimedia Commons","creator":"Chanokchon","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons","alt":"Honda Forza 350 scooter","caption":"Scooter seats shift the problem toward heat, commuting, wide seat shape and affordable pads.","dominantColor":"#3c4652","aspectRatio":"1 / 1","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-forza-350","usage":"hero","priority":1}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'honda_forza_350_commons',
+      'motorcycle_profile',
+      'honda-forza-350',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'foam_rubber_swatches_commons',
+    'Foam rubber colour swatches',
+    'Foam material reference image for seat-material and DIY pages.',
+    '/assets/media/m13-foam-rubber-swatches.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/20200901_Moosgummi_Farbf%C3%A4cher.jpg/561px-20200901_Moosgummi_Farbf%C3%A4cher.jpg',
+    'https://commons.wikimedia.org/wiki/File:20200901_Moosgummi_Farbf%C3%A4cher.jpg',
+    'Wikimedia Commons',
+    'Zinnmann',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Zinnmann, CC BY-SA 3.0, via Wikimedia Commons',
+    'Foam rubber sheets in different colours',
+    'Foam class, density and layer role matter more than colour or marketing names.',
+    '#66704c',
+    '4 / 3',
+    'center',
+    '["material","card","section"]'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'download_pending',
+    '{"key":"foam_rubber_swatches_commons","title":"Foam rubber colour swatches","description":"Foam material reference image for seat-material and DIY pages.","localPath":"/assets/media/m13-foam-rubber-swatches.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/20200901_Moosgummi_Farbf%C3%A4cher.jpg/561px-20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourceName":"Wikimedia Commons","creator":"Zinnmann","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Zinnmann, CC BY-SA 3.0, via Wikimedia Commons","alt":"Foam rubber sheets in different colours","caption":"Foam class, density and layer role matter more than colour or marketing names.","dominantColor":"#66704c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","card","section"],"links":[{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_rubber_swatches_commons',
+      'seat_material',
+      'eva_closed_cell_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_rubber_swatches_commons',
+      'seat_material',
+      'rebond_foam',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_rubber_swatches_commons',
+      'seat_material',
+      'latex_foam_layer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'staple_gun_tacker_commons',
+    'Staple gun tacker',
+    'Staple gun reference image for upholstery tool cards.',
+    '/assets/media/m14-staple-gun.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg',
+    'https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg',
+    'Wikimedia Commons',
+    'Jpquidores',
+    'Creative Commons Attribution 3.0 Unported',
+    'CC BY 3.0',
+    'https://creativecommons.org/licenses/by/3.0/',
+    'usable_with_attribution',
+    true,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons',
+    'Red staple gun tacker',
+    'Staple length and seat-pan material matter more than buying the strongest tool.',
+    '#b63f32',
+    '4 / 3',
+    'center',
+    '["tool","card"]'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'download_pending',
+    '{"key":"staple_gun_tacker_commons","title":"Staple gun tacker","description":"Staple gun reference image for upholstery tool cards.","localPath":"/assets/media/m14-staple-gun.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg","sourceName":"Wikimedia Commons","creator":"Jpquidores","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons","alt":"Red staple gun tacker","caption":"Staple length and seat-pan material matter more than buying the strongest tool.","dominantColor":"#b63f32","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'staple_gun_tacker_commons',
+      'workshop_tool',
+      'electric_stapler',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'staple_gun_tacker_commons',
+      'workshop_supply',
+      'stainless_staples',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'leather_sewing_machine_commons',
+    'Leather sewing machine',
+    'Leather sewing machine reference image for professional upholstery workflow.',
+    '/assets/media/m15-leather-sewing-machine.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Leather_sewing_machine_%282021-08-03%29_04.jpg/800px-Leather_sewing_machine_%282021-08-03%29_04.jpg',
+    'https://commons.wikimedia.org/wiki/File:Leather_sewing_machine_(2021-08-03)_04.jpg',
+    'Wikimedia Commons',
+    'Vyacheslav Kirillin',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Vyacheslav Kirillin, CC BY-SA 4.0, via Wikimedia Commons',
+    'Leather sewing machine in a museum display',
+    'Seat-cover sewing is usually a professional step, especially with thick vinyl, seams and piping.',
+    '#4b3f36',
+    '4 / 3',
+    'center',
+    '["tool","card","section"]'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'download_pending',
+    '{"key":"leather_sewing_machine_commons","title":"Leather sewing machine","description":"Leather sewing machine reference image for professional upholstery workflow.","localPath":"/assets/media/m15-leather-sewing-machine.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Leather_sewing_machine_%282021-08-03%29_04.jpg/800px-Leather_sewing_machine_%282021-08-03%29_04.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Leather_sewing_machine_(2021-08-03)_04.jpg","sourceName":"Wikimedia Commons","creator":"Vyacheslav Kirillin","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Vyacheslav Kirillin, CC BY-SA 4.0, via Wikimedia Commons","alt":"Leather sewing machine in a museum display","caption":"Seat-cover sewing is usually a professional step, especially with thick vinyl, seams and piping.","dominantColor":"#4b3f36","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card","section"],"links":[{"entityType":"workshop_tool","entityKey":"industrial_walking_foot_machine","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"bonded_nylon_thread","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sewing_machine_commons',
+      'workshop_tool',
+      'industrial_walking_foot_machine',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sewing_machine_commons',
+      'workshop_supply',
+      'bonded_nylon_thread',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sewing_machine_commons',
+      'workshop_supply',
+      'upholstery_vinyl',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'furriers_staple_gun_commons',
+    'Furrier''s staple gun',
+    'Public-domain staple-gun style upholstery tool candidate for workshop pages.',
+    '/assets/media/m16-furriers-staple-gun.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Furrier%27s_staple_gun.jpg',
+    'https://commons.wikimedia.org/wiki/File:Furrier%27s_staple_gun.jpg',
+    'Wikimedia Commons',
+    'Kürschner',
+    'Public domain',
+    'PD-user',
+    'https://commons.wikimedia.org/wiki/Commons:Public_domain',
+    'public_domain',
+    false,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Kürschner, public domain, via Wikimedia Commons',
+    'Staple gun style upholstery tool',
+    'A staple tool candidate for explaining cover fixation and tool safety.',
+    '#6d5a44',
+    '3 / 4',
+    'center',
+    '["tool","card"]'::jsonb,
+    'Candidate found via Commons search. Activate only after local download and visual crop review.',
+    'download_pending',
+    '{"key":"furriers_staple_gun_commons","title":"Furrier''s staple gun","description":"Public-domain staple-gun style upholstery tool candidate for workshop pages.","localPath":"/assets/media/m16-furriers-staple-gun.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Furrier%27s_staple_gun.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Furrier%27s_staple_gun.jpg","sourceName":"Wikimedia Commons","creator":"Kürschner","licenseName":"Public domain","licenseCode":"PD-user","licenseUrl":"https://commons.wikimedia.org/wiki/Commons:Public_domain","rightsStatus":"public_domain","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Kürschner, public domain, via Wikimedia Commons","alt":"Staple gun style upholstery tool","caption":"A staple tool candidate for explaining cover fixation and tool safety.","dominantColor":"#6d5a44","aspectRatio":"3 / 4","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"hog_ring_pliers","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2}],"status":"download_pending","notes":"Candidate found via Commons search. Activate only after local download and visual crop review."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'furriers_staple_gun_commons',
+      'workshop_tool',
+      'hog_ring_pliers',
+      'related',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'furriers_staple_gun_commons',
+      'workshop_tool',
+      'electric_stapler',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'hot_wire_foam_cutter_commons',
+    'Foam cutter heater wire support',
+    'Hot-wire foam cutter reference candidate for advanced foam-shaping content.',
+    '/assets/media/m17-hot-wire-foam-cutter.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_cutter_heater_wire_support_(top_view).JPG',
+    'https://commons.wikimedia.org/wiki/File:Foam_cutter_heater_wire_support_(top_view).JPG',
+    'Wikimedia Commons',
+    'Wikimedia Commons contributor',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Wikimedia Commons contributor, CC BY-SA 3.0, via Wikimedia Commons',
+    'Hot wire foam cutter heater wire support',
+    'Advanced foam shaping needs ventilation, test cuts and material-safety checks.',
+    '#5c554c',
+    '4 / 3',
+    'center',
+    '["tool","section"]'::jsonb,
+    'Candidate found via Commons search. Verify exact attribution from source page before activation.',
+    'download_pending',
+    '{"key":"hot_wire_foam_cutter_commons","title":"Foam cutter heater wire support","description":"Hot-wire foam cutter reference candidate for advanced foam-shaping content.","localPath":"/assets/media/m17-hot-wire-foam-cutter.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_cutter_heater_wire_support_(top_view).JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_cutter_heater_wire_support_(top_view).JPG","sourceName":"Wikimedia Commons","creator":"Wikimedia Commons contributor","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Wikimedia Commons contributor, CC BY-SA 3.0, via Wikimedia Commons","alt":"Hot wire foam cutter heater wire support","caption":"Advanced foam shaping needs ventilation, test cuts and material-safety checks.","dominantColor":"#5c554c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","section"],"links":[{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"related","priority":2}],"status":"download_pending","notes":"Candidate found via Commons search. Verify exact attribution from source page before activation."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'hot_wire_foam_cutter_commons',
+      'workshop_tool',
+      'hot_wire_foam_cutter',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'hot_wire_foam_cutter_commons',
+      'seat_material',
+      'eva_closed_cell_foam',
+      'related',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_seats_commons_category',
+    'Wikimedia Commons Motorcycle seats category',
+    'Research-source entry for future motorcycle-seat image curation.',
+    'source-only:wikimedia-commons-category-motorcycle-seats',
+    'https://commons.wikimedia.org/wiki/Category:Motorcycle_seats',
+    'https://commons.wikimedia.org/wiki/Category:Motorcycle_seats',
+    'Wikimedia Commons',
+    'Wikimedia Commons contributors',
+    'Mixed licenses per file',
+    'mixed',
+    'https://commons.wikimedia.org/wiki/Category:Motorcycle_seats',
+    'source_index_only',
+    true,
+    false,
+    false,
+    false,
+    true,
+    'Research index: Wikimedia Commons Motorcycle seats category',
+    'Motorcycle seats image research category',
+    'Use as a research index only; each image must be checked individually before local use.',
+    '#f5f1e8',
+    '16 / 9',
+    'center',
+    '["research_source"]'::jsonb,
+    'Do not render as an image. Use this category to find future seat-specific images with per-file license review.',
+    'source_only',
+    '{"key":"motorcycle_seats_commons_category","title":"Wikimedia Commons Motorcycle seats category","description":"Research-source entry for future motorcycle-seat image curation.","localPath":"source-only:wikimedia-commons-category-motorcycle-seats","downloadUrl":"https://commons.wikimedia.org/wiki/Category:Motorcycle_seats","sourcePageUrl":"https://commons.wikimedia.org/wiki/Category:Motorcycle_seats","sourceName":"Wikimedia Commons","creator":"Wikimedia Commons contributors","licenseName":"Mixed licenses per file","licenseCode":"mixed","licenseUrl":"https://commons.wikimedia.org/wiki/Category:Motorcycle_seats","rightsStatus":"source_index_only","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":false,"commercialUseAllowed":false,"endorsementWarning":true,"creditLine":"Research index: Wikimedia Commons Motorcycle seats category","alt":"Motorcycle seats image research category","caption":"Use as a research index only; each image must be checked individually before local use.","dominantColor":"#f5f1e8","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["research_source"],"links":[],"status":"source_only","notes":"Do not render as an image. Use this category to find future seat-specific images with per-file license review."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":9,"seat_materials":6,"workshop_tools":6,"workshop_supplies":6,"buying_channels":5,"media_assets":12,"content_media_links":35}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52}'::jsonb);
 COMMIT;

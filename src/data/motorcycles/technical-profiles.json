@@ -94,5 +94,105 @@
     "seatComfortRisks": ["short_ride_pressure", "budget_solution_fit", "seat_height"],
     "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "commute_duration_notes", "budget_solution_options"],
     "notes": "Everyday and budget-focused model where low-cost reversible options may matter more than premium seats."
+  },
+  {
+    "motorcycleSlug": "ktm-1290-super-adventure",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "sport_touring", "long_distance", "light_offroad"],
+    "seatComfortRisks": ["seat_height", "heat", "standing_transition", "long_distance_pressure"],
+    "requiredMeasurements": ["seat_height_mm", "standing_clearance", "seat_heat_notes", "footpeg_position_mm"],
+    "notes": "Sporty adventure posture and high seat need separate standing/sitting comfort checks."
+  },
+  {
+    "motorcycleSlug": "triumph-tiger-1200-rally-pro",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "two_up", "long_distance", "travel"],
+    "seatComfortRisks": ["seat_height", "passenger_comfort", "long_distance_pressure", "seat_width"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "passenger_seat_width_mm", "handlebar_reach_mm"],
+    "notes": "Large adventure touring model where rider/passenger seat split and luggage posture matter."
+  },
+  {
+    "motorcycleSlug": "moto-guzzi-v85-tt",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "weekend_touring", "travel", "country_road"],
+    "seatComfortRisks": ["seat_width", "touring_pressure", "wind_pressure", "seat_height"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "seat_slope_deg", "wind_pressure_notes"],
+    "notes": "Midweight retro adventure model with upright seating and touring use."
+  },
+  {
+    "motorcycleSlug": "royal-enfield-himalayan",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["budget", "travel", "light_offroad", "adventure"],
+    "seatComfortRisks": ["budget_solution_fit", "standing_transition", "long_distance_pressure", "seat_height"],
+    "requiredMeasurements": ["seat_height_mm", "standing_clearance", "seat_width_mm", "budget_solution_options"],
+    "notes": "Budget adventure model where low-cost pads, local upholsterers and repairability are important."
+  },
+  {
+    "motorcycleSlug": "honda-forza-350",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["city", "commuting", "budget", "hot_weather"],
+    "seatComfortRisks": ["heat", "short_ride_pressure", "seat_width", "forward_slide"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "commute_duration_notes", "seat_heat_notes"],
+    "notes": "Scooter profile for urban comfort, heat and low-cost reversible solutions."
+  },
+  {
+    "motorcycleSlug": "yamaha-mt-07",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["naked", "city", "country_road", "budget"],
+    "seatComfortRisks": ["short_ride_pressure", "forward_slide", "thin_padding", "passenger_comfort"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_front_mm", "seat_width_rear_mm", "sit_bone_width_mm", "ride_duration_notes"],
+    "notes": "Popular naked-bike profile for quick comfort pads, anti-slide covers and low-cost foam experiments."
+  },
+  {
+    "motorcycleSlug": "kawasaki-z900",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["naked", "sporty_road", "country_road", "weekend_touring"],
+    "seatComfortRisks": ["pressure_after_60_min", "forward_slide", "seat_slope", "thin_padding"],
+    "requiredMeasurements": ["seat_height_mm", "seat_slope_deg", "seat_width_front_mm", "sit_bone_width_mm", "handlebar_reach_notes"],
+    "notes": "Sporty naked-bike profile where anti-slide and pressure-point fixes are more relevant than full touring saddles."
+  },
+  {
+    "motorcycleSlug": "harley-davidson-street-glide",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["cruiser", "long_distance", "two_up", "premium"],
+    "seatComfortRisks": ["lower_back_support", "long_distance_pressure", "passenger_comfort", "heat"],
+    "requiredMeasurements": ["seat_height_mm", "seat_bucket_depth_mm", "backrest_position_mm", "passenger_seat_width_mm", "ride_duration_notes"],
+    "notes": "Cruiser and bagger profile for back support, passenger comfort, premium seats and long-distance pressure control."
+  },
+  {
+    "motorcycleSlug": "vespa-gts-300",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["scooter", "city", "commuting", "hot_weather"],
+    "seatComfortRisks": ["heat", "seat_width", "short_ride_pressure", "cover_slipperiness"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "commute_duration_notes", "cover_temperature_notes"],
+    "notes": "Urban scooter profile for hot weather, everyday use and reversible seat covers or breathable pads."
+  },
+  {
+    "motorcycleSlug": "cfmoto-800mt",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["budget_adventure", "travel", "two_up", "country_road"],
+    "seatComfortRisks": ["pressure_after_60_min", "seat_height", "passenger_comfort", "accessory_choice_overload"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_front_mm", "seat_width_rear_mm", "sit_bone_width_mm", "luggage_load_notes"],
+    "notes": "Budget adventure profile for comparing low-cost pads, local upholstery and value-oriented aftermarket options."
   }
 ]
