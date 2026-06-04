@@ -26,7 +26,10 @@
     "recommendedUsage": ["card", "section", "buying"],
     "links": [
       { "entityType": "buying_channel", "entityKey": "local_upholsterer_de", "usage": "card", "priority": 1 },
-      { "entityType": "product_category", "entityKey": "aftermarket_seat", "usage": "card", "priority": 1 }
+      { "entityType": "product_category", "entityKey": "aftermarket_seat", "usage": "card", "priority": 1 },
+      { "entityType": "workshop_tool", "entityKey": "staple_remover", "usage": "card", "priority": 2 },
+      { "entityType": "workshop_tool", "entityKey": "electric_stapler", "usage": "card", "priority": 2 },
+      { "entityType": "workshop_supply", "entityKey": "stainless_staples", "usage": "card", "priority": 2 }
     ],
     "status": "active",
     "notes": "Use with visible attribution on pages where the image appears."
@@ -58,6 +61,9 @@
     "recommendedUsage": ["card", "section", "touring"],
     "links": [
       { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1300-gs", "usage": "card", "priority": 3 },
+      { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1250-gs", "usage": "card", "priority": 3 },
+      { "entityType": "motorcycle_profile", "entityKey": "suzuki-v-strom-1050", "usage": "card", "priority": 3 },
+      { "entityType": "motorcycle_profile", "entityKey": "kawasaki-versys-1000", "usage": "card", "priority": 3 },
       { "entityType": "solution_path", "entityKey": "upholsterer_rebuild", "usage": "section", "priority": 2 }
     ],
     "status": "active",
@@ -89,7 +95,10 @@
     "objectPosition": "center",
     "recommendedUsage": ["card", "material", "section"],
     "links": [
-      { "entityType": "seat_material", "entityKey": "anti_slip_cover", "usage": "card", "priority": 1 }
+      { "entityType": "seat_material", "entityKey": "anti_slip_cover", "usage": "card", "priority": 1 },
+      { "entityType": "workshop_supply", "entityKey": "vinyl_leather_cleaner", "usage": "card", "priority": 1 },
+      { "entityType": "workshop_supply", "entityKey": "isopropyl_cleaner", "usage": "card", "priority": 2 },
+      { "entityType": "workshop_supply", "entityKey": "seam_sealer", "usage": "card", "priority": 2 }
     ],
     "status": "active",
     "notes": "Use as generic material texture, not as a specific motorcycle-seat cover product."
@@ -120,7 +129,10 @@
     "objectPosition": "center",
     "recommendedUsage": ["hero", "section", "touring"],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "suzuki-gsx-s1000gx", "usage": "hero", "priority": 2 }
+      { "entityType": "motorcycle_profile", "entityKey": "suzuki-gsx-s1000gx", "usage": "hero", "priority": 2 },
+      { "entityType": "motorcycle_profile", "entityKey": "suzuki-gsx-s1000gx", "usage": "card", "priority": 2 },
+      { "entityType": "motorcycle_profile", "entityKey": "yamaha-tracer-9-9-gt", "usage": "card", "priority": 2 },
+      { "entityType": "motorcycle_profile", "entityKey": "honda-nc750x", "usage": "card", "priority": 2 }
     ],
     "status": "active",
     "notes": "Attribution is not required by Pexels, but the credit line can be shown in an asset register."
@@ -151,7 +163,11 @@
     "objectPosition": "center",
     "recommendedUsage": ["hero", "section", "touring"],
     "links": [
-      { "entityType": "solution_path", "entityKey": "premium_touring_seat", "usage": "section", "priority": 2 }
+      { "entityType": "solution_path", "entityKey": "premium_touring_seat", "usage": "section", "priority": 2 },
+      { "entityType": "motorcycle_profile", "entityKey": "honda-crf1100l-africa-twin", "usage": "card", "priority": 2 },
+      { "entityType": "motorcycle_profile", "entityKey": "ducati-multistrada-v4", "usage": "card", "priority": 2 },
+      { "entityType": "workshop_supply", "entityKey": "waterproof_barrier_film", "usage": "card", "priority": 3 },
+      { "entityType": "workshop_supply", "entityKey": "foam_safe_contact_adhesive", "usage": "card", "priority": 3 }
     ],
     "status": "active",
     "notes": "Do not use in a way that implies the photographer endorses the site."

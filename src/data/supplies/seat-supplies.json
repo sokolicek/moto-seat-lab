@@ -1,0 +1,62 @@
+[
+  {
+    "key": "stainless_staples",
+    "name": "Edelstahl- oder rostgeschützte Klammern",
+    "supplyType": "fastener",
+    "skillLevel": "beginner",
+    "usedFor": "Bezug dauerhaft an der Sitzwanne befestigen",
+    "bestFor": "Wiederbezug, Bezug straffen, alte rostige Klammern ersetzen",
+    "riskNotes": "Klammerlänge muss zur Sitzwanne passen; zu lange Klammern können Material beschädigen.",
+    "buyingNotes": "Klammerhöhe, Rückenbreite und Tacker-Kompatibilität vor dem Kauf prüfen."
+  },
+  {
+    "key": "foam_safe_contact_adhesive",
+    "name": "Schaumverträglicher Kontaktkleber",
+    "supplyType": "adhesive",
+    "skillLevel": "intermediate",
+    "usedFor": "Schaumlagen, Kanten und kleine Formkorrekturen fixieren",
+    "bestFor": "mehrlagiger Aufbau, lokale Einlagen, Bezugshilfen",
+    "riskNotes": "Falscher Kleber kann Schaum anlösen; Lüftung und Ablüftzeit ernst nehmen.",
+    "buyingNotes": "Nur Kleber wählen, der ausdrücklich für Schaum/Polster geeignet ist."
+  },
+  {
+    "key": "waterproof_barrier_film",
+    "name": "Wasserabweisende Schutzfolie / Membran",
+    "supplyType": "waterproofing",
+    "skillLevel": "intermediate",
+    "usedFor": "Schaum gegen eindringendes Wasser unter dem Bezug schützen",
+    "bestFor": "Touring, Regen, Outdoor-Parken, Sitzbänke mit Nähten",
+    "riskNotes": "Falten und schlecht geführte Kanten können Druckstellen oder Wasserwege erzeugen.",
+    "buyingNotes": "Flexibilität, Temperaturverhalten und Verträglichkeit mit Kleber prüfen."
+  },
+  {
+    "key": "vinyl_leather_cleaner",
+    "name": "Vinyl-/Kunstlederreiniger",
+    "supplyType": "care",
+    "skillLevel": "beginner",
+    "usedFor": "Bezug reinigen, bevor Zustand, Rutschen oder Materialschäden bewertet werden",
+    "bestFor": "Pflege, Vorher-Fotos, gebrauchte Sitzbank, Vorbereitung vor Tests",
+    "riskNotes": "Aggressive Reiniger können Beschichtung oder Nähte angreifen.",
+    "buyingNotes": "Erst an unauffälliger Stelle testen; matte, rutschhemmende Bezüge nicht fettig pflegen."
+  },
+  {
+    "key": "seam_sealer",
+    "name": "Nahtabdichtung / Seam Sealer",
+    "supplyType": "waterproofing",
+    "skillLevel": "advanced",
+    "usedFor": "kritische Nähte und Übergänge gegen Feuchtigkeit schützen",
+    "bestFor": "Sattlerumbau, Sitzbank mit Ziernähten, Regenbetrieb",
+    "riskNotes": "Kann optisch auffallen; falsches Produkt kann Bezug verfärben oder steif machen.",
+    "buyingNotes": "Kompatibilität mit Bezugsmaterial und UV-Beständigkeit prüfen."
+  },
+  {
+    "key": "isopropyl_cleaner",
+    "name": "Isopropanol / Oberflächenreiniger",
+    "supplyType": "surface_prep",
+    "skillLevel": "beginner",
+    "usedFor": "Klebeflächen entfetten und Markierungen vor dem Aufbau vorbereiten",
+    "bestFor": "saubere Klebeflächen, kleine Reparaturen, Vorbereitung vor Messfotos",
+    "riskNotes": "Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.",
+    "buyingNotes": "Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen."
+  }
+]

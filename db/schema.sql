@@ -136,6 +136,20 @@ CREATE TABLE IF NOT EXISTS workshop_tools (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS workshop_supplies (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  supply_type text NOT NULL,
+  skill_level text,
+  used_for text,
+  best_for text,
+  risk_notes text,
+  buying_notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
 CREATE TABLE IF NOT EXISTS buying_channels (
   key text PRIMARY KEY,
   name text NOT NULL,
@@ -208,6 +222,7 @@ CREATE INDEX IF NOT EXISTS idx_research_sources_motorcycle_slug ON research_sour
 CREATE INDEX IF NOT EXISTS idx_motorcycle_technical_profiles_status ON motorcycle_technical_profiles(riding_triangle_status);
 CREATE INDEX IF NOT EXISTS idx_seat_materials_type ON seat_materials(material_type);
 CREATE INDEX IF NOT EXISTS idx_workshop_tools_type ON workshop_tools(tool_type);
+CREATE INDEX IF NOT EXISTS idx_workshop_supplies_type ON workshop_supplies(supply_type);
 CREATE INDEX IF NOT EXISTS idx_buying_channels_country ON buying_channels(country_code);
 CREATE INDEX IF NOT EXISTS idx_content_media_links_entity ON content_media_links(entity_type, entity_key, usage, priority);
 
@@ -231,6 +246,8 @@ UNION ALL
 SELECT 'seat_materials', count(*)::integer FROM seat_materials
 UNION ALL
 SELECT 'workshop_tools', count(*)::integer FROM workshop_tools
+UNION ALL
+SELECT 'workshop_supplies', count(*)::integer FROM workshop_supplies
 UNION ALL
 SELECT 'buying_channels', count(*)::integer FROM buying_channels
 UNION ALL
@@ -315,6 +332,13 @@ SELECT
   key,
   'workshop tool has no risk notes'
 FROM workshop_tools
+WHERE risk_notes IS NULL OR risk_notes = ''
+UNION ALL
+SELECT
+  'workshop_supplies',
+  key,
+  'workshop supply has no risk notes'
+FROM workshop_supplies
 WHERE risk_notes IS NULL OR risk_notes = ''
 UNION ALL
 SELECT

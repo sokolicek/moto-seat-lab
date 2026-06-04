@@ -4,6 +4,7 @@ import LabDataCard from "../../../components/LabDataCard.astro";
 import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
 import seatMaterials from "../../../data/materials/seat-materials.json";
 import workshopTools from "../../../data/tools/seat-tools.json";
+import workshopSupplies from "../../../data/supplies/seat-supplies.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
 
 const skillLabel: Record<string, string> = {
@@ -123,6 +124,35 @@ const researchLabel: Record<string, string> = {
             detailTitle="Risiko"
             detailItems={[tool.riskNotes]}
             tone={tool.skillLevel === "advanced" ? "warning" : "default"}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="pruefmittel">
+    <div class="page-inner">
+      <p class="eyebrow">Präparate und Verbrauchsmaterial</p>
+      <h2>Kleber, Klammern, Pflege und Abdichtung.</h2>
+      <p class="lead">
+        Diese Dinge entscheiden oft über Haltbarkeit, Wasserprobleme und saubere Verarbeitung.
+        Auch hier gilt: erst Materialverträglichkeit prüfen, dann am echten Sitz arbeiten.
+      </p>
+      <div class="lab-data-grid compact">
+        {workshopSupplies.map((supply) => (
+          <LabDataCard
+            eyebrow={supply.supplyType}
+            title={supply.name}
+            summary={supply.usedFor}
+            badges={[skillLabel[supply.skillLevel] ?? supply.skillLevel]}
+            media={getMediaForEntity("workshop_supply", supply.key)}
+            facts={[
+              { label: "Gut für", value: supply.bestFor },
+              { label: "Kaufnotiz", value: supply.buyingNotes },
+            ]}
+            detailTitle="Risiko"
+            detailItems={[supply.riskNotes]}
+            tone={supply.skillLevel === "advanced" ? "warning" : "default"}
           />
         ))}
       </div>

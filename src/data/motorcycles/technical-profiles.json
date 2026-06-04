@@ -54,5 +54,45 @@
     "seatComfortRisks": ["seat_height", "standing_transition", "long_distance_pressure"],
     "requiredMeasurements": ["low_high_seat_positions", "standing_clearance", "seat_width_mm"],
     "notes": "Adventure/offroad movement changes seat requirements."
+  },
+  {
+    "motorcycleSlug": "suzuki-v-strom-1050",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["adventure_touring", "travel", "two_up", "long_distance"],
+    "seatComfortRisks": ["seat_height", "long_distance_pressure", "passenger_comfort"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "handlebar_reach_mm", "footpeg_position_mm"],
+    "notes": "Suzuki-family comparison model for touring and adventure seat comfort."
+  },
+  {
+    "motorcycleSlug": "kawasaki-versys-1000",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["crossover_touring", "two_up", "weekend_touring", "long_distance"],
+    "seatComfortRisks": ["touring_pressure", "passenger_comfort", "seat_width"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "passenger_seat_width_mm", "handlebar_reach_mm"],
+    "notes": "Crossover touring model with strong relevance for rider and passenger comfort."
+  },
+  {
+    "motorcycleSlug": "ducati-multistrada-v4",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["premium_adventure_touring", "long_distance", "two_up"],
+    "seatComfortRisks": ["heat", "seat_height", "accessory_choice_overload", "long_distance_pressure"],
+    "requiredMeasurements": ["seat_height_mm", "seat_heat_notes", "seat_options_oem_aftermarket", "footpeg_position_mm"],
+    "notes": "Premium adventure touring reference with heat and expensive accessory decision risks."
+  },
+  {
+    "motorcycleSlug": "honda-nc750x",
+    "seatHeightMm": null,
+    "wetWeightKg": null,
+    "ridingTriangleStatus": "research_needed",
+    "usageProfile": ["commuting", "city", "weekend_touring", "budget"],
+    "seatComfortRisks": ["short_ride_pressure", "budget_solution_fit", "seat_height"],
+    "requiredMeasurements": ["seat_height_mm", "seat_width_mm", "commute_duration_notes", "budget_solution_options"],
+    "notes": "Everyday and budget-focused model where low-cost reversible options may matter more than premium seats."
   }
 ]

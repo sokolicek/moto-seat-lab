@@ -35,6 +35,7 @@ const countryProfile = await readJson("src/data/country-profiles/de.json");
 const technicalProfiles = await readJson("src/data/motorcycles/technical-profiles.json");
 const seatMaterials = await readJson("src/data/materials/seat-materials.json");
 const workshopTools = await readJson("src/data/tools/seat-tools.json");
+const workshopSupplies = await readJson("src/data/supplies/seat-supplies.json");
 const buyingChannels = await readJson("src/data/marketplaces/de.json");
 const mediaAssets = await readJson("src/data/media/media-assets.json");
 const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
@@ -308,6 +309,36 @@ for (const tool of workshopTools) {
     updated_at = now();`);
 }
 counts.workshop_tools = workshopTools.length;
+
+for (const supply of workshopSupplies) {
+  add(`INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(supply.key)},
+    ${sqlString(supply.name)},
+    ${sqlString(supply.supplyType)},
+    ${sqlString(supply.skillLevel)},
+    ${sqlString(supply.usedFor)},
+    ${sqlString(supply.bestFor)},
+    ${sqlString(supply.riskNotes)},
+    ${sqlString(supply.buyingNotes)},
+    ${sqlJson(supply)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.workshop_supplies = workshopSupplies.length;
 
 for (const channel of buyingChannels) {
   add(`INSERT INTO buying_channels (

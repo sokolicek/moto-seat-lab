@@ -771,6 +771,23 @@ h3 {
   grid-template-columns: 1fr;
 }
 
+.image-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.image-gallery-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.image-gallery-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
 .article-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
@@ -1505,6 +1522,7 @@ h3 {
   .motorcycle-selector-form,
   .asset-admin-card,
   .asset-admin-grid.compact,
+  .image-gallery-grid,
   .decision-strip,
   .grid,
   .grid.two,

@@ -907,6 +907,110 @@ INSERT INTO motorcycle_technical_profiles (
     notes = EXCLUDED.notes,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-v-strom-1050',
+    NULL,
+    NULL,
+    'research_needed',
+    '["adventure_touring","travel","two_up","long_distance"]'::jsonb,
+    '["seat_height","long_distance_pressure","passenger_comfort"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","handlebar_reach_mm","footpeg_position_mm"]'::jsonb,
+    'Suzuki-family comparison model for touring and adventure seat comfort.',
+    '{"motorcycleSlug":"suzuki-v-strom-1050","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["adventure_touring","travel","two_up","long_distance"],"seatComfortRisks":["seat_height","long_distance_pressure","passenger_comfort"],"requiredMeasurements":["seat_height_mm","seat_width_mm","handlebar_reach_mm","footpeg_position_mm"],"notes":"Suzuki-family comparison model for touring and adventure seat comfort."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki-versys-1000',
+    NULL,
+    NULL,
+    'research_needed',
+    '["crossover_touring","two_up","weekend_touring","long_distance"]'::jsonb,
+    '["touring_pressure","passenger_comfort","seat_width"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","passenger_seat_width_mm","handlebar_reach_mm"]'::jsonb,
+    'Crossover touring model with strong relevance for rider and passenger comfort.',
+    '{"motorcycleSlug":"kawasaki-versys-1000","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["crossover_touring","two_up","weekend_touring","long_distance"],"seatComfortRisks":["touring_pressure","passenger_comfort","seat_width"],"requiredMeasurements":["seat_height_mm","seat_width_mm","passenger_seat_width_mm","handlebar_reach_mm"],"notes":"Crossover touring model with strong relevance for rider and passenger comfort."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'ducati-multistrada-v4',
+    NULL,
+    NULL,
+    'research_needed',
+    '["premium_adventure_touring","long_distance","two_up"]'::jsonb,
+    '["heat","seat_height","accessory_choice_overload","long_distance_pressure"]'::jsonb,
+    '["seat_height_mm","seat_heat_notes","seat_options_oem_aftermarket","footpeg_position_mm"]'::jsonb,
+    'Premium adventure touring reference with heat and expensive accessory decision risks.',
+    '{"motorcycleSlug":"ducati-multistrada-v4","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["premium_adventure_touring","long_distance","two_up"],"seatComfortRisks":["heat","seat_height","accessory_choice_overload","long_distance_pressure"],"requiredMeasurements":["seat_height_mm","seat_heat_notes","seat_options_oem_aftermarket","footpeg_position_mm"],"notes":"Premium adventure touring reference with heat and expensive accessory decision risks."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO motorcycle_technical_profiles (
+    motorcycle_slug, seat_height_mm, wet_weight_kg, riding_triangle_status,
+    usage_profile, seat_comfort_risks, required_measurements, notes, source_data, updated_at
+  )
+  VALUES (
+    'honda-nc750x',
+    NULL,
+    NULL,
+    'research_needed',
+    '["commuting","city","weekend_touring","budget"]'::jsonb,
+    '["short_ride_pressure","budget_solution_fit","seat_height"]'::jsonb,
+    '["seat_height_mm","seat_width_mm","commute_duration_notes","budget_solution_options"]'::jsonb,
+    'Everyday and budget-focused model where low-cost reversible options may matter more than premium seats.',
+    '{"motorcycleSlug":"honda-nc750x","seatHeightMm":null,"wetWeightKg":null,"ridingTriangleStatus":"research_needed","usageProfile":["commuting","city","weekend_touring","budget"],"seatComfortRisks":["short_ride_pressure","budget_solution_fit","seat_height"],"requiredMeasurements":["seat_height_mm","seat_width_mm","commute_duration_notes","budget_solution_options"],"notes":"Everyday and budget-focused model where low-cost reversible options may matter more than premium seats."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (motorcycle_slug) DO UPDATE SET
+    seat_height_mm = EXCLUDED.seat_height_mm,
+    wet_weight_kg = EXCLUDED.wet_weight_kg,
+    riding_triangle_status = EXCLUDED.riding_triangle_status,
+    usage_profile = EXCLUDED.usage_profile,
+    seat_comfort_risks = EXCLUDED.seat_comfort_risks,
+    required_measurements = EXCLUDED.required_measurements,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO seat_materials (
     key, name, material_type, comfort_role, best_for, avoid_when,
     skill_level, price_band, durability_notes, research_status, source_data, updated_at
@@ -1225,6 +1329,162 @@ INSERT INTO workshop_tools (
     buying_notes = EXCLUDED.buying_notes,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'stainless_staples',
+    'Edelstahl- oder rostgeschützte Klammern',
+    'fastener',
+    'beginner',
+    'Bezug dauerhaft an der Sitzwanne befestigen',
+    'Wiederbezug, Bezug straffen, alte rostige Klammern ersetzen',
+    'Klammerlänge muss zur Sitzwanne passen; zu lange Klammern können Material beschädigen.',
+    'Klammerhöhe, Rückenbreite und Tacker-Kompatibilität vor dem Kauf prüfen.',
+    '{"key":"stainless_staples","name":"Edelstahl- oder rostgeschützte Klammern","supplyType":"fastener","skillLevel":"beginner","usedFor":"Bezug dauerhaft an der Sitzwanne befestigen","bestFor":"Wiederbezug, Bezug straffen, alte rostige Klammern ersetzen","riskNotes":"Klammerlänge muss zur Sitzwanne passen; zu lange Klammern können Material beschädigen.","buyingNotes":"Klammerhöhe, Rückenbreite und Tacker-Kompatibilität vor dem Kauf prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'foam_safe_contact_adhesive',
+    'Schaumverträglicher Kontaktkleber',
+    'adhesive',
+    'intermediate',
+    'Schaumlagen, Kanten und kleine Formkorrekturen fixieren',
+    'mehrlagiger Aufbau, lokale Einlagen, Bezugshilfen',
+    'Falscher Kleber kann Schaum anlösen; Lüftung und Ablüftzeit ernst nehmen.',
+    'Nur Kleber wählen, der ausdrücklich für Schaum/Polster geeignet ist.',
+    '{"key":"foam_safe_contact_adhesive","name":"Schaumverträglicher Kontaktkleber","supplyType":"adhesive","skillLevel":"intermediate","usedFor":"Schaumlagen, Kanten und kleine Formkorrekturen fixieren","bestFor":"mehrlagiger Aufbau, lokale Einlagen, Bezugshilfen","riskNotes":"Falscher Kleber kann Schaum anlösen; Lüftung und Ablüftzeit ernst nehmen.","buyingNotes":"Nur Kleber wählen, der ausdrücklich für Schaum/Polster geeignet ist."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'waterproof_barrier_film',
+    'Wasserabweisende Schutzfolie / Membran',
+    'waterproofing',
+    'intermediate',
+    'Schaum gegen eindringendes Wasser unter dem Bezug schützen',
+    'Touring, Regen, Outdoor-Parken, Sitzbänke mit Nähten',
+    'Falten und schlecht geführte Kanten können Druckstellen oder Wasserwege erzeugen.',
+    'Flexibilität, Temperaturverhalten und Verträglichkeit mit Kleber prüfen.',
+    '{"key":"waterproof_barrier_film","name":"Wasserabweisende Schutzfolie / Membran","supplyType":"waterproofing","skillLevel":"intermediate","usedFor":"Schaum gegen eindringendes Wasser unter dem Bezug schützen","bestFor":"Touring, Regen, Outdoor-Parken, Sitzbänke mit Nähten","riskNotes":"Falten und schlecht geführte Kanten können Druckstellen oder Wasserwege erzeugen.","buyingNotes":"Flexibilität, Temperaturverhalten und Verträglichkeit mit Kleber prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'vinyl_leather_cleaner',
+    'Vinyl-/Kunstlederreiniger',
+    'care',
+    'beginner',
+    'Bezug reinigen, bevor Zustand, Rutschen oder Materialschäden bewertet werden',
+    'Pflege, Vorher-Fotos, gebrauchte Sitzbank, Vorbereitung vor Tests',
+    'Aggressive Reiniger können Beschichtung oder Nähte angreifen.',
+    'Erst an unauffälliger Stelle testen; matte, rutschhemmende Bezüge nicht fettig pflegen.',
+    '{"key":"vinyl_leather_cleaner","name":"Vinyl-/Kunstlederreiniger","supplyType":"care","skillLevel":"beginner","usedFor":"Bezug reinigen, bevor Zustand, Rutschen oder Materialschäden bewertet werden","bestFor":"Pflege, Vorher-Fotos, gebrauchte Sitzbank, Vorbereitung vor Tests","riskNotes":"Aggressive Reiniger können Beschichtung oder Nähte angreifen.","buyingNotes":"Erst an unauffälliger Stelle testen; matte, rutschhemmende Bezüge nicht fettig pflegen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'seam_sealer',
+    'Nahtabdichtung / Seam Sealer',
+    'waterproofing',
+    'advanced',
+    'kritische Nähte und Übergänge gegen Feuchtigkeit schützen',
+    'Sattlerumbau, Sitzbank mit Ziernähten, Regenbetrieb',
+    'Kann optisch auffallen; falsches Produkt kann Bezug verfärben oder steif machen.',
+    'Kompatibilität mit Bezugsmaterial und UV-Beständigkeit prüfen.',
+    '{"key":"seam_sealer","name":"Nahtabdichtung / Seam Sealer","supplyType":"waterproofing","skillLevel":"advanced","usedFor":"kritische Nähte und Übergänge gegen Feuchtigkeit schützen","bestFor":"Sattlerumbau, Sitzbank mit Ziernähten, Regenbetrieb","riskNotes":"Kann optisch auffallen; falsches Produkt kann Bezug verfärben oder steif machen.","buyingNotes":"Kompatibilität mit Bezugsmaterial und UV-Beständigkeit prüfen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO workshop_supplies (
+    key, name, supply_type, skill_level, used_for, best_for, risk_notes,
+    buying_notes, source_data, updated_at
+  )
+  VALUES (
+    'isopropyl_cleaner',
+    'Isopropanol / Oberflächenreiniger',
+    'surface_prep',
+    'beginner',
+    'Klebeflächen entfetten und Markierungen vor dem Aufbau vorbereiten',
+    'saubere Klebeflächen, kleine Reparaturen, Vorbereitung vor Messfotos',
+    'Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.',
+    'Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen.',
+    '{"key":"isopropyl_cleaner","name":"Isopropanol / Oberflächenreiniger","supplyType":"surface_prep","skillLevel":"beginner","usedFor":"Klebeflächen entfetten und Markierungen vor dem Aufbau vorbereiten","bestFor":"saubere Klebeflächen, kleine Reparaturen, Vorbereitung vor Messfotos","riskNotes":"Kann manche Kunststoffe oder Beschichtungen angreifen; nicht tränken.","buyingNotes":"Mit fusselfreiem Tuch sparsam verwenden und Materialverträglichkeit testen."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    supply_type = EXCLUDED.supply_type,
+    skill_level = EXCLUDED.skill_level,
+    used_for = EXCLUDED.used_for,
+    best_for = EXCLUDED.best_for,
+    risk_notes = EXCLUDED.risk_notes,
+    buying_notes = EXCLUDED.buying_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO buying_channels (
     key, name, channel_type, country_code, best_for, affiliate_potential,
     trust_level, notes, source_data, updated_at
@@ -1391,7 +1651,7 @@ INSERT INTO media_assets (
     '["card","section","buying"]'::jsonb,
     'Use with visible attribution on pages where the image appears.',
     'active',
-    '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
+    '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"staple_remover","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":2}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1446,6 +1706,42 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'workshop_tool',
+      'staple_remover',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'workshop_tool',
+      'electric_stapler',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'workshop_supply',
+      'stainless_staples',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -1481,7 +1777,7 @@ INSERT INTO media_assets (
     '["card","section","touring"]'::jsonb,
     'Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab.',
     'active',
-    '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
+    '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"bmw-r-1250-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"suzuki-v-strom-1050","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1519,6 +1815,42 @@ INSERT INTO content_media_links (
       'touring_seat_goldwing_commons',
       'motorcycle_profile',
       'bmw-r-1300-gs',
+      'card',
+      3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'motorcycle_profile',
+      'bmw-r-1250-gs',
+      'card',
+      3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'motorcycle_profile',
+      'suzuki-v-strom-1050',
+      'card',
+      3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'motorcycle_profile',
+      'kawasaki-versys-1000',
       'card',
       3
     )
@@ -1571,7 +1903,7 @@ INSERT INTO media_assets (
     '["card","material","section"]'::jsonb,
     'Use as generic material texture, not as a specific motorcycle-seat cover product.',
     'active',
-    '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
+    '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"vinyl_leather_cleaner","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"isopropyl_cleaner","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"seam_sealer","usage":"card","priority":2}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1614,6 +1946,42 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sample_commons',
+      'workshop_supply',
+      'vinyl_leather_cleaner',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sample_commons',
+      'workshop_supply',
+      'isopropyl_cleaner',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sample_commons',
+      'workshop_supply',
+      'seam_sealer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -1649,7 +2017,7 @@ INSERT INTO media_assets (
     '["hero","section","touring"]'::jsonb,
     'Attribution is not required by Pexels, but the credit line can be shown in an asset register.',
     'active',
-    '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
+    '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2},{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"yamaha-tracer-9-9-gt","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"card","priority":2}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1692,6 +2060,42 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'pexels_forest_curve_motorcyclist',
+      'motorcycle_profile',
+      'suzuki-gsx-s1000gx',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'pexels_forest_curve_motorcyclist',
+      'motorcycle_profile',
+      'yamaha-tracer-9-9-gt',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'pexels_forest_curve_motorcyclist',
+      'motorcycle_profile',
+      'honda-nc750x',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -1727,7 +2131,7 @@ INSERT INTO media_assets (
     '["hero","section","touring"]'::jsonb,
     'Do not use in a way that implies the photographer endorses the site.',
     'active',
-    '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
+    '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-crf1100l-africa-twin","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"waterproof_barrier_film","usage":"card","priority":3},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"card","priority":3}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -1767,6 +2171,54 @@ INSERT INTO content_media_links (
       'premium_touring_seat',
       'section',
       2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'motorcycle_profile',
+      'honda-crf1100l-africa-twin',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'motorcycle_profile',
+      'ducati-multistrada-v4',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'workshop_supply',
+      'waterproof_barrier_film',
+      'card',
+      3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'workshop_supply',
+      'foam_safe_contact_adhesive',
+      'card',
+      3
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -1927,5 +2379,5 @@ INSERT INTO content_media_links (
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":5,"seat_materials":6,"workshop_tools":6,"buying_channels":5,"media_assets":7,"content_media_links":9}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":9,"solution_paths":5,"product_categories":6,"seat_options":4,"research_sources":3,"technical_profiles":9,"seat_materials":6,"workshop_tools":6,"workshop_supplies":6,"buying_channels":5,"media_assets":7,"content_media_links":25}'::jsonb);
 COMMIT;

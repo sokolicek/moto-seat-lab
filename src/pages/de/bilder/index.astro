@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
+import { allMediaAssets } from "../../../lib/mediaAssets";
+
+const activeImages = allMediaAssets;
+---
+
+<BaseLayout
+  title="Moto Seat Lab Bilder und Quellen"
+  description="Alle aktuell öffentlich genutzten Moto Seat Lab Bilder mit Quelle, Lizenz und Kontext."
+  canonicalPath="/de/bilder/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Bilder</p>
+      <h1>Alle öffentlich verwendbaren Bilder.</h1>
+      <p class="lead">
+        Diese Galerie zeigt nur aktive Bilder, deren Nutzung aktuell dokumentiert ist. Herstellerbilder mit
+        ungeklärten Rechten bleiben im Admin-Register blockiert.
+      </p>
+      <div class="spec-strip">
+        <span>{activeImages.length} aktive Bilder</span>
+        <span>lokal gespeichert</span>
+        <span>Quelle dokumentiert</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner image-gallery-grid">
+      {activeImages.map((asset) => (
+        <article class="card image-gallery-card">
+          <MediaAssetFigure asset={asset} variant="card" />
+          <div class="card-topline">
+            <span class="badge">{asset.licenseCode}</span>
+            <span class="badge muted">{asset.sourceName}</span>
+            {asset.attributionRequired && <span class="badge confidence">Attribution nötig</span>}
+          </div>
+          <h2>{asset.title}</h2>
+          <p>{asset.description}</p>
+          <div class="quick-facts">
+            <span><strong>Lokal</strong>{asset.localPath}</span>
+            <span><strong>Creator</strong>{asset.creator}</span>
+            <span><strong>Rechte</strong>{asset.rightsStatus}</span>
+          </div>
+          <p class="source-link"><a href={asset.sourcePageUrl}>Quelle öffnen</a></p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
