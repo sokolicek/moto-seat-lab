@@ -26,6 +26,7 @@ interface Props {
 
 const { video } = Astro.props;
 const hasEmbed = Boolean(video.youtubeVideoId);
+const hasThumbnail = Boolean(video.thumbnailUrl);
 const isVerified = video.status.startsWith("verified");
 const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl || "";
 ---
@@ -41,33 +42,36 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
   <p>{video.editorSummary}</p>
 
   {
-    video.thumbnailUrl && (
-      <button
-        class="video-thumbnail video-thumbnail-button"
-        type="button"
-        data-youtube-id={video.youtubeVideoId}
-        data-youtube-title={video.title}
-        disabled={!hasEmbed}
-      >
-        <img
-          src={video.thumbnailUrl}
-          alt={`YouTube thumbnail: ${video.title}`}
-          loading="lazy"
-        />
-        <span>{hasEmbed ? "Auf dieser Seite abspielen" : "Video noch nicht ausgewählt"}</span>
-      </button>
+    hasThumbnail && (
+      <div class="video-player-shell">
+        <button
+          class="video-thumbnail video-thumbnail-button"
+          type="button"
+          data-youtube-id={video.youtubeVideoId}
+          data-youtube-title={video.title}
+          disabled={!hasEmbed}
+        >
+          <img
+            src={video.thumbnailUrl}
+            alt={`YouTube thumbnail: ${video.title}`}
+            loading="lazy"
+          />
+          <span>{hasEmbed ? "Auf dieser Seite abspielen" : "Video noch nicht ausgewählt"}</span>
+        </button>
+        {hasEmbed && <div class="youtube-frame" hidden></div>}
+      </div>
     )
   }
 
   {
-    hasEmbed ? (
+    hasEmbed && !hasThumbnail ? (
       <div class="youtube-embed-shell">
         <button class="youtube-load-button" type="button" data-youtube-id={video.youtubeVideoId} data-youtube-title={video.title}>
           Video laden und abspielen
         </button>
         <div class="youtube-frame" hidden></div>
       </div>
-    ) : (
+    ) : !hasEmbed ? (
       <div class="video-placeholder" aria-label="Video noch nicht kuratiert">
         <strong>Video noch nicht ausgewählt</strong>
         <span>Erst Quelle, Einbettbarkeit, Sprache und Nutzen prüfen.</span>
@@ -77,7 +81,7 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
           </a>
         )}
       </div>
-    )
+    ) : null
   }
 
   <div class="quick-facts compact-facts">
@@ -141,6 +145,7 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
     const card = button.closest(".video-resource-card");
     const frameShell = card?.querySelector(".youtube-frame");
     const loadButton = card?.querySelector(".youtube-load-button");
+    const thumbnailButton = card?.querySelector(".video-thumbnail-button");
     const id = button.dataset.youtubeId;
     const title = button.dataset.youtubeTitle ?? "YouTube video";
     if (!id || !(frameShell instanceof HTMLElement)) return;
@@ -156,7 +161,7 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
     }
     frameShell.hidden = false;
     if (loadButton instanceof HTMLButtonElement) loadButton.hidden = true;
-    if (button.classList.contains("video-thumbnail-button")) button.hidden = true;
+    if (thumbnailButton instanceof HTMLButtonElement) thumbnailButton.hidden = true;
   };
 
   document.querySelectorAll(".youtube-load-button, .video-thumbnail-button").forEach((button) => {
