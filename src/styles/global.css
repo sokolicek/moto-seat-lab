@@ -1324,6 +1324,55 @@ h3 {
   color: var(--color-accent-strong);
 }
 
+.video-thumbnail {
+  position: relative;
+  display: block;
+  min-height: 190px;
+  border: 1px solid rgba(18, 107, 115, 0.16);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 22% 20%, rgba(230, 146, 69, 0.22), transparent 34%),
+    linear-gradient(135deg, #101820, #24313a);
+  color: #fff;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  opacity: 0.86;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.video-thumbnail span {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  border-radius: 999px;
+  background: rgba(16, 24, 32, 0.84);
+  padding: 5px 9px;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.video-thumbnail.thumbnail-missing::before {
+  content: "YouTube";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 900;
+}
+
+.video-thumbnail:hover img,
+.video-thumbnail:focus img {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
 .youtube-embed-shell {
   border: 1px solid rgba(18, 107, 115, 0.18);
   border-radius: var(--radius);
@@ -1331,11 +1380,21 @@ h3 {
   overflow: hidden;
 }
 
-.youtube-embed-shell summary {
+.youtube-load-button {
+  width: 100%;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
   cursor: pointer;
   color: var(--color-accent-strong);
   font-weight: 900;
   padding: 10px 12px;
+  text-align: left;
+}
+
+.youtube-load-button:hover,
+.youtube-load-button:focus {
+  background: rgba(18, 107, 115, 0.08);
 }
 
 .youtube-frame {

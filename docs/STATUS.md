@@ -95,6 +95,7 @@ MVP implementation started.
 - YouTube video curation model added with `src/data/videos/seat-videos.json`, reusable `YouTubeVideoCard`, and a dedicated DIY video section.
 - YouTube helper scripts added: oEmbed preview without API key and YouTube Data API snippet fetch with `YOUTUBE_API_KEY`.
 - YouTube workflow documented in `docs/youtube-video-workflow.md`.
+- First three video resources added to the DIY video section: Alchemy Kustom foam shaping, Motea gel-pad installation, and HTMotoFilms custom motorcycle seat/gel installation.
 
 ## Not Started
 

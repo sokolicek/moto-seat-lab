@@ -5,6 +5,7 @@ interface VideoResource {
   topic: string;
   youtubeVideoId: string;
   youtubeUrl: string;
+  sourcePageUrl?: string;
   title: string;
   channelName: string;
   language: string;
@@ -40,20 +41,26 @@ const embedUrl = hasEmbed
   <p>{video.editorSummary}</p>
 
   {
+    video.thumbnailUrl && (
+      <a class="video-thumbnail" href={video.youtubeUrl} target="_blank" rel="noreferrer">
+        <img
+          src={video.thumbnailUrl}
+          alt={`YouTube thumbnail: ${video.title}`}
+          loading="lazy"
+        />
+        <span>Auf YouTube öffnen</span>
+      </a>
+    )
+  }
+
+  {
     hasEmbed ? (
-      <details class="youtube-embed-shell">
-        <summary>Video auf dieser Seite öffnen</summary>
-        <div class="youtube-frame">
-          <iframe
-            src={embedUrl}
-            title={video.title}
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
-        </div>
-      </details>
+      <div class="youtube-embed-shell">
+        <button class="youtube-load-button" type="button" data-youtube-src={embedUrl} data-youtube-title={video.title}>
+          Video laden und abspielen
+        </button>
+        <div class="youtube-frame" hidden></div>
+      </div>
     ) : (
       <div class="video-placeholder" aria-label="Video noch nicht kuratiert">
         <strong>Video noch nicht ausgewählt</strong>
@@ -71,6 +78,10 @@ const embedUrl = hasEmbed
       <strong>Quelle</strong>
       {video.channelName || "Kanal noch offen"}
     </span>
+    <span>
+      <strong>Status</strong>
+      {video.status}
+    </span>
   </div>
 
   <details class="card-details" open>
@@ -85,6 +96,43 @@ const embedUrl = hasEmbed
     <ul class="compact-list">
       <li>{video.riskNotes}</li>
       <li>{video.embedPolicy}</li>
+      {video.sourcePageUrl && (
+        <li>
+          Quellenkontext: <a href={video.sourcePageUrl} target="_blank" rel="noreferrer">öffnen</a>
+        </li>
+      )}
     </ul>
   </details>
 </article>
+
+<script>
+  document.querySelectorAll(".video-thumbnail img").forEach((image) => {
+    image.addEventListener("error", () => {
+      if (!(image instanceof HTMLImageElement)) return;
+      image.hidden = true;
+      image.closest(".video-thumbnail")?.classList.add("thumbnail-missing");
+    });
+  });
+
+  document.querySelectorAll(".youtube-load-button").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (!(button instanceof HTMLButtonElement)) return;
+      const frameShell = button.nextElementSibling;
+      const src = button.dataset.youtubeSrc;
+      const title = button.dataset.youtubeTitle ?? "YouTube video";
+      if (!src || !(frameShell instanceof HTMLElement)) return;
+      if (!frameShell.querySelector("iframe")) {
+        const iframe = document.createElement("iframe");
+        iframe.src = src;
+        iframe.title = title;
+        iframe.loading = "lazy";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        frameShell.append(iframe);
+      }
+      frameShell.hidden = false;
+      button.hidden = true;
+    });
+  });
+</script>

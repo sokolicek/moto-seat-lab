@@ -54,3 +54,9 @@ For every video, store:
 - Do not copy long YouTube descriptions into page text.
 - Keep the YouTube player visible as a YouTube player; do not hide branding or controls.
 - For cookie/privacy UX, lazy-load the iframe behind a user action where practical.
+
+## First Curated Videos
+
+- `o_hUdHW6Opk`: Alchemy Kustom seat-foam shaping. Embed URL returns HTTP 200. Metadata is curated from The Hog Ring source context because oEmbed returned Forbidden during local validation.
+- `RMroBU_yUA8`: Motea gel-pad installation. Embed URL returns HTTP 200. Metadata is curated from Green Line's gel-installation source page because oEmbed returned Forbidden during local validation.
+- `_1BSj2Vnwj0`: HTMotoFilms DIY Custom Motorcycle Seat & Gel Installation. oEmbed returned title, channel and thumbnail; embed URL returns HTTP 200.
