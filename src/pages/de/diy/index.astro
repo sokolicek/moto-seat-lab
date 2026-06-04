@@ -2,9 +2,11 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
 import SeatLayerGraphic from "../../../components/SeatLayerGraphic.astro";
+import YouTubeVideoCard from "../../../components/YouTubeVideoCard.astro";
 import seatMaterials from "../../../data/materials/seat-materials.json";
 import workshopTools from "../../../data/tools/seat-tools.json";
 import workshopSupplies from "../../../data/supplies/seat-supplies.json";
+import seatVideos from "../../../data/videos/seat-videos.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
 
 const skillLabel: Record<string, string> = {
@@ -28,6 +30,22 @@ const researchLabel: Record<string, string> = {
   needs_supplier_data: "Lieferantendaten nötig",
   needs_safety_review: "Sicherheitsprüfung nötig",
 };
+
+const foamMaterials = seatMaterials.filter((material) => material.materialType.includes("foam") || material.key.includes("foam"));
+const videoMetadataPaths = [
+  {
+    title: "ohne API-Key",
+    text: "YouTube oEmbed liefert in der Regel Titel, Kanal, Thumbnail und Embed-HTML. Es liefert aber keine vollständige Videobeschreibung.",
+  },
+  {
+    title: "mit YouTube Data API",
+    text: "videos.list mit part=snippet kann Titel, Beschreibung, Kanal, Tags und Thumbnails liefern. Dafür brauchen wir einen API-Key und müssen Quoten beachten.",
+  },
+  {
+    title: "redaktionell",
+    text: "Für Moto Seat Lab sollte ein kurzer eigener Nutzen-Text gespeichert werden: Was sieht man im Video, für wen ist es geeignet, wo sind die Grenzen?",
+  },
+];
 ---
 
 <BaseLayout
@@ -43,6 +61,10 @@ const researchLabel: Record<string, string> = {
         Eine Sitzbank lässt sich verbessern, aber auch schnell ruinieren. Starte mit Messung, Fotos,
         Testfahrten und möglichst einer zweiten gebrauchten Sitzbank.
       </p>
+      <div class="actions">
+        <a class="button" href="#schaumstoffe">Peny verstehen</a>
+        <a class="button secondary" href="#videos">Video-Kuration</a>
+      </div>
     </div>
   </section>
   <section class="section">
@@ -65,6 +87,98 @@ const researchLabel: Record<string, string> = {
         <h2>Wasser und Bezug ernst nehmen</h2>
         <p>Schlechter Bezug, falscher Kleber oder undichte Membran können den Sitz langfristig zerstören.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="section alt" id="schaumstoffe">
+    <div class="page-inner">
+      <p class="eyebrow">Spezialsektion · Schaumstoffe</p>
+      <h2>Peny entscheiden über Druck, Höhe und Langstreckenkomfort.</h2>
+      <p class="lead">
+        Bei einer Sitzbank ist Schaum nicht einfach weich oder hart. Entscheidend ist, welche Lage trägt,
+        welche Lage Druck verteilt, wie schnell sie zurückfedert und ob Wärme, Wasser oder Sitzhöhe zum Problem werden.
+      </p>
+
+      <div class="decision-strip">
+        <span>
+          <strong>1. Nicht zuerst schneiden</strong>
+          Miss Sitzhöhe, Breite, Schmerzpunkt und Fahrdauer. Erst danach Material wählen.
+        </span>
+        <span>
+          <strong>2. Schichten trennen</strong>
+          Stützlage trägt Gewicht. Komfortlage verteilt Druck. Eine weiche Lage ersetzt keine stabile Basis.
+        </span>
+        <span>
+          <strong>3. Testbar bleiben</strong>
+          Wenn möglich mit Auflage, Testbezug oder Zweitsitzbank arbeiten, bevor der Originalsitz offen ist.
+        </span>
+      </div>
+
+      <div class="foam-principles">
+        <article class="mini-panel">
+          <h3>Dichte</h3>
+          <p>Mehr Dichte bedeutet nicht automatisch mehr Komfort, aber oft mehr Tragfähigkeit und Haltbarkeit.</p>
+        </article>
+        <article class="mini-panel">
+          <h3>Stauchhärte</h3>
+          <p>Sie beschreibt, wie stark Schaum unter Last nachgibt. Zu weich kann nach 60 Minuten durchdrücken.</p>
+        </article>
+        <article class="mini-panel">
+          <h3>Rückstellung</h3>
+          <p>Ein guter Sitz kehrt sauber zurück und bildet keine Mulde, die dich in eine falsche Position zwingt.</p>
+        </article>
+        <article class="mini-panel">
+          <h3>Wärme</h3>
+          <p>Memory Foam und Gel können angenehm sein, aber im Sommer oder bei langen Etappen Wärme stauen.</p>
+        </article>
+      </div>
+
+      <div class="lab-data-grid">
+        {foamMaterials.map((material) => (
+          <LabDataCard
+            eyebrow={material.materialType}
+            title={material.name}
+            summary={material.comfortRole}
+            badges={[researchLabel[material.researchStatus] ?? material.researchStatus]}
+            media={getMediaForEntity("seat_material", material.key)}
+            facts={[
+              { label: "Gut für", value: material.bestFor },
+              { label: "Nicht ideal", value: material.avoidWhen },
+              { label: "Skill", value: skillLabel[material.skillLevel] ?? material.skillLevel },
+            ]}
+            detailTitle="Haltbarkeit und Test"
+            detailItems={[material.durabilityNotes]}
+            tone={material.skillLevel === "professional" ? "warning" : "default"}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="page-inner">
+      <p class="eyebrow">YouTube · geplant als kuratierte Lernquelle</p>
+      <h2>Videos erst verstehen, dann einbetten.</h2>
+      <p class="lead">
+        Ja, YouTube-Videos können direkt auf der Seite abgespielt werden. Für Moto Seat Lab ist aber wichtiger,
+        vorher kurz zu speichern, was im Video wirklich gezeigt wird, für wen es passt und wo es gefährlich wird.
+      </p>
+
+      <div class="lab-data-grid compact">
+        {videoMetadataPaths.map((path) => (
+          <article class="card lab-data-card">
+            <div class="card-topline">
+              <span class="badge muted">Metadata</span>
+            </div>
+            <h3>{path.title}</h3>
+            <p>{path.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="video-resource-grid">
+        {seatVideos.map((video) => <YouTubeVideoCard video={video} />)}
+      </div>
     </div>
   </section>
 

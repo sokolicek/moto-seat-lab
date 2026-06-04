@@ -1,0 +1,90 @@
+---
+interface VideoResource {
+  key: string;
+  status: string;
+  topic: string;
+  youtubeVideoId: string;
+  youtubeUrl: string;
+  title: string;
+  channelName: string;
+  language: string;
+  duration: string;
+  thumbnailUrl: string;
+  fetchedDescription: string;
+  editorSummary: string;
+  whatToLookFor: string[];
+  fitFor: string[];
+  riskNotes: string;
+  embedPolicy: string;
+}
+
+interface Props {
+  video: VideoResource;
+}
+
+const { video } = Astro.props;
+const hasEmbed = Boolean(video.youtubeVideoId);
+const embedUrl = hasEmbed
+  ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
+  : "";
+---
+
+<article class={`card video-resource-card ${hasEmbed ? "playable" : "curation"}`}>
+  <div class="card-topline">
+    <span class="badge muted">{video.topic}</span>
+    <span class="badge">{hasEmbed ? "Video bereit" : "Kuration offen"}</span>
+    <span class="badge muted">{video.language.toUpperCase()}</span>
+  </div>
+
+  <h3>{video.title}</h3>
+  <p>{video.editorSummary}</p>
+
+  {
+    hasEmbed ? (
+      <details class="youtube-embed-shell">
+        <summary>Video auf dieser Seite öffnen</summary>
+        <div class="youtube-frame">
+          <iframe
+            src={embedUrl}
+            title={video.title}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </details>
+    ) : (
+      <div class="video-placeholder" aria-label="Video noch nicht kuratiert">
+        <strong>Video noch nicht ausgewählt</strong>
+        <span>Erst Quelle, Einbettbarkeit, Sprache und Nutzen prüfen.</span>
+      </div>
+    )
+  }
+
+  <div class="quick-facts compact-facts">
+    <span>
+      <strong>Kurzbeschreibung</strong>
+      {video.fetchedDescription || "Noch nicht aus YouTube-Metadaten übernommen."}
+    </span>
+    <span>
+      <strong>Quelle</strong>
+      {video.channelName || "Kanal noch offen"}
+    </span>
+  </div>
+
+  <details class="card-details" open>
+    <summary>Was soll man im Video finden?</summary>
+    <ul class="compact-list">
+      {video.whatToLookFor.map((item) => <li>{item}</li>)}
+    </ul>
+  </details>
+
+  <details class="card-details">
+    <summary>Grenzen und Einbettung</summary>
+    <ul class="compact-list">
+      <li>{video.riskNotes}</li>
+      <li>{video.embedPolicy}</li>
+    </ul>
+  </details>
+</article>

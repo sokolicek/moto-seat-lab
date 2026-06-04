@@ -1286,6 +1286,69 @@ h3 {
   color: var(--color-muted);
 }
 
+.foam-principles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.video-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.video-resource-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.video-placeholder {
+  display: grid;
+  gap: 4px;
+  min-height: 170px;
+  align-content: center;
+  border: 1px dashed rgba(18, 107, 115, 0.32);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.1), transparent 46%),
+    #f7fbfa;
+  color: var(--color-muted);
+  padding: 18px;
+}
+
+.video-placeholder strong {
+  color: var(--color-accent-strong);
+}
+
+.youtube-embed-shell {
+  border: 1px solid rgba(18, 107, 115, 0.18);
+  border-radius: var(--radius);
+  background: rgba(244, 241, 233, 0.72);
+  overflow: hidden;
+}
+
+.youtube-embed-shell summary {
+  cursor: pointer;
+  color: var(--color-accent-strong);
+  font-weight: 900;
+  padding: 10px 12px;
+}
+
+.youtube-frame {
+  background: #101820;
+}
+
+.youtube-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
 .option-grid {
   margin-top: 16px;
 }
@@ -1849,6 +1912,8 @@ h3 {
   .grid,
   .grid.two,
   .grid.three-feature,
+  .foam-principles,
+  .video-resource-grid,
   .lab-data-grid,
   .lab-data-grid.compact,
   .timeline,

@@ -91,6 +91,10 @@ MVP implementation started.
 - DIY database expanded again with memory foam, ventilation spacer fabric, waterproof membrane, hot-wire foam cutter, hog-ring pliers, infrared thermometer, foam sample packs, seam tape, and temporary test covers.
 - Media registry now tracks three more research candidates: a public-domain staple-gun image, a CC BY-SA hot-wire foam-cutter image, and the Wikimedia Commons Motorcycle seats category as a source-only index for future curation.
 - Current local dev server may need a restart before newly added `public/assets/media/*` files are served by Astro; data pages already render the new motorcycles and DIY entries.
+- DIY page now has a dedicated Schaumstoffe/Peny section focused on density, hardness, support layers, comfort layers, heat and reversible testing.
+- YouTube video curation model added with `src/data/videos/seat-videos.json`, reusable `YouTubeVideoCard`, and a dedicated DIY video section.
+- YouTube helper scripts added: oEmbed preview without API key and YouTube Data API snippet fetch with `YOUTUBE_API_KEY`.
+- YouTube workflow documented in `docs/youtube-video-workflow.md`.
 
 ## Not Started
 

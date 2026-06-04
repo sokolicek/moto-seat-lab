@@ -1,0 +1,68 @@
+[
+  {
+    "key": "foam-density-basics",
+    "status": "curation_needed",
+    "topic": "Schaumstoff-Grundlagen",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "title": "Schaumstoffdichte, Härte und Schichtaufbau verstehen",
+    "channelName": "",
+    "language": "de",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "",
+    "editorSummary": "Gesucht wird ein ruhiges Grundlagenvideo, das Dichte, Stauchhärte, Rückstellung und Schichtaufbau ohne Verkaufsdruck erklärt.",
+    "whatToLookFor": [
+      "Unterschied zwischen tragender Stützlage und weicher Komfortlage",
+      "Warum sehr weicher Schaum auf langen Strecken schlechter werden kann",
+      "Welche Angaben ein Lieferant nennen sollte: Materialtyp, Dichte, Härte, Dicke"
+    ],
+    "fitFor": ["Einsteiger", "Materialauswahl", "Sattler-Briefing"],
+    "riskNotes": "Keine Motorrad-spezifische Empfehlung übernehmen, wenn Sitzheizung, Wasserschutz oder Bezugsspannung nicht besprochen werden.",
+    "embedPolicy": "Nur einbetten, wenn das Video öffentlich ist und YouTube embedding erlaubt."
+  },
+  {
+    "key": "motorcycle-seat-foam-shaping",
+    "status": "curation_needed",
+    "topic": "Schaum formen",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "title": "Motorradsitzbank-Schaum sicher formen",
+    "channelName": "",
+    "language": "de",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "",
+    "editorSummary": "Gesucht wird ein praktisches Video zum Markieren, Schneiden, Raspeln und Testen von Sitzbankschaum mit klaren Sicherheitsgrenzen.",
+    "whatToLookFor": [
+      "Vorher-Fotos und Markierungen am Originalsitz",
+      "Langsame Formkorrektur statt tiefem Wegschneiden",
+      "Testbezug und Probefahrt vor finalem Bezug"
+    ],
+    "fitFor": ["DIY-Prototyp", "gebrauchte Zweitsitzbank", "Werkstattplanung"],
+    "riskNotes": "Keine Schritte übernehmen, die Sitzschloss, Sitzwanne, Heizung, Wasserführung oder Fahrkontrolle gefährden.",
+    "embedPolicy": "Nur einbetten, wenn Quelle, Sprache, Zweck und Datenschutznotiz dokumentiert sind."
+  },
+  {
+    "key": "upholstery-cover-and-waterproofing",
+    "status": "curation_needed",
+    "topic": "Bezug und Wasser",
+    "youtubeVideoId": "",
+    "youtubeUrl": "",
+    "title": "Bezug, Nähte und Wasserschutz bei Motorradsitzbänken",
+    "channelName": "",
+    "language": "de",
+    "duration": "",
+    "thumbnailUrl": "",
+    "fetchedDescription": "",
+    "editorSummary": "Gesucht wird ein Video, das Bezugsspannung, Nahtführung, Membran, Kleberverträglichkeit und Wassereintritt verständlich zeigt.",
+    "whatToLookFor": [
+      "Warum perforierte Bezüge Wasserwege schaffen können",
+      "Wie Nähte, Membran und Kleber zusammen gedacht werden",
+      "Wann ein Sattler sinnvoller ist als DIY"
+    ],
+    "fitFor": ["Fortgeschrittene", "Sattler-Briefing", "Neubezug"],
+    "riskNotes": "Finalen Bezug nicht nach einem einzigen Video nähen; Materialprobe und Wasserschutz vorher testen.",
+    "embedPolicy": "Bei fremden Videos immer YouTube-Player verwenden, nicht herunterladen oder neu hosten."
+  }
+]
