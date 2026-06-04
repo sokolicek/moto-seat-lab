@@ -5133,6 +5133,325 @@ INSERT INTO media_assets (
     status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+DELETE FROM content_video_links;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'foam-density-basics',
+    'verified_embed',
+    'Schaum formen',
+    'youtube',
+    'o_hUdHW6Opk',
+    'https://www.youtube.com/watch?v=o_hUdHW6Opk',
+    'https://www.youtube-nocookie.com/embed/o_hUdHW6Opk?rel=0&modestbranding=1',
+    'https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/',
+    'Alchemy Kustom: Seat foam shaping',
+    'Alchemy Kustom',
+    'en',
+    NULL,
+    'https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg',
+    'The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.',
+    'Dobré video na pochopenie, že komfort sedla začína pod poťahom: najprv vzor, potom rezanie, lepenie, bočnice a až nakoniec jemné brúsenie.',
+    '["Wie aus Musterteilen entsteht eine opakovateľná forma peny","Prečo sa pena lepí vo vrstvách a až potom sa dorába tvar","Ako sa brúsením zjemňujú prechody, aby ich poťah neskôr nezvýraznil"]'::jsonb,
+    '["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"]'::jsonb,
+    'Nie je to začiatočnícky návod na rezanie originálneho sedla. Najprv cvičiť na odpade alebo druhej sedačke.',
+    'Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.',
+    '{"key":"foam-density-basics","status":"verified_embed","topic":"Schaum formen","youtubeVideoId":"o_hUdHW6Opk","youtubeUrl":"https://www.youtube.com/watch?v=o_hUdHW6Opk","sourcePageUrl":"https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/","title":"Alchemy Kustom: Seat foam shaping","channelName":"Alchemy Kustom","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg","fetchedDescription":"The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.","editorSummary":"Dobré video na pochopenie, že komfort sedla začína pod poťahom: najprv vzor, potom rezanie, lepenie, bočnice a až nakoniec jemné brúsenie.","whatToLookFor":["Wie aus Musterteilen entsteht eine opakovateľná forma peny","Prečo sa pena lepí vo vrstvách a až potom sa dorába tvar","Ako sa brúsením zjemňujú prechody, aby ich poťah neskôr nezvýraznil"],"fitFor":["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"],"riskNotes":"Nie je to začiatočnícky návod na rezanie originálneho sedla. Najprv cvičiť na odpade alebo druhej sedačke.","embedPolicy":"Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":1},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"learning","priority":1},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"related","priority":3}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'foam-density-basics',
+      'page_section',
+      'de-diy-videos',
+      'learning',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'foam-density-basics',
+      'page_section',
+      'de-diy-schaumstoffe',
+      'learning',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'foam-density-basics',
+      'workshop_tool',
+      'foam_rasp_sanding_block',
+      'related',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'foam-density-basics',
+      'workshop_tool',
+      'hot_wire_foam_cutter',
+      'related',
+      3,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle-seat-foam-shaping',
+    'verified_embed',
+    'Gel einsetzen',
+    'youtube',
+    'RMroBU_yUA8',
+    'https://www.youtube.com/watch?v=RMroBU_yUA8',
+    'https://www.youtube-nocookie.com/embed/RMroBU_yUA8?rel=0&modestbranding=1',
+    'https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle',
+    'Motea: gel pad installation in a motorcycle saddle',
+    'Motea.com',
+    'it',
+    NULL,
+    'https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg',
+    'Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.',
+    'Použiť ako vizuálny príklad, ako sa gel vložka polohuje do sedla. Pre Moto Seat Lab je dôležité sledovať najmä označenie polohy a zásah do peny.',
+    '["Kde sa zakresľuje poloha gelu voči miestu sedenia","Ako hlboký výrez vzniká v pôvodnej pene","Či gel ostáva zarovno s okolím a nevytvorí hranu"]'::jsonb,
+    '["gel insert","Werkstattplanung","Sattler-Fragebogen"]'::jsonb,
+    'Gel vložka nie je univerzálny liek. Ak je základný tvar sedla zlý, vložka môže len presunúť tlak inde.',
+    'Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.',
+    '{"key":"motorcycle-seat-foam-shaping","status":"verified_embed","topic":"Gel einsetzen","youtubeVideoId":"RMroBU_yUA8","youtubeUrl":"https://www.youtube.com/watch?v=RMroBU_yUA8","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"Motea: gel pad installation in a motorcycle saddle","channelName":"Motea.com","language":"it","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg","fetchedDescription":"Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.","editorSummary":"Použiť ako vizuálny príklad, ako sa gel vložka polohuje do sedla. Pre Moto Seat Lab je dôležité sledovať najmä označenie polohy a zásah do peny.","whatToLookFor":["Kde sa zakresľuje poloha gelu voči miestu sedenia","Ako hlboký výrez vzniká v pôvodnej pene","Či gel ostáva zarovno s okolím a nevytvorí hranu"],"fitFor":["gel insert","Werkstattplanung","Sattler-Fragebogen"],"riskNotes":"Gel vložka nie je univerzálny liek. Ak je základný tvar sedla zlý, vložka môže len presunúť tlak inde.","embedPolicy":"Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":2},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"gel_insert","priority":2},{"entityType":"seat_material","entityKey":"gel_insert","usage":"learning","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"related","priority":3}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'motorcycle-seat-foam-shaping',
+      'page_section',
+      'de-diy-videos',
+      'learning',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'motorcycle-seat-foam-shaping',
+      'page_section',
+      'de-diy-schaumstoffe',
+      'gel_insert',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'motorcycle-seat-foam-shaping',
+      'seat_material',
+      'gel_insert',
+      'learning',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'motorcycle-seat-foam-shaping',
+      'workshop_supply',
+      'foam_safe_contact_adhesive',
+      'related',
+      3,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'upholstery-cover-and-waterproofing',
+    'verified_oembed',
+    'Gel und kompletter Sitzaufbau',
+    'youtube',
+    '_1BSj2Vnwj0',
+    'https://www.youtube.com/watch?v=_1BSj2Vnwj0',
+    'https://www.youtube-nocookie.com/embed/_1BSj2Vnwj0?rel=0&modestbranding=1',
+    'https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle',
+    'DIY Custom Motorcycle Seat & Gel Installation',
+    'HTMotoFilms',
+    'en',
+    NULL,
+    'https://i.ytimg.com/vi/_1BSj2Vnwj0/hqdefault.jpg',
+    'oEmbed title: DIY Custom Motorcycle Seat & Gel Installation. The source page lists it as an external YouTube tutorial for gel installation.',
+    'Najvhodnejšie z prvých troch videí pre používateľa, ktorý chce vidieť širší proces: úprava sedla, gel, príprava a spätné skladanie.',
+    '["Ako sa postupuje od rozobratia sedla po novú komfortnú vrstvu","Kde môže vzniknúť problém s hranou gelu alebo napnutím poťahu","Ktoré kroky by začiatočník mal radšej konzultovať so sedlárom"]'::jsonb,
+    '["Einsteiger mit Vorsicht","gel insert","Sattler-Briefing"]'::jsonb,
+    'Video nenahrádza meranie sit-bone polohy, skúšobnú jazdu a kontrolu vodeodolnosti poťahu.',
+    'oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.',
+    '{"key":"upholstery-cover-and-waterproofing","status":"verified_oembed","topic":"Gel und kompletter Sitzaufbau","youtubeVideoId":"_1BSj2Vnwj0","youtubeUrl":"https://www.youtube.com/watch?v=_1BSj2Vnwj0","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"DIY Custom Motorcycle Seat & Gel Installation","channelName":"HTMotoFilms","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/_1BSj2Vnwj0/hqdefault.jpg","fetchedDescription":"oEmbed title: DIY Custom Motorcycle Seat & Gel Installation. The source page lists it as an external YouTube tutorial for gel installation.","editorSummary":"Najvhodnejšie z prvých troch videí pre používateľa, ktorý chce vidieť širší proces: úprava sedla, gel, príprava a spätné skladanie.","whatToLookFor":["Ako sa postupuje od rozobratia sedla po novú komfortnú vrstvu","Kde môže vzniknúť problém s hranou gelu alebo napnutím poťahu","Ktoré kroky by začiatočník mal radšej konzultovať so sedlárom"],"fitFor":["Einsteiger mit Vorsicht","gel insert","Sattler-Briefing"],"riskNotes":"Video nenahrádza meranie sit-bone polohy, skúšobnú jazdu a kontrolu vodeodolnosti poťahu.","embedPolicy":"oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":3},{"entityType":"seat_material","entityKey":"gel_insert","usage":"case_study","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"related","priority":3}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'upholstery-cover-and-waterproofing',
+      'page_section',
+      'de-diy-videos',
+      'learning',
+      3,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'upholstery-cover-and-waterproofing',
+      'seat_material',
+      'gel_insert',
+      'case_study',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'upholstery-cover-and-waterproofing',
+      'workshop_supply',
+      'upholstery_vinyl',
+      'related',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'upholstery-cover-and-waterproofing',
+      'workshop_tool',
+      'electric_stapler',
+      'related',
+      3,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52,"video_resources":3,"content_video_links":12}'::jsonb);
 COMMIT;

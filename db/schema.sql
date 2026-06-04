@@ -208,6 +208,42 @@ CREATE TABLE IF NOT EXISTS content_media_links (
   PRIMARY KEY (media_key, entity_type, entity_key, usage)
 );
 
+CREATE TABLE IF NOT EXISTS video_resources (
+  key text PRIMARY KEY,
+  status text NOT NULL DEFAULT 'curation_needed',
+  topic text NOT NULL,
+  provider text NOT NULL DEFAULT 'youtube',
+  provider_video_id text,
+  provider_url text NOT NULL,
+  embed_url text,
+  source_page_url text,
+  title text NOT NULL,
+  channel_name text,
+  language_code text,
+  duration text,
+  thumbnail_url text,
+  fetched_description text,
+  editor_summary text NOT NULL,
+  what_to_look_for jsonb NOT NULL DEFAULT '[]'::jsonb,
+  fit_for jsonb NOT NULL DEFAULT '[]'::jsonb,
+  risk_notes text,
+  embed_policy text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS content_video_links (
+  video_key text NOT NULL REFERENCES video_resources(key) ON DELETE CASCADE,
+  entity_type text NOT NULL,
+  entity_key text NOT NULL,
+  usage text NOT NULL DEFAULT 'learning',
+  priority integer NOT NULL DEFAULT 10,
+  notes text,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (video_key, entity_type, entity_key, usage)
+);
+
 CREATE TABLE IF NOT EXISTS import_runs (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   label text NOT NULL,
@@ -225,6 +261,9 @@ CREATE INDEX IF NOT EXISTS idx_workshop_tools_type ON workshop_tools(tool_type);
 CREATE INDEX IF NOT EXISTS idx_workshop_supplies_type ON workshop_supplies(supply_type);
 CREATE INDEX IF NOT EXISTS idx_buying_channels_country ON buying_channels(country_code);
 CREATE INDEX IF NOT EXISTS idx_content_media_links_entity ON content_media_links(entity_type, entity_key, usage, priority);
+CREATE INDEX IF NOT EXISTS idx_video_resources_status ON video_resources(status);
+CREATE INDEX IF NOT EXISTS idx_video_resources_provider ON video_resources(provider, provider_video_id);
+CREATE INDEX IF NOT EXISTS idx_content_video_links_entity ON content_video_links(entity_type, entity_key, usage, priority);
 
 CREATE OR REPLACE VIEW v_content_summary AS
 SELECT 'countries' AS item, count(*)::integer AS count FROM countries
@@ -253,7 +292,11 @@ SELECT 'buying_channels', count(*)::integer FROM buying_channels
 UNION ALL
 SELECT 'media_assets', count(*)::integer FROM media_assets
 UNION ALL
-SELECT 'content_media_links', count(*)::integer FROM content_media_links;
+SELECT 'content_media_links', count(*)::integer FROM content_media_links
+UNION ALL
+SELECT 'video_resources', count(*)::integer FROM video_resources
+UNION ALL
+SELECT 'content_video_links', count(*)::integer FROM content_video_links;
 
 CREATE OR REPLACE VIEW v_validation_issues AS
 SELECT
@@ -375,6 +418,44 @@ SELECT
   key,
   'media asset has no alt text'
 FROM media_assets
-WHERE alt IS NULL OR alt = '';
+WHERE alt IS NULL OR alt = ''
+UNION ALL
+SELECT
+  'video_resources',
+  key,
+  'video has no provider URL'
+FROM video_resources
+WHERE provider_url IS NULL OR provider_url = ''
+UNION ALL
+SELECT
+  'video_resources',
+  key,
+  'verified video has no provider video id'
+FROM video_resources
+WHERE status LIKE 'verified%'
+  AND (provider_video_id IS NULL OR provider_video_id = '')
+UNION ALL
+SELECT
+  'video_resources',
+  key,
+  'video has no editorial summary'
+FROM video_resources
+WHERE editor_summary IS NULL OR editor_summary = ''
+UNION ALL
+SELECT
+  'video_resources',
+  key,
+  'video has no learning checklist'
+FROM video_resources
+WHERE what_to_look_for IS NULL OR jsonb_array_length(what_to_look_for) = 0
+UNION ALL
+SELECT
+  'video_resources',
+  key,
+  'video is not linked to any section or entity'
+FROM video_resources
+WHERE NOT EXISTS (
+  SELECT 1 FROM content_video_links WHERE content_video_links.video_key = video_resources.key
+);
 
 COMMIT;

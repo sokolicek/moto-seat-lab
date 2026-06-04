@@ -39,6 +39,7 @@ const workshopTools = await readJson("src/data/tools/seat-tools.json");
 const workshopSupplies = await readJson("src/data/supplies/seat-supplies.json");
 const buyingChannels = await readJson("src/data/marketplaces/de.json");
 const mediaAssets = await readJson("src/data/media/media-assets.json");
+const videoResources = await readJson("src/data/videos/seat-videos.json");
 const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
 const seatOptions = [
   ...gsxSeatOptions.map((option) => ({
@@ -471,6 +472,82 @@ for (const asset of mediaAssets) {
 }
 counts.media_assets = mediaAssets.length;
 counts.content_media_links = mediaAssets.reduce((sum, asset) => sum + (asset.links || []).length, 0);
+
+add("DELETE FROM content_video_links;");
+for (const video of videoResources) {
+  const embedUrl = video.youtubeVideoId
+    ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
+    : null;
+  add(`INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(video.key)},
+    ${sqlString(video.status || "curation_needed")},
+    ${sqlString(video.topic)},
+    'youtube',
+    ${sqlString(video.youtubeVideoId)},
+    ${sqlString(video.youtubeUrl)},
+    ${sqlString(embedUrl)},
+    ${sqlString(video.sourcePageUrl)},
+    ${sqlString(video.title)},
+    ${sqlString(video.channelName)},
+    ${sqlString(video.language)},
+    ${sqlString(video.duration)},
+    ${sqlString(video.thumbnailUrl)},
+    ${sqlString(video.fetchedDescription)},
+    ${sqlString(video.editorSummary)},
+    ${sqlJson(video.whatToLookFor || [])},
+    ${sqlJson(video.fitFor || [])},
+    ${sqlString(video.riskNotes)},
+    ${sqlString(video.embedPolicy)},
+    ${sqlJson(video)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+
+  for (const link of video.links || []) {
+    add(`INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      ${sqlString(video.key)},
+      ${sqlString(link.entityType)},
+      ${sqlString(link.entityKey)},
+      ${sqlString(link.usage || "learning")},
+      ${link.priority ?? 10},
+      ${sqlString(link.notes)}
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;`);
+  }
+}
+counts.video_resources = videoResources.length;
+counts.content_video_links = videoResources.reduce((sum, video) => sum + (video.links || []).length, 0);
 
 add(`INSERT INTO import_runs (label, row_counts)
 VALUES ('json seed import', ${sqlJson(counts)});`);

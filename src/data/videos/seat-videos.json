@@ -20,7 +20,13 @@
     ],
     "fitFor": ["fortgeschrittene DIY", "Sattler-Briefing", "Formaufbau"],
     "riskNotes": "Nie je to začiatočnícky návod na rezanie originálneho sedla. Najprv cvičiť na odpade alebo druhej sedačke.",
-    "embedPolicy": "Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet."
+    "embedPolicy": "Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.",
+    "links": [
+      { "entityType": "page_section", "entityKey": "de-diy-videos", "usage": "learning", "priority": 1 },
+      { "entityType": "page_section", "entityKey": "de-diy-schaumstoffe", "usage": "learning", "priority": 1 },
+      { "entityType": "workshop_tool", "entityKey": "foam_rasp_sanding_block", "usage": "related", "priority": 2 },
+      { "entityType": "workshop_tool", "entityKey": "hot_wire_foam_cutter", "usage": "related", "priority": 3 }
+    ]
   },
   {
     "key": "motorcycle-seat-foam-shaping",
@@ -43,7 +49,13 @@
     ],
     "fitFor": ["gel insert", "Werkstattplanung", "Sattler-Fragebogen"],
     "riskNotes": "Gel vložka nie je univerzálny liek. Ak je základný tvar sedla zlý, vložka môže len presunúť tlak inde.",
-    "embedPolicy": "Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation."
+    "embedPolicy": "Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.",
+    "links": [
+      { "entityType": "page_section", "entityKey": "de-diy-videos", "usage": "learning", "priority": 2 },
+      { "entityType": "page_section", "entityKey": "de-diy-schaumstoffe", "usage": "gel_insert", "priority": 2 },
+      { "entityType": "seat_material", "entityKey": "gel_insert", "usage": "learning", "priority": 1 },
+      { "entityType": "workshop_supply", "entityKey": "foam_safe_contact_adhesive", "usage": "related", "priority": 3 }
+    ]
   },
   {
     "key": "upholstery-cover-and-waterproofing",
@@ -66,6 +78,12 @@
     ],
     "fitFor": ["Einsteiger mit Vorsicht", "gel insert", "Sattler-Briefing"],
     "riskNotes": "Video nenahrádza meranie sit-bone polohy, skúšobnú jazdu a kontrolu vodeodolnosti poťahu.",
-    "embedPolicy": "oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200."
+    "embedPolicy": "oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.",
+    "links": [
+      { "entityType": "page_section", "entityKey": "de-diy-videos", "usage": "learning", "priority": 3 },
+      { "entityType": "seat_material", "entityKey": "gel_insert", "usage": "case_study", "priority": 2 },
+      { "entityType": "workshop_supply", "entityKey": "upholstery_vinyl", "usage": "related", "priority": 2 },
+      { "entityType": "workshop_tool", "entityKey": "electric_stapler", "usage": "related", "priority": 3 }
+    ]
   }
 ]

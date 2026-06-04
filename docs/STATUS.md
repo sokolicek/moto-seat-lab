@@ -96,6 +96,9 @@ MVP implementation started.
 - YouTube helper scripts added: oEmbed preview without API key and YouTube Data API snippet fetch with `YOUTUBE_API_KEY`.
 - YouTube workflow documented in `docs/youtube-video-workflow.md`.
 - First three video resources added to the DIY video section: Alchemy Kustom foam shaping, Motea gel-pad installation, and HTMotoFilms custom motorcycle seat/gel installation.
+- Video system promoted into the database model with `video_resources` and `content_video_links`, so videos can be assigned to page sections, materials, tools, supplies, motorcycle profiles or product categories.
+- DIY video rendering now uses section links via `getVideosForEntity("page_section", "de-diy-videos")` instead of rendering every video from the registry.
+- Video maintenance guide and JSON template helper added for future curated video additions.
 
 ## Not Started
 
