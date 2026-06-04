@@ -4,19 +4,136 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="Datenschutz - Moto Seat Lab"
-  description="Datenschutz-Platzhalter für das Moto Seat Lab MVP."
+  description="Datenschutzhinweise für das Moto Seat Lab MVP: aktueller lokaler Entwicklungsstand, geplante Funktionen und offene Punkte vor Veröffentlichung."
   canonicalPath="/de/datenschutz/"
 >
+  <section class="hero legal-hero">
+    <div class="page-inner">
+      <p class="eyebrow">Rechtliche Hinweise · MVP</p>
+      <h1>Datenschutz</h1>
+      <p class="lead">
+        Moto Seat Lab ist aktuell ein lokales Konzept- und Entwicklungsprojekt. Diese Seite beschreibt transparent,
+        welche Daten im MVP verarbeitet werden, was noch nicht aktiv ist und was vor einer öffentlichen
+        Veröffentlichung rechtlich geprüft werden muss.
+      </p>
+      <div class="spec-strip">
+        <span>Status: Entwurf</span>
+        <span>Stand: Juni 2026</span>
+        <span>Keine Rechtsberatung</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner grid two">
+      <article class="notice">
+        <h2>Wichtiger Hinweis</h2>
+        <p>
+          Dies ist ein Arbeitsentwurf für die MVP-Phase. Vor einem öffentlichen Launch in Deutschland oder der EU
+          muss der Text mit echten Betreiberangaben, Hosting-Details, Kontaktangaben und den tatsächlich aktivierten
+          Diensten geprüft und angepasst werden.
+        </p>
+      </article>
+      <article class="card">
+        <span class="badge">Kurzfassung</span>
+        <h2>Aktuell bewusst sparsam.</h2>
+        <p>
+          Im MVP werden keine Werbenetzwerke geladen, keine Newsletter betrieben, keine Zahlungsdaten verarbeitet
+          und keine Besucherprofile in einer Produktivdatenbank gespeichert.
+        </p>
+      </article>
+    </div>
+  </section>
+
   <section class="section">
     <div class="page-inner">
-      <h1>Datenschutz</h1>
-      <div class="notice">
-        <p>
-          Platzhalter für die MVP-Entwicklung. Vor Veröffentlichung in Deutschland muss diese Seite rechtlich
-          geprüft und mit Betreiberangaben, Datenverarbeitung, Hosting, Cookies und Kontakt ergänzt werden.
-        </p>
+      <p class="eyebrow">Aktueller Stand</p>
+      <h2>Welche Daten im lokalen MVP relevant sind.</h2>
+      <div class="lab-data-grid">
+        <article class="card lab-data-card success">
+          <span class="badge">Notwendig</span>
+          <h3>Technische Browserdaten</h3>
+          <p>
+            Beim Aufruf einer Website entstehen technisch immer Zugriffsdaten wie IP-Adresse, Zeitpunkt, angefragte
+            URL, Browsertyp und Statuscode. Im lokalen MVP werden diese Daten nicht als eigenes Trackingprodukt
+            ausgewertet.
+          </p>
+        </article>
+        <article class="card lab-data-card">
+          <span class="badge">Lokal</span>
+          <h3>Cookie-Auswahl</h3>
+          <p>
+            Der Cookie-Hinweis merkt lokal im Browser, ob die Meldung bestätigt wurde. Das dient nur dazu, die
+            kleine Hinweismeldung nicht dauerhaft erneut einzublenden.
+          </p>
+        </article>
+        <article class="card lab-data-card warning">
+          <span class="badge">Nicht aktiv</span>
+          <h3>Analyse, Ads, Affiliate</h3>
+          <p>
+            Webanalyse, bezahlte Werbung, Affiliate-Tracking, Newsletter, Kommentare und Login-Funktionen sind in
+            dieser MVP-Version noch nicht produktiv aktiviert.
+          </p>
+        </article>
       </div>
-      <p>Im MVP werden keine Werbenetzwerke geladen und keine Datenbank mit Besucherprofilen betrieben.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">Geplante Funktionen</p>
+      <h2>Was später zusätzliche Datenschutztexte braucht.</h2>
+      <div class="comparison-table legal-table">
+        <div class="comparison-row header">
+          <span>Funktion</span>
+          <span>Mögliche Daten</span>
+          <span>Status</span>
+          <span>Vor Launch nötig</span>
+        </div>
+        <div class="comparison-row">
+          <span>Besucherstatistik</span>
+          <span>Seitenaufrufe, Referrer, Gerätetyp, Land</span>
+          <span>geplant</span>
+          <span>Tool auswählen, Rechtsgrundlage und Opt-out klären</span>
+        </div>
+        <div class="comparison-row">
+          <span>Geo-Intent</span>
+          <span>Land aus IP oder Browsersprache</span>
+          <span>Konzept</span>
+          <span>Datensparsamkeit, Speicherdauer und Hinweistext definieren</span>
+        </div>
+        <div class="comparison-row">
+          <span>Feedback / Mini-Forum</span>
+          <span>Name, Kommentar, E-Mail, Moderationsdaten</span>
+          <span>nicht aktiv</span>
+          <span>Einwilligung, Löschprozess, Spam-Schutz und Moderation festlegen</span>
+        </div>
+        <div class="comparison-row">
+          <span>Affiliate-Links</span>
+          <span>Klickdaten beim Händler oder Affiliate-Netzwerk</span>
+          <span>nicht aktiv</span>
+          <span>Partnerprogramme, Kennzeichnung und Cookie-Hinweise ergänzen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="card">
+        <h2>Kontakt und Rechte</h2>
+        <p>
+          Vor Veröffentlichung müssen hier ein echter Verantwortlicher, eine Kontaktadresse und ein Verfahren für
+          Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit ergänzt werden.
+        </p>
+      </article>
+      <article class="card">
+        <h2>Hosting und Logs</h2>
+        <p>
+          Für 1blu oder einen anderen Hoster müssen die konkreten Serverlog-Daten, Speicherdauer, Auftragsverarbeitung
+          und technischen Schutzmaßnahmen aus den Anbieterunterlagen übernommen werden.
+        </p>
+      </article>
     </div>
   </section>
 </BaseLayout>

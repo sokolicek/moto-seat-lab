@@ -61,18 +61,30 @@ const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.
       </main>
       <footer class="site-footer">
         <div class="page-inner footer-grid">
-          <div>
+          <div class="footer-brand">
             <strong>Moto Seat Lab</strong>
             <p>
               Unabhängiges Konzeptprojekt für Sitzkomfort, Recherche und klare Kaufentscheidungen.
               Keine Empfehlung ist eine Garantie für Passform, Komfort oder medizinische Wirkung.
             </p>
+            <p class="footer-small">
+              MVP-Status: lokale Entwicklung, keine aktiven Werbenetzwerke, keine bezahlten Affiliate-Links.
+            </p>
           </div>
-          <p class="footer-links">
-            <a href="/de/datenschutz/">Datenschutz</a>
-            <a href="/de/cookies/">Cookies</a>
-            <a href="/de/impressum/">Impressum</a>
-          </p>
+          <nav class="footer-links" aria-label="Rechtliche Hinweise">
+            <a href="/de/datenschutz/">
+              <strong>Datenschutz</strong>
+              <span>Welche Daten aktuell nicht und später nur transparent verarbeitet werden.</span>
+            </a>
+            <a href="/de/cookies/">
+              <strong>Cookies</strong>
+              <span>Minimaler Cookie-Hinweis, lokale Speicherung und geplante Optionen.</span>
+            </a>
+            <a href="/de/impressum/">
+              <strong>Impressum</strong>
+              <span>Betreiberangaben vor Veröffentlichung ergänzen und rechtlich prüfen.</span>
+            </a>
+          </nav>
         </div>
       </footer>
     </div>

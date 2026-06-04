@@ -4,26 +4,93 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 <BaseLayout
   title="Cookies - Moto Seat Lab"
-  description="Cookie-Hinweise für das Moto Seat Lab MVP."
+  description="Cookie-Hinweise für Moto Seat Lab: aktueller MVP-Stand, lokale Speicherung und geplante Analyse- oder Affiliate-Funktionen."
   canonicalPath="/de/cookies/"
 >
+  <section class="hero legal-hero">
+    <div class="page-inner">
+      <p class="eyebrow">Transparenz · Cookies</p>
+      <h1>Cookies und lokale Speicherung</h1>
+      <p class="lead">
+        Moto Seat Lab soll möglichst wenig stören. Deshalb ist der Cookie-Hinweis im MVP klein, klar und auf das
+        Nötigste reduziert. Analyse, Werbung und Affiliate-Tracking sind noch nicht produktiv aktiv.
+      </p>
+      <div class="spec-strip">
+        <span>Minimaler Hinweis</span>
+        <span>Keine Ads im MVP</span>
+        <span>Optionale Dienste später</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner grid two">
+      <article class="card">
+        <span class="badge">Aktuell aktiv</span>
+        <h2>Cookie-Hinweis merken</h2>
+        <p>
+          Der Browser merkt lokal, ob der Hinweis bestätigt wurde. Dadurch bleibt die Meldung unten rechts klein
+          und erscheint nicht bei jedem Seitenwechsel erneut.
+        </p>
+        <div class="quick-facts">
+          <span><strong>Zweck</strong> Bedienkomfort und Anzeige des Cookie-Hinweises</span>
+          <span><strong>Speicherung</strong> lokal im Browser, nicht als Trackingprofil</span>
+        </div>
+      </article>
+      <article class="notice">
+        <h2>Noch kein Tracking</h2>
+        <p>
+          Im aktuellen Entwicklungsstand werden keine Google Analytics, keine Werbenetzwerke, keine Affiliate-Cookies
+          und keine externen Kommentar- oder Newsletter-Dienste geladen.
+        </p>
+      </article>
+    </div>
+  </section>
+
   <section class="section">
     <div class="page-inner">
-      <h1>Cookies</h1>
-      <p>
-        Das MVP nutzt nur einen lokalen Eintrag, um die Cookie-Auswahl zu merken. Optionale Analyse- oder
-        Werbecookies sind noch nicht aktiv.
-      </p>
-      <div class="grid">
-        <article class="card">
-          <h2>Notwendig</h2>
-          <p>Für Betrieb und Cookie-Auswahl.</p>
+      <p class="eyebrow">Cookie-Kategorien</p>
+      <h2>Was es jetzt gibt und was später kommen kann.</h2>
+      <div class="grid three-feature">
+        <article class="card lab-data-card success">
+          <span class="badge">Notwendig</span>
+          <h3>Basisfunktion</h3>
+          <p>
+            Technisch notwendige Speicherung, damit die Seite stabil funktioniert und die Cookie-Meldung nicht
+            dauerhaft nervt.
+          </p>
         </article>
-        <article class="card">
-          <h2>Optional</h2>
-          <p>Für spätere Komfortfunktionen und Statistiken. Im MVP noch nicht aktiv.</p>
+        <article class="card lab-data-card warning">
+          <span class="badge">Geplant</span>
+          <h3>Statistik</h3>
+          <p>
+            Später kann eine datensparsame Statistik sinnvoll sein: welche Motorradmodelle gesucht werden, welche
+            Länder kommen, welche Ratgeber wirklich helfen.
+          </p>
+        </article>
+        <article class="card lab-data-card warning">
+          <span class="badge">Geplant</span>
+          <h3>Affiliate und Werbung</h3>
+          <p>
+            Affiliate-Links müssen sichtbar gekennzeichnet werden. Externe Trackingcookies werden erst aktiviert,
+            wenn Partner, Hinweise und Zustimmung sauber definiert sind.
+          </p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">Admin-Checkliste</p>
+      <h2>Vor dem öffentlichen Launch prüfen.</h2>
+      <ol class="steps legal-steps">
+        <li>Entscheiden, ob überhaupt Statistik gebraucht wird oder ob Serverlogs für den Start reichen.</li>
+        <li>Falls Analyse aktiv wird: Anbieter, Hosting-Ort, Opt-out und Speicherdauer dokumentieren.</li>
+        <li>Affiliate-Links deutlich als Werbung oder Partnerlink kennzeichnen.</li>
+        <li>Cookie-Banner nur erweitern, wenn wirklich optionale Cookies oder externe Dienste aktiv werden.</li>
+        <li>Datenschutzseite und Impressum mit echten Betreiber- und Hostingangaben abgleichen.</li>
+      </ol>
     </div>
   </section>
 </BaseLayout>
