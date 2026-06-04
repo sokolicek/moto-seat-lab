@@ -1334,6 +1334,7 @@ h3 {
 .video-thumbnail {
   position: relative;
   display: block;
+  width: 100%;
   min-height: 190px;
   border: 1px solid rgba(18, 107, 115, 0.16);
   border-radius: var(--radius);
@@ -1341,7 +1342,10 @@ h3 {
     radial-gradient(circle at 22% 20%, rgba(230, 146, 69, 0.22), transparent 34%),
     linear-gradient(135deg, #101820, #24313a);
   color: #fff;
+  cursor: pointer;
   overflow: hidden;
+  padding: 0;
+  text-align: left;
   text-decoration: none;
 }
 
@@ -1375,9 +1379,19 @@ h3 {
 }
 
 .video-thumbnail:hover img,
-.video-thumbnail:focus img {
+.video-thumbnail:focus img,
+.video-thumbnail:focus-visible img {
   opacity: 1;
   transform: scale(1.02);
+}
+
+.video-thumbnail:focus-visible {
+  outline: 3px solid rgba(230, 146, 69, 0.58);
+  outline-offset: 3px;
+}
+
+.video-thumbnail:disabled {
+  cursor: default;
 }
 
 .youtube-embed-shell {

@@ -474,9 +474,10 @@ counts.media_assets = mediaAssets.length;
 counts.content_media_links = mediaAssets.reduce((sum, asset) => sum + (asset.links || []).length, 0);
 
 add("DELETE FROM content_video_links;");
+add("DELETE FROM video_resources;");
 for (const video of videoResources) {
   const embedUrl = video.youtubeVideoId
-    ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
+    ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1&playsinline=1`
     : null;
   const providerUrl = video.providerUrl || video.youtubeUrl || video.sourcePageUrl;
   add(`INSERT INTO video_resources (

@@ -103,6 +103,9 @@ MVP implementation started.
 - Model-specific video sections now render from the central video registry on Suzuki GSX-S1000GX, BMW R 1300 GS, and Yamaha Tracer 9 / 9 GT pages.
 - Embedded videos load on-page through `youtube-nocookie.com` after a user click; source-only video candidates show a clear source link instead of pretending to be playable.
 - German UI copy was cleaned so the DIY material section uses `Schaumstoffe` instead of mixed-language labels.
+- Video thumbnails no longer link users away to YouTube; both thumbnails and load buttons now create an on-page `youtube-nocookie.com` iframe with the current local origin.
+- Two stale DIY YouTube IDs were removed from the ready set and replaced with curated embed candidates from motorcycle-seat forum/product contexts.
+- Video seed import now deletes stale `video_resources` before re-importing, preventing orphaned broken video keys in PostgreSQL.
 
 ## Not Started
 

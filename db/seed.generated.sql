@@ -5134,6 +5134,7 @@ INSERT INTO media_assets (
     source_data = EXCLUDED.source_data,
     updated_at = now();
 DELETE FROM content_video_links;
+DELETE FROM video_resources;
 INSERT INTO video_resources (
     key, status, topic, provider, provider_video_id, provider_url, embed_url,
     source_page_url, title, channel_name, language_code, duration, thumbnail_url,
@@ -5141,26 +5142,26 @@ INSERT INTO video_resources (
     embed_policy, source_data, updated_at
   )
   VALUES (
-    'foam-density-basics',
-    'verified_embed',
-    'Schaum formen',
+    'xsr900-seat-foam-rework',
+    'embed_candidate',
+    'Schaum anpassen',
     'youtube',
-    'o_hUdHW6Opk',
-    'https://www.youtube.com/watch?v=o_hUdHW6Opk',
-    'https://www.youtube-nocookie.com/embed/o_hUdHW6Opk?rel=0&modestbranding=1',
-    'https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/',
-    'Alchemy Kustom: Seat foam shaping',
-    'Alchemy Kustom',
-    'en',
+    'Qkme6kFktPA',
+    'https://www.youtube.com/watch?v=Qkme6kFktPA',
+    'https://www.youtube-nocookie.com/embed/Qkme6kFktPA?rel=0&modestbranding=1&playsinline=1',
+    'https://xsr900.de/forum/thread/109-sitzbank-umbau-xsr-900-sitzfl%C3%A4che-mit-mehr-komfort-ergonomie-optimieren/',
+    'Sitzbank-Umbau: Schaumstoff und Ergonomie',
+    'YouTube, zitiert im Yamaha-XSR900-Forum',
+    'de',
     NULL,
-    'https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg',
-    'The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.',
-    'Gutes Video, um zu verstehen, dass Sitzkomfort unter dem Bezug beginnt: erst Muster, dann Schneiden, Kleben, Seitenaufbau und zum Schluss feines Schleifen.',
-    '["Wie aus Musterteilen eine wiederholbare Schaumform entsteht","Warum Schaum in Lagen verklebt und erst danach endgültig geformt wird","Wie Schleifen Übergänge glättet, damit der Bezug später keine Kanten zeigt"]'::jsonb,
+    'https://i.ytimg.com/vi/Qkme6kFktPA/hqdefault.jpg',
+    'Das Yamaha-XSR900-Forum verlinkt dieses Video als Einstieg in Sitzbank-Umbau, Schaumstoffauswahl und Ergonomieverbesserung ohne Gel.',
+    'Relevanter deutscher DIY-Kandidat für Schaumstoff, Sitzmulde und ergonomisches Anpassen. Vor finaler Empfehlung muss die Einbettung noch manuell geprüft werden.',
+    '["Wie die Sitzfläche weicher und ergonomischer geformt wird","Welche Rolle Schaumstoffdichte, Stauchhärte und Probesitzen spielen","Warum mehrere kleine Anpassungen sicherer sind als ein radikaler Schnitt"]'::jsonb,
     '["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"]'::jsonb,
-    'Kein Anfänger-Freifahrtschein zum Schneiden der Originalsitzbank. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.',
-    'Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.',
-    '{"key":"foam-density-basics","status":"verified_embed","topic":"Schaum formen","youtubeVideoId":"o_hUdHW6Opk","youtubeUrl":"https://www.youtube.com/watch?v=o_hUdHW6Opk","sourcePageUrl":"https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/","title":"Alchemy Kustom: Seat foam shaping","channelName":"Alchemy Kustom","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg","fetchedDescription":"The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.","editorSummary":"Gutes Video, um zu verstehen, dass Sitzkomfort unter dem Bezug beginnt: erst Muster, dann Schneiden, Kleben, Seitenaufbau und zum Schluss feines Schleifen.","whatToLookFor":["Wie aus Musterteilen eine wiederholbare Schaumform entsteht","Warum Schaum in Lagen verklebt und erst danach endgültig geformt wird","Wie Schleifen Übergänge glättet, damit der Bezug später keine Kanten zeigt"],"fitFor":["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"],"riskNotes":"Kein Anfänger-Freifahrtschein zum Schneiden der Originalsitzbank. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.","embedPolicy":"Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":1},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"learning","priority":1},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"related","priority":3}]}'::jsonb,
+    'Als Forumskandidat markiert. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.',
+    'YouTube-ID aus Forumskontext übernommen; wird über youtube-nocookie.com eingebettet und bleibt bis zur manuellen Sichtprüfung als Kandidat markiert.',
+    '{"key":"xsr900-seat-foam-rework","status":"embed_candidate","topic":"Schaum anpassen","youtubeVideoId":"Qkme6kFktPA","youtubeUrl":"https://www.youtube.com/watch?v=Qkme6kFktPA","sourcePageUrl":"https://xsr900.de/forum/thread/109-sitzbank-umbau-xsr-900-sitzfl%C3%A4che-mit-mehr-komfort-ergonomie-optimieren/","title":"Sitzbank-Umbau: Schaumstoff und Ergonomie","channelName":"YouTube, zitiert im Yamaha-XSR900-Forum","language":"de","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/Qkme6kFktPA/hqdefault.jpg","fetchedDescription":"Das Yamaha-XSR900-Forum verlinkt dieses Video als Einstieg in Sitzbank-Umbau, Schaumstoffauswahl und Ergonomieverbesserung ohne Gel.","editorSummary":"Relevanter deutscher DIY-Kandidat für Schaumstoff, Sitzmulde und ergonomisches Anpassen. Vor finaler Empfehlung muss die Einbettung noch manuell geprüft werden.","whatToLookFor":["Wie die Sitzfläche weicher und ergonomischer geformt wird","Welche Rolle Schaumstoffdichte, Stauchhärte und Probesitzen spielen","Warum mehrere kleine Anpassungen sicherer sind als ein radikaler Schnitt"],"fitFor":["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"],"riskNotes":"Als Forumskandidat markiert. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.","embedPolicy":"YouTube-ID aus Forumskontext übernommen; wird über youtube-nocookie.com eingebettet und bleibt bis zur manuellen Sichtprüfung als Kandidat markiert.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":1},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"learning","priority":1},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"related","priority":3}]}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5188,7 +5189,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'foam-density-basics',
+      'xsr900-seat-foam-rework',
       'page_section',
       'de-diy-videos',
       'learning',
@@ -5202,7 +5203,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'foam-density-basics',
+      'xsr900-seat-foam-rework',
       'page_section',
       'de-diy-schaumstoffe',
       'learning',
@@ -5216,7 +5217,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'foam-density-basics',
+      'xsr900-seat-foam-rework',
       'workshop_tool',
       'foam_rasp_sanding_block',
       'related',
@@ -5230,7 +5231,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'foam-density-basics',
+      'xsr900-seat-foam-rework',
       'workshop_tool',
       'hot_wire_foam_cutter',
       'related',
@@ -5247,26 +5248,26 @@ INSERT INTO video_resources (
     embed_policy, source_data, updated_at
   )
   VALUES (
-    'motorcycle-seat-foam-shaping',
-    'verified_embed',
+    'luimoto-gold-gel-installation',
+    'embed_candidate',
     'Gel einsetzen',
     'youtube',
-    'RMroBU_yUA8',
-    'https://www.youtube.com/watch?v=RMroBU_yUA8',
-    'https://www.youtube-nocookie.com/embed/RMroBU_yUA8?rel=0&modestbranding=1',
-    'https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle',
-    'Motea: gel pad installation in a motorcycle saddle',
-    'Motea.com',
-    'it',
+    'pvA4Hnt9qUM',
+    'https://www.youtube.com/watch?v=pvA4Hnt9qUM',
+    'https://www.youtube-nocookie.com/embed/pvA4Hnt9qUM?rel=0&modestbranding=1&playsinline=1',
+    'https://www.speedycom.co.uk/luimoto-seat-covers/gel-seat/',
+    'Luimoto Gold Gel: Installation in motorcycle seat foam',
+    'Luimoto / YouTube, zitiert bei Speedycom',
+    'en',
     NULL,
-    'https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg',
-    'Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.',
-    'Als visueller Beispielprozess für die Positionierung einer Gel-Einlage im Sitz. Für Moto Seat Lab sind vor allem Markierung, Lage und Eingriff in den Schaum wichtig.',
+    'https://i.ytimg.com/vi/pvA4Hnt9qUM/hqdefault.jpg',
+    'Speedycom/Luimoto verweist auf dieses Installationsvideo für Gold-Gel-Einlagen im Motorradsitz.',
+    'Praxisnaher Kandidat für Gel-Einlagen: relevant sind Markierung, Ausschneiden des Schaums, bündige Lage und Abdeckung der Übergänge.',
     '["Wo die Gelposition relativ zur echten Sitzposition markiert wird","Wie tief der Ausschnitt im Originalschaum wird","Ob die Gel-Einlage bündig liegt und keine harte Kante bildet"]'::jsonb,
     '["Geleinlage","Werkstattplanung","Sattler-Fragebogen"]'::jsonb,
-    'Eine Gel-Einlage ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann sie Druck nur an eine andere Stelle verlagern.',
-    'Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.',
-    '{"key":"motorcycle-seat-foam-shaping","status":"verified_embed","topic":"Gel einsetzen","youtubeVideoId":"RMroBU_yUA8","youtubeUrl":"https://www.youtube.com/watch?v=RMroBU_yUA8","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"Motea: gel pad installation in a motorcycle saddle","channelName":"Motea.com","language":"it","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg","fetchedDescription":"Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.","editorSummary":"Als visueller Beispielprozess für die Positionierung einer Gel-Einlage im Sitz. Für Moto Seat Lab sind vor allem Markierung, Lage und Eingriff in den Schaum wichtig.","whatToLookFor":["Wo die Gelposition relativ zur echten Sitzposition markiert wird","Wie tief der Ausschnitt im Originalschaum wird","Ob die Gel-Einlage bündig liegt und keine harte Kante bildet"],"fitFor":["Geleinlage","Werkstattplanung","Sattler-Fragebogen"],"riskNotes":"Eine Gel-Einlage ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann sie Druck nur an eine andere Stelle verlagern.","embedPolicy":"Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":2},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"gel_insert","priority":2},{"entityType":"seat_material","entityKey":"gel_insert","usage":"learning","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"related","priority":3}]}'::jsonb,
+    'Gel ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann es Druck nur an eine andere Stelle verlagern.',
+    'YouTube-ID aus Händler-/Produktkontext übernommen; wird über youtube-nocookie.com eingebettet und bleibt bis zur manuellen Sichtprüfung als Kandidat markiert.',
+    '{"key":"luimoto-gold-gel-installation","status":"embed_candidate","topic":"Gel einsetzen","youtubeVideoId":"pvA4Hnt9qUM","youtubeUrl":"https://www.youtube.com/watch?v=pvA4Hnt9qUM","sourcePageUrl":"https://www.speedycom.co.uk/luimoto-seat-covers/gel-seat/","title":"Luimoto Gold Gel: Installation in motorcycle seat foam","channelName":"Luimoto / YouTube, zitiert bei Speedycom","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/pvA4Hnt9qUM/hqdefault.jpg","fetchedDescription":"Speedycom/Luimoto verweist auf dieses Installationsvideo für Gold-Gel-Einlagen im Motorradsitz.","editorSummary":"Praxisnaher Kandidat für Gel-Einlagen: relevant sind Markierung, Ausschneiden des Schaums, bündige Lage und Abdeckung der Übergänge.","whatToLookFor":["Wo die Gelposition relativ zur echten Sitzposition markiert wird","Wie tief der Ausschnitt im Originalschaum wird","Ob die Gel-Einlage bündig liegt und keine harte Kante bildet"],"fitFor":["Geleinlage","Werkstattplanung","Sattler-Fragebogen"],"riskNotes":"Gel ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann es Druck nur an eine andere Stelle verlagern.","embedPolicy":"YouTube-ID aus Händler-/Produktkontext übernommen; wird über youtube-nocookie.com eingebettet und bleibt bis zur manuellen Sichtprüfung als Kandidat markiert.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":2},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"gel_insert","priority":2},{"entityType":"seat_material","entityKey":"gel_insert","usage":"learning","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"related","priority":3}]}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5294,7 +5295,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'motorcycle-seat-foam-shaping',
+      'luimoto-gold-gel-installation',
       'page_section',
       'de-diy-videos',
       'learning',
@@ -5308,7 +5309,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'motorcycle-seat-foam-shaping',
+      'luimoto-gold-gel-installation',
       'page_section',
       'de-diy-schaumstoffe',
       'gel_insert',
@@ -5322,7 +5323,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'motorcycle-seat-foam-shaping',
+      'luimoto-gold-gel-installation',
       'seat_material',
       'gel_insert',
       'learning',
@@ -5336,7 +5337,7 @@ INSERT INTO content_video_links (
       video_key, entity_type, entity_key, usage, priority, notes
     )
     VALUES (
-      'motorcycle-seat-foam-shaping',
+      'luimoto-gold-gel-installation',
       'workshop_supply',
       'foam_safe_contact_adhesive',
       'related',
@@ -5359,7 +5360,7 @@ INSERT INTO video_resources (
     'youtube',
     '_1BSj2Vnwj0',
     'https://www.youtube.com/watch?v=_1BSj2Vnwj0',
-    'https://www.youtube-nocookie.com/embed/_1BSj2Vnwj0?rel=0&modestbranding=1',
+    'https://www.youtube-nocookie.com/embed/_1BSj2Vnwj0?rel=0&modestbranding=1&playsinline=1',
     'https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle',
     'DIY Custom Motorcycle Seat & Gel Installation',
     'HTMotoFilms',
@@ -5721,7 +5722,7 @@ INSERT INTO video_resources (
     'youtube',
     'KF0T84zcrV4',
     'https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default',
-    'https://www.youtube-nocookie.com/embed/KF0T84zcrV4?rel=0&modestbranding=1',
+    'https://www.youtube-nocookie.com/embed/KF0T84zcrV4?rel=0&modestbranding=1&playsinline=1',
     'https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default',
     'BMW S1000XR or Yamaha Tracer 9 GT? Honest review',
     'YouTube video summary source',

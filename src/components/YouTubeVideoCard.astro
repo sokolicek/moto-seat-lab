@@ -26,16 +26,14 @@ interface Props {
 
 const { video } = Astro.props;
 const hasEmbed = Boolean(video.youtubeVideoId);
-const embedUrl = hasEmbed
-  ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
-  : "";
+const isVerified = video.status.startsWith("verified");
 const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl || "";
 ---
 
 <article class={`card video-resource-card ${hasEmbed ? "playable" : "curation"}`}>
   <div class="card-topline">
     <span class="badge muted">{video.topic}</span>
-    <span class="badge">{hasEmbed ? "Video bereit" : "Kuration offen"}</span>
+    <span class="badge">{hasEmbed ? (isVerified ? "Video bereit" : "Embed prüfen") : "Kuration offen"}</span>
     <span class="badge muted">{video.language.toUpperCase()}</span>
   </div>
 
@@ -44,21 +42,27 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
 
   {
     video.thumbnailUrl && (
-      <a class="video-thumbnail" href={externalUrl} target="_blank" rel="noreferrer">
+      <button
+        class="video-thumbnail video-thumbnail-button"
+        type="button"
+        data-youtube-id={video.youtubeVideoId}
+        data-youtube-title={video.title}
+        disabled={!hasEmbed}
+      >
         <img
           src={video.thumbnailUrl}
           alt={`YouTube thumbnail: ${video.title}`}
           loading="lazy"
         />
-        <span>Auf YouTube öffnen</span>
-      </a>
+        <span>{hasEmbed ? "Auf dieser Seite abspielen" : "Video noch nicht ausgewählt"}</span>
+      </button>
     )
   }
 
   {
     hasEmbed ? (
       <div class="youtube-embed-shell">
-        <button class="youtube-load-button" type="button" data-youtube-src={embedUrl} data-youtube-title={video.title}>
+        <button class="youtube-load-button" type="button" data-youtube-id={video.youtubeVideoId} data-youtube-title={video.title}>
           Video laden und abspielen
         </button>
         <div class="youtube-frame" hidden></div>
@@ -121,25 +125,43 @@ const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl
     });
   });
 
-  document.querySelectorAll(".youtube-load-button").forEach((button) => {
+  const buildEmbedUrl = (id: string) => {
+    const params = new URLSearchParams({
+      rel: "0",
+      modestbranding: "1",
+      playsinline: "1",
+      autoplay: "1",
+      origin: window.location.origin,
+    });
+    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?${params.toString()}`;
+  };
+
+  const loadVideo = (button: Element) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    const card = button.closest(".video-resource-card");
+    const frameShell = card?.querySelector(".youtube-frame");
+    const loadButton = card?.querySelector(".youtube-load-button");
+    const id = button.dataset.youtubeId;
+    const title = button.dataset.youtubeTitle ?? "YouTube video";
+    if (!id || !(frameShell instanceof HTMLElement)) return;
+    if (!frameShell.querySelector("iframe")) {
+      const iframe = document.createElement("iframe");
+      iframe.src = buildEmbedUrl(id);
+      iframe.title = title;
+      iframe.loading = "lazy";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      frameShell.append(iframe);
+    }
+    frameShell.hidden = false;
+    if (loadButton instanceof HTMLButtonElement) loadButton.hidden = true;
+    if (button.classList.contains("video-thumbnail-button")) button.hidden = true;
+  };
+
+  document.querySelectorAll(".youtube-load-button, .video-thumbnail-button").forEach((button) => {
     button.addEventListener("click", () => {
-      if (!(button instanceof HTMLButtonElement)) return;
-      const frameShell = button.nextElementSibling;
-      const src = button.dataset.youtubeSrc;
-      const title = button.dataset.youtubeTitle ?? "YouTube video";
-      if (!src || !(frameShell instanceof HTMLElement)) return;
-      if (!frameShell.querySelector("iframe")) {
-        const iframe = document.createElement("iframe");
-        iframe.src = src;
-        iframe.title = title;
-        iframe.loading = "lazy";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-        iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        frameShell.append(iframe);
-      }
-      frameShell.hidden = false;
-      button.hidden = true;
+      loadVideo(button);
     });
   });
 </script>
