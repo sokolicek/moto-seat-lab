@@ -5,6 +5,7 @@ interface VideoResource {
   topic: string;
   youtubeVideoId: string;
   youtubeUrl: string;
+  providerUrl?: string;
   sourcePageUrl?: string;
   title: string;
   channelName: string;
@@ -28,6 +29,7 @@ const hasEmbed = Boolean(video.youtubeVideoId);
 const embedUrl = hasEmbed
   ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
   : "";
+const externalUrl = video.youtubeUrl || video.providerUrl || video.sourcePageUrl || "";
 ---
 
 <article class={`card video-resource-card ${hasEmbed ? "playable" : "curation"}`}>
@@ -42,7 +44,7 @@ const embedUrl = hasEmbed
 
   {
     video.thumbnailUrl && (
-      <a class="video-thumbnail" href={video.youtubeUrl} target="_blank" rel="noreferrer">
+      <a class="video-thumbnail" href={externalUrl} target="_blank" rel="noreferrer">
         <img
           src={video.thumbnailUrl}
           alt={`YouTube thumbnail: ${video.title}`}
@@ -65,6 +67,11 @@ const embedUrl = hasEmbed
       <div class="video-placeholder" aria-label="Video noch nicht kuratiert">
         <strong>Video noch nicht ausgewählt</strong>
         <span>Erst Quelle, Einbettbarkeit, Sprache und Nutzen prüfen.</span>
+        {externalUrl && (
+          <a class="inline-source-link" href={externalUrl} target="_blank" rel="noreferrer">
+            Quellenkandidat öffnen
+          </a>
+        )}
       </div>
     )
   }

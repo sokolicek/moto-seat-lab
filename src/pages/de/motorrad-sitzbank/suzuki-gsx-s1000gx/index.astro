@@ -9,6 +9,7 @@ import SeatOptionCard from "../../../../components/SeatOptionCard.astro";
 import SeatOptionAdvisor from "../../../../components/SeatOptionAdvisor.astro";
 import ComfortTriageCalculator from "../../../../components/ComfortTriageCalculator.astro";
 import MediaAssetFigure from "../../../../components/MediaAssetFigure.astro";
+import YouTubeVideoCard from "../../../../components/YouTubeVideoCard.astro";
 import solutionPaths from "../../../../data/solution-paths/seat-comfort.json";
 import productCategories from "../../../../data/product-categories/seat-comfort.json";
 import seatOptions from "../../../../data/products/gsx-s1000gx-seat-options.json";
@@ -16,10 +17,16 @@ import riderProfiles from "../../../../data/rider-profiles/gsx-s1000gx.json";
 import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
 import disclosures from "../../../../data/disclosures/de.json";
 import { getMediaByKey } from "../../../../lib/mediaAssets";
+import { getVideosForEntity } from "../../../../lib/videoResources";
 
 const forestCurveImage = getMediaByKey("pexels_forest_curve_motorcyclist");
 const touringRoadImage = getMediaByKey("unsplash_touring_motorcycle_road");
 const touringSeatImage = getMediaByKey("touring_seat_goldwing_commons");
+const gsxVideos = [
+  ...getVideosForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "review_context"),
+  ...getVideosForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "ergonomics_context"),
+  ...getVideosForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "oem_context"),
+];
 ---
 
 <BaseLayout
@@ -116,6 +123,7 @@ const touringSeatImage = getMediaByKey("touring_seat_goldwing_commons");
         <a href="#optionen">Optionen</a>
         <a href="#option-advisor-title">Mini-Berater</a>
         <a href="#komfort-triage">Triage-Rechner</a>
+        <a href="#videos">Videos</a>
         <a href="#quellen">Quellen</a>
       </nav>
     </div>
@@ -389,6 +397,24 @@ const touringSeatImage = getMediaByKey("touring_seat_goldwing_commons");
       </article>
     </div>
   </section>
+
+  {
+    gsxVideos.length > 0 && (
+      <section class="section" id="videos">
+        <div class="page-inner">
+          <p class="eyebrow">Videos und Quellenhinweise</p>
+          <h2>Was du in GSX-S1000GX Videos prüfen solltest.</h2>
+          <p class="lead">
+            Diese Videokarten kommen aus dem zentralen Video-Register. Direkt abspielbare YouTube-Videos
+            werden erst nach Klick geladen; reine Quellenkandidaten bleiben als Recherchehinweis markiert.
+          </p>
+          <div class="video-resource-grid">
+            {gsxVideos.map((video) => <YouTubeVideoCard video={video} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   <section class="section" id="quellen">
     <div class="page-inner">

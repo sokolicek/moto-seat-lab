@@ -1324,6 +1324,13 @@ h3 {
   color: var(--color-accent-strong);
 }
 
+.inline-source-link {
+  width: fit-content;
+  margin-top: 6px;
+  font-weight: 800;
+  color: var(--color-accent-strong);
+}
+
 .video-thumbnail {
   position: relative;
   display: block;

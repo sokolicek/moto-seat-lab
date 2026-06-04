@@ -56,7 +56,7 @@ MVP implementation started.
 - DIY page expanded with a minimal documentation and test protocol.
 - Project dependencies installed and locked with `package-lock.json`.
 - Astro check passes with 0 errors, 0 warnings, and 0 hints.
-- Astro static build passes and generates 9 pages in `dist/`.
+- Astro static build passes and generates 30 pages in `dist/`.
 - Local browser smoke test passed for the GSX-S1000GX page and both recommendation forms.
 - Custom seat-layer visual graphic added to make the GSX-S1000GX and DIY pages more readable and distinctive.
 - Cookie bar reduced and moved to a less intrusive bottom-right layout.
@@ -90,8 +90,7 @@ MVP implementation started.
 - Motorcycle database expanded again with Yamaha MT-07, Kawasaki Z900, Harley-Davidson Street Glide, Vespa GTS 300, and CFMOTO 800MT draft profiles.
 - DIY database expanded again with memory foam, ventilation spacer fabric, waterproof membrane, hot-wire foam cutter, hog-ring pliers, infrared thermometer, foam sample packs, seam tape, and temporary test covers.
 - Media registry now tracks three more research candidates: a public-domain staple-gun image, a CC BY-SA hot-wire foam-cutter image, and the Wikimedia Commons Motorcycle seats category as a source-only index for future curation.
-- Current local dev server may need a restart before newly added `public/assets/media/*` files are served by Astro; data pages already render the new motorcycles and DIY entries.
-- DIY page now has a dedicated Schaumstoffe/Peny section focused on density, hardness, support layers, comfort layers, heat and reversible testing.
+- DIY page now has a dedicated Schaumstoffe section focused on density, hardness, support layers, comfort layers, heat and reversible testing.
 - YouTube video curation model added with `src/data/videos/seat-videos.json`, reusable `YouTubeVideoCard`, and a dedicated DIY video section.
 - YouTube helper scripts added: oEmbed preview without API key and YouTube Data API snippet fetch with `YOUTUBE_API_KEY`.
 - YouTube workflow documented in `docs/youtube-video-workflow.md`.
@@ -99,6 +98,11 @@ MVP implementation started.
 - Video system promoted into the database model with `video_resources` and `content_video_links`, so videos can be assigned to page sections, materials, tools, supplies, motorcycle profiles or product categories.
 - DIY video rendering now uses section links via `getVideosForEntity("page_section", "de-diy-videos")` instead of rendering every video from the registry.
 - Video maintenance guide and JSON template helper added for future curated video additions.
+- Homepage motorcycle selection was moved into the top navigation only; the central duplicate motorcycle selector was removed from Start.
+- Top navigation now lists all 19 motorcycle profiles as openable entries while keeping Suzuki GSX-S1000GX marked as the reference model.
+- Model-specific video sections now render from the central video registry on Suzuki GSX-S1000GX, BMW R 1300 GS, and Yamaha Tracer 9 / 9 GT pages.
+- Embedded videos load on-page through `youtube-nocookie.com` after a user click; source-only video candidates show a clear source link instead of pretending to be playable.
+- German UI copy was cleaned so the DIY material section uses `Schaumstoffe` instead of mixed-language labels.
 
 ## Not Started
 

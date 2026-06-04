@@ -5155,12 +5155,12 @@ INSERT INTO video_resources (
     NULL,
     'https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg',
     'The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.',
-    'Dobré video na pochopenie, že komfort sedla začína pod poťahom: najprv vzor, potom rezanie, lepenie, bočnice a až nakoniec jemné brúsenie.',
-    '["Wie aus Musterteilen entsteht eine opakovateľná forma peny","Prečo sa pena lepí vo vrstvách a až potom sa dorába tvar","Ako sa brúsením zjemňujú prechody, aby ich poťah neskôr nezvýraznil"]'::jsonb,
+    'Gutes Video, um zu verstehen, dass Sitzkomfort unter dem Bezug beginnt: erst Muster, dann Schneiden, Kleben, Seitenaufbau und zum Schluss feines Schleifen.',
+    '["Wie aus Musterteilen eine wiederholbare Schaumform entsteht","Warum Schaum in Lagen verklebt und erst danach endgültig geformt wird","Wie Schleifen Übergänge glättet, damit der Bezug später keine Kanten zeigt"]'::jsonb,
     '["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"]'::jsonb,
-    'Nie je to začiatočnícky návod na rezanie originálneho sedla. Najprv cvičiť na odpade alebo druhej sedačke.',
+    'Kein Anfänger-Freifahrtschein zum Schneiden der Originalsitzbank. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.',
     'Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.',
-    '{"key":"foam-density-basics","status":"verified_embed","topic":"Schaum formen","youtubeVideoId":"o_hUdHW6Opk","youtubeUrl":"https://www.youtube.com/watch?v=o_hUdHW6Opk","sourcePageUrl":"https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/","title":"Alchemy Kustom: Seat foam shaping","channelName":"Alchemy Kustom","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg","fetchedDescription":"The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.","editorSummary":"Dobré video na pochopenie, že komfort sedla začína pod poťahom: najprv vzor, potom rezanie, lepenie, bočnice a až nakoniec jemné brúsenie.","whatToLookFor":["Wie aus Musterteilen entsteht eine opakovateľná forma peny","Prečo sa pena lepí vo vrstvách a až potom sa dorába tvar","Ako sa brúsením zjemňujú prechody, aby ich poťah neskôr nezvýraznil"],"fitFor":["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"],"riskNotes":"Nie je to začiatočnícky návod na rezanie originálneho sedla. Najprv cvičiť na odpade alebo druhej sedačke.","embedPolicy":"Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":1},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"learning","priority":1},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"related","priority":3}]}'::jsonb,
+    '{"key":"foam-density-basics","status":"verified_embed","topic":"Schaum formen","youtubeVideoId":"o_hUdHW6Opk","youtubeUrl":"https://www.youtube.com/watch?v=o_hUdHW6Opk","sourcePageUrl":"https://thehogring.com/2020/03/24/watch-alchemy-kustom-shape-seat-foam/","title":"Alchemy Kustom: Seat foam shaping","channelName":"Alchemy Kustom","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/o_hUdHW6Opk/hqdefault.jpg","fetchedDescription":"The source article describes a workshop video about patterning, cutting, gluing and sanding seat foam into shape.","editorSummary":"Gutes Video, um zu verstehen, dass Sitzkomfort unter dem Bezug beginnt: erst Muster, dann Schneiden, Kleben, Seitenaufbau und zum Schluss feines Schleifen.","whatToLookFor":["Wie aus Musterteilen eine wiederholbare Schaumform entsteht","Warum Schaum in Lagen verklebt und erst danach endgültig geformt wird","Wie Schleifen Übergänge glättet, damit der Bezug später keine Kanten zeigt"],"fitFor":["fortgeschrittene DIY","Sattler-Briefing","Formaufbau"],"riskNotes":"Kein Anfänger-Freifahrtschein zum Schneiden der Originalsitzbank. Erst an Reststücken oder einer gebrauchten Zweitsitzbank üben.","embedPolicy":"Embed URL antwortet mit HTTP 200; Video wird über youtube-nocookie.com eingebettet.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":1},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"learning","priority":1},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"related","priority":3}]}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5261,12 +5261,12 @@ INSERT INTO video_resources (
     NULL,
     'https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg',
     'Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.',
-    'Použiť ako vizuálny príklad, ako sa gel vložka polohuje do sedla. Pre Moto Seat Lab je dôležité sledovať najmä označenie polohy a zásah do peny.',
-    '["Kde sa zakresľuje poloha gelu voči miestu sedenia","Ako hlboký výrez vzniká v pôvodnej pene","Či gel ostáva zarovno s okolím a nevytvorí hranu"]'::jsonb,
-    '["gel insert","Werkstattplanung","Sattler-Fragebogen"]'::jsonb,
-    'Gel vložka nie je univerzálny liek. Ak je základný tvar sedla zlý, vložka môže len presunúť tlak inde.',
+    'Als visueller Beispielprozess für die Positionierung einer Gel-Einlage im Sitz. Für Moto Seat Lab sind vor allem Markierung, Lage und Eingriff in den Schaum wichtig.',
+    '["Wo die Gelposition relativ zur echten Sitzposition markiert wird","Wie tief der Ausschnitt im Originalschaum wird","Ob die Gel-Einlage bündig liegt und keine harte Kante bildet"]'::jsonb,
+    '["Geleinlage","Werkstattplanung","Sattler-Fragebogen"]'::jsonb,
+    'Eine Gel-Einlage ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann sie Druck nur an eine andere Stelle verlagern.',
     'Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.',
-    '{"key":"motorcycle-seat-foam-shaping","status":"verified_embed","topic":"Gel einsetzen","youtubeVideoId":"RMroBU_yUA8","youtubeUrl":"https://www.youtube.com/watch?v=RMroBU_yUA8","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"Motea: gel pad installation in a motorcycle saddle","channelName":"Motea.com","language":"it","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg","fetchedDescription":"Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.","editorSummary":"Použiť ako vizuálny príklad, ako sa gel vložka polohuje do sedla. Pre Moto Seat Lab je dôležité sledovať najmä označenie polohy a zásah do peny.","whatToLookFor":["Kde sa zakresľuje poloha gelu voči miestu sedenia","Ako hlboký výrez vzniká v pôvodnej pene","Či gel ostáva zarovno s okolím a nevytvorí hranu"],"fitFor":["gel insert","Werkstattplanung","Sattler-Fragebogen"],"riskNotes":"Gel vložka nie je univerzálny liek. Ak je základný tvar sedla zlý, vložka môže len presunúť tlak inde.","embedPolicy":"Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":2},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"gel_insert","priority":2},{"entityType":"seat_material","entityKey":"gel_insert","usage":"learning","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"related","priority":3}]}'::jsonb,
+    '{"key":"motorcycle-seat-foam-shaping","status":"verified_embed","topic":"Gel einsetzen","youtubeVideoId":"RMroBU_yUA8","youtubeUrl":"https://www.youtube.com/watch?v=RMroBU_yUA8","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"Motea: gel pad installation in a motorcycle saddle","channelName":"Motea.com","language":"it","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/RMroBU_yUA8/hqdefault.jpg","fetchedDescription":"Green Line lists this as a motorcycle saddle gel-installation tutorial sourced from the Motea.com YouTube channel.","editorSummary":"Als visueller Beispielprozess für die Positionierung einer Gel-Einlage im Sitz. Für Moto Seat Lab sind vor allem Markierung, Lage und Eingriff in den Schaum wichtig.","whatToLookFor":["Wo die Gelposition relativ zur echten Sitzposition markiert wird","Wie tief der Ausschnitt im Originalschaum wird","Ob die Gel-Einlage bündig liegt und keine harte Kante bildet"],"fitFor":["Geleinlage","Werkstattplanung","Sattler-Fragebogen"],"riskNotes":"Eine Gel-Einlage ist kein Allheilmittel. Wenn die Grundform der Sitzbank falsch ist, kann sie Druck nur an eine andere Stelle verlagern.","embedPolicy":"Embed URL antwortet mit HTTP 200; oEmbed was not available, so metadata is stored from source-page curation.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":2},{"entityType":"page_section","entityKey":"de-diy-schaumstoffe","usage":"gel_insert","priority":2},{"entityType":"seat_material","entityKey":"gel_insert","usage":"learning","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"related","priority":3}]}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5367,12 +5367,12 @@ INSERT INTO video_resources (
     NULL,
     'https://i.ytimg.com/vi/_1BSj2Vnwj0/hqdefault.jpg',
     'oEmbed title: DIY Custom Motorcycle Seat & Gel Installation. The source page lists it as an external YouTube tutorial for gel installation.',
-    'Najvhodnejšie z prvých troch videí pre používateľa, ktorý chce vidieť širší proces: úprava sedla, gel, príprava a spätné skladanie.',
-    '["Ako sa postupuje od rozobratia sedla po novú komfortnú vrstvu","Kde môže vzniknúť problém s hranou gelu alebo napnutím poťahu","Ktoré kroky by začiatočník mal radšej konzultovať so sedlárom"]'::jsonb,
-    '["Einsteiger mit Vorsicht","gel insert","Sattler-Briefing"]'::jsonb,
-    'Video nenahrádza meranie sit-bone polohy, skúšobnú jazdu a kontrolu vodeodolnosti poťahu.',
+    'Das breiteste der ersten drei Videos: sinnvoll für Nutzer, die den Gesamtprozess aus Sitzumbau, Gel, Vorbereitung und Zusammenbau sehen möchten.',
+    '["Wie der Ablauf vom Zerlegen bis zur neuen Komfortlage wirkt","Wo Probleme mit Gelkante oder Bezugsspannung entstehen können","Welche Schritte Einsteiger besser mit einem Sattler besprechen"]'::jsonb,
+    '["Einsteiger mit Vorsicht","Geleinlage","Sattler-Briefing"]'::jsonb,
+    'Das Video ersetzt keine Sitzknochen-Messung, Probefahrt und Kontrolle der Wasserdichtigkeit.',
     'oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.',
-    '{"key":"upholstery-cover-and-waterproofing","status":"verified_oembed","topic":"Gel und kompletter Sitzaufbau","youtubeVideoId":"_1BSj2Vnwj0","youtubeUrl":"https://www.youtube.com/watch?v=_1BSj2Vnwj0","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"DIY Custom Motorcycle Seat & Gel Installation","channelName":"HTMotoFilms","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/_1BSj2Vnwj0/hqdefault.jpg","fetchedDescription":"oEmbed title: DIY Custom Motorcycle Seat & Gel Installation. The source page lists it as an external YouTube tutorial for gel installation.","editorSummary":"Najvhodnejšie z prvých troch videí pre používateľa, ktorý chce vidieť širší proces: úprava sedla, gel, príprava a spätné skladanie.","whatToLookFor":["Ako sa postupuje od rozobratia sedla po novú komfortnú vrstvu","Kde môže vzniknúť problém s hranou gelu alebo napnutím poťahu","Ktoré kroky by začiatočník mal radšej konzultovať so sedlárom"],"fitFor":["Einsteiger mit Vorsicht","gel insert","Sattler-Briefing"],"riskNotes":"Video nenahrádza meranie sit-bone polohy, skúšobnú jazdu a kontrolu vodeodolnosti poťahu.","embedPolicy":"oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":3},{"entityType":"seat_material","entityKey":"gel_insert","usage":"case_study","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"related","priority":3}]}'::jsonb,
+    '{"key":"upholstery-cover-and-waterproofing","status":"verified_oembed","topic":"Gel und kompletter Sitzaufbau","youtubeVideoId":"_1BSj2Vnwj0","youtubeUrl":"https://www.youtube.com/watch?v=_1BSj2Vnwj0","sourcePageUrl":"https://www.gel-poliuretanico.it/page/en/installation-gel-saddle-motorcycle","title":"DIY Custom Motorcycle Seat & Gel Installation","channelName":"HTMotoFilms","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/_1BSj2Vnwj0/hqdefault.jpg","fetchedDescription":"oEmbed title: DIY Custom Motorcycle Seat & Gel Installation. The source page lists it as an external YouTube tutorial for gel installation.","editorSummary":"Das breiteste der ersten drei Videos: sinnvoll für Nutzer, die den Gesamtprozess aus Sitzumbau, Gel, Vorbereitung und Zusammenbau sehen möchten.","whatToLookFor":["Wie der Ablauf vom Zerlegen bis zur neuen Komfortlage wirkt","Wo Probleme mit Gelkante oder Bezugsspannung entstehen können","Welche Schritte Einsteiger besser mit einem Sattler besprechen"],"fitFor":["Einsteiger mit Vorsicht","Geleinlage","Sattler-Briefing"],"riskNotes":"Das Video ersetzt keine Sitzknochen-Messung, Probefahrt und Kontrolle der Wasserdichtigkeit.","embedPolicy":"oEmbed confirmed title, channel and thumbnail; embed URL antwortet mit HTTP 200.","links":[{"entityType":"page_section","entityKey":"de-diy-videos","usage":"learning","priority":3},{"entityType":"seat_material","entityKey":"gel_insert","usage":"case_study","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"related","priority":3}]}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5452,6 +5452,390 @@ INSERT INTO content_video_links (
     ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-gsx-s1000gx-cycle-news-review-video',
+    'source_page_video_candidate',
+    'Suzuki GSX-S1000GX Sitzkomfort im Test',
+    'youtube',
+    NULL,
+    'https://www.cyclenews.com/2023/12/article/2024-suzuki-gsx-s1000gx-review/',
+    NULL,
+    'https://www.cyclenews.com/2023/12/article/2024-suzuki-gsx-s1000gx-review/',
+    'Cycle News: 2024 Suzuki GSX-S1000GX+ Review',
+    'Cycle News',
+    'en',
+    NULL,
+    NULL,
+    'The review page includes a video section and notes the 33.3 in seat height. The article also comments that the stock seat was less convincing than the accessory seat.',
+    'Modellvideo-Kandidat für die GSX-S1000GX. Besonders relevant sind Sitzhöhe, aufrechte Sitzposition, Serienbank und Zubehörsitz.',
+    '["Wie aufrecht die Sitzhaltung im Vergleich zu Sport-Touring wirkt","Ob der Test die Serienbank oder den Zubehörsitz erwähnt","Wie Sitzhöhe und Touring-Komfort im Fahrbericht eingeordnet werden"]'::jsonb,
+    '["Suzuki GSX-S1000GX","Modellprofil","Zubehörsitz-Recherche"]'::jsonb,
+    'Noch kein direktes YouTube-ID im Register. Vor direktem Embed YouTube-ID und Einbettbarkeit prüfen.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"suzuki-gsx-s1000gx-cycle-news-review-video","status":"source_page_video_candidate","topic":"Suzuki GSX-S1000GX Sitzkomfort im Test","providerUrl":"https://www.cyclenews.com/2023/12/article/2024-suzuki-gsx-s1000gx-review/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.cyclenews.com/2023/12/article/2024-suzuki-gsx-s1000gx-review/","title":"Cycle News: 2024 Suzuki GSX-S1000GX+ Review","channelName":"Cycle News","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The review page includes a video section and notes the 33.3 in seat height. The article also comments that the stock seat was less convincing than the accessory seat.","editorSummary":"Modellvideo-Kandidat für die GSX-S1000GX. Besonders relevant sind Sitzhöhe, aufrechte Sitzposition, Serienbank und Zubehörsitz.","whatToLookFor":["Wie aufrecht die Sitzhaltung im Vergleich zu Sport-Touring wirkt","Ob der Test die Serienbank oder den Zubehörsitz erwähnt","Wie Sitzhöhe und Touring-Komfort im Fahrbericht eingeordnet werden"],"fitFor":["Suzuki GSX-S1000GX","Modellprofil","Zubehörsitz-Recherche"],"riskNotes":"Noch kein direktes YouTube-ID im Register. Vor direktem Embed YouTube-ID und Einbettbarkeit prüfen.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'suzuki-gsx-s1000gx-cycle-news-review-video',
+      'motorcycle_profile',
+      'suzuki-gsx-s1000gx',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-gsx-s1000gx-cycle-news-spec-video',
+    'source_page_video_candidate',
+    'Suzuki GSX-S1000GX Ergonomie und Sitzmaße',
+    'youtube',
+    NULL,
+    'https://www.cyclenews.com/2023/11/article/2024-suzuki-gsx-s1000gx-specs-and-price/',
+    NULL,
+    'https://www.cyclenews.com/2023/11/article/2024-suzuki-gsx-s1000gx-specs-and-price/',
+    'Cycle News: 2024 Suzuki GSX-S1000GX+ Specs and Price',
+    'Cycle News',
+    'en',
+    NULL,
+    NULL,
+    'The source page includes a video reference and describes the changed rider triangle, 33.3 in seat height, flatter/thicker rider seat and wider passenger seat.',
+    'Guter Recherche-Kandidat für Ergonomie: Sitzhöhe, Sitzdicke, Breite des Soziussitzes, Lenkerposition und Fußrastenposition.',
+    '["Ob die Sitzbank als flacher, dicker oder breiter beschrieben wird","Wie stark sich die Sitzhaltung gegenüber GSX-S1000GT verändert","Welche Daten für den Vergleich mit Zubehörsitzen übernommen werden können"]'::jsonb,
+    '["Suzuki GSX-S1000GX","Ergonomie","Datenpflege"]'::jsonb,
+    'Quelle ist eine Modell-/Spec-Seite, kein reines Sitzbankvideo. Nur sitzrelevante Aussagen übernehmen.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"suzuki-gsx-s1000gx-cycle-news-spec-video","status":"source_page_video_candidate","topic":"Suzuki GSX-S1000GX Ergonomie und Sitzmaße","providerUrl":"https://www.cyclenews.com/2023/11/article/2024-suzuki-gsx-s1000gx-specs-and-price/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.cyclenews.com/2023/11/article/2024-suzuki-gsx-s1000gx-specs-and-price/","title":"Cycle News: 2024 Suzuki GSX-S1000GX+ Specs and Price","channelName":"Cycle News","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The source page includes a video reference and describes the changed rider triangle, 33.3 in seat height, flatter/thicker rider seat and wider passenger seat.","editorSummary":"Guter Recherche-Kandidat für Ergonomie: Sitzhöhe, Sitzdicke, Breite des Soziussitzes, Lenkerposition und Fußrastenposition.","whatToLookFor":["Ob die Sitzbank als flacher, dicker oder breiter beschrieben wird","Wie stark sich die Sitzhaltung gegenüber GSX-S1000GT verändert","Welche Daten für den Vergleich mit Zubehörsitzen übernommen werden können"],"fitFor":["Suzuki GSX-S1000GX","Ergonomie","Datenpflege"],"riskNotes":"Quelle ist eine Modell-/Spec-Seite, kein reines Sitzbankvideo. Nur sitzrelevante Aussagen übernehmen.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"ergonomics_context","priority":2}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'suzuki-gsx-s1000gx-cycle-news-spec-video',
+      'motorcycle_profile',
+      'suzuki-gsx-s1000gx',
+      'ergonomics_context',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'bmw-r1300gs-cycle-news-review-video',
+    'source_page_video_candidate',
+    'BMW R 1300 GS Fahrbericht und Komfort',
+    'youtube',
+    NULL,
+    'https://www.cyclenews.com/2023/11/article/2024-bmw-r-1300-gs-review/',
+    NULL,
+    'https://www.cyclenews.com/2023/11/article/2024-bmw-r-1300-gs-review/',
+    'Cycle News: 2024 BMW R 1300 GS Review',
+    'Cycle News',
+    'en',
+    NULL,
+    NULL,
+    'The source page includes a video section for the R 1300 GS review.',
+    'Modellvideo-Kandidat für die R 1300 GS. Für Moto Seat Lab sind Sitzhöhe, Bewegungsfreiheit und Komfortoptionen wichtig.',
+    '["Wie die neue Sitzposition und Bewegungsfreiheit beschrieben wird","Ob Komfortsitz oder Sitzheizung erwähnt werden","Welche Hinweise für lange Touren und Soziusbetrieb relevant sind"]'::jsonb,
+    '["BMW R 1300 GS","Adventure Touring","Komfortsitz-Recherche"]'::jsonb,
+    'Nicht als Produktvergleich verwenden, solange konkrete Sitzbankoptionen nicht separat geprüft sind.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"bmw-r1300gs-cycle-news-review-video","status":"source_page_video_candidate","topic":"BMW R 1300 GS Fahrbericht und Komfort","providerUrl":"https://www.cyclenews.com/2023/11/article/2024-bmw-r-1300-gs-review/","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.cyclenews.com/2023/11/article/2024-bmw-r-1300-gs-review/","title":"Cycle News: 2024 BMW R 1300 GS Review","channelName":"Cycle News","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The source page includes a video section for the R 1300 GS review.","editorSummary":"Modellvideo-Kandidat für die R 1300 GS. Für Moto Seat Lab sind Sitzhöhe, Bewegungsfreiheit und Komfortoptionen wichtig.","whatToLookFor":["Wie die neue Sitzposition und Bewegungsfreiheit beschrieben wird","Ob Komfortsitz oder Sitzheizung erwähnt werden","Welche Hinweise für lange Touren und Soziusbetrieb relevant sind"],"fitFor":["BMW R 1300 GS","Adventure Touring","Komfortsitz-Recherche"],"riskNotes":"Nicht als Produktvergleich verwenden, solange konkrete Sitzbankoptionen nicht separat geprüft sind.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'bmw-r1300gs-cycle-news-review-video',
+      'motorcycle_profile',
+      'bmw-r-1300-gs',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'bmw-r1300gs-official-comfort-video-candidate',
+    'source_page_video_candidate',
+    'BMW R 1300 GS offizielle Komfortausstattung',
+    'youtube',
+    NULL,
+    'https://www.bmwmotorcycles.com/en/models/adventure/r1300gs.html',
+    NULL,
+    'https://www.bmwmotorcycles.com/en/models/adventure/r1300gs.html',
+    'BMW Motorrad: R 1300 GS official model page',
+    'BMW Motorrad',
+    'en',
+    NULL,
+    NULL,
+    'The official page includes a YouTube video player and describes seat line, ergonomics, standard seat height range and comfort/accessory context.',
+    'Offizieller Video-/Quellenkandidat für Sitzlinie, Sitzhöhe, Ergonomie und Komfortausstattung der R 1300 GS.',
+    '["Welche Sitzhöhe und Sitzlinie BMW offiziell nennt","Ob Komfortsitze, Sitzheizung oder Ergonomieoptionen sichtbar werden","Welche Aussagen Marketing sind und welche als technische Daten taugen"]'::jsonb,
+    '["BMW R 1300 GS","OEM-Daten","Komfortausstattung"]'::jsonb,
+    'Herstellerquelle ist nützlich für Daten, aber nicht neutral für Komfortbewertung.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"bmw-r1300gs-official-comfort-video-candidate","status":"source_page_video_candidate","topic":"BMW R 1300 GS offizielle Komfortausstattung","providerUrl":"https://www.bmwmotorcycles.com/en/models/adventure/r1300gs.html","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.bmwmotorcycles.com/en/models/adventure/r1300gs.html","title":"BMW Motorrad: R 1300 GS official model page","channelName":"BMW Motorrad","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The official page includes a YouTube video player and describes seat line, ergonomics, standard seat height range and comfort/accessory context.","editorSummary":"Offizieller Video-/Quellenkandidat für Sitzlinie, Sitzhöhe, Ergonomie und Komfortausstattung der R 1300 GS.","whatToLookFor":["Welche Sitzhöhe und Sitzlinie BMW offiziell nennt","Ob Komfortsitze, Sitzheizung oder Ergonomieoptionen sichtbar werden","Welche Aussagen Marketing sind und welche als technische Daten taugen"],"fitFor":["BMW R 1300 GS","OEM-Daten","Komfortausstattung"],"riskNotes":"Herstellerquelle ist nützlich für Daten, aber nicht neutral für Komfortbewertung.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"oem_context","priority":2}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'bmw-r1300gs-official-comfort-video-candidate',
+      'motorcycle_profile',
+      'bmw-r-1300-gs',
+      'oem_context',
+      2,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-tracer9-comparison-seat-video-candidate',
+    'source_page_video_candidate',
+    'Yamaha Tracer 9 GT Sitzvergleich',
+    'youtube',
+    'KF0T84zcrV4',
+    'https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default',
+    'https://www.youtube-nocookie.com/embed/KF0T84zcrV4?rel=0&modestbranding=1',
+    'https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default',
+    'BMW S1000XR or Yamaha Tracer 9 GT? Honest review',
+    'YouTube video summary source',
+    'en',
+    NULL,
+    'https://i.ytimg.com/vi/KF0T84zcrV4/hqdefault.jpg',
+    'The summary includes a seat section comparing S1000XR and Tracer 9 GT seat height, accessibility and width.',
+    'Nützlich als Vergleichskandidat für die Yamaha Tracer 9 GT: Sitzhöhe, Sitzbreite vorne und Erreichbarkeit mit den Füßen.',
+    '["Ob die breite Sitzfront der Tracer für kleinere Fahrer problematisch wirkt","Wie Sitzhöhe und tatsächliche Erreichbarkeit unterschieden werden","Welche Komfortaussagen nur subjektive Fahrermeinung sind"]'::jsonb,
+    '["Yamaha Tracer 9 / 9 GT","Sitzhöhe","Vergleichstest"]'::jsonb,
+    'Video ist ein Vergleich mit BMW S1000XR, kein Sattler- oder Sitzbankumbau-Video.',
+    'YouTube-ID aus VideoHighlight-Quelle übernommen; Einbettung vor finaler Veröffentlichung erneut prüfen.',
+    '{"key":"yamaha-tracer9-comparison-seat-video-candidate","status":"source_page_video_candidate","topic":"Yamaha Tracer 9 GT Sitzvergleich","providerUrl":"https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default","youtubeVideoId":"KF0T84zcrV4","youtubeUrl":"https://www.youtube.com/watch?v=KF0T84zcrV4","sourcePageUrl":"https://videohighlight.com/v/KF0T84zcrV4?aiFormatted=false&language=en&mediaType=youtube&summaryType=default","title":"BMW S1000XR or Yamaha Tracer 9 GT? Honest review","channelName":"YouTube video summary source","language":"en","duration":"","thumbnailUrl":"https://i.ytimg.com/vi/KF0T84zcrV4/hqdefault.jpg","fetchedDescription":"The summary includes a seat section comparing S1000XR and Tracer 9 GT seat height, accessibility and width.","editorSummary":"Nützlich als Vergleichskandidat für die Yamaha Tracer 9 GT: Sitzhöhe, Sitzbreite vorne und Erreichbarkeit mit den Füßen.","whatToLookFor":["Ob die breite Sitzfront der Tracer für kleinere Fahrer problematisch wirkt","Wie Sitzhöhe und tatsächliche Erreichbarkeit unterschieden werden","Welche Komfortaussagen nur subjektive Fahrermeinung sind"],"fitFor":["Yamaha Tracer 9 / 9 GT","Sitzhöhe","Vergleichstest"],"riskNotes":"Video ist ein Vergleich mit BMW S1000XR, kein Sattler- oder Sitzbankumbau-Video.","embedPolicy":"YouTube-ID aus VideoHighlight-Quelle übernommen; Einbettung vor finaler Veröffentlichung erneut prüfen.","links":[{"entityType":"motorcycle_profile","entityKey":"yamaha-tracer-9-9-gt","usage":"review_context","priority":1}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'yamaha-tracer9-comparison-seat-video-candidate',
+      'motorcycle_profile',
+      'yamaha-tracer-9-9-gt',
+      'review_context',
+      1,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
+INSERT INTO video_resources (
+    key, status, topic, provider, provider_video_id, provider_url, embed_url,
+    source_page_url, title, channel_name, language_code, duration, thumbnail_url,
+    fetched_description, editor_summary, what_to_look_for, fit_for, risk_notes,
+    embed_policy, source_data, updated_at
+  )
+  VALUES (
+    'bmw-r1300gs-option719-comfort-candidate',
+    'source_page_video_candidate',
+    'BMW R 1300 GS Option 719 Komfortsitze',
+    'youtube',
+    NULL,
+    'https://www.bmwmotorcycles.com/en/models/adventure/r1300gs/option719-biscaya.html',
+    NULL,
+    'https://www.bmwmotorcycles.com/en/models/adventure/r1300gs/option719-biscaya.html',
+    'BMW Motorrad: R 1300 GS Option 719 comfort equipment',
+    'BMW Motorrad',
+    'en',
+    NULL,
+    NULL,
+    'The page includes a Play Video area and describes comfort seats, comfort passenger footrests and seat heating.',
+    'Guter OEM-Kandidat für Premium-Konfigurationen: Komfortsitze, Soziuskomfort und Sitzheizung als Ausstattungslogik.',
+    '["Wie BMW Komfortsitze in Paketen positioniert","Welche Rolle Soziusfußrasten und Sitzheizung spielen","Welche Angaben später in OEM-Sitzoptionen übernommen werden können"]'::jsonb,
+    '["BMW R 1300 GS","OEM-Komfortpaket","Sitzheizung"]'::jsonb,
+    'Herstellerseite ist keine unabhängige Komfortbewertung; als Datenquelle markieren.',
+    'Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.',
+    '{"key":"bmw-r1300gs-option719-comfort-candidate","status":"source_page_video_candidate","topic":"BMW R 1300 GS Option 719 Komfortsitze","providerUrl":"https://www.bmwmotorcycles.com/en/models/adventure/r1300gs/option719-biscaya.html","youtubeVideoId":"","youtubeUrl":"","sourcePageUrl":"https://www.bmwmotorcycles.com/en/models/adventure/r1300gs/option719-biscaya.html","title":"BMW Motorrad: R 1300 GS Option 719 comfort equipment","channelName":"BMW Motorrad","language":"en","duration":"","thumbnailUrl":"","fetchedDescription":"The page includes a Play Video area and describes comfort seats, comfort passenger footrests and seat heating.","editorSummary":"Guter OEM-Kandidat für Premium-Konfigurationen: Komfortsitze, Soziuskomfort und Sitzheizung als Ausstattungslogik.","whatToLookFor":["Wie BMW Komfortsitze in Paketen positioniert","Welche Rolle Soziusfußrasten und Sitzheizung spielen","Welche Angaben später in OEM-Sitzoptionen übernommen werden können"],"fitFor":["BMW R 1300 GS","OEM-Komfortpaket","Sitzheizung"],"riskNotes":"Herstellerseite ist keine unabhängige Komfortbewertung; als Datenquelle markieren.","embedPolicy":"Als Quellen-/Video-Kandidat gespeichert; direkte Wiedergabe erst nach verifiziertem YouTube-ID.","links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"oem_context","priority":3}]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    status = EXCLUDED.status,
+    topic = EXCLUDED.topic,
+    provider = EXCLUDED.provider,
+    provider_video_id = EXCLUDED.provider_video_id,
+    provider_url = EXCLUDED.provider_url,
+    embed_url = EXCLUDED.embed_url,
+    source_page_url = EXCLUDED.source_page_url,
+    title = EXCLUDED.title,
+    channel_name = EXCLUDED.channel_name,
+    language_code = EXCLUDED.language_code,
+    duration = EXCLUDED.duration,
+    thumbnail_url = EXCLUDED.thumbnail_url,
+    fetched_description = EXCLUDED.fetched_description,
+    editor_summary = EXCLUDED.editor_summary,
+    what_to_look_for = EXCLUDED.what_to_look_for,
+    fit_for = EXCLUDED.fit_for,
+    risk_notes = EXCLUDED.risk_notes,
+    embed_policy = EXCLUDED.embed_policy,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_video_links (
+      video_key, entity_type, entity_key, usage, priority, notes
+    )
+    VALUES (
+      'bmw-r1300gs-option719-comfort-candidate',
+      'motorcycle_profile',
+      'bmw-r-1300-gs',
+      'oem_context',
+      3,
+      NULL
+    )
+    ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority,
+      notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52,"video_resources":3,"content_video_links":12}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":23,"content_media_links":52,"video_resources":9,"content_video_links":18}'::jsonb);
 COMMIT;

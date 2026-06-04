@@ -4,11 +4,13 @@ import LabDataCard from "../../../components/LabDataCard.astro";
 import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
+import YouTubeVideoCard from "../../../components/YouTubeVideoCard.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
 import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
 import bmwSeatOptions from "../../../data/products/bmw-seat-options.json";
 import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
+import { getVideosForEntity } from "../../../lib/videoResources";
 
 function slugFromPath(path: string) {
   return path.split("/").filter(Boolean).at(-1) ?? "";
@@ -31,6 +33,11 @@ export function getStaticPaths() {
 const { motorcycle, profile } = Astro.props;
 const slug = slugFromPath(motorcycle.path);
 const media = getMediaForEntity("motorcycle_profile", slug, "hero") ?? getMediaForEntity("motorcycle_profile", slug);
+const modelVideos = [
+  ...getVideosForEntity("motorcycle_profile", slug, "review_context"),
+  ...getVideosForEntity("motorcycle_profile", slug, "ergonomics_context"),
+  ...getVideosForEntity("motorcycle_profile", slug, "oem_context"),
+];
 
 const profileLabel: Record<string, string> = {
   sport_touring: "Sport-Touring",
@@ -271,6 +278,22 @@ const bmwGermanyPriority = [
       </div>
     </div>
   </section>
+
+  {modelVideos.length > 0 && (
+    <section class="section alt" id="videos">
+      <div class="page-inner">
+        <p class="eyebrow">Videos und Quellenhinweise</p>
+        <h2>Was du in Videos zu {motorcycle.name} prüfen solltest.</h2>
+        <p class="lead">
+          Diese Videos sind keine Kaufempfehlung. Sie helfen, Sitzhöhe, Sitzhaltung, Komfortoptionen
+          und echte Kritikpunkte für das Modell gezielt zu prüfen.
+        </p>
+        <div class="video-resource-grid">
+          {modelVideos.map((video) => <YouTubeVideoCard video={video} />)}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section" id="naechster-sprint">
     <div class="page-inner grid two">

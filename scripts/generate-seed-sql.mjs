@@ -478,6 +478,7 @@ for (const video of videoResources) {
   const embedUrl = video.youtubeVideoId
     ? `https://www.youtube-nocookie.com/embed/${video.youtubeVideoId}?rel=0&modestbranding=1`
     : null;
+  const providerUrl = video.providerUrl || video.youtubeUrl || video.sourcePageUrl;
   add(`INSERT INTO video_resources (
     key, status, topic, provider, provider_video_id, provider_url, embed_url,
     source_page_url, title, channel_name, language_code, duration, thumbnail_url,
@@ -490,7 +491,7 @@ for (const video of videoResources) {
     ${sqlString(video.topic)},
     'youtube',
     ${sqlString(video.youtubeVideoId)},
-    ${sqlString(video.youtubeUrl)},
+    ${sqlString(providerUrl)},
     ${sqlString(embedUrl)},
     ${sqlString(video.sourcePageUrl)},
     ${sqlString(video.title)},
