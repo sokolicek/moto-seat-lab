@@ -55,11 +55,11 @@ INSERT INTO motorcycles (
     'BMW R 1300 GS',
     'Adventure Touring',
     'Deutschland / DACH',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/bmw-r-1300-gs/',
     'Langstrecke, hohe Sitzbank, Sozius, Zubehörvielfalt',
     'Sehr verbreitete Reisemaschine mit vielen Sitzbankoptionen.',
-    '{"name":"BMW R 1300 GS","brand":"BMW","segment":"Adventure Touring","countryPriority":"Deutschland / DACH","status":"planned","path":"","seatPainFocus":"Langstrecke, hohe Sitzbank, Sozius, Zubehörvielfalt","whyNext":"Sehr verbreitete Reisemaschine mit vielen Sitzbankoptionen.","slug":"bmw-r-1300-gs"}'::jsonb,
+    '{"name":"BMW R 1300 GS","brand":"BMW","segment":"Adventure Touring","countryPriority":"Deutschland / DACH","status":"draft","path":"/de/motorrad-sitzbank/bmw-r-1300-gs/","seatPainFocus":"Langstrecke, hohe Sitzbank, Sozius, Zubehörvielfalt","whyNext":"Sehr verbreitete Reisemaschine mit vielen Sitzbankoptionen.","slug":"bmw-r-1300-gs"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -83,11 +83,11 @@ INSERT INTO motorcycles (
     'BMW R 1250 GS',
     'Adventure Touring',
     'Deutschland / DACH gebraucht',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/bmw-r-1250-gs/',
     'Touring, niedrige/hohe Sitzbank, Komfortsitz, Sattlerumbau',
     'Großer Bestand und viele Erfahrungsberichte.',
-    '{"name":"BMW R 1250 GS","brand":"BMW","segment":"Adventure Touring","countryPriority":"Deutschland / DACH gebraucht","status":"planned","path":"","seatPainFocus":"Touring, niedrige/hohe Sitzbank, Komfortsitz, Sattlerumbau","whyNext":"Großer Bestand und viele Erfahrungsberichte.","slug":"bmw-r-1250-gs"}'::jsonb,
+    '{"name":"BMW R 1250 GS","brand":"BMW","segment":"Adventure Touring","countryPriority":"Deutschland / DACH gebraucht","status":"draft","path":"/de/motorrad-sitzbank/bmw-r-1250-gs/","seatPainFocus":"Touring, niedrige/hohe Sitzbank, Komfortsitz, Sattlerumbau","whyNext":"Großer Bestand und viele Erfahrungsberichte.","slug":"bmw-r-1250-gs"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -111,11 +111,11 @@ INSERT INTO motorcycles (
     'Honda CRF1100L Africa Twin',
     'Adventure / Reiseenduro',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/honda-crf1100l-africa-twin/',
     'Sitzhöhe, Offroad-Bewegung, lange Etappen',
     'Sehr relevant für Reise und Mischbetrieb.',
-    '{"name":"Honda CRF1100L Africa Twin","brand":"Honda","segment":"Adventure / Reiseenduro","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Sitzhöhe, Offroad-Bewegung, lange Etappen","whyNext":"Sehr relevant für Reise und Mischbetrieb.","slug":"honda-crf1100l-africa-twin"}'::jsonb,
+    '{"name":"Honda CRF1100L Africa Twin","brand":"Honda","segment":"Adventure / Reiseenduro","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/honda-crf1100l-africa-twin/","seatPainFocus":"Sitzhöhe, Offroad-Bewegung, lange Etappen","whyNext":"Sehr relevant für Reise und Mischbetrieb.","slug":"honda-crf1100l-africa-twin"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -139,11 +139,11 @@ INSERT INTO motorcycles (
     'Yamaha Tracer 9 / 9 GT',
     'Sport Touring',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/yamaha-tracer-9-9-gt/',
     'Touring-Komfort, Sitzneigung, Winddruck, Sozius',
     'Direkter Nachbar zur GSX-S1000GX Zielgruppe.',
-    '{"name":"Yamaha Tracer 9 / 9 GT","brand":"Yamaha","segment":"Sport Touring","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Touring-Komfort, Sitzneigung, Winddruck, Sozius","whyNext":"Direkter Nachbar zur GSX-S1000GX Zielgruppe.","slug":"yamaha-tracer-9-9-gt"}'::jsonb,
+    '{"name":"Yamaha Tracer 9 / 9 GT","brand":"Yamaha","segment":"Sport Touring","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/yamaha-tracer-9-9-gt/","seatPainFocus":"Touring-Komfort, Sitzneigung, Winddruck, Sozius","whyNext":"Direkter Nachbar zur GSX-S1000GX Zielgruppe.","slug":"yamaha-tracer-9-9-gt"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -167,11 +167,11 @@ INSERT INTO motorcycles (
     'Suzuki V-Strom 1050',
     'Adventure Touring',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/suzuki-v-strom-1050/',
     'Lange Touren, Sitzhöhe, breite Sitzbank, Zubehör',
     'Suzuki-Familie, guter Vergleich zur GSX-S1000GX.',
-    '{"name":"Suzuki V-Strom 1050","brand":"Suzuki","segment":"Adventure Touring","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Lange Touren, Sitzhöhe, breite Sitzbank, Zubehör","whyNext":"Suzuki-Familie, guter Vergleich zur GSX-S1000GX.","slug":"suzuki-v-strom-1050"}'::jsonb,
+    '{"name":"Suzuki V-Strom 1050","brand":"Suzuki","segment":"Adventure Touring","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/suzuki-v-strom-1050/","seatPainFocus":"Lange Touren, Sitzhöhe, breite Sitzbank, Zubehör","whyNext":"Suzuki-Familie, guter Vergleich zur GSX-S1000GX.","slug":"suzuki-v-strom-1050"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -195,11 +195,11 @@ INSERT INTO motorcycles (
     'Kawasaki Versys 1000',
     'Crossover Touring',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/kawasaki-versys-1000/',
     'Touring, Sozius, Sitzbreite, Komfortsitz',
     'Touring-Nutzer mit ähnlicher Sitzbank-Frage.',
-    '{"name":"Kawasaki Versys 1000","brand":"Kawasaki","segment":"Crossover Touring","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Touring, Sozius, Sitzbreite, Komfortsitz","whyNext":"Touring-Nutzer mit ähnlicher Sitzbank-Frage.","slug":"kawasaki-versys-1000"}'::jsonb,
+    '{"name":"Kawasaki Versys 1000","brand":"Kawasaki","segment":"Crossover Touring","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/kawasaki-versys-1000/","seatPainFocus":"Touring, Sozius, Sitzbreite, Komfortsitz","whyNext":"Touring-Nutzer mit ähnlicher Sitzbank-Frage.","slug":"kawasaki-versys-1000"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -223,11 +223,11 @@ INSERT INTO motorcycles (
     'Ducati Multistrada V4',
     'Premium Adventure Touring',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/ducati-multistrada-v4/',
     'Premium-Zubehör, Hitze, lange Touren, Sitzhöhe',
     'Guter Kontrast für hochpreisige OEM/Aftermarket-Lösungen.',
-    '{"name":"Ducati Multistrada V4","brand":"Ducati","segment":"Premium Adventure Touring","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Premium-Zubehör, Hitze, lange Touren, Sitzhöhe","whyNext":"Guter Kontrast für hochpreisige OEM/Aftermarket-Lösungen.","slug":"ducati-multistrada-v4"}'::jsonb,
+    '{"name":"Ducati Multistrada V4","brand":"Ducati","segment":"Premium Adventure Touring","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/ducati-multistrada-v4/","seatPainFocus":"Premium-Zubehör, Hitze, lange Touren, Sitzhöhe","whyNext":"Guter Kontrast für hochpreisige OEM/Aftermarket-Lösungen.","slug":"ducati-multistrada-v4"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET
@@ -251,11 +251,11 @@ INSERT INTO motorcycles (
     'Honda NC750X',
     'Alltag / Crossover',
     'Europa',
-    'planned',
-    NULL,
+    'draft',
+    '/de/motorrad-sitzbank/honda-nc750x/',
     'Pendeln, kurze bis mittlere Touren, Budget-Lösungen',
     'Wichtig für günstigere, alltagstaugliche Empfehlungen.',
-    '{"name":"Honda NC750X","brand":"Honda","segment":"Alltag / Crossover","countryPriority":"Europa","status":"planned","path":"","seatPainFocus":"Pendeln, kurze bis mittlere Touren, Budget-Lösungen","whyNext":"Wichtig für günstigere, alltagstaugliche Empfehlungen.","slug":"honda-nc750x"}'::jsonb,
+    '{"name":"Honda NC750X","brand":"Honda","segment":"Alltag / Crossover","countryPriority":"Europa","status":"draft","path":"/de/motorrad-sitzbank/honda-nc750x/","seatPainFocus":"Pendeln, kurze bis mittlere Touren, Budget-Lösungen","whyNext":"Wichtig für günstigere, alltagstaugliche Empfehlungen.","slug":"honda-nc750x"}'::jsonb,
     now()
   )
   ON CONFLICT (slug) DO UPDATE SET

@@ -8,6 +8,11 @@ import { getMediaForEntity } from "../../../lib/mediaAssets";
 
 const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
 const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status !== "active");
+const statusLabel: Record<string, string> = {
+  active: "aktiv",
+  draft: "Basisprofil",
+  planned: "geplant",
+};
 const slugifyMotorcycleName = (name: string) => name.toLowerCase().replaceAll("/", "").replaceAll(" ", "-");
 const motorcyclesBySlug = new Map(
   motorcycles.map((motorcycle) => {
@@ -87,7 +92,7 @@ const measurementLabel: Record<string, string> = {
       </p>
       <div class="actions">
         <a class="button" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki GSX-S1000GX öffnen</a>
-        <a class="button secondary" href="#geplant">Geplante Modelle ansehen</a>
+        <a class="button secondary" href="#geplant">Basisprofile ansehen</a>
       </div>
     </div>
   </section>
@@ -141,16 +146,16 @@ const measurementLabel: Record<string, string> = {
   <section class="section alt" id="geplant">
     <div class="page-inner">
       <p class="eyebrow">Roadmap</p>
-      <h2>Geplante Motorradmodelle</h2>
+      <h2>Basisprofile für weitere Motorradmodelle</h2>
       <p class="lead">
-        Diese Modelle sind Platzhalter für die nächsten Daten- und Content-Sprints. Reihenfolge und Auswahl
-        können wir nach Nachfrage, Land und Affiliate-Potenzial anpassen.
+        Diese Modelle sind jetzt als Basisprofile klickbar. Sie haben Komfortfokus, technische Messpunkte
+        und erste Entscheidungslogik; konkrete Produktkarten und Preise folgen erst nach Quellenprüfung.
       </p>
       <article class="notice roadmap-note">
-        <h3>Was passiert, wenn du ein geplantes Modell auswählst?</h3>
+        <h3>Was passiert, wenn du ein Basisprofil öffnest?</h3>
         <p>
-          Du siehst den vorbereiteten Fokus und die Gründe für die Priorität. Ein eigener Guide entsteht erst,
-          wenn Quellen, Sitzdaten, Bilder und erste Produktoptionen sauber angelegt sind.
+          Du siehst schon den vorbereiteten Fokus, Risiken und Messpunkte. Ein finaler Guide entsteht erst,
+          wenn Quellen, Sitzdaten, Bilder und erste Produktoptionen sauber geprüft sind.
         </p>
       </article>
       <div class="grid">
@@ -161,7 +166,8 @@ const measurementLabel: Record<string, string> = {
             <p><strong>Segment:</strong> {motorcycle.segment}</p>
             <p><strong>Priorität:</strong> {motorcycle.countryPriority}</p>
             <p><strong>Sitzbank-Fokus:</strong> {motorcycle.seatPainFocus}</p>
-            <span class="badge">geplant</span>
+            <span class="badge">{statusLabel[motorcycle.status] ?? motorcycle.status}</span>
+            {motorcycle.path && <a class="button secondary" href={motorcycle.path}>Basisprofil öffnen</a>}
           </article>
         ))}
       </div>

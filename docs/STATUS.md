@@ -80,6 +80,7 @@ MVP implementation started.
 - Motorcycle selector added to the homepage, motorcycle index, and GSX-S1000GX guide; navigation now clearly points to motorcycle selection.
 - Motorcycle selector now previews active vs planned model status in-place, including segment, comfort focus, and roadmap note for planned models.
 - Database and website expanded with all 9 motorcycle technical profiles, 6 workshop supplies, wider media links for motorcycles/tools/supplies, and a public image gallery at `/de/bilder/`.
+- All non-Suzuki motorcycles now have clickable draft guide pages with baseline comfort profile, measurements, risks, first decision paths, and media.
 
 ## Not Started
 

@@ -1052,6 +1052,13 @@ h3 {
     #fffaf0;
 }
 
+.motorcycle-selector-result.draft {
+  border-color: rgba(18, 107, 115, 0.22);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.12), transparent 45%),
+    #eef9f7;
+}
+
 .muted-line {
   color: var(--color-muted);
   font-size: 0.92rem;

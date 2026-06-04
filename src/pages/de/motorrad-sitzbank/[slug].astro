@@ -1,0 +1,216 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import LabDataCard from "../../../components/LabDataCard.astro";
+import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
+import MotorcycleSelector from "../../../components/MotorcycleSelector.astro";
+import SolutionCard from "../../../components/SolutionCard.astro";
+import motorcycles from "../../../data/motorcycles/de-list.json";
+import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
+import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
+import { getMediaForEntity } from "../../../lib/mediaAssets";
+
+function slugFromPath(path: string) {
+  return path.split("/").filter(Boolean).at(-1) ?? "";
+}
+
+export function getStaticPaths() {
+  return motorcycles
+    .filter((motorcycle) => motorcycle.status !== "active" && motorcycle.path)
+    .map((motorcycle) => ({
+      params: { slug: motorcycle.path.split("/").filter(Boolean).at(-1) ?? "" },
+      props: {
+        motorcycle,
+        profile: technicalProfiles.find(
+          (item) => item.motorcycleSlug === (motorcycle.path.split("/").filter(Boolean).at(-1) ?? "")
+        ),
+      },
+    }));
+}
+
+const { motorcycle, profile } = Astro.props;
+const slug = slugFromPath(motorcycle.path);
+const media = getMediaForEntity("motorcycle_profile", slug);
+
+const profileLabel: Record<string, string> = {
+  sport_touring: "Sport-Touring",
+  country_road: "Landstraße",
+  highway: "Autobahn",
+  weekend_touring: "Wochenende",
+  adventure_touring: "Adventure Touring",
+  two_up: "Sozius",
+  long_distance: "Langstrecke",
+  used_market: "Gebrauchtmarkt",
+  adventure: "Adventure",
+  travel: "Reise",
+  light_offroad: "leichtes Gelände",
+  crossover_touring: "Crossover Touring",
+  premium_adventure_touring: "Premium Adventure Touring",
+  commuting: "Pendeln",
+  city: "Stadt",
+  budget: "Budget",
+};
+
+const riskLabel: Record<string, string> = {
+  pressure_after_60_min: "Druck nach 60 Min.",
+  heat: "Hitze",
+  forward_slide: "Vorrutschen",
+  knee_angle: "Kniewinkel",
+  seat_height: "Sitzhöhe",
+  long_distance_pressure: "Langstreckendruck",
+  passenger_comfort: "Soziuskomfort",
+  accessory_choice_overload: "zu viele Zubehör-Optionen",
+  touring_pressure: "Touring-Druck",
+  wind_pressure: "Winddruck",
+  standing_transition: "Sitzen/Stehen Wechsel",
+  seat_width: "Sitzbreite",
+  short_ride_pressure: "Druck auf kurzen Fahrten",
+  budget_solution_fit: "Budget-Lösung passt nicht",
+};
+
+const measurementLabel: Record<string, string> = {
+  seat_height_mm: "Sitzhöhe",
+  usable_seat_width_sitbone_zone_mm: "nutzbare Breite im Sitzknochenbereich",
+  seat_pan_slope_deg: "Sitzwannenneigung",
+  footpeg_to_seat_vertical_mm: "Fußrasten-Sitz-Höhe",
+  handlebar_reach_mm: "Lenkerreichweite",
+  seat_width_mm: "Sitzbreite",
+  footpeg_position_mm: "Fußrastenposition",
+  seat_options_oem_aftermarket: "OEM/Aftermarket Sitzoptionen",
+  seat_slope_deg: "Sitzneigung",
+  wind_pressure_notes: "Winddruck-Notizen",
+  low_high_seat_positions: "niedrige/hohe Sitzposition",
+  standing_clearance: "Stehfreiheit",
+  passenger_seat_width_mm: "Sozius-Sitzbreite",
+  seat_heat_notes: "Hitze-Notizen",
+  commute_duration_notes: "Pendeldauer-Notizen",
+  budget_solution_options: "Budget-Optionen",
+};
+
+const usage = profile?.usageProfile ?? [];
+const risks = profile?.seatComfortRisks ?? [];
+const measurements = profile?.requiredMeasurements ?? [];
+---
+
+<BaseLayout
+  title={`${motorcycle.name} Sitzbank Komfort: Basisprofil`}
+  description={`Basisprofil für ${motorcycle.name}: typische Sitzbankprobleme, erste Tests, offene Messdaten und nächste Recherche.`}
+  canonicalPath={motorcycle.path}
+>
+  <section class="hero">
+    <div class="page-inner hero-grid">
+      <div>
+        <p class="eyebrow">{motorcycle.brand} · Basisprofil</p>
+        <h1>{motorcycle.name}: Sitzbank-Komfort vorbereiten.</h1>
+        <p class="lead">{motorcycle.seatPainFocus}</p>
+        <div class="spec-strip">
+          <span>{motorcycle.segment}</span>
+          <span>{motorcycle.countryPriority}</span>
+          <span>Status: Basisprofil</span>
+        </div>
+        <div class="actions">
+          <a class="button" href="#messungen">Messungen ansehen</a>
+          <a class="button secondary" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">Suzuki Referenz vergleichen</a>
+        </div>
+      </div>
+      {media && <MediaAssetFigure asset={media} variant="section" />}
+    </div>
+  </section>
+
+  <section class="section compact-nav-section">
+    <div class="page-inner">
+      <MotorcycleSelector currentSlug={slug} compact />
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner grid two">
+      <article class="card">
+        <span class="badge">Warum dieses Modell?</span>
+        <h2>{motorcycle.whyNext}</h2>
+        <p>
+          Dieses Profil ist auf Suzuki-GSX-S1000GX-Niveau als Datenstruktur vorbereitet:
+          Zielgruppe, Komfortfokus, Messpunkte und erste Entscheidungspfade sind vorhanden.
+          Konkrete Produktkarten und Preise fehlen noch.
+        </p>
+      </article>
+      <article class="notice">
+        <h2>Noch kein finales Ranking</h2>
+        <p>
+          Für {motorcycle.name} werden OEM-Zubehör, Aftermarket-Sitze, lokale Sattler und Forumserfahrungen
+          erst nach Quellenprüfung ergänzt.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="messungen">
+    <div class="page-inner">
+      <p class="eyebrow">Technisches Profil</p>
+      <h2>Was wir vor echten Empfehlungen messen müssen.</h2>
+      <div class="grid two">
+        <LabDataCard
+          eyebrow="Nutzung"
+          title="Fahrprofil"
+          summary={usage.map((item) => profileLabel[item] ?? item).join(", ")}
+          badges={["research needed"]}
+          facts={[
+            { label: "Sitzhöhe", value: profile?.seatHeightMm ? `${profile.seatHeightMm} mm` : "noch nicht verifiziert" },
+            { label: "Gewicht nass", value: profile?.wetWeightKg ? `${profile.wetWeightKg} kg` : "noch nicht verifiziert" },
+            { label: "Status", value: profile?.ridingTriangleStatus ?? "research_needed" },
+          ]}
+          detailTitle="Notiz"
+          detailItems={[profile?.notes ?? "Technisches Profil wird noch aufgebaut."]}
+        />
+        <LabDataCard
+          eyebrow="Risiko"
+          title="Typische Komfort-Risiken"
+          summary={risks.map((item) => riskLabel[item] ?? item).join(", ")}
+          badges={["Basisprofil"]}
+          facts={[
+            { label: "Hauptfokus", value: motorcycle.seatPainFocus },
+            { label: "Segment", value: motorcycle.segment },
+          ]}
+          detailTitle="Benötigte Messungen"
+          detailItems={measurements.map((item) => measurementLabel[item] ?? item)}
+          tone="warning"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">Erste Entscheidung</p>
+      <h2>Was du jetzt schon sinnvoll testen kannst.</h2>
+      <div class="decision-strip">
+        <span><strong>Unklare Ursache?</strong> reversible Auflage oder 3D-Mesh testen</span>
+        <span><strong>Langstrecke?</strong> Sitzbreite, Schaumstützung und Rückgabe prüfen</span>
+        <span><strong>Individuelle Schmerzen?</strong> Sattler erst nach Fotos und Messung</span>
+      </div>
+      <div class="grid">
+        {solutionPaths.map((path) => <SolutionCard {...path} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="card">
+        <h2>Nächster Daten-Sprint</h2>
+        <ol class="steps">
+          <li>Offizielle Sitzhöhe, Sitzvarianten und Zubehörseiten prüfen.</li>
+          <li>Forumserfahrungen zu Druck, Hitze, Rutschen und Soziuskomfort sammeln.</li>
+          <li>Produktoptionen mit Quelle, Preisbereich, Rückgabe und Bildrechten anlegen.</li>
+          <li>Erste Vergleichsfahrt gegen Suzuki-GSX-S1000GX-Referenzlogik einordnen.</li>
+        </ol>
+      </article>
+      <article class="notice">
+        <h2>Realistisch bleiben</h2>
+        <p>
+          Dieses Profil hilft beim Start, ersetzt aber noch keine verifizierte Produktrecherche.
+          Es ist bewusst ehrlich markiert, damit keine falsche Kaufempfehlung entsteht.
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

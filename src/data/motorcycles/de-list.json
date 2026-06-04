@@ -14,8 +14,8 @@
     "brand": "BMW",
     "segment": "Adventure Touring",
     "countryPriority": "Deutschland / DACH",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/bmw-r-1300-gs/",
     "seatPainFocus": "Langstrecke, hohe Sitzbank, Sozius, Zubehörvielfalt",
     "whyNext": "Sehr verbreitete Reisemaschine mit vielen Sitzbankoptionen."
   },
@@ -24,8 +24,8 @@
     "brand": "BMW",
     "segment": "Adventure Touring",
     "countryPriority": "Deutschland / DACH gebraucht",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/bmw-r-1250-gs/",
     "seatPainFocus": "Touring, niedrige/hohe Sitzbank, Komfortsitz, Sattlerumbau",
     "whyNext": "Großer Bestand und viele Erfahrungsberichte."
   },
@@ -34,8 +34,8 @@
     "brand": "Honda",
     "segment": "Adventure / Reiseenduro",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/honda-crf1100l-africa-twin/",
     "seatPainFocus": "Sitzhöhe, Offroad-Bewegung, lange Etappen",
     "whyNext": "Sehr relevant für Reise und Mischbetrieb."
   },
@@ -44,8 +44,8 @@
     "brand": "Yamaha",
     "segment": "Sport Touring",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/yamaha-tracer-9-9-gt/",
     "seatPainFocus": "Touring-Komfort, Sitzneigung, Winddruck, Sozius",
     "whyNext": "Direkter Nachbar zur GSX-S1000GX Zielgruppe."
   },
@@ -54,8 +54,8 @@
     "brand": "Suzuki",
     "segment": "Adventure Touring",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/suzuki-v-strom-1050/",
     "seatPainFocus": "Lange Touren, Sitzhöhe, breite Sitzbank, Zubehör",
     "whyNext": "Suzuki-Familie, guter Vergleich zur GSX-S1000GX."
   },
@@ -64,8 +64,8 @@
     "brand": "Kawasaki",
     "segment": "Crossover Touring",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/kawasaki-versys-1000/",
     "seatPainFocus": "Touring, Sozius, Sitzbreite, Komfortsitz",
     "whyNext": "Touring-Nutzer mit ähnlicher Sitzbank-Frage."
   },
@@ -74,8 +74,8 @@
     "brand": "Ducati",
     "segment": "Premium Adventure Touring",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/ducati-multistrada-v4/",
     "seatPainFocus": "Premium-Zubehör, Hitze, lange Touren, Sitzhöhe",
     "whyNext": "Guter Kontrast für hochpreisige OEM/Aftermarket-Lösungen."
   },
@@ -84,8 +84,8 @@
     "brand": "Honda",
     "segment": "Alltag / Crossover",
     "countryPriority": "Europa",
-    "status": "planned",
-    "path": "",
+    "status": "draft",
+    "path": "/de/motorrad-sitzbank/honda-nc750x/",
     "seatPainFocus": "Pendeln, kurze bis mittlere Touren, Budget-Lösungen",
     "whyNext": "Wichtig für günstigere, alltagstaugliche Empfehlungen."
   }

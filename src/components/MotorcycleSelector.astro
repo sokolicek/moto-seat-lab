@@ -28,7 +28,8 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
       <select id="motorcycle-select" name="motorcycle">
         {motorcycles.map((motorcycle) => {
           const slug = slugFromMotorcycle(motorcycle);
-          const enabled = motorcycle.status === "active" && motorcycle.path;
+          const enabled = Boolean(motorcycle.path);
+          const statusLabel = motorcycle.status === "active" ? "" : motorcycle.status === "draft" ? "· Basisprofil" : "· geplant";
           return (
             <option
               value={enabled ? motorcycle.path : `/de/motorrad-sitzbank/#geplant`}
@@ -39,7 +40,7 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
               data-why={motorcycle.whyNext}
               selected={slug === currentSlug}
             >
-              {motorcycle.name} {enabled ? "" : "· geplant"}
+              {motorcycle.name} {statusLabel}
             </option>
           );
         })}
@@ -78,6 +79,18 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
         return;
       }
 
+      if (status === "draft") {
+        result.className = "motorcycle-selector-result draft";
+        result.innerHTML = `
+          <span class="badge">Basisprofil</span>
+          <strong>${name}</strong>
+          <p><strong>${segment}</strong> · ${focus}</p>
+          <p>${why}</p>
+          <p class="muted-line">Öffne den Draft-Guide: Daten, Risiken und erste Messpunkte sind vorbereitet, Produktrecherche ist noch offen.</p>
+        `;
+        return;
+      }
+
       result.className = "motorcycle-selector-result planned";
       result.innerHTML = `
         <span class="badge confidence">Geplant</span>
@@ -96,7 +109,7 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
       const option = select?.selectedOptions[0];
       const status = option?.dataset.status || "planned";
       const target = select?.value || "/de/motorrad-sitzbank/";
-      if (status !== "active") {
+      if (status === "planned") {
         renderSelection();
         if (target.includes("#")) {
           window.location.href = target;
