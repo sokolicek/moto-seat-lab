@@ -4,7 +4,7 @@ import LabDataCard from "../../../components/LabDataCard.astro";
 import MotorcycleSelector from "../../../components/MotorcycleSelector.astro";
 import motorcycles from "../../../data/motorcycles/de-list.json";
 import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
-import { getMediaForEntity } from "../../../lib/mediaAssets";
+import { getMediaForEntityVariants } from "../../../lib/mediaAssets";
 
 const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
 const plannedMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status !== "active");
@@ -20,6 +20,10 @@ const motorcyclesBySlug = new Map(
     return [slug, motorcycle];
   })
 );
+const getMotorcycleMediaOptions = (motorcycleSlug: string) => [
+  ...getMediaForEntityVariants("motorcycle_profile", motorcycleSlug, "hero"),
+  ...getMediaForEntityVariants("motorcycle_profile", motorcycleSlug, "card"),
+];
 
 const profileLabel: Record<string, string> = {
   sport_touring: "Sport-Touring",
@@ -191,7 +195,7 @@ const measurementLabel: Record<string, string> = {
               title={motorcycle?.name ?? profile.motorcycleSlug}
               summary={motorcycle?.seatPainFocus ?? profile.notes}
               badges={profile.usageProfile.map((item) => profileLabel[item] ?? item)}
-              media={getMediaForEntity("motorcycle_profile", profile.motorcycleSlug)}
+              mediaOptions={getMotorcycleMediaOptions(profile.motorcycleSlug)}
               facts={[
                 { label: "Sitzhöhe", value: profile.seatHeightMm ? `${profile.seatHeightMm} mm` : "noch nicht verifiziert" },
                 { label: "Gewicht nass", value: profile.wetWeightKg ? `${profile.wetWeightKg} kg` : "noch nicht verifiziert" },

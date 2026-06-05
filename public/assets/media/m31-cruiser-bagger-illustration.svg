@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Generic cruiser bagger motorcycle illustration</title>
+  <desc id="desc">Project-owned illustration used as a safe stand-in for cruiser and bagger seat-comfort research.</desc>
+  <rect width="1200" height="800" fill="#f6f1e6"/>
+  <path d="M0 575c173-44 337-50 492-18 189 39 376 42 560 6 53-10 102-24 148-42v279H0z" fill="#d9c6a8"/>
+  <g transform="translate(120 165)">
+    <circle cx="210" cy="430" r="104" fill="#101820"/>
+    <circle cx="210" cy="430" r="62" fill="#dce2df"/>
+    <circle cx="830" cy="430" r="104" fill="#101820"/>
+    <circle cx="830" cy="430" r="62" fill="#dce2df"/>
+    <path d="M226 412h250l146-118 188 118" fill="none" stroke="#18222b" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M355 278h310c53 0 98 31 119 79l35 78H451l-81-72H230l62-78z" fill="#24313a" stroke="#101820" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M454 228h250c39 0 70 31 70 70v34H394v-34c0-33 27-60 60-70z" fill="#20252a"/>
+    <path d="M471 219h160c31 0 56 24 58 55H432c8-32 31-51 39-55z" fill="#6f4f3c"/>
+    <path d="M775 283h142c43 0 78 35 78 78v117H832l-39-104z" fill="#1c252d"/>
+    <path d="M170 310h140l-50 88H92z" fill="#e69245"/>
+    <path d="M724 240l83-132" stroke="#18222b" stroke-width="16" stroke-linecap="round"/>
+    <path d="M803 111l83 38" stroke="#18222b" stroke-width="12" stroke-linecap="round"/>
+    <path d="M512 392h174" stroke="#e69245" stroke-width="14" stroke-linecap="round"/>
+    <path d="M492 470h324" stroke="#101820" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <text x="80" y="96" fill="#101820" font-family="Arial, sans-serif" font-size="40" font-weight="700">Cruiser / Bagger Sitzkomfort</text>
+  <text x="80" y="140" fill="#6f786f" font-family="Arial, sans-serif" font-size="24">Illustration, kein Herstellerfoto</text>
+</svg>

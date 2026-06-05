@@ -4290,6 +4290,7 @@ INSERT INTO buying_channels (
     source_data = EXCLUDED.source_data,
     updated_at = now();
 DELETE FROM content_media_links;
+DELETE FROM media_assets;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -4577,7 +4578,7 @@ INSERT INTO media_assets (
     '["card","material","section"]'::jsonb,
     'Use as generic material texture, not as a specific motorcycle-seat cover product.',
     'active',
-    '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"vinyl_leather_cleaner","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"isopropyl_cleaner","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"seam_sealer","usage":"card","priority":2}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
+    '{"key":"leather_sample_commons","title":"Leather material sample","description":"Leather and upholstery material texture for seat-cover discussions.","localPath":"/assets/media/m03-leather.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Cuero_Muestra_material.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Cuero_Muestra_material.JPG","sourceName":"Wikimedia Commons","creator":"Imapar Ltda","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Imapar Ltda, CC BY-SA 3.0, via Wikimedia Commons","alt":"Close-up sample of leather upholstery material","caption":"Cover material affects grip, water behavior, cleaning and heat feeling.","dominantColor":"#6f4f3c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","material","section"],"links":[{"entityType":"seat_material","entityKey":"anti_slip_cover","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"vinyl_leather_cleaner","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"isopropyl_cleaner","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"seam_sealer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"perforated_vinyl_cover","usage":"card","priority":1}],"status":"active","notes":"Use as generic material texture, not as a specific motorcycle-seat cover product."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -4653,6 +4654,18 @@ INSERT INTO content_media_links (
       'seam_sealer',
       'card',
       2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'leather_sample_commons',
+      'seat_material',
+      'perforated_vinyl_cover',
+      'card',
+      1
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -6082,8 +6095,8 @@ INSERT INTO media_assets (
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
     'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
-    'download_pending',
-    '{"key":"kawasaki_versys_1000_commons","title":"Kawasaki Versys 1000","description":"Kawasaki Versys 1000 reference image for crossover touring comfort research.","localPath":"/assets/media/m20-kawasaki-versys-1000.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_Versys_1000_DSCF0396.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Kawasaki_Versys_1000_DSCF0396.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Versys 1000 motorcycle","caption":"The Versys 1000 is a crossover-tourer where legroom, seat width and long stints matter.","dominantColor":"#303b2e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    'active',
+    '{"key":"kawasaki_versys_1000_commons","title":"Kawasaki Versys 1000","description":"Kawasaki Versys 1000 reference image for crossover touring comfort research.","localPath":"/assets/media/m20-kawasaki-versys-1000.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Kawasaki_Versys_1000_DSCF0396.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Kawasaki_Versys_1000_DSCF0396.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Versys 1000 motorcycle","caption":"The Versys 1000 is a crossover-tourer where legroom, seat width and long stints matter.","dominantColor":"#303b2e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"hero","priority":1}],"status":"active","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6160,8 +6173,8 @@ INSERT INTO media_assets (
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
     'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
-    'download_pending',
-    '{"key":"ducati_multistrada_v4_commons","title":"Ducati Multistrada V4 S","description":"Ducati Multistrada V4 S reference image for premium adventure-touring comparison.","localPath":"/assets/media/m21-ducati-multistrada-v4.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourceName":"Wikimedia Commons","creator":"Saggittarius A","licenseName":"Creative Commons Attribution 4.0 International","licenseCode":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons","alt":"Ducati Multistrada V4 S motorcycle","caption":"Premium adventure bikes need separate checks for heat, seat height, rider/passenger seats and OEM comfort packages.","dominantColor":"#5a4a42","aspectRatio":"4 / 5","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    'active',
+    '{"key":"ducati_multistrada_v4_commons","title":"Ducati Multistrada V4 S","description":"Ducati Multistrada V4 S reference image for premium adventure-touring comparison.","localPath":"/assets/media/m21-ducati-multistrada-v4.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Ducati_Multistrada_V4_S_-_EICMA_2024.jpg","sourceName":"Wikimedia Commons","creator":"Saggittarius A","licenseName":"Creative Commons Attribution 4.0 International","licenseCode":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons","alt":"Ducati Multistrada V4 S motorcycle","caption":"Premium adventure bikes need separate checks for heat, seat height, rider/passenger seats and OEM comfort packages.","dominantColor":"#5a4a42","aspectRatio":"4 / 5","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"hero","priority":1}],"status":"active","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6238,8 +6251,8 @@ INSERT INTO media_assets (
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
     'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
-    'download_pending',
-    '{"key":"honda_nc750x_commons","title":"Honda NC750X","description":"Honda NC750X reference image for commuting and practical crossover comfort research.","localPath":"/assets/media/m22-honda-nc750x.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Nc750x.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Nc750x.jpg","sourceName":"Wikimedia Commons","creator":"ウェルワィ","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: ウェルワィ, CC BY 3.0, via Wikimedia Commons","alt":"Honda NC750X motorcycle","caption":"Practical crossover bikes need commuting comfort, medium-distance relief and budget-safe upgrades.","dominantColor":"#51534f","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    'active',
+    '{"key":"honda_nc750x_commons","title":"Honda NC750X","description":"Honda NC750X reference image for commuting and practical crossover comfort research.","localPath":"/assets/media/m22-honda-nc750x.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Nc750x.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Nc750x.jpg","sourceName":"Wikimedia Commons","creator":"ウェルワィ","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: ウェルワィ, CC BY 3.0, via Wikimedia Commons","alt":"Honda NC750X motorcycle","caption":"Practical crossover bikes need commuting comfort, medium-distance relief and budget-safe upgrades.","dominantColor":"#51534f","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"hero","priority":1}],"status":"active","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6316,8 +6329,8 @@ INSERT INTO media_assets (
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
     'License and source verified; activate after local file download succeeds and visual crop is reviewed.',
-    'download_pending',
-    '{"key":"kawasaki_z900_commons","title":"Kawasaki Z900","description":"Kawasaki Z900 reference image for naked-bike comfort and sporty road posture research.","localPath":"/assets/media/m24-kawasaki-z900.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/KawasakiZ900.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:KawasakiZ900.jpg","sourceName":"Wikimedia Commons","creator":"T.doi.z900","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: T.doi.z900, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Z900 motorcycle","caption":"Sporty naked bikes need different seat advice than touring machines: short pressure, sliding and knee angle dominate.","dominantColor":"#313830","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-z900","usage":"hero","priority":1}],"status":"download_pending","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
+    'active',
+    '{"key":"kawasaki_z900_commons","title":"Kawasaki Z900","description":"Kawasaki Z900 reference image for naked-bike comfort and sporty road posture research.","localPath":"/assets/media/m24-kawasaki-z900.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/KawasakiZ900.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:KawasakiZ900.jpg","sourceName":"Wikimedia Commons","creator":"T.doi.z900","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: T.doi.z900, CC BY-SA 4.0, via Wikimedia Commons","alt":"Kawasaki Z900 motorcycle","caption":"Sporty naked bikes need different seat advice than touring machines: short pressure, sliding and knee angle dominate.","dominantColor":"#313830","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"kawasaki-z900","usage":"hero","priority":1}],"status":"active","notes":"License and source verified; activate after local file download succeeds and visual crop is reviewed."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6393,9 +6406,9 @@ INSERT INTO media_assets (
     '1 / 1',
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
-    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
-    'download_pending',
-    '{"key":"honda_forza_350_commons","title":"Honda Forza 350","description":"Honda Forza 350 reference image for scooter and Southeast Asia comfort research.","localPath":"/assets/media/m12-honda-forza-350.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2020_Honda_Forza_350.jpg/621px-2020_Honda_Forza_350.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:2020_Honda_Forza_350.jpg","sourceName":"Wikimedia Commons","creator":"Chanokchon","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons","alt":"Honda Forza 350 scooter","caption":"Scooter seats shift the problem toward heat, commuting, wide seat shape and affordable pads.","dominantColor":"#3c4652","aspectRatio":"1 / 1","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-forza-350","usage":"hero","priority":1}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1.',
+    'active',
+    '{"key":"honda_forza_350_commons","title":"Honda Forza 350","description":"Honda Forza 350 reference image for scooter and Southeast Asia comfort research.","localPath":"/assets/media/m12-honda-forza-350.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/2020_Honda_Forza_350.jpg/621px-2020_Honda_Forza_350.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:2020_Honda_Forza_350.jpg","sourceName":"Wikimedia Commons","creator":"Chanokchon","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Chanokchon, CC BY-SA 4.0, via Wikimedia Commons","alt":"Honda Forza 350 scooter","caption":"Scooter seats shift the problem toward heat, commuting, wide seat shape and affordable pads.","dominantColor":"#3c4652","aspectRatio":"1 / 1","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"honda-forza-350","usage":"hero","priority":1}],"status":"active","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6471,9 +6484,9 @@ INSERT INTO media_assets (
     '4 / 3',
     'center',
     '["material","card","section"]'::jsonb,
-    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds.',
     'download_pending',
-    '{"key":"foam_rubber_swatches_commons","title":"Foam rubber colour swatches","description":"Foam material reference image for seat-material and DIY pages.","localPath":"/assets/media/m13-foam-rubber-swatches.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/20200901_Moosgummi_Farbf%C3%A4cher.jpg/561px-20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourceName":"Wikimedia Commons","creator":"Zinnmann","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Zinnmann, CC BY-SA 3.0, via Wikimedia Commons","alt":"Foam rubber sheets in different colours","caption":"Foam class, density and layer role matter more than colour or marketing names.","dominantColor":"#66704c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","card","section"],"links":[{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    '{"key":"foam_rubber_swatches_commons","title":"Foam rubber colour swatches","description":"Foam material reference image for seat-material and DIY pages.","localPath":"/assets/media/m13-foam-rubber-swatches.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/20200901_Moosgummi_Farbf%C3%A4cher.jpg/561px-20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:20200901_Moosgummi_Farbf%C3%A4cher.jpg","sourceName":"Wikimedia Commons","creator":"Zinnmann","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Zinnmann, CC BY-SA 3.0, via Wikimedia Commons","alt":"Foam rubber sheets in different colours","caption":"Foam class, density and layer role matter more than colour or marketing names.","dominantColor":"#66704c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","card","section"],"links":[{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6573,9 +6586,9 @@ INSERT INTO media_assets (
     '4 / 3',
     'center',
     '["tool","card"]'::jsonb,
-    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
-    'download_pending',
-    '{"key":"staple_gun_tacker_commons","title":"Staple gun tacker","description":"Staple gun reference image for upholstery tool cards.","localPath":"/assets/media/m14-staple-gun.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg","sourceName":"Wikimedia Commons","creator":"Jpquidores","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons","alt":"Red staple gun tacker","caption":"Staple length and seat-pan material matter more than buying the strongest tool.","dominantColor":"#b63f32","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1.',
+    'active',
+    '{"key":"staple_gun_tacker_commons","title":"Staple gun tacker","description":"Staple gun reference image for upholstery tool cards.","localPath":"/assets/media/m14-staple-gun.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg","sourceName":"Wikimedia Commons","creator":"Jpquidores","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons","alt":"Red staple gun tacker","caption":"Staple length and seat-pan material matter more than buying the strongest tool.","dominantColor":"#b63f32","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1}],"status":"active","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6663,9 +6676,9 @@ INSERT INTO media_assets (
     '4 / 3',
     'center',
     '["tool","card","section"]'::jsonb,
-    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally.',
+    'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds.',
     'download_pending',
-    '{"key":"leather_sewing_machine_commons","title":"Leather sewing machine","description":"Leather sewing machine reference image for professional upholstery workflow.","localPath":"/assets/media/m15-leather-sewing-machine.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Leather_sewing_machine_%282021-08-03%29_04.jpg/800px-Leather_sewing_machine_%282021-08-03%29_04.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Leather_sewing_machine_(2021-08-03)_04.jpg","sourceName":"Wikimedia Commons","creator":"Vyacheslav Kirillin","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Vyacheslav Kirillin, CC BY-SA 4.0, via Wikimedia Commons","alt":"Leather sewing machine in a museum display","caption":"Seat-cover sewing is usually a professional step, especially with thick vinyl, seams and piping.","dominantColor":"#4b3f36","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card","section"],"links":[{"entityType":"workshop_tool","entityKey":"industrial_walking_foot_machine","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"bonded_nylon_thread","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."}'::jsonb,
+    '{"key":"leather_sewing_machine_commons","title":"Leather sewing machine","description":"Leather sewing machine reference image for professional upholstery workflow.","localPath":"/assets/media/m15-leather-sewing-machine.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Leather_sewing_machine_%282021-08-03%29_04.jpg/800px-Leather_sewing_machine_%282021-08-03%29_04.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Leather_sewing_machine_(2021-08-03)_04.jpg","sourceName":"Wikimedia Commons","creator":"Vyacheslav Kirillin","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Vyacheslav Kirillin, CC BY-SA 4.0, via Wikimedia Commons","alt":"Leather sewing machine in a museum display","caption":"Seat-cover sewing is usually a professional step, especially with thick vinyl, seams and piping.","dominantColor":"#4b3f36","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card","section"],"links":[{"entityType":"workshop_tool","entityKey":"industrial_walking_foot_machine","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"bonded_nylon_thread","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"card","priority":2}],"status":"download_pending","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6766,8 +6779,8 @@ INSERT INTO media_assets (
     'center',
     '["tool","card"]'::jsonb,
     'Candidate found via Commons search. Activate only after local download and visual crop review.',
-    'download_pending',
-    '{"key":"furriers_staple_gun_commons","title":"Furrier''s staple gun","description":"Public-domain staple-gun style upholstery tool candidate for workshop pages.","localPath":"/assets/media/m16-furriers-staple-gun.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Furrier%27s_staple_gun.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Furrier%27s_staple_gun.jpg","sourceName":"Wikimedia Commons","creator":"Kürschner","licenseName":"Public domain","licenseCode":"PD-user","licenseUrl":"https://commons.wikimedia.org/wiki/Commons:Public_domain","rightsStatus":"public_domain","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Kürschner, public domain, via Wikimedia Commons","alt":"Staple gun style upholstery tool","caption":"A staple tool candidate for explaining cover fixation and tool safety.","dominantColor":"#6d5a44","aspectRatio":"3 / 4","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"hog_ring_pliers","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2}],"status":"download_pending","notes":"Candidate found via Commons search. Activate only after local download and visual crop review."}'::jsonb,
+    'active',
+    '{"key":"furriers_staple_gun_commons","title":"Furrier''s staple gun","description":"Public-domain staple-gun style upholstery tool candidate for workshop pages.","localPath":"/assets/media/m16-furriers-staple-gun.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Furrier%27s_staple_gun.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Furrier%27s_staple_gun.jpg","sourceName":"Wikimedia Commons","creator":"Kürschner","licenseName":"Public domain","licenseCode":"PD-user","licenseUrl":"https://commons.wikimedia.org/wiki/Commons:Public_domain","rightsStatus":"public_domain","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Kürschner, public domain, via Wikimedia Commons","alt":"Staple gun style upholstery tool","caption":"A staple tool candidate for explaining cover fixation and tool safety.","dominantColor":"#6d5a44","aspectRatio":"3 / 4","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"hog_ring_pliers","usage":"related","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2}],"status":"active","notes":"Candidate found via Commons search. Activate only after local download and visual crop review."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6856,8 +6869,8 @@ INSERT INTO media_assets (
     'center',
     '["tool","section"]'::jsonb,
     'Candidate found via Commons search. Verify exact attribution from source page before activation.',
-    'download_pending',
-    '{"key":"hot_wire_foam_cutter_commons","title":"Foam cutter heater wire support","description":"Hot-wire foam cutter reference candidate for advanced foam-shaping content.","localPath":"/assets/media/m17-hot-wire-foam-cutter.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_cutter_heater_wire_support_(top_view).JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_cutter_heater_wire_support_(top_view).JPG","sourceName":"Wikimedia Commons","creator":"Wikimedia Commons contributor","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Wikimedia Commons contributor, CC BY-SA 3.0, via Wikimedia Commons","alt":"Hot wire foam cutter heater wire support","caption":"Advanced foam shaping needs ventilation, test cuts and material-safety checks.","dominantColor":"#5c554c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","section"],"links":[{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"related","priority":2}],"status":"download_pending","notes":"Candidate found via Commons search. Verify exact attribution from source page before activation."}'::jsonb,
+    'active',
+    '{"key":"hot_wire_foam_cutter_commons","title":"Foam cutter heater wire support","description":"Hot-wire foam cutter reference candidate for advanced foam-shaping content.","localPath":"/assets/media/m17-hot-wire-foam-cutter.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_cutter_heater_wire_support_(top_view).JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_cutter_heater_wire_support_(top_view).JPG","sourceName":"Wikimedia Commons","creator":"Wikimedia Commons contributor","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Wikimedia Commons contributor, CC BY-SA 3.0, via Wikimedia Commons","alt":"Hot wire foam cutter heater wire support","caption":"Advanced foam shaping needs ventilation, test cuts and material-safety checks.","dominantColor":"#5c554c","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","section"],"links":[{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"related","priority":2}],"status":"active","notes":"Candidate found via Commons search. Verify exact attribution from source page before activation."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6978,6 +6991,972 @@ INSERT INTO media_assets (
     status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'yamaha_tracer_9_eicma_commons',
+    'Yamaha Tracer 9 at EICMA 2024',
+    'Yamaha Tracer 9 reference image for sport-touring comfort research.',
+    '/assets/media/m25-yamaha-tracer-9.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Yamaha_Tracer_9_-_EICMA_2024.jpg',
+    'https://commons.wikimedia.org/wiki/File:Yamaha_Tracer_9_-_EICMA_2024.jpg',
+    'Wikimedia Commons',
+    'Saggittarius A',
+    'Creative Commons Attribution 4.0 International',
+    'CC BY 4.0',
+    'https://creativecommons.org/licenses/by/4.0/',
+    'usable_with_attribution',
+    true,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons',
+    'Yamaha Tracer 9 motorcycle at EICMA',
+    'The Tracer 9 is a direct sport-touring comparison point for GSX-S1000GX seat comfort.',
+    '#4a4d42',
+    '1 / 1',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"yamaha_tracer_9_eicma_commons","title":"Yamaha Tracer 9 at EICMA 2024","description":"Yamaha Tracer 9 reference image for sport-touring comfort research.","localPath":"/assets/media/m25-yamaha-tracer-9.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Yamaha_Tracer_9_-_EICMA_2024.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Yamaha_Tracer_9_-_EICMA_2024.jpg","sourceName":"Wikimedia Commons","creator":"Saggittarius A","licenseName":"Creative Commons Attribution 4.0 International","licenseCode":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons","alt":"Yamaha Tracer 9 motorcycle at EICMA","caption":"The Tracer 9 is a direct sport-touring comparison point for GSX-S1000GX seat comfort.","dominantColor":"#4a4d42","aspectRatio":"1 / 1","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"yamaha-tracer-9-9-gt","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'yamaha_tracer_9_eicma_commons',
+      'motorcycle_profile',
+      'yamaha-tracer-9-9-gt',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'harley_street_glide_103_commons',
+    'Harley-Davidson Street Glide 103',
+    'Harley-Davidson Street Glide reference image for cruiser and bagger seat comfort research.',
+    '/assets/media/m26-harley-street-glide.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Harley_davidson_street_glide_103.jpg',
+    'https://commons.wikimedia.org/wiki/File:Harley_davidson_street_glide_103.jpg',
+    'Wikimedia Commons',
+    'Harleyrobbio',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Harleyrobbio, CC BY-SA 4.0, via Wikimedia Commons',
+    'Harley-Davidson Street Glide motorcycle parked outdoors',
+    'Cruiser and bagger seats need separate thinking about width, back support and long highway stints.',
+    '#2f3438',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use with visible attribution and avoid implying Harley-Davidson or the creator endorses Moto Seat Lab.',
+    'active',
+    '{"key":"harley_street_glide_103_commons","title":"Harley-Davidson Street Glide 103","description":"Harley-Davidson Street Glide reference image for cruiser and bagger seat comfort research.","localPath":"/assets/media/m26-harley-street-glide.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Harley_davidson_street_glide_103.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Harley_davidson_street_glide_103.jpg","sourceName":"Wikimedia Commons","creator":"Harleyrobbio","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Harleyrobbio, CC BY-SA 4.0, via Wikimedia Commons","alt":"Harley-Davidson Street Glide motorcycle parked outdoors","caption":"Cruiser and bagger seats need separate thinking about width, back support and long highway stints.","dominantColor":"#2f3438","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"harley-davidson-street-glide","usage":"hero","priority":1}],"status":"active","notes":"Use with visible attribution and avoid implying Harley-Davidson or the creator endorses Moto Seat Lab."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'harley_street_glide_103_commons',
+      'motorcycle_profile',
+      'harley-davidson-street-glide',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'vespa_gts_300_white_commons',
+    'Vespa GTS 300 white',
+    'Vespa GTS 300 reference image for scooter seat comfort and urban use.',
+    '/assets/media/m27-vespa-gts-300.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Vespa_GTS_300_white.jpg',
+    'https://commons.wikimedia.org/wiki/File:Vespa_GTS_300_white.jpg',
+    'Wikimedia Commons',
+    'Michael Wahrlich',
+    'Creative Commons CC0 1.0 Universal Public Domain Dedication',
+    'CC0',
+    'https://creativecommons.org/publicdomain/zero/1.0/',
+    'public_domain',
+    false,
+    false,
+    true,
+    true,
+    true,
+    'Photo: Michael Wahrlich, CC0, via Wikimedia Commons',
+    'White Vespa GTS 300 scooter',
+    'Urban scooters have different seat issues: heat, stop-and-go riding, short trips and broad seat shape.',
+    '#d9d5ce',
+    '4 / 3',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Public-domain image; still avoid implying Vespa/Piaggio endorsement.',
+    'active',
+    '{"key":"vespa_gts_300_white_commons","title":"Vespa GTS 300 white","description":"Vespa GTS 300 reference image for scooter seat comfort and urban use.","localPath":"/assets/media/m27-vespa-gts-300.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Vespa_GTS_300_white.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Vespa_GTS_300_white.jpg","sourceName":"Wikimedia Commons","creator":"Michael Wahrlich","licenseName":"Creative Commons CC0 1.0 Universal Public Domain Dedication","licenseCode":"CC0","licenseUrl":"https://creativecommons.org/publicdomain/zero/1.0/","rightsStatus":"public_domain","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Michael Wahrlich, CC0, via Wikimedia Commons","alt":"White Vespa GTS 300 scooter","caption":"Urban scooters have different seat issues: heat, stop-and-go riding, short trips and broad seat shape.","dominantColor":"#d9d5ce","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"vespa-gts-300","usage":"hero","priority":1}],"status":"active","notes":"Public-domain image; still avoid implying Vespa/Piaggio endorsement."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'vespa_gts_300_white_commons',
+      'motorcycle_profile',
+      'vespa-gts-300',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'cfmoto_800mt_project_illustration',
+    'CFMOTO 800MT budget adventure illustration',
+    'Project-owned illustration used when a clean static photo is not yet available.',
+    '/assets/media/m28-cfmoto-800mt-illustration.svg',
+    NULL,
+    '/de/admin/assets/',
+    'Moto Seat Lab',
+    'Moto Seat Lab',
+    'Project-owned illustration',
+    'OWNED',
+    '/de/admin/assets/',
+    'project_owned',
+    false,
+    false,
+    true,
+    true,
+    false,
+    'Illustration: Moto Seat Lab',
+    'Illustration of a budget adventure touring motorcycle',
+    'Illustration only: used until a clean licensed CFMOTO 800MT photo is curated.',
+    '#547062',
+    '3 / 2',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Do not describe as an exact product photo.',
+    'active',
+    '{"key":"cfmoto_800mt_project_illustration","title":"CFMOTO 800MT budget adventure illustration","description":"Project-owned illustration used when a clean static photo is not yet available.","localPath":"/assets/media/m28-cfmoto-800mt-illustration.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration of a budget adventure touring motorcycle","caption":"Illustration only: used until a clean licensed CFMOTO 800MT photo is curated.","dominantColor":"#547062","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"cfmoto-800mt","usage":"hero","priority":1}],"status":"active","notes":"Do not describe as an exact product photo."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'cfmoto_800mt_project_illustration',
+      'motorcycle_profile',
+      'cfmoto-800mt',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'foam_layer_cutaway_project',
+    'Seat foam layer cutaway illustration',
+    'Project-owned illustration for foam-layer and density explanation.',
+    '/assets/media/m29-foam-layer-cutaway.svg',
+    NULL,
+    '/de/diy/#schaumstoffe',
+    'Moto Seat Lab',
+    'Moto Seat Lab',
+    'Project-owned illustration',
+    'OWNED',
+    '/de/admin/assets/',
+    'project_owned',
+    false,
+    false,
+    true,
+    true,
+    false,
+    'Illustration: Moto Seat Lab',
+    'Cutaway illustration of layered motorcycle seat foam',
+    'Support layer, comfort layer and cover should be planned separately.',
+    '#6f8d7f',
+    '3 / 2',
+    'center',
+    '["material","section","card"]'::jsonb,
+    'Generic educational illustration, not a product image.',
+    'active',
+    '{"key":"foam_layer_cutaway_project","title":"Seat foam layer cutaway illustration","description":"Project-owned illustration for foam-layer and density explanation.","localPath":"/assets/media/m29-foam-layer-cutaway.svg","downloadUrl":"","sourcePageUrl":"/de/diy/#schaumstoffe","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Cutaway illustration of layered motorcycle seat foam","caption":"Support layer, comfort layer and cover should be planned separately.","dominantColor":"#6f8d7f","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["material","section","card"],"links":[{"entityType":"seat_material","entityKey":"3d_mesh_spacer_fabric","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"gel_insert","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"ventilation_spacer_fabric","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"waterproof_membrane_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"seat_heating_pad","usage":"card","priority":2}],"status":"active","notes":"Generic educational illustration, not a product image."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      '3d_mesh_spacer_fabric',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'gel_insert',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'pu_comfort_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'memory_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'latex_foam_layer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'eva_closed_cell_foam',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'rebond_foam',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'memory_foam_thin_layer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'ventilation_spacer_fabric',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'waterproof_membrane_layer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'seat_material',
+      'seat_heating_pad',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'upholstery_tools_flatlay_project',
+    'Upholstery tools flatlay illustration',
+    'Project-owned illustration for workshop tools and supplies.',
+    '/assets/media/m30-upholstery-tools-flatlay.svg',
+    NULL,
+    '/de/diy/#werkzeug',
+    'Moto Seat Lab',
+    'Moto Seat Lab',
+    'Project-owned illustration',
+    'OWNED',
+    '/de/admin/assets/',
+    'project_owned',
+    false,
+    false,
+    true,
+    true,
+    false,
+    'Illustration: Moto Seat Lab',
+    'Illustration of staple gun, pliers, adhesive and upholstery supplies',
+    'Tools should be chosen for the seat pan and cover material, not just for raw power.',
+    '#e69245',
+    '3 / 2',
+    'center',
+    '["tool","supply","section","card"]'::jsonb,
+    'Generic educational illustration, not a product image.',
+    'active',
+    '{"key":"upholstery_tools_flatlay_project","title":"Upholstery tools flatlay illustration","description":"Project-owned illustration for workshop tools and supplies.","localPath":"/assets/media/m30-upholstery-tools-flatlay.svg","downloadUrl":"","sourcePageUrl":"/de/diy/#werkzeug","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration of staple gun, pliers, adhesive and upholstery supplies","caption":"Tools should be chosen for the seat pan and cover material, not just for raw power.","dominantColor":"#e69245","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["tool","supply","section","card"],"links":[{"entityType":"workshop_tool","entityKey":"staple_remover","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"foam_knife","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"spray_adhesive","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"measuring_tape_marker","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"heat_gun","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"contour_gauge","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"digital_angle_finder","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"foam_rasp_sanding_block","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"industrial_walking_foot_machine","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"hot_wire_foam_cutter","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"hog_ring_pliers","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"infrared_thermometer","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"waterproof_barrier_film","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"vinyl_leather_cleaner","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"seam_sealer","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"isopropyl_cleaner","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"upholstery_vinyl","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"bonded_nylon_thread","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"hook_loop_straps","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"pattern_paper_transfer_film","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"foam_sample_pack","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"waterproof_seam_tape","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"temporary_test_cover","usage":"card","priority":2}],"status":"active","notes":"Generic educational illustration, not a product image."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'staple_remover',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'electric_stapler',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'foam_knife',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'spray_adhesive',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'measuring_tape_marker',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'heat_gun',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'contour_gauge',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'digital_angle_finder',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'foam_rasp_sanding_block',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'industrial_walking_foot_machine',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'hot_wire_foam_cutter',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'hog_ring_pliers',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_tool',
+      'infrared_thermometer',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'stainless_staples',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'foam_safe_contact_adhesive',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'waterproof_barrier_film',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'vinyl_leather_cleaner',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'seam_sealer',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'isopropyl_cleaner',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'upholstery_vinyl',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'bonded_nylon_thread',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'hook_loop_straps',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'pattern_paper_transfer_film',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'foam_sample_pack',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'waterproof_seam_tape',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'upholstery_tools_flatlay_project',
+      'workshop_supply',
+      'temporary_test_cover',
+      'card',
+      2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'cruiser_bagger_project_illustration',
+    'Cruiser bagger seat-comfort illustration',
+    'Project-owned illustration for Harley-Davidson Street Glide style cruiser and bagger seat research.',
+    '/assets/media/m31-cruiser-bagger-illustration.svg',
+    NULL,
+    '/de/admin/assets/',
+    'Moto Seat Lab',
+    'Moto Seat Lab',
+    'Project-owned illustration',
+    'OWNED',
+    '/de/admin/assets/',
+    'project_owned',
+    false,
+    false,
+    true,
+    true,
+    false,
+    'Illustration: Moto Seat Lab',
+    'Illustration of a cruiser bagger motorcycle',
+    'Illustration only: cruiser seats need width, back support and highway comfort checks.',
+    '#2f3438',
+    '3 / 2',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use as a safe stand-in until the Commons Harley photo can be downloaded and reviewed.',
+    'active',
+    '{"key":"cruiser_bagger_project_illustration","title":"Cruiser bagger seat-comfort illustration","description":"Project-owned illustration for Harley-Davidson Street Glide style cruiser and bagger seat research.","localPath":"/assets/media/m31-cruiser-bagger-illustration.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration of a cruiser bagger motorcycle","caption":"Illustration only: cruiser seats need width, back support and highway comfort checks.","dominantColor":"#2f3438","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"harley-davidson-street-glide","usage":"hero","priority":1}],"status":"active","notes":"Use as a safe stand-in until the Commons Harley photo can be downloaded and reviewed."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'cruiser_bagger_project_illustration',
+      'motorcycle_profile',
+      'harley-davidson-street-glide',
+      'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 DELETE FROM content_video_links;
 DELETE FROM video_resources;
 INSERT INTO video_resources (
@@ -7939,5 +8918,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":30,"content_media_links":59,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":37,"content_media_links":102,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

@@ -23,13 +23,42 @@
     "dominantColor": "#4b4037",
     "aspectRatio": "3 / 2",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "buying"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "buying"
+    ],
     "links": [
-      { "entityType": "buying_channel", "entityKey": "local_upholsterer_de", "usage": "card", "priority": 1 },
-      { "entityType": "product_category", "entityKey": "aftermarket_seat", "usage": "card", "priority": 1 },
-      { "entityType": "workshop_tool", "entityKey": "staple_remover", "usage": "card", "priority": 2 },
-      { "entityType": "workshop_tool", "entityKey": "electric_stapler", "usage": "card", "priority": 2 },
-      { "entityType": "workshop_supply", "entityKey": "stainless_staples", "usage": "card", "priority": 2 }
+      {
+        "entityType": "buying_channel",
+        "entityKey": "local_upholsterer_de",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "aftermarket_seat",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "staple_remover",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "electric_stapler",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "stainless_staples",
+        "usage": "card",
+        "priority": 2
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution on pages where the image appears."
@@ -58,13 +87,42 @@
     "dominantColor": "#202125",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "touring"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "touring"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1300-gs", "usage": "card", "priority": 3 },
-      { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1250-gs", "usage": "card", "priority": 3 },
-      { "entityType": "motorcycle_profile", "entityKey": "suzuki-v-strom-1050", "usage": "card", "priority": 3 },
-      { "entityType": "motorcycle_profile", "entityKey": "kawasaki-versys-1000", "usage": "card", "priority": 3 },
-      { "entityType": "solution_path", "entityKey": "upholsterer_rebuild", "usage": "section", "priority": 2 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "bmw-r-1300-gs",
+        "usage": "card",
+        "priority": 3
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "bmw-r-1250-gs",
+        "usage": "card",
+        "priority": 3
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "suzuki-v-strom-1050",
+        "usage": "card",
+        "priority": 3
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "kawasaki-versys-1000",
+        "usage": "card",
+        "priority": 3
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "upholsterer_rebuild",
+        "usage": "section",
+        "priority": 2
+      }
     ],
     "status": "active",
     "notes": "Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."
@@ -93,12 +151,42 @@
     "dominantColor": "#6f4f3c",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "material", "section"],
+    "recommendedUsage": [
+      "card",
+      "material",
+      "section"
+    ],
     "links": [
-      { "entityType": "seat_material", "entityKey": "anti_slip_cover", "usage": "card", "priority": 1 },
-      { "entityType": "workshop_supply", "entityKey": "vinyl_leather_cleaner", "usage": "card", "priority": 1 },
-      { "entityType": "workshop_supply", "entityKey": "isopropyl_cleaner", "usage": "card", "priority": 2 },
-      { "entityType": "workshop_supply", "entityKey": "seam_sealer", "usage": "card", "priority": 2 }
+      {
+        "entityType": "seat_material",
+        "entityKey": "anti_slip_cover",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "vinyl_leather_cleaner",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "isopropyl_cleaner",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "seam_sealer",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "perforated_vinyl_cover",
+        "usage": "card",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use as generic material texture, not as a specific motorcycle-seat cover product."
@@ -127,12 +215,36 @@
     "dominantColor": "#26352f",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["hero", "section", "touring"],
+    "recommendedUsage": [
+      "hero",
+      "section",
+      "touring"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "suzuki-gsx-s1000gx", "usage": "hero", "priority": 2 },
-      { "entityType": "motorcycle_profile", "entityKey": "suzuki-gsx-s1000gx", "usage": "card", "priority": 2 },
-      { "entityType": "motorcycle_profile", "entityKey": "yamaha-tracer-9-9-gt", "usage": "card", "priority": 2 },
-      { "entityType": "motorcycle_profile", "entityKey": "honda-nc750x", "usage": "card", "priority": 2 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "suzuki-gsx-s1000gx",
+        "usage": "hero",
+        "priority": 2
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "suzuki-gsx-s1000gx",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "yamaha-tracer-9-9-gt",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "honda-nc750x",
+        "usage": "card",
+        "priority": 2
+      }
     ],
     "status": "active",
     "notes": "Attribution is not required by Pexels, but the credit line can be shown in an asset register."
@@ -161,13 +273,42 @@
     "dominantColor": "#8d8170",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["hero", "section", "touring"],
+    "recommendedUsage": [
+      "hero",
+      "section",
+      "touring"
+    ],
     "links": [
-      { "entityType": "solution_path", "entityKey": "premium_touring_seat", "usage": "section", "priority": 2 },
-      { "entityType": "motorcycle_profile", "entityKey": "honda-crf1100l-africa-twin", "usage": "card", "priority": 2 },
-      { "entityType": "motorcycle_profile", "entityKey": "ducati-multistrada-v4", "usage": "card", "priority": 2 },
-      { "entityType": "workshop_supply", "entityKey": "waterproof_barrier_film", "usage": "card", "priority": 3 },
-      { "entityType": "workshop_supply", "entityKey": "foam_safe_contact_adhesive", "usage": "card", "priority": 3 }
+      {
+        "entityType": "solution_path",
+        "entityKey": "premium_touring_seat",
+        "usage": "section",
+        "priority": 2
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "honda-crf1100l-africa-twin",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "ducati-multistrada-v4",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "waterproof_barrier_film",
+        "usage": "card",
+        "priority": 3
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "foam_safe_contact_adhesive",
+        "usage": "card",
+        "priority": 3
+      }
     ],
     "status": "active",
     "notes": "Do not use in a way that implies the photographer endorses the site."
@@ -196,9 +337,17 @@
     "dominantColor": "#202125",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["product", "card"],
+    "recommendedUsage": [
+      "product",
+      "card"
+    ],
     "links": [
-      { "entityType": "seat_option", "entityKey": "suzuki-premium-seat-de", "usage": "planned_product_image", "priority": 1 }
+      {
+        "entityType": "seat_option",
+        "entityKey": "suzuki-premium-seat-de",
+        "usage": "planned_product_image",
+        "priority": 1
+      }
     ],
     "status": "permission_needed",
     "notes": "Use only after written permission, press-kit terms, or an affiliate/product API license is documented."
@@ -227,9 +376,17 @@
     "dominantColor": "#202125",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["product", "card"],
+    "recommendedUsage": [
+      "product",
+      "card"
+    ],
     "links": [
-      { "entityType": "seat_option", "entityKey": "sargent-world-sport-front", "usage": "planned_product_image", "priority": 1 }
+      {
+        "entityType": "seat_option",
+        "entityKey": "sargent-world-sport-front",
+        "usage": "planned_product_image",
+        "priority": 1
+      }
     ],
     "status": "permission_needed",
     "notes": "Use only after written permission, press-kit terms, or an affiliate/product API license is documented."
@@ -258,11 +415,30 @@
     "dominantColor": "#293039",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1300-gs", "usage": "hero", "priority": 1 },
-      { "entityType": "seat_option", "entityKey": "wunderlich-aktivkomfort-r1300gs", "usage": "context", "priority": 2 },
-      { "entityType": "seat_option", "entityKey": "touratech-fresh-touch-r1300gs", "usage": "context", "priority": 2 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "bmw-r-1300-gs",
+        "usage": "hero",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_option",
+        "entityKey": "wunderlich-aktivkomfort-r1300gs",
+        "usage": "context",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_option",
+        "entityKey": "touratech-fresh-touch-r1300gs",
+        "usage": "context",
+        "priority": 2
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab."
@@ -291,11 +467,30 @@
     "dominantColor": "#31332f",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "bmw-r-1250-gs", "usage": "hero", "priority": 1 },
-      { "entityType": "seat_option", "entityKey": "sargent-world-sport-bmw-gs", "usage": "context", "priority": 2 },
-      { "entityType": "seat_option", "entityKey": "bmw-fast-relief-seat-pad", "usage": "context", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "bmw-r-1250-gs",
+        "usage": "hero",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_option",
+        "entityKey": "sargent-world-sport-bmw-gs",
+        "usage": "context",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_option",
+        "entityKey": "bmw-fast-relief-seat-pad",
+        "usage": "context",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying BMW or the photographer endorses Moto Seat Lab."
@@ -324,10 +519,24 @@
     "dominantColor": "#24443e",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["product", "card", "quick_relief"],
+    "recommendedUsage": [
+      "product",
+      "card",
+      "quick_relief"
+    ],
     "links": [
-      { "entityType": "seat_option", "entityKey": "bmw-fast-relief-seat-pad", "usage": "product", "priority": 1 },
-      { "entityType": "product_category", "entityKey": "mesh_or_air_pad", "usage": "card", "priority": 1 }
+      {
+        "entityType": "seat_option",
+        "entityKey": "bmw-fast-relief-seat-pad",
+        "usage": "product",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "mesh_or_air_pad",
+        "usage": "card",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use as a generic category illustration, not as a specific manufacturer product image."
@@ -356,9 +565,17 @@
     "dominantColor": "#202125",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["product", "card"],
+    "recommendedUsage": [
+      "product",
+      "card"
+    ],
     "links": [
-      { "entityType": "seat_option", "entityKey": "wunderlich-aktivkomfort-r1300gs", "usage": "planned_product_image", "priority": 1 }
+      {
+        "entityType": "seat_option",
+        "entityKey": "wunderlich-aktivkomfort-r1300gs",
+        "usage": "planned_product_image",
+        "priority": 1
+      }
     ],
     "status": "permission_needed",
     "notes": "Use only after written permission, press-kit terms, or an affiliate/product API license is documented."
@@ -387,9 +604,17 @@
     "dominantColor": "#202125",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["product", "card"],
+    "recommendedUsage": [
+      "product",
+      "card"
+    ],
     "links": [
-      { "entityType": "seat_option", "entityKey": "touratech-fresh-touch-r1300gs", "usage": "planned_product_image", "priority": 1 }
+      {
+        "entityType": "seat_option",
+        "entityKey": "touratech-fresh-touch-r1300gs",
+        "usage": "planned_product_image",
+        "priority": 1
+      }
     ],
     "status": "permission_needed",
     "notes": "Use only after written permission, press-kit terms, or an affiliate/product API license is documented."
@@ -418,9 +643,18 @@
     "dominantColor": "#2d2f2b",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "ktm-1290-super-adventure", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "ktm-1290-super-adventure",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying KTM or the creator endorses Moto Seat Lab."
@@ -449,9 +683,18 @@
     "dominantColor": "#42433c",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "triumph-tiger-1200-rally-pro", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "triumph-tiger-1200-rally-pro",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying Triumph or the creator endorses Moto Seat Lab."
@@ -480,9 +723,18 @@
     "dominantColor": "#4a4940",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "moto-guzzi-v85-tt", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "moto-guzzi-v85-tt",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying Moto Guzzi or the creator endorses Moto Seat Lab."
@@ -511,9 +763,18 @@
     "dominantColor": "#555043",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "royal-enfield-himalayan", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "royal-enfield-himalayan",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "CC0 asset; credit can still be shown in the asset register as courtesy."
@@ -542,9 +803,18 @@
     "dominantColor": "#4b4d43",
     "aspectRatio": "1 / 1",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "honda-crf1100l-africa-twin", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "honda-crf1100l-africa-twin",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying Honda or the creator endorses Moto Seat Lab."
@@ -573,9 +843,18 @@
     "dominantColor": "#46433d",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "suzuki-v-strom-1050", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "suzuki-v-strom-1050",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying Suzuki or the creator endorses Moto Seat Lab."
@@ -604,9 +883,18 @@
     "dominantColor": "#34332e",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
     "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "yamaha-mt-07", "usage": "hero", "priority": 1 }
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "yamaha-mt-07",
+        "usage": "hero",
+        "priority": 1
+      }
     ],
     "status": "active",
     "notes": "Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab."
@@ -635,11 +923,20 @@
     "dominantColor": "#303b2e",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
-    "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "kawasaki-versys-1000", "usage": "hero", "priority": 1 }
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "kawasaki-versys-1000",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
     "notes": "License and source verified; activate after local file download succeeds and visual crop is reviewed."
   },
   {
@@ -666,11 +963,20 @@
     "dominantColor": "#5a4a42",
     "aspectRatio": "4 / 5",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
-    "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "ducati-multistrada-v4", "usage": "hero", "priority": 1 }
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "ducati-multistrada-v4",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
     "notes": "License and source verified; activate after local file download succeeds and visual crop is reviewed."
   },
   {
@@ -697,11 +1003,20 @@
     "dominantColor": "#51534f",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
-    "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "honda-nc750x", "usage": "hero", "priority": 1 }
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "honda-nc750x",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
     "notes": "License and source verified; activate after local file download succeeds and visual crop is reviewed."
   },
   {
@@ -728,11 +1043,20 @@
     "dominantColor": "#313830",
     "aspectRatio": "3 / 2",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
-    "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "kawasaki-z900", "usage": "hero", "priority": 1 }
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "kawasaki-z900",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
     "notes": "License and source verified; activate after local file download succeeds and visual crop is reviewed."
   },
   {
@@ -759,12 +1083,21 @@
     "dominantColor": "#3c4652",
     "aspectRatio": "1 / 1",
     "objectPosition": "center",
-    "recommendedUsage": ["card", "section", "motorcycle_profile"],
-    "links": [
-      { "entityType": "motorcycle_profile", "entityKey": "honda-forza-350", "usage": "hero", "priority": 1 }
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
     ],
-    "status": "download_pending",
-    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "honda-forza-350",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."
   },
   {
     "key": "foam_rubber_swatches_commons",
@@ -790,14 +1123,33 @@
     "dominantColor": "#66704c",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["material", "card", "section"],
+    "recommendedUsage": [
+      "material",
+      "card",
+      "section"
+    ],
     "links": [
-      { "entityType": "seat_material", "entityKey": "eva_closed_cell_foam", "usage": "card", "priority": 1 },
-      { "entityType": "seat_material", "entityKey": "rebond_foam", "usage": "card", "priority": 2 },
-      { "entityType": "seat_material", "entityKey": "latex_foam_layer", "usage": "card", "priority": 2 }
+      {
+        "entityType": "seat_material",
+        "entityKey": "eva_closed_cell_foam",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "rebond_foam",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "latex_foam_layer",
+        "usage": "card",
+        "priority": 2
+      }
     ],
     "status": "download_pending",
-    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."
+    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds."
   },
   {
     "key": "staple_gun_tacker_commons",
@@ -823,13 +1175,26 @@
     "dominantColor": "#b63f32",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["tool", "card"],
-    "links": [
-      { "entityType": "workshop_tool", "entityKey": "electric_stapler", "usage": "card", "priority": 1 },
-      { "entityType": "workshop_supply", "entityKey": "stainless_staples", "usage": "card", "priority": 1 }
+    "recommendedUsage": [
+      "tool",
+      "card"
     ],
-    "status": "download_pending",
-    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."
+    "links": [
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "electric_stapler",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "stainless_staples",
+        "usage": "card",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."
   },
   {
     "key": "leather_sewing_machine_commons",
@@ -855,14 +1220,33 @@
     "dominantColor": "#4b3f36",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["tool", "card", "section"],
+    "recommendedUsage": [
+      "tool",
+      "card",
+      "section"
+    ],
     "links": [
-      { "entityType": "workshop_tool", "entityKey": "industrial_walking_foot_machine", "usage": "card", "priority": 1 },
-      { "entityType": "workshop_supply", "entityKey": "bonded_nylon_thread", "usage": "card", "priority": 2 },
-      { "entityType": "workshop_supply", "entityKey": "upholstery_vinyl", "usage": "card", "priority": 2 }
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "industrial_walking_foot_machine",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "bonded_nylon_thread",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "upholstery_vinyl",
+        "usage": "card",
+        "priority": 2
+      }
     ],
     "status": "download_pending",
-    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Activate only after the file exists locally."
+    "notes": "Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1. Local file missing; not rendered until download succeeds."
   },
   {
     "key": "furriers_staple_gun_commons",
@@ -888,12 +1272,25 @@
     "dominantColor": "#6d5a44",
     "aspectRatio": "3 / 4",
     "objectPosition": "center",
-    "recommendedUsage": ["tool", "card"],
-    "links": [
-      { "entityType": "workshop_tool", "entityKey": "hog_ring_pliers", "usage": "related", "priority": 2 },
-      { "entityType": "workshop_tool", "entityKey": "electric_stapler", "usage": "card", "priority": 2 }
+    "recommendedUsage": [
+      "tool",
+      "card"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "hog_ring_pliers",
+        "usage": "related",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "electric_stapler",
+        "usage": "card",
+        "priority": 2
+      }
+    ],
+    "status": "active",
     "notes": "Candidate found via Commons search. Activate only after local download and visual crop review."
   },
   {
@@ -920,12 +1317,25 @@
     "dominantColor": "#5c554c",
     "aspectRatio": "4 / 3",
     "objectPosition": "center",
-    "recommendedUsage": ["tool", "section"],
-    "links": [
-      { "entityType": "workshop_tool", "entityKey": "hot_wire_foam_cutter", "usage": "card", "priority": 1 },
-      { "entityType": "seat_material", "entityKey": "eva_closed_cell_foam", "usage": "related", "priority": 2 }
+    "recommendedUsage": [
+      "tool",
+      "section"
     ],
-    "status": "download_pending",
+    "links": [
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "hot_wire_foam_cutter",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "eva_closed_cell_foam",
+        "usage": "related",
+        "priority": 2
+      }
+    ],
+    "status": "active",
     "notes": "Candidate found via Commons search. Verify exact attribution from source page before activation."
   },
   {
@@ -952,9 +1362,502 @@
     "dominantColor": "#f5f1e8",
     "aspectRatio": "16 / 9",
     "objectPosition": "center",
-    "recommendedUsage": ["research_source"],
+    "recommendedUsage": [
+      "research_source"
+    ],
     "links": [],
     "status": "source_only",
     "notes": "Do not render as an image. Use this category to find future seat-specific images with per-file license review."
+  },
+  {
+    "key": "yamaha_tracer_9_eicma_commons",
+    "title": "Yamaha Tracer 9 at EICMA 2024",
+    "description": "Yamaha Tracer 9 reference image for sport-touring comfort research.",
+    "localPath": "/assets/media/m25-yamaha-tracer-9.jpg",
+    "downloadUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Yamaha_Tracer_9_-_EICMA_2024.jpg",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Yamaha_Tracer_9_-_EICMA_2024.jpg",
+    "sourceName": "Wikimedia Commons",
+    "creator": "Saggittarius A",
+    "licenseName": "Creative Commons Attribution 4.0 International",
+    "licenseCode": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "rightsStatus": "usable_with_attribution",
+    "attributionRequired": true,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": true,
+    "creditLine": "Photo: Saggittarius A, CC BY 4.0, via Wikimedia Commons",
+    "alt": "Yamaha Tracer 9 motorcycle at EICMA",
+    "caption": "The Tracer 9 is a direct sport-touring comparison point for GSX-S1000GX seat comfort.",
+    "dominantColor": "#4a4d42",
+    "aspectRatio": "1 / 1",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "yamaha-tracer-9-9-gt",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Use with visible attribution and avoid implying Yamaha or the creator endorses Moto Seat Lab."
+  },
+  {
+    "key": "harley_street_glide_103_commons",
+    "title": "Harley-Davidson Street Glide 103",
+    "description": "Harley-Davidson Street Glide reference image for cruiser and bagger seat comfort research.",
+    "localPath": "/assets/media/m26-harley-street-glide.jpg",
+    "downloadUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Harley_davidson_street_glide_103.jpg",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Harley_davidson_street_glide_103.jpg",
+    "sourceName": "Wikimedia Commons",
+    "creator": "Harleyrobbio",
+    "licenseName": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "licenseCode": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "rightsStatus": "usable_with_attribution_sharealike",
+    "attributionRequired": true,
+    "shareAlikeRequired": true,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": true,
+    "creditLine": "Photo: Harleyrobbio, CC BY-SA 4.0, via Wikimedia Commons",
+    "alt": "Harley-Davidson Street Glide motorcycle parked outdoors",
+    "caption": "Cruiser and bagger seats need separate thinking about width, back support and long highway stints.",
+    "dominantColor": "#2f3438",
+    "aspectRatio": "4 / 3",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "harley-davidson-street-glide",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Use with visible attribution and avoid implying Harley-Davidson or the creator endorses Moto Seat Lab."
+  },
+  {
+    "key": "vespa_gts_300_white_commons",
+    "title": "Vespa GTS 300 white",
+    "description": "Vespa GTS 300 reference image for scooter seat comfort and urban use.",
+    "localPath": "/assets/media/m27-vespa-gts-300.jpg",
+    "downloadUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vespa_GTS_300_white.jpg",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Vespa_GTS_300_white.jpg",
+    "sourceName": "Wikimedia Commons",
+    "creator": "Michael Wahrlich",
+    "licenseName": "Creative Commons CC0 1.0 Universal Public Domain Dedication",
+    "licenseCode": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "rightsStatus": "public_domain",
+    "attributionRequired": false,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": true,
+    "creditLine": "Photo: Michael Wahrlich, CC0, via Wikimedia Commons",
+    "alt": "White Vespa GTS 300 scooter",
+    "caption": "Urban scooters have different seat issues: heat, stop-and-go riding, short trips and broad seat shape.",
+    "dominantColor": "#d9d5ce",
+    "aspectRatio": "4 / 3",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "vespa-gts-300",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Public-domain image; still avoid implying Vespa/Piaggio endorsement."
+  },
+  {
+    "key": "cfmoto_800mt_project_illustration",
+    "title": "CFMOTO 800MT budget adventure illustration",
+    "description": "Project-owned illustration used when a clean static photo is not yet available.",
+    "localPath": "/assets/media/m28-cfmoto-800mt-illustration.svg",
+    "downloadUrl": "",
+    "sourcePageUrl": "/de/admin/assets/",
+    "sourceName": "Moto Seat Lab",
+    "creator": "Moto Seat Lab",
+    "licenseName": "Project-owned illustration",
+    "licenseCode": "OWNED",
+    "licenseUrl": "/de/admin/assets/",
+    "rightsStatus": "project_owned",
+    "attributionRequired": false,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": false,
+    "creditLine": "Illustration: Moto Seat Lab",
+    "alt": "Illustration of a budget adventure touring motorcycle",
+    "caption": "Illustration only: used until a clean licensed CFMOTO 800MT photo is curated.",
+    "dominantColor": "#547062",
+    "aspectRatio": "3 / 2",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "cfmoto-800mt",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Do not describe as an exact product photo."
+  },
+  {
+    "key": "foam_layer_cutaway_project",
+    "title": "Seat foam layer cutaway illustration",
+    "description": "Project-owned illustration for foam-layer and density explanation.",
+    "localPath": "/assets/media/m29-foam-layer-cutaway.svg",
+    "downloadUrl": "",
+    "sourcePageUrl": "/de/diy/#schaumstoffe",
+    "sourceName": "Moto Seat Lab",
+    "creator": "Moto Seat Lab",
+    "licenseName": "Project-owned illustration",
+    "licenseCode": "OWNED",
+    "licenseUrl": "/de/admin/assets/",
+    "rightsStatus": "project_owned",
+    "attributionRequired": false,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": false,
+    "creditLine": "Illustration: Moto Seat Lab",
+    "alt": "Cutaway illustration of layered motorcycle seat foam",
+    "caption": "Support layer, comfort layer and cover should be planned separately.",
+    "dominantColor": "#6f8d7f",
+    "aspectRatio": "3 / 2",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "material",
+      "section",
+      "card"
+    ],
+    "links": [
+      {
+        "entityType": "seat_material",
+        "entityKey": "3d_mesh_spacer_fabric",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "gel_insert",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "pu_comfort_foam",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "memory_foam",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "latex_foam_layer",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "eva_closed_cell_foam",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "rebond_foam",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "memory_foam_thin_layer",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "ventilation_spacer_fabric",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "waterproof_membrane_layer",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "seat_material",
+        "entityKey": "seat_heating_pad",
+        "usage": "card",
+        "priority": 2
+      }
+    ],
+    "status": "active",
+    "notes": "Generic educational illustration, not a product image."
+  },
+  {
+    "key": "upholstery_tools_flatlay_project",
+    "title": "Upholstery tools flatlay illustration",
+    "description": "Project-owned illustration for workshop tools and supplies.",
+    "localPath": "/assets/media/m30-upholstery-tools-flatlay.svg",
+    "downloadUrl": "",
+    "sourcePageUrl": "/de/diy/#werkzeug",
+    "sourceName": "Moto Seat Lab",
+    "creator": "Moto Seat Lab",
+    "licenseName": "Project-owned illustration",
+    "licenseCode": "OWNED",
+    "licenseUrl": "/de/admin/assets/",
+    "rightsStatus": "project_owned",
+    "attributionRequired": false,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": false,
+    "creditLine": "Illustration: Moto Seat Lab",
+    "alt": "Illustration of staple gun, pliers, adhesive and upholstery supplies",
+    "caption": "Tools should be chosen for the seat pan and cover material, not just for raw power.",
+    "dominantColor": "#e69245",
+    "aspectRatio": "3 / 2",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "tool",
+      "supply",
+      "section",
+      "card"
+    ],
+    "links": [
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "staple_remover",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "electric_stapler",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "foam_knife",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "spray_adhesive",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "measuring_tape_marker",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "heat_gun",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "contour_gauge",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "digital_angle_finder",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "foam_rasp_sanding_block",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "industrial_walking_foot_machine",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "hot_wire_foam_cutter",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "hog_ring_pliers",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_tool",
+        "entityKey": "infrared_thermometer",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "stainless_staples",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "foam_safe_contact_adhesive",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "waterproof_barrier_film",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "vinyl_leather_cleaner",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "seam_sealer",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "isopropyl_cleaner",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "upholstery_vinyl",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "bonded_nylon_thread",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "hook_loop_straps",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "pattern_paper_transfer_film",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "foam_sample_pack",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "waterproof_seam_tape",
+        "usage": "card",
+        "priority": 2
+      },
+      {
+        "entityType": "workshop_supply",
+        "entityKey": "temporary_test_cover",
+        "usage": "card",
+        "priority": 2
+      }
+    ],
+    "status": "active",
+    "notes": "Generic educational illustration, not a product image."
+  },
+  {
+    "key": "cruiser_bagger_project_illustration",
+    "title": "Cruiser bagger seat-comfort illustration",
+    "description": "Project-owned illustration for Harley-Davidson Street Glide style cruiser and bagger seat research.",
+    "localPath": "/assets/media/m31-cruiser-bagger-illustration.svg",
+    "downloadUrl": "",
+    "sourcePageUrl": "/de/admin/assets/",
+    "sourceName": "Moto Seat Lab",
+    "creator": "Moto Seat Lab",
+    "licenseName": "Project-owned illustration",
+    "licenseCode": "OWNED",
+    "licenseUrl": "/de/admin/assets/",
+    "rightsStatus": "project_owned",
+    "attributionRequired": false,
+    "shareAlikeRequired": false,
+    "modificationAllowed": true,
+    "commercialUseAllowed": true,
+    "endorsementWarning": false,
+    "creditLine": "Illustration: Moto Seat Lab",
+    "alt": "Illustration of a cruiser bagger motorcycle",
+    "caption": "Illustration only: cruiser seats need width, back support and highway comfort checks.",
+    "dominantColor": "#2f3438",
+    "aspectRatio": "3 / 2",
+    "objectPosition": "center",
+    "recommendedUsage": [
+      "card",
+      "section",
+      "motorcycle_profile"
+    ],
+    "links": [
+      {
+        "entityType": "motorcycle_profile",
+        "entityKey": "harley-davidson-street-glide",
+        "usage": "hero",
+        "priority": 1
+      }
+    ],
+    "status": "active",
+    "notes": "Use as a safe stand-in until the Commons Harley photo can be downloaded and reviewed."
   }
 ]

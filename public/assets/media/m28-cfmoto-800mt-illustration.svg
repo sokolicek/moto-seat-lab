@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Generic budget adventure touring motorcycle illustration</title>
+  <desc id="desc">Project-owned illustration used as a safe stand-in for CFMOTO 800MT comfort research.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eef7f4"/>
+      <stop offset="1" stop-color="#d8e7df"/>
+    </linearGradient>
+    <linearGradient id="bike" x1="0" x2="1">
+      <stop offset="0" stop-color="#25343b"/>
+      <stop offset="1" stop-color="#547062"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <path d="M0 575c143-58 294-79 452-62 173 19 331 82 502 58 86-12 166-39 246-79v308H0z" fill="#d8d0bd"/>
+  <path d="M0 634c200-52 402-51 606 5 199 55 397 55 594 0v161H0z" fill="#a7b28b"/>
+  <g transform="translate(130 95)">
+    <circle cx="255" cy="520" r="106" fill="#101820"/>
+    <circle cx="255" cy="520" r="66" fill="#d7dfdc"/>
+    <circle cx="835" cy="520" r="106" fill="#101820"/>
+    <circle cx="835" cy="520" r="66" fill="#d7dfdc"/>
+    <path d="M271 509l144-187h224l125 183" fill="none" stroke="#18222b" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M388 342l116-93h236l116 82 70 122H713l-64-58H449l-70 92H248l65-105z" fill="url(#bike)" stroke="#18222b" stroke-width="14" stroke-linejoin="round"/>
+    <path d="M486 247h205l50 70H425z" fill="#dfe9e7" opacity=".92"/>
+    <path d="M713 230h116l78 69-115 19z" fill="#19242d"/>
+    <path d="M385 292l-112 50-55 82 176-8 63-104z" fill="#e69245"/>
+    <path d="M494 216h220l-39 49H430z" fill="#101820"/>
+    <path d="M534 184h113l-18 40H511z" fill="#2e3b43"/>
+    <path d="M762 363h148l45 68H809z" fill="#101820"/>
+    <path d="M697 185c42-35 85-42 132-17l-42 39c-29-12-58-9-90 7z" fill="#2f3d45"/>
+    <path d="M808 165l84-40" stroke="#18222b" stroke-width="14" stroke-linecap="round"/>
+    <path d="M878 124l56 20" stroke="#18222b" stroke-width="10" stroke-linecap="round"/>
+    <path d="M630 335l87 111" stroke="#e8efe9" stroke-width="10" stroke-linecap="round" opacity=".5"/>
+    <path d="M365 460h232" stroke="#e69245" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <text x="64" y="86" fill="#0f3d45" font-family="Arial, sans-serif" font-size="34" font-weight="700">Budget Adventure Touring</text>
+  <text x="64" y="128" fill="#50615a" font-family="Arial, sans-serif" font-size="24">Illustration, kein Herstellerfoto</text>
+</svg>

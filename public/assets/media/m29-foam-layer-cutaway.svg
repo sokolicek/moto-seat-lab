@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Motorcycle seat foam layer cutaway</title>
+  <desc id="desc">Project-owned educational illustration of layered motorcycle-seat foam.</desc>
+  <rect width="1200" height="800" fill="#f7f4ed"/>
+  <path d="M120 474c142-92 314-142 520-142 164 0 323 32 460 101v105c-135-54-284-78-445-75-228 3-410 52-535 141z" fill="#1f2b32"/>
+  <path d="M120 513c145-88 326-132 546-132 159 0 309 29 434 82v71c-133-48-282-69-446-66-224 4-405 51-534 138z" fill="#d6b98c"/>
+  <path d="M120 557c142-74 326-111 552-111 155 0 302 20 428 59v61c-128-34-275-49-441-44-220 6-399 46-539 121z" fill="#6f8d7f"/>
+  <path d="M120 601c151-62 332-92 544-90 159 2 306 17 436 47v52c-135-24-287-35-456-29-204 7-382 43-524 108z" fill="#e69245"/>
+  <path d="M120 646c151-46 329-67 535-63 163 3 310 13 445 32v74H120z" fill="#2f3d45"/>
+  <g font-family="Arial, sans-serif">
+    <text x="120" y="112" font-size="42" font-weight="700" fill="#101820">Schaumaufbau verstehen</text>
+    <text x="120" y="156" font-size="24" fill="#50615a">Stützlage, Komfortlage, Druckverteilung und Bezug getrennt denken.</text>
+    <g font-size="24" font-weight="700">
+      <text x="150" y="318" fill="#1f2b32">Bezug / Grip</text>
+      <text x="150" y="365" fill="#9c6c2e">Komfortlage</text>
+      <text x="150" y="412" fill="#3f6b5e">Druckverteilung</text>
+      <text x="150" y="459" fill="#b05f16">Stützlage</text>
+      <text x="150" y="506" fill="#2f3d45">Sitzwanne</text>
+    </g>
+  </g>
+  <g stroke="#101820" stroke-width="4" stroke-linecap="round">
+    <path d="M330 310l182 68"/>
+    <path d="M330 357l210 52"/>
+    <path d="M330 404l260 52"/>
+    <path d="M330 451l315 56"/>
+    <path d="M330 498l369 102"/>
+  </g>
+</svg>

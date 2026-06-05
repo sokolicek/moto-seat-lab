@@ -1,0 +1,46 @@
+---
+import type { MediaAsset } from "../lib/mediaAssets";
+import MediaAssetFigure from "./MediaAssetFigure.astro";
+
+interface Props {
+  assets: MediaAsset[];
+  variant?: "card" | "section" | "hero";
+  showCaption?: boolean;
+  showCredit?: boolean;
+}
+
+const { assets, variant = "card", showCaption = true, showCredit = true } = Astro.props;
+const activeAssets = Array.from(
+  new Map(
+    assets
+      .filter((asset) => asset.localPath && !asset.localPath.startsWith("source-only:"))
+      .map((asset) => [asset.key, asset]),
+  ).values(),
+);
+const groupId = `media-${Math.random().toString(36).slice(2)}`;
+---
+
+{activeAssets.length === 1 && (
+  <MediaAssetFigure asset={activeAssets[0]} variant={variant} showCaption={showCaption} showCredit={showCredit} />
+)}
+
+{activeAssets.length > 1 && (
+  <div class="random-media-set" data-random-media-set={groupId}>
+    {activeAssets.map((asset, index) => (
+      <div class="random-media-item" data-random-media-item hidden={index !== 0}>
+        <MediaAssetFigure asset={asset} variant={variant} showCaption={showCaption} showCredit={showCredit} />
+      </div>
+    ))}
+  </div>
+)}
+
+<script>
+  document.querySelectorAll("[data-random-media-set]").forEach((set) => {
+    const items = Array.from(set.querySelectorAll("[data-random-media-item]"));
+    if (items.length <= 1) return;
+    const selected = Math.floor(Math.random() * items.length);
+    items.forEach((item, index) => {
+      if (item instanceof HTMLElement) item.hidden = index !== selected;
+    });
+  });
+</script>

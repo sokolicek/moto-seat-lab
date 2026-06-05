@@ -1,5 +1,5 @@
 ---
-import MediaAssetFigure from "./MediaAssetFigure.astro";
+import RandomMediaAssetFigure from "./RandomMediaAssetFigure.astro";
 import type { MediaAsset } from "../lib/mediaAssets";
 
 interface Fact {
@@ -16,6 +16,7 @@ interface Props {
   detailTitle?: string;
   detailItems?: string[];
   media?: MediaAsset;
+  mediaOptions?: MediaAsset[];
   tone?: "default" | "warning" | "success";
 }
 
@@ -28,14 +29,16 @@ const {
   detailTitle = "Details",
   detailItems = [],
   media,
+  mediaOptions = [],
   tone = "default",
 } = Astro.props;
 
 const visibleFacts = facts.filter((fact) => fact.value !== undefined && fact.value !== null && String(fact.value).trim() !== "");
+const visibleMediaOptions = mediaOptions.length > 0 ? mediaOptions : media ? [media] : [];
 ---
 
 <article class={`card lab-data-card ${tone}`}>
-  {media && <MediaAssetFigure asset={media} variant="card" />}
+  {visibleMediaOptions.length > 0 && <RandomMediaAssetFigure assets={visibleMediaOptions} variant="card" />}
   <div class="card-topline">
     <span class="badge muted">{eyebrow}</span>
     {badges.map((badge) => <span class="badge">{badge}</span>)}

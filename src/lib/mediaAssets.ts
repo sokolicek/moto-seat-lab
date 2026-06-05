@@ -8,6 +8,9 @@ export const allMediaAssets = mediaAssets.filter((asset) => asset.status === "ac
 export const getMediaByKey = (key: string) => allMediaAssets.find((asset) => asset.key === key);
 
 export const getMediaForEntity = (entityType: string, entityKey: string, usage = "card") =>
+  getMediaForEntityVariants(entityType, entityKey, usage)[0];
+
+export const getMediaForEntityVariants = (entityType: string, entityKey: string, usage = "card") =>
   allMediaAssets
     .filter((asset) =>
       asset.links?.some((link) => link.entityType === entityType && link.entityKey === entityKey && link.usage === usage)
@@ -20,4 +23,4 @@ export const getMediaForEntity = (entityType: string, entityKey: string, usage =
         (link) => link.entityType === entityType && link.entityKey === entityKey && link.usage === usage
       );
       return (leftLink?.priority ?? 10) - (rightLink?.priority ?? 10);
-    })[0];
+    });

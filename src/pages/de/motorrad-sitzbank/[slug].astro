@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
 import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
+import RandomMediaAssetFigure from "../../../components/RandomMediaAssetFigure.astro";
 import SeatCatalogCard from "../../../components/SeatCatalogCard.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
@@ -10,7 +11,7 @@ import motorcycles from "../../../data/motorcycles/de-list.json";
 import technicalProfiles from "../../../data/motorcycles/technical-profiles.json";
 import bmwSeatOptions from "../../../data/products/bmw-seat-options.json";
 import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
-import { getMediaForEntity } from "../../../lib/mediaAssets";
+import { getMediaForEntity, getMediaForEntityVariants } from "../../../lib/mediaAssets";
 import { getSeatCatalogForMotorcycle } from "../../../lib/seatCatalog";
 import { getVideosForEntity } from "../../../lib/videoResources";
 
@@ -35,6 +36,10 @@ export function getStaticPaths() {
 const { motorcycle, profile } = Astro.props;
 const slug = slugFromPath(motorcycle.path);
 const media = getMediaForEntity("motorcycle_profile", slug, "hero") ?? getMediaForEntity("motorcycle_profile", slug);
+const mediaOptions = [
+  ...getMediaForEntityVariants("motorcycle_profile", slug, "hero"),
+  ...getMediaForEntityVariants("motorcycle_profile", slug, "card"),
+];
 const modelVideos = [
   ...getVideosForEntity("motorcycle_profile", slug, "review_context"),
   ...getVideosForEntity("motorcycle_profile", slug, "ergonomics_context"),
@@ -162,7 +167,11 @@ const bmwGermanyPriority = [
           <a class="button secondary" href="#diy-messung">DIY / Messung</a>
         </div>
       </div>
-      {media && <MediaAssetFigure asset={media} variant="section" />}
+      {mediaOptions.length > 0 ? (
+        <RandomMediaAssetFigure assets={mediaOptions} variant="section" />
+      ) : (
+        media && <MediaAssetFigure asset={media} variant="section" />
+      )}
     </div>
   </section>
 

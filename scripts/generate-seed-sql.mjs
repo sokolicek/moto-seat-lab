@@ -484,6 +484,7 @@ for (const channel of buyingChannels) {
 counts.buying_channels = buyingChannels.length;
 
 add("DELETE FROM content_media_links;");
+add("DELETE FROM media_assets;");
 for (const asset of mediaAssets) {
   add(`INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
