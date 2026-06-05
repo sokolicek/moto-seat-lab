@@ -1,0 +1,242 @@
+{
+  "at": {
+    "title": "Moto Seat Lab Österreich - Sitzbank Komfort",
+    "description": "Entwurf für Österreich: Motorradsitzbank-Komfort für Alpen, Touren, Wetter und lokale Sattler.",
+    "eyebrow": "Moto Seat Lab Österreich · Entwurf",
+    "headline": "Deine Sitzbank passt auf langen Touren nicht?",
+    "lead": "Österreich startet mit Touring, Alpenwetter und realistischen Komforttests: erst reversible Entlastung, dann OEM-Sitz, Sattler oder DIY.",
+    "primaryAction": "Deutschen MVP ansehen",
+    "secondaryAction": "Motorräder öffnen",
+    "assetNote": "Draft-Lokalisierung. Produktdaten und lokale Anbieter werden noch geprüft.",
+    "strategyEyebrow": "Lokale Strategie",
+    "strategyTitle": "Alpen, Regen, Hitze und lange Tage.",
+    "strategyText": "Für Österreich zählen Sitzdruck, Wetterbeständigkeit und Sitzheizung mehr als reine Show-Optik. Premium-Lösungen sind möglich, aber erst nach einfachem Test.",
+    "priorityEyebrow": "Empfehlungslogik",
+    "priorityTitle": "Was zuerst kommt",
+    "priorities": [
+      "Schnelle Entlastung: Mesh, Luftkissen oder Gel nur als Vergleichstest.",
+      "OEM-Komfortsitz und lokale Sattler mit Rückgabe- oder Anpassungsoption prüfen.",
+      "DIY erst nach Messung der Druckpunkte und Sitzhöhe."
+    ]
+  },
+  "ch": {
+    "title": "Moto Seat Lab Schweiz - Sitzbank Komfort",
+    "description": "Entwurf für die Schweiz: mehrsprachige Beratung für Premium-Touring, Sitzkomfort und klare Quellen.",
+    "eyebrow": "Moto Seat Lab Schweiz · Entwurf",
+    "headline": "Sitzkomfort ohne teuren Fehlkauf.",
+    "lead": "Die Schweizer Version priorisiert präzise Daten, hochwertige Anbieter und mehrsprachige Orientierung für Deutsch, Französisch und Italienisch.",
+    "primaryAction": "Deutschen MVP ansehen",
+    "secondaryAction": "Motorräder öffnen",
+    "assetNote": "Draft-Lokalisierung. Schweizer Anbieter und Preislogik sind noch nicht final geprüft.",
+    "strategyEyebrow": "Lokale Strategie",
+    "strategyTitle": "Premium ist erlaubt, aber nur mit Beleg.",
+    "strategyText": "Die Seite soll nicht automatisch das teuerste Produkt empfehlen. Passform, Rückgabe, Erfahrungsberichte und Körperdaten entscheiden.",
+    "priorityEyebrow": "Empfehlungslogik",
+    "priorityTitle": "Schweizer Startpunkt",
+    "priorities": [
+      "Klare Diagnose: Druckpunkt, Fahrdauer, Temperatur und Kleidung.",
+      "Premium-Sitze nur mit Fitment, Quelle und Rückgabeoption vergleichen.",
+      "Mehrsprachige Inhalte später getrennt für DE, FR und IT pflegen."
+    ]
+  },
+  "fr": {
+    "title": "Moto Seat Lab France - confort de selle moto",
+    "description": "Brouillon pour la France : confort de selle, solutions rapides, artisans et comparaisons honnêtes.",
+    "eyebrow": "Moto Seat Lab France · brouillon",
+    "headline": "Ta selle devient douloureuse après une heure ?",
+    "lead": "La version française commence simple : comprendre la douleur, tester une solution réversible, puis comparer selle confort, artisan ou DIY.",
+    "primaryAction": "Voir le MVP allemand",
+    "secondaryAction": "Voir les motos",
+    "assetNote": "Traduction de travail. Les fournisseurs français doivent encore être vérifiés.",
+    "strategyEyebrow": "Stratégie locale",
+    "strategyTitle": "Confort, usage quotidien et artisans.",
+    "strategyText": "Pour la France, le portail doit couvrir les trajets quotidiens, le tourisme et les ateliers locaux sans vendre une selle chère comme solution magique.",
+    "priorityEyebrow": "Ordre conseillé",
+    "priorityTitle": "Commencer sans risque",
+    "priorities": [
+      "Tester une housse mesh, un coussin air ou gel si le problème est récent.",
+      "Comparer selle OEM, aftermarket et sellier avec prix et retour.",
+      "Passer au DIY seulement après mesure et documentation."
+    ]
+  },
+  "it": {
+    "title": "Moto Seat Lab Italia - comfort sella moto",
+    "description": "Bozza per l’Italia: comfort sella, stile, artigiani, coperture e confronti realistici.",
+    "eyebrow": "Moto Seat Lab Italia · bozza",
+    "headline": "La sella ti dà fastidio dopo un’ora?",
+    "lead": "La versione italiana unisce comfort e stile: prima capire il problema, poi test reversibili, quindi sella comfort, artigiano o DIY.",
+    "primaryAction": "Vedi MVP tedesco",
+    "secondaryAction": "Apri moto",
+    "assetNote": "Bozza di localizzazione. Prodotti e artigiani italiani richiedono verifica.",
+    "strategyEyebrow": "Strategia locale",
+    "strategyTitle": "Comfort sì, estetica senza illusioni.",
+    "strategyText": "Cuciture e rivestimenti contano, ma la pressione sulle ossa ischiatiche, calore e postura decidono se una sella funziona davvero.",
+    "priorityEyebrow": "Ordine consigliato",
+    "priorityTitle": "Prima prova, poi modifica",
+    "priorities": [
+      "Partire con mesh, gel o aria come test economico e reversibile.",
+      "Confrontare sella OEM, aftermarket e tappezziere con prezzo e rischio.",
+      "DIY solo con misure, materiali e piano di prova."
+    ]
+  },
+  "sk": {
+    "title": "Moto Seat Lab Slovensko - pohodlie sedla",
+    "description": "Slovenský návrh: pohodlie sedla, rýchla úľava, lokálny čalúnnik, DIY a porovnanie s drahšími riešeniami.",
+    "eyebrow": "Moto Seat Lab Slovensko · návrh",
+    "headline": "Bolí ťa sedlo po hodine jazdy?",
+    "lead": "Slovenská verzia bude priamočiara: najprv lacná a vratná úľava, potom porovnanie sediel a až nakoniec zásah do peny alebo poťahu.",
+    "primaryAction": "Pozrieť nemecký MVP",
+    "secondaryAction": "Otvoriť motorky",
+    "assetNote": "Draft jazykovej mutácie. Dáta krajiny sú pripravené v databázovej štruktúre.",
+    "strategyEyebrow": "Lokálna stratégia",
+    "strategyTitle": "Najprv pomoc, potom expert mód.",
+    "strategyText": "Nebudeme automaticky tlačiť drahé prémiové sedlá. Pre bežného jazdca má väčší zmysel lacný test, čalúnnik a jasné meranie problému.",
+    "priorityEyebrow": "Poradie odporúčaní",
+    "priorityTitle": "Salámová metóda",
+    "priorities": [
+      "Najprv lacná a vratná úľava: 3D mesh, gélová alebo vzduchová podložka.",
+      "Potom porovnanie so sériovým sedlom a dostupnými komfortnými sedlami.",
+      "Až nakoniec čalúnnik alebo DIY zásah, keď je jasné, kde sedlo tlačí."
+    ]
+  },
+  "hu": {
+    "title": "Moto Seat Lab Magyarország - motorülés kényelem",
+    "description": "Magyarországi vázlat: üléskényelem, olcsó teszt, helyi kárpitos és DIY útvonal.",
+    "eyebrow": "Moto Seat Lab Magyarország · vázlat",
+    "headline": "Egy óra után kényelmetlen a motorülés?",
+    "lead": "A magyar verzió értékalapú: először olcsó, visszafordítható segítség, majd helyi kárpitos vagy pontosabb üléscsere.",
+    "primaryAction": "Német MVP megnyitása",
+    "secondaryAction": "Motorok megnyitása",
+    "assetNote": "Munkaverziós lokalizáció. Helyi beszerzési adatok még ellenőrzés alatt.",
+    "strategyEyebrow": "Helyi stratégia",
+    "strategyTitle": "Olcsó próba, tiszta döntés.",
+    "strategyText": "Nem minden drága ülés oldja meg a problémát. A fájdalom helye, a testalkat és a használat fontosabb, mint a marketing.",
+    "priorityEyebrow": "Ajánlási sorrend",
+    "priorityTitle": "Mit próbálj először",
+    "priorities": [
+      "Mesh, levegős vagy gél párna rövid, összehasonlítható tesztként.",
+      "Helyi kárpitos vagy gyári komfortülés csak illeszkedési adatokkal.",
+      "DIY csak mérés és fotódokumentáció után."
+    ]
+  },
+  "pl": {
+    "title": "Moto Seat Lab Polska - komfort siedzenia motocykla",
+    "description": "Polska wersja robocza: ból kanapy, szybka ulga, tapicer, DIY i uczciwe porównanie opcji.",
+    "eyebrow": "Moto Seat Lab Polska · wersja robocza",
+    "headline": "Kanapa boli po godzinie jazdy?",
+    "lead": "Polska wersja zaczyna praktycznie: tani test, potem porównanie kanapy seryjnej, komfortowej, tapicera i DIY.",
+    "primaryAction": "Zobacz niemieckie MVP",
+    "secondaryAction": "Otwórz motocykle",
+    "assetNote": "Robocza lokalizacja. Lokalni sprzedawcy i ceny wymagają sprawdzenia.",
+    "strategyEyebrow": "Strategia lokalna",
+    "strategyTitle": "DIY i tapicer mają sens, ale z planem.",
+    "strategyText": "Portal ma pomagać początkującym: bez tabel materiałów na start, najpierw objaw, użycie i tani test porównawczy.",
+    "priorityEyebrow": "Kolejność porad",
+    "priorityTitle": "Od czego zacząć",
+    "priorities": [
+      "Test 3D mesh, airpad lub gel jako szybka i odwracalna ulga.",
+      "Porównanie OEM, aftermarket i tapicera z ryzykiem oraz ceną.",
+      "DIY dopiero po pomiarze punktów nacisku i wysokości siedzenia."
+    ]
+  },
+  "ru": {
+    "title": "Moto Seat Lab Россия - комфорт сиденья мотоцикла",
+    "description": "Черновик для России: комфорт сиденья, доступность, недорогие решения, мастерская и DIY.",
+    "eyebrow": "Moto Seat Lab Россия · черновик",
+    "headline": "Сиденье начинает болеть через час езды?",
+    "lead": "Русская версия должна сначала учитывать доступность: простые накладки, местная мастерская и DIY до дорогих импортных решений.",
+    "primaryAction": "Открыть немецкий MVP",
+    "secondaryAction": "Открыть мотоциклы",
+    "assetNote": "Черновая локализация. Доступность товаров и источники нужно проверять отдельно.",
+    "strategyEyebrow": "Локальная стратегия",
+    "strategyTitle": "Сначала доступное решение.",
+    "strategyText": "Нет смысла советовать дорогую европейскую сидушку, если она недоступна или не имеет подтвержденной посадки. Начинаем с причины боли.",
+    "priorityEyebrow": "Порядок рекомендаций",
+    "priorityTitle": "Что пробовать первым",
+    "priorities": [
+      "Недорогая сетка, гель или воздушная подушка как обратимый тест.",
+      "Местная перетяжка или ремонт с понятным описанием материалов.",
+      "DIY только после измерений и проверки риска для оригинального сиденья."
+    ]
+  },
+  "tr": {
+    "title": "Moto Seat Lab Türkiye - motosiklet sele konforu",
+    "description": "Türkiye taslağı: sele ağrısı, günlük kullanım, uygun fiyatlı çözümler, yerel ustalar ve DIY.",
+    "eyebrow": "Moto Seat Lab Türkiye · taslak",
+    "headline": "Bir saat sonra sele rahatsız ediyor mu?",
+    "lead": "Türkiye sürümü günlük kullanım ve bütçeye odaklanır: önce ucuz ve geri alınabilir çözüm, sonra usta, konfor sele veya DIY.",
+    "primaryAction": "Alman MVP’yi aç",
+    "secondaryAction": "Motosikletleri aç",
+    "assetNote": "Taslak yerelleştirme. Yerel tedarikçiler ve fiyatlar ayrıca kontrol edilmeli.",
+    "strategyEyebrow": "Yerel strateji",
+    "strategyTitle": "Günlük konfor ve gerçek maliyet.",
+    "strategyText": "Pahalı sele her zaman doğru cevap değildir. Kullanım, sürüş süresi, sıcaklık ve vücut yapısı önce gelir.",
+    "priorityEyebrow": "Öneri sırası",
+    "priorityTitle": "Önce ne denenmeli",
+    "priorities": [
+      "3D mesh, jel veya hava yastığı ile kısa ve geri alınabilir test.",
+      "Yerel usta veya OEM konfor sele seçeneğini fiyat ve uyumla karşılaştır.",
+      "DIY sadece ölçüm ve malzeme planından sonra."
+    ]
+  },
+  "th": {
+    "title": "Moto Seat Lab ประเทศไทย - ความสบายเบาะมอเตอร์ไซค์",
+    "description": "ฉบับร่างสำหรับไทย: ความร้อน ฝน สกู๊ตเตอร์ แผ่นรองราคาประหยัด และงานหุ้มเบาะท้องถิ่น",
+    "eyebrow": "Moto Seat Lab ประเทศไทย · ฉบับร่าง",
+    "headline": "ขี่ไปสักพักแล้วเบาะเริ่มเจ็บ?",
+    "lead": "เวอร์ชันไทยจะไม่เริ่มด้วยเบาะราคาแพงจากยุโรป แต่เริ่มจากความร้อน ฝน สกู๊ตเตอร์ และแผ่นรองที่ถอดออกได้",
+    "primaryAction": "ดู MVP ภาษาเยอรมัน",
+    "secondaryAction": "เปิดรายชื่อมอเตอร์ไซค์",
+    "assetNote": "ฉบับร่างการแปล ข้อมูลร้านค้าและสินค้าในไทยยังต้องตรวจสอบ",
+    "strategyEyebrow": "กลยุทธ์ท้องถิ่น",
+    "strategyTitle": "ร้อน ฝน และการใช้งานทุกวัน",
+    "strategyText": "สำหรับไทย ควรเริ่มจากผ้าคลุมระบายอากาศ แผ่นรอง และงานหุ้มเบาะท้องถิ่น ก่อนคิดถึงเบาะพรีเมียม",
+    "priorityEyebrow": "ลำดับคำแนะนำ",
+    "priorityTitle": "เริ่มจากอะไร",
+    "priorities": [
+      "ลองผ้าคลุม 3D mesh หรือแผ่นรองราคาประหยัดก่อน",
+      "ดูวัสดุที่ทนฝน ความร้อน และไม่อมน้ำ",
+      "งาน DIY หรือหุ้มใหม่ควรทำเมื่อรู้จุดกดทับชัดเจน"
+    ]
+  },
+  "id": {
+    "title": "Moto Seat Lab Indonesia - kenyamanan jok motor",
+    "description": "Draf Indonesia: panas, hujan, skuter, jok harian, bantalan murah, bengkel jok lokal dan DIY.",
+    "eyebrow": "Moto Seat Lab Indonesia · draf",
+    "headline": "Jok mulai sakit setelah dipakai lama?",
+    "lead": "Versi Indonesia tidak memulai dari jok touring mahal. Fokusnya skuter, panas, hujan, cover breathable dan solusi murah yang bisa dicoba dulu.",
+    "primaryAction": "Lihat MVP Jerman",
+    "secondaryAction": "Buka daftar motor",
+    "assetNote": "Draf lokalisasi. Toko lokal dan harga perlu riset tambahan.",
+    "strategyEyebrow": "Strategi lokal",
+    "strategyTitle": "Panas, hujan, harian, budget.",
+    "strategyText": "Untuk Indonesia, solusi awal harus murah, mudah dilepas, tahan cuaca dan cocok untuk motor harian atau skuter.",
+    "priorityEyebrow": "Urutan saran",
+    "priorityTitle": "Mulai dari sini",
+    "priorities": [
+      "Coba 3D mesh cover, gel tipis atau bantalan udara sebagai tes cepat.",
+      "Periksa bahan yang tidak panas, tidak licin dan tidak menyerap air.",
+      "Bengkel jok atau DIY dilakukan setelah titik tekanan diketahui."
+    ]
+  },
+  "my": {
+    "title": "Moto Seat Lab Malaysia - keselesaan tempat duduk motosikal",
+    "description": "Draf Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.",
+    "eyebrow": "Moto Seat Lab Malaysia · draf",
+    "headline": "Tempat duduk mula sakit selepas lama menunggang?",
+    "lead": "Versi Malaysia fokus pada cuaca panas, hujan, skuter dan kegunaan harian. Mulakan dengan penyelesaian murah sebelum tempat duduk premium.",
+    "primaryAction": "Lihat MVP Jerman",
+    "secondaryAction": "Buka motosikal",
+    "assetNote": "Draf lokalisasi. Pembekal tempatan dan harga masih perlu disemak.",
+    "strategyEyebrow": "Strategi tempatan",
+    "strategyTitle": "Cuaca panas, hujan dan perjalanan harian.",
+    "strategyText": "Nasihat awal patut mengutamakan cover mesh, alas mudah tanggal dan bahan yang tidak terlalu panas atau licin.",
+    "priorityEyebrow": "Urutan cadangan",
+    "priorityTitle": "Cuba dahulu",
+    "priorities": [
+      "Cover 3D mesh, gel nipis atau air cushion sebagai ujian awal.",
+      "Bandingkan bahan untuk hujan, haba dan penggunaan harian.",
+      "Bengkel tempat duduk atau DIY hanya selepas titik tekanan jelas."
+    ]
+  }
+}

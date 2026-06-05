@@ -1,4 +1,5 @@
 import countries from "../data/i18n/countries.json";
+import localizedHome from "../data/i18n/localized-home.json";
 import uiCopy from "../data/i18n/ui-copy.json";
 
 export type LocaleStatus = "active" | "draft" | "planned";
@@ -24,9 +25,29 @@ export interface CountryProfile {
 }
 
 type CopyMap = Record<string, Record<string, string>>;
+type LocalizedHomeMap = Record<
+  string,
+  {
+    title: string;
+    description: string;
+    eyebrow: string;
+    headline: string;
+    lead: string;
+    primaryAction: string;
+    secondaryAction: string;
+    assetNote: string;
+    strategyEyebrow: string;
+    strategyTitle: string;
+    strategyText: string;
+    priorityEyebrow: string;
+    priorityTitle: string;
+    priorities: string[];
+  }
+>;
 
 const countryProfiles = countries as CountryProfile[];
 const copyMap = uiCopy as CopyMap;
+const localizedHomeMap = localizedHome as LocalizedHomeMap;
 
 export const defaultLocale = "de";
 
@@ -54,3 +75,6 @@ export const getLanguageCodes = () =>
 
 export const getCountryStatusLabel = (status: LocaleStatus, locale: string) =>
   getCopy(locale, `locale.${status}`);
+
+export const getLocalizedHome = (countryCode: string) =>
+  localizedHomeMap[countryCode] ?? localizedHomeMap.sk;

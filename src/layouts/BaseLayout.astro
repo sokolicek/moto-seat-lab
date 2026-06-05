@@ -214,8 +214,7 @@ const diyShortcuts = [
                 </div>
                 <div class="locale-list">
                   {countrySwitcher.map((country) => {
-                    const hasLocalPage = country.status === "active" || country.code === "sk";
-                    const href = hasLocalPage ? country.defaultPath : "/de/";
+                    const href = country.defaultPath;
                     return (
                       <a class={`locale-card ${country.status}`} href={href} lang={country.primaryLanguage}>
                         <span class="locale-flag" aria-hidden="true">{country.flagEmoji}</span>
@@ -250,16 +249,16 @@ const diyShortcuts = [
           </div>
           <nav class="footer-links" aria-label={t("footer.legal")}>
             <a href="/de/datenschutz/">
-              <strong>Datenschutz</strong>
-              <span>Welche Daten aktuell nicht und später nur transparent verarbeitet werden.</span>
+              <strong>{t("footer.privacy")}</strong>
+              <span>{t("footer.privacyNote")}</span>
             </a>
             <a href="/de/cookies/">
-              <strong>Cookies</strong>
-              <span>Minimaler Cookie-Hinweis, lokale Speicherung und geplante Optionen.</span>
+              <strong>{t("footer.cookies")}</strong>
+              <span>{t("footer.cookiesNote")}</span>
             </a>
             <a href="/de/impressum/">
-              <strong>Impressum</strong>
-              <span>Betreiberangaben vor Veröffentlichung ergänzen und rechtlich prüfen.</span>
+              <strong>{t("footer.imprint")}</strong>
+              <span>{t("footer.imprintNote")}</span>
             </a>
           </nav>
         </div>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import countries from "../../data/i18n/countries.json";
+import { getLocalizedHome } from "../../lib/i18n";
+
+export function getStaticPaths() {
+  return countries
+    .filter((country) => country.code !== "de")
+    .map((country) => ({
+      params: { country: country.code },
+      props: { country },
+    }));
+}
+
+const { country } = Astro.props;
+const home = getLocalizedHome(country.code);
+---
+
+<BaseLayout
+  title={home.title}
+  description={home.description}
+  canonicalPath={country.defaultPath}
+  imagePath="/assets/hero/touring-forest-curve.webp"
+  preloadImagePath="/assets/hero/touring-forest-curve.webp"
+  locale={country.primaryLanguage}
+>
+  <section class="hero scenic-hero">
+    <div class="page-inner scenic-hero-inner">
+      <div class="scenic-copy">
+        <p class="eyebrow">{country.flagEmoji} {home.eyebrow}</p>
+        <h1>{home.headline}</h1>
+        <p class="lead">{home.lead}</p>
+        <div class="actions">
+          <a class="button" href="/de/">{home.primaryAction}</a>
+          <a class="button secondary" href="/de/motorrad-sitzbank/">{home.secondaryAction}</a>
+        </div>
+        <div class="hero-stats" aria-label={`${country.nativeName} localization status`}>
+          <span><strong>{country.region}</strong><small>{country.currency}</small></span>
+          <span><strong>{country.primaryLanguage.toUpperCase()}</strong><small>{country.nativeName}</small></span>
+          <span><strong>{country.status}</strong><small>{country.marketTier}</small></span>
+        </div>
+        <p class="asset-note">{home.assetNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner grid two">
+      <article class="card">
+        <p class="eyebrow">{home.strategyEyebrow}</p>
+        <h2>{home.strategyTitle}</h2>
+        <p>{home.strategyText}</p>
+      </article>
+      <article class="card">
+        <p class="eyebrow">{home.priorityEyebrow}</p>
+        <h2>{home.priorityTitle}</h2>
+        <ul class="check-list">
+          {home.priorities.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

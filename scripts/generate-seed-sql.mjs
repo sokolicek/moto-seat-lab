@@ -35,6 +35,7 @@ const productCategories = await readJson("src/data/product-categories/seat-comfo
 const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
 const countries = await readJson("src/data/i18n/countries.json");
 const uiCopy = await readJson("src/data/i18n/ui-copy.json");
+const localizedHome = await readJson("src/data/i18n/localized-home.json");
 const technicalProfiles = await readJson("src/data/motorcycles/technical-profiles.json");
 const seatMaterials = await readJson("src/data/materials/seat-materials.json");
 const workshopTools = await readJson("src/data/tools/seat-tools.json");
@@ -79,6 +80,7 @@ const languageCodes = Array.from(
 add("BEGIN;");
 
 add("DELETE FROM ui_translations;");
+add("DELETE FROM localized_pages;");
 add("DELETE FROM country_languages;");
 
 for (const code of languageCodes) {
@@ -187,6 +189,36 @@ for (const [languageCode, translations] of Object.entries(uiCopy)) {
   }
 }
 counts.ui_translations = translationCount;
+
+for (const country of countries.filter((country) => country.code !== "de")) {
+  const page = localizedHome[country.code];
+  if (!page) continue;
+  add(`INSERT INTO localized_pages (
+    country_code, language_code, page_key, route_path, title, description,
+    status, content, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(country.code)},
+    ${sqlString(country.primaryLanguage)},
+    'home',
+    ${sqlString(country.defaultPath)},
+    ${sqlString(page.title)},
+    ${sqlString(page.description)},
+    ${sqlString(country.status || "draft")},
+    ${sqlJson(page)},
+    ${sqlJson({ countryCode: country.code, languageCode: country.primaryLanguage, pageKey: "home" })},
+    now()
+  )
+  ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
+    route_path = EXCLUDED.route_path,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    status = EXCLUDED.status,
+    content = EXCLUDED.content,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.localized_pages = countries.filter((country) => country.code !== "de" && localizedHome[country.code]).length;
 
 for (const motorcycle of motorcycles) {
   const slug = slugify(motorcycle.name);

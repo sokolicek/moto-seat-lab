@@ -55,6 +55,21 @@ CREATE TABLE IF NOT EXISTS ui_translations (
   PRIMARY KEY (language_code, translation_key)
 );
 
+CREATE TABLE IF NOT EXISTS localized_pages (
+  country_code text NOT NULL REFERENCES countries(code) ON DELETE CASCADE,
+  language_code text NOT NULL REFERENCES languages(code) ON DELETE CASCADE,
+  page_key text NOT NULL,
+  route_path text NOT NULL,
+  title text NOT NULL,
+  description text NOT NULL,
+  status text NOT NULL DEFAULT 'draft',
+  content jsonb NOT NULL DEFAULT '{}'::jsonb,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (country_code, language_code, page_key)
+);
+
 CREATE TABLE IF NOT EXISTS motorcycles (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   slug text UNIQUE NOT NULL,
@@ -344,6 +359,8 @@ CREATE INDEX IF NOT EXISTS idx_motorcycles_brand ON motorcycles(brand);
 CREATE INDEX IF NOT EXISTS idx_countries_status ON countries(status);
 CREATE INDEX IF NOT EXISTS idx_country_languages_language ON country_languages(language_code);
 CREATE INDEX IF NOT EXISTS idx_ui_translations_key ON ui_translations(translation_key);
+CREATE INDEX IF NOT EXISTS idx_localized_pages_route ON localized_pages(route_path);
+CREATE INDEX IF NOT EXISTS idx_localized_pages_status ON localized_pages(status);
 CREATE INDEX IF NOT EXISTS idx_motorcycles_status ON motorcycles(status);
 CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_slug ON seat_options(motorcycle_slug);
 CREATE INDEX IF NOT EXISTS idx_seat_products_manufacturer ON seat_products(manufacturer_key);
@@ -369,6 +386,8 @@ UNION ALL
 SELECT 'country_languages', count(*)::integer FROM country_languages
 UNION ALL
 SELECT 'ui_translations', count(*)::integer FROM ui_translations
+UNION ALL
+SELECT 'localized_pages', count(*)::integer FROM localized_pages
 UNION ALL
 SELECT 'motorcycles', count(*)::integer FROM motorcycles
 UNION ALL
@@ -432,6 +451,20 @@ SELECT
   'translation has empty value'
 FROM ui_translations
 WHERE translation_value IS NULL OR translation_value = ''
+UNION ALL
+SELECT
+  'localized_pages',
+  country_code || ':' || page_key,
+  'localized page has no title or description'
+FROM localized_pages
+WHERE title IS NULL OR title = '' OR description IS NULL OR description = ''
+UNION ALL
+SELECT
+  'localized_pages',
+  country_code || ':' || page_key,
+  'localized page has no route path'
+FROM localized_pages
+WHERE route_path IS NULL OR route_path = ''
 UNION ALL
 SELECT
   'motorcycles' AS table_name,
