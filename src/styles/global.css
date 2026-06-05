@@ -849,6 +849,52 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.visual-story-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.visual-story-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid rgba(18, 107, 115, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--color-text);
+  padding: 12px;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.visual-story-card:hover,
+.visual-story-card:focus {
+  border-color: rgba(18, 107, 115, 0.34);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-2px);
+}
+
+.visual-story-card .media-asset {
+  margin: -2px -2px 2px;
+}
+
+.visual-story-card .media-asset figcaption {
+  display: none;
+}
+
+.visual-story-card h3 {
+  margin-top: 10px;
+}
+
+.visual-story-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
 .metric {
   display: inline-flex;
   align-items: center;
@@ -2106,6 +2152,7 @@ h3 {
   .asset-admin-card,
   .asset-admin-grid.compact,
   .image-gallery-grid,
+  .visual-story-grid,
   .decision-strip,
   .grid,
   .grid.two,

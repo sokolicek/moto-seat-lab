@@ -58,6 +58,24 @@
         "entityKey": "stainless_staples",
         "usage": "card",
         "priority": 2
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "oem_comfort_seat",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "oem_comfort_seat",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "home_seat_options",
+        "usage": "card",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -122,6 +140,24 @@
         "entityKey": "upholsterer_rebuild",
         "usage": "section",
         "priority": 2
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "professional_upholsterer",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "professional_upholstery",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "solutions_hero_story",
+        "usage": "section",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -244,6 +280,12 @@
         "entityKey": "honda-nc750x",
         "usage": "card",
         "priority": 2
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "home_hero_story",
+        "usage": "section",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -308,6 +350,24 @@
         "entityKey": "foam_safe_contact_adhesive",
         "usage": "card",
         "priority": 3
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "aftermarket_seat",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "aftermarket_seat",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "buying_hero_story",
+        "usage": "section",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -536,6 +596,24 @@
         "entityKey": "mesh_or_air_pad",
         "usage": "card",
         "priority": 1
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "reversible_addon",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "3d_mesh_cover",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "air_cushion",
+        "usage": "card",
+        "priority": 2
       }
     ],
     "status": "active",
@@ -1191,6 +1269,12 @@
         "entityKey": "stainless_staples",
         "usage": "card",
         "priority": 1
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "home_tools",
+        "usage": "card",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -1624,6 +1708,18 @@
         "entityKey": "seat_heating_pad",
         "usage": "card",
         "priority": 2
+      },
+      {
+        "entityType": "solution_path",
+        "entityKey": "diy",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "product_category",
+        "entityKey": "gel_pad",
+        "usage": "card",
+        "priority": 1
       }
     ],
     "status": "active",
@@ -1969,6 +2065,12 @@
       {
         "entityType": "seat_material",
         "entityKey": "memory_foam_thin_layer",
+        "usage": "card",
+        "priority": 1
+      },
+      {
+        "entityType": "page_section",
+        "entityKey": "home_foam_materials",
         "usage": "card",
         "priority": 1
       }

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
+import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
 import ProductCategoryCard from "../../../components/ProductCategoryCard.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import productCategories from "../../../data/product-categories/seat-comfort.json";
@@ -8,6 +9,8 @@ import seatOptions from "../../../data/products/gsx-s1000gx-seat-options.json";
 import buyingChannels from "../../../data/marketplaces/de.json";
 import disclosures from "../../../data/disclosures/de.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
+
+const heroMedia = getMediaForEntity("page_section", "buying_hero_story", "section");
 
 const affiliateLabel: Record<string, string> = {
   low: "Affiliate niedrig",
@@ -30,16 +33,19 @@ const channelLabel: Record<string, string> = {
   canonicalPath="/de/kaufen/"
 >
   <section class="hero">
-    <div class="page-inner">
-      <p class="eyebrow">Kaufen ohne Nebel</p>
-      <h1>Was kaufen, wenn die Sitzbank unbequem ist?</h1>
-      <p class="lead">
-        Starte nicht mit dem teuersten Produkt. Starte mit Problem, Rückgabemöglichkeit und Passform.
-      </p>
-      <div class="actions">
-        <a class="button" href="#kaufmatrix">Kaufmatrix ansehen</a>
-        <a class="button secondary" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">GSX-S1000GX Guide</a>
+    <div class="page-inner hero-grid">
+      <div>
+        <p class="eyebrow">Kaufen ohne Nebel</p>
+        <h1>Was kaufen, wenn die Sitzbank unbequem ist?</h1>
+        <p class="lead">
+          Starte nicht mit dem teuersten Produkt. Starte mit Problem, Rückgabemöglichkeit und Passform.
+        </p>
+        <div class="actions">
+          <a class="button" href="#kaufmatrix">Kaufmatrix ansehen</a>
+          <a class="button secondary" href="/de/motorrad-sitzbank/suzuki-gsx-s1000gx/">GSX-S1000GX Guide</a>
+        </div>
       </div>
+      {heroMedia && <MediaAssetFigure asset={heroMedia} variant="section" />}
     </div>
   </section>
 
@@ -88,7 +94,9 @@ const channelLabel: Record<string, string> = {
         und wann lohnt sich erst ein kompletter Sitzbankkauf?
       </p>
       <div class="grid">
-        {productCategories.map((category) => <ProductCategoryCard {...category} />)}
+        {productCategories.map((category) => (
+          <ProductCategoryCard {...category} media={getMediaForEntity("product_category", category.key)} />
+        ))}
       </div>
     </div>
   </section>

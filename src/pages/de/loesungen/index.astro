@@ -1,7 +1,11 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
 import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
+import { getMediaForEntity } from "../../../lib/mediaAssets";
+
+const heroMedia = getMediaForEntity("page_section", "solutions_hero_story", "section");
 ---
 
 <BaseLayout
@@ -10,18 +14,23 @@ import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
   canonicalPath="/de/loesungen/"
 >
   <section class="hero">
-    <div class="page-inner">
-      <p class="eyebrow">Lösungswege</p>
-      <h1>Erst Ursache klären, dann Lösung wählen.</h1>
-      <p class="lead">
-        Sitzbank-Komfort ist kein einzelnes Produkt. Je nach Problem kann die beste Lösung billig,
-        professionell, reversibel oder bewusst gar kein Sitzkauf sein.
-      </p>
+    <div class="page-inner hero-grid">
+      <div>
+        <p class="eyebrow">Lösungswege</p>
+        <h1>Erst Ursache klären, dann Lösung wählen.</h1>
+        <p class="lead">
+          Sitzbank-Komfort ist kein einzelnes Produkt. Je nach Problem kann die beste Lösung billig,
+          professionell, reversibel oder bewusst gar kein Sitzkauf sein.
+        </p>
+      </div>
+      {heroMedia && <MediaAssetFigure asset={heroMedia} variant="section" />}
     </div>
   </section>
   <section class="section">
     <div class="page-inner grid">
-      {solutionPaths.map((path) => <SolutionCard {...path} />)}
+      {solutionPaths.map((path) => (
+        <SolutionCard {...path} media={getMediaForEntity("solution_path", path.key)} />
+      ))}
     </div>
   </section>
 

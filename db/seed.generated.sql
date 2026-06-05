@@ -4326,7 +4326,7 @@ INSERT INTO media_assets (
     '["card","section","buying"]'::jsonb,
     'Use with visible attribution on pages where the image appears.',
     'active',
-    '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"staple_remover","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":2}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
+    '{"key":"motorcycle_seats_camden_commons","title":"Motorcycle seats at Camden Town","description":"General motorcycle seat and aftermarket seat visual for buying and category pages.","localPath":"/assets/media/m01-camden.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Motorcycle_seats_at_Camden_Town_(6418524669).jpg","sourceName":"Wikimedia Commons","creator":"Shadowgate","licenseName":"Creative Commons Attribution 2.0 Generic","licenseCode":"CC BY 2.0","licenseUrl":"https://creativecommons.org/licenses/by/2.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Shadowgate, CC BY 2.0, via Wikimedia Commons","alt":"Several motorcycle seats displayed at a market stall","caption":"Aftermarket seats and used parts are useful for comparison, but fitment still needs model-year checks.","dominantColor":"#4b4037","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","buying"],"links":[{"entityType":"buying_channel","entityKey":"local_upholsterer_de","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1},{"entityType":"workshop_tool","entityKey":"staple_remover","usage":"card","priority":2},{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":2},{"entityType":"solution_path","entityKey":"oem_comfort_seat","usage":"card","priority":1},{"entityType":"product_category","entityKey":"oem_comfort_seat","usage":"card","priority":1},{"entityType":"page_section","entityKey":"home_seat_options","usage":"card","priority":1}],"status":"active","notes":"Use with visible attribution on pages where the image appears."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -4417,6 +4417,42 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'solution_path',
+      'oem_comfort_seat',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'product_category',
+      'oem_comfort_seat',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'motorcycle_seats_camden_commons',
+      'page_section',
+      'home_seat_options',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -4452,7 +4488,7 @@ INSERT INTO media_assets (
     '["card","section","touring"]'::jsonb,
     'Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab.',
     'active',
-    '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"bmw-r-1250-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"suzuki-v-strom-1050","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
+    '{"key":"touring_seat_goldwing_commons","title":"Honda Goldwing 1800 F6B detail","description":"Touring motorcycle seat detail for long-distance comfort context.","localPath":"/assets/media/m02-goldwing.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Honda_Goldwing_1800_F6B_detail.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Honda_Goldwing_1800_F6B_detail.jpg","sourceName":"Wikimedia Commons","creator":"Addvisor","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Addvisor, CC BY-SA 4.0, via Wikimedia Commons","alt":"Large touring motorcycle seat detail on a Honda Goldwing","caption":"Touring seats solve different problems than short city or sporty weekend seats.","dominantColor":"#202125","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["card","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"bmw-r-1300-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"bmw-r-1250-gs","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"suzuki-v-strom-1050","usage":"card","priority":3},{"entityType":"motorcycle_profile","entityKey":"kawasaki-versys-1000","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"upholsterer_rebuild","usage":"section","priority":2},{"entityType":"solution_path","entityKey":"professional_upholsterer","usage":"card","priority":1},{"entityType":"product_category","entityKey":"professional_upholstery","usage":"card","priority":1},{"entityType":"page_section","entityKey":"solutions_hero_story","usage":"section","priority":1}],"status":"active","notes":"Avoid implying Honda, Addvisor, or Wikimedia endorse Moto Seat Lab."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -4540,6 +4576,42 @@ INSERT INTO content_media_links (
       'upholsterer_rebuild',
       'section',
       2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'solution_path',
+      'professional_upholsterer',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'product_category',
+      'professional_upholstery',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'touring_seat_goldwing_commons',
+      'page_section',
+      'solutions_hero_story',
+      'section',
+      1
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -4704,7 +4776,7 @@ INSERT INTO media_assets (
     '["hero","section","touring"]'::jsonb,
     'Attribution is not required by Pexels, but the credit line can be shown in an asset register.',
     'active',
-    '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2},{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"yamaha-tracer-9-9-gt","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"card","priority":2}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
+    '{"key":"pexels_forest_curve_motorcyclist","title":"Motorcyclist on curved forest road","description":"Atmospheric riding image for touring and country-road context.","localPath":"/assets/media/m04-curve.jpg","downloadUrl":"https://images.pexels.com/photos/31621763/pexels-photo-31621763.jpeg?auto=compress&cs=tinysrgb&w=1600","sourcePageUrl":"https://www.pexels.com/photo/motorcyclist-on-curved-road-in-forest-setting-31621763/","sourceName":"Pexels","creator":"Tiwi Riders","licenseName":"Pexels License","licenseCode":"PEXELS","licenseUrl":"https://www.pexels.com/license/","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Tiwi Riders / Pexels","alt":"Motorcyclist riding through a curve on a forest road","caption":"Country-road posture, wind pressure and seat angle change the comfort problem.","dominantColor":"#26352f","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"hero","priority":2},{"entityType":"motorcycle_profile","entityKey":"suzuki-gsx-s1000gx","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"yamaha-tracer-9-9-gt","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-nc750x","usage":"card","priority":2},{"entityType":"page_section","entityKey":"home_hero_story","usage":"section","priority":1}],"status":"active","notes":"Attribution is not required by Pexels, but the credit line can be shown in an asset register."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -4783,6 +4855,18 @@ INSERT INTO content_media_links (
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'pexels_forest_curve_motorcyclist',
+      'page_section',
+      'home_hero_story',
+      'section',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
 INSERT INTO media_assets (
     key, title, description, local_path, download_url, source_page_url,
     source_name, creator, license_name, license_code, license_url, rights_status,
@@ -4818,7 +4902,7 @@ INSERT INTO media_assets (
     '["hero","section","touring"]'::jsonb,
     'Do not use in a way that implies the photographer endorses the site.',
     'active',
-    '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-crf1100l-africa-twin","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"waterproof_barrier_film","usage":"card","priority":3},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"card","priority":3}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
+    '{"key":"unsplash_touring_motorcycle_road","title":"Touring motorcycle beside farm road","description":"Road-trip motorcycle image for long-distance and travel context.","localPath":"/assets/media/m05-road.jpg","downloadUrl":"https://unsplash.com/photos/sFiNwoqjwrI/download?force=true&w=1600","sourcePageUrl":"https://unsplash.com/photos/touring-motorcycle-beside-farm-road-sFiNwoqjwrI","sourceName":"Unsplash","creator":"Donald Giannatti","licenseName":"Unsplash License","licenseCode":"UNSPLASH","licenseUrl":"https://unsplash.com/license","rightsStatus":"usable_without_required_attribution","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Donald Giannatti / Unsplash","alt":"Touring motorcycle parked beside an open road","caption":"Long rides need a different seat decision than short commutes.","dominantColor":"#8d8170","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["hero","section","touring"],"links":[{"entityType":"solution_path","entityKey":"premium_touring_seat","usage":"section","priority":2},{"entityType":"motorcycle_profile","entityKey":"honda-crf1100l-africa-twin","usage":"card","priority":2},{"entityType":"motorcycle_profile","entityKey":"ducati-multistrada-v4","usage":"card","priority":2},{"entityType":"workshop_supply","entityKey":"waterproof_barrier_film","usage":"card","priority":3},{"entityType":"workshop_supply","entityKey":"foam_safe_contact_adhesive","usage":"card","priority":3},{"entityType":"solution_path","entityKey":"aftermarket_seat","usage":"card","priority":1},{"entityType":"product_category","entityKey":"aftermarket_seat","usage":"card","priority":1},{"entityType":"page_section","entityKey":"buying_hero_story","usage":"section","priority":1}],"status":"active","notes":"Do not use in a way that implies the photographer endorses the site."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -4906,6 +4990,42 @@ INSERT INTO content_media_links (
       'foam_safe_contact_adhesive',
       'card',
       3
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'solution_path',
+      'aftermarket_seat',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'product_category',
+      'aftermarket_seat',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'unsplash_touring_motorcycle_road',
+      'page_section',
+      'buying_hero_story',
+      'section',
+      1
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -5304,7 +5424,7 @@ INSERT INTO media_assets (
     '["product","card","quick_relief"]'::jsonb,
     'Use as a generic category illustration, not as a specific manufacturer product image.',
     'active',
-    '{"key":"bmw_fast_relief_mesh_project","title":"3D mesh seat pad illustration","description":"Project-owned illustration for reversible fast-relief seat pad recommendations.","localPath":"/assets/options/mesh-pad.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration einer 3D-Mesh Sitzauflage","caption":"A reversible pad is the safest first experiment before buying a full aftermarket seat.","dominantColor":"#24443e","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card","quick_relief"],"links":[{"entityType":"seat_option","entityKey":"bmw-fast-relief-seat-pad","usage":"product","priority":1},{"entityType":"product_category","entityKey":"mesh_or_air_pad","usage":"card","priority":1}],"status":"active","notes":"Use as a generic category illustration, not as a specific manufacturer product image."}'::jsonb,
+    '{"key":"bmw_fast_relief_mesh_project","title":"3D mesh seat pad illustration","description":"Project-owned illustration for reversible fast-relief seat pad recommendations.","localPath":"/assets/options/mesh-pad.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration einer 3D-Mesh Sitzauflage","caption":"A reversible pad is the safest first experiment before buying a full aftermarket seat.","dominantColor":"#24443e","aspectRatio":"16 / 9","objectPosition":"center","recommendedUsage":["product","card","quick_relief"],"links":[{"entityType":"seat_option","entityKey":"bmw-fast-relief-seat-pad","usage":"product","priority":1},{"entityType":"product_category","entityKey":"mesh_or_air_pad","usage":"card","priority":1},{"entityType":"solution_path","entityKey":"reversible_addon","usage":"card","priority":1},{"entityType":"product_category","entityKey":"3d_mesh_cover","usage":"card","priority":1},{"entityType":"product_category","entityKey":"air_cushion","usage":"card","priority":2}],"status":"active","notes":"Use as a generic category illustration, not as a specific manufacturer product image."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -5356,6 +5476,42 @@ INSERT INTO content_media_links (
       'mesh_or_air_pad',
       'card',
       1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_fast_relief_mesh_project',
+      'solution_path',
+      'reversible_addon',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_fast_relief_mesh_project',
+      'product_category',
+      '3d_mesh_cover',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'bmw_fast_relief_mesh_project',
+      'product_category',
+      'air_cushion',
+      'card',
+      2
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -6588,7 +6744,7 @@ INSERT INTO media_assets (
     '["tool","card"]'::jsonb,
     'Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1.',
     'active',
-    '{"key":"staple_gun_tacker_commons","title":"Staple gun tacker","description":"Staple gun reference image for upholstery tool cards.","localPath":"/assets/media/m14-staple-gun.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg","sourceName":"Wikimedia Commons","creator":"Jpquidores","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons","alt":"Red staple gun tacker","caption":"Staple length and seat-pan material matter more than buying the strongest tool.","dominantColor":"#b63f32","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1}],"status":"active","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."}'::jsonb,
+    '{"key":"staple_gun_tacker_commons","title":"Staple gun tacker","description":"Staple gun reference image for upholstery tool cards.","localPath":"/assets/media/m14-staple-gun.jpg","downloadUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Staple_Gun_Tacker.jpg/268px-Staple_Gun_Tacker.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Staple_Gun_Tacker.jpg","sourceName":"Wikimedia Commons","creator":"Jpquidores","licenseName":"Creative Commons Attribution 3.0 Unported","licenseCode":"CC BY 3.0","licenseUrl":"https://creativecommons.org/licenses/by/3.0/","rightsStatus":"usable_with_attribution","attributionRequired":true,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Jpquidores, CC BY 3.0, via Wikimedia Commons","alt":"Red staple gun tacker","caption":"Staple length and seat-pan material matter more than buying the strongest tool.","dominantColor":"#b63f32","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["tool","card"],"links":[{"entityType":"workshop_tool","entityKey":"electric_stapler","usage":"card","priority":1},{"entityType":"workshop_supply","entityKey":"stainless_staples","usage":"card","priority":1},{"entityType":"page_section","entityKey":"home_tools","usage":"card","priority":1}],"status":"active","notes":"Source and license are verified, but local download hit Wikimedia thumbnail restrictions. Local download is managed by scripts/download-media-assets.ps1."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -6638,6 +6794,18 @@ INSERT INTO content_media_links (
       'staple_gun_tacker_commons',
       'workshop_supply',
       'stainless_staples',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'staple_gun_tacker_commons',
+      'page_section',
+      'home_tools',
       'card',
       1
     )
@@ -7338,7 +7506,7 @@ INSERT INTO media_assets (
     '["material","section","card"]'::jsonb,
     'Generic educational illustration, not a product image.',
     'active',
-    '{"key":"foam_layer_cutaway_project","title":"Seat foam layer cutaway illustration","description":"Project-owned illustration for foam-layer and density explanation.","localPath":"/assets/media/m29-foam-layer-cutaway.svg","downloadUrl":"","sourcePageUrl":"/de/diy/#schaumstoffe","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Cutaway illustration of layered motorcycle seat foam","caption":"Support layer, comfort layer and cover should be planned separately.","dominantColor":"#6f8d7f","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["material","section","card"],"links":[{"entityType":"seat_material","entityKey":"3d_mesh_spacer_fabric","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"gel_insert","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"ventilation_spacer_fabric","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"waterproof_membrane_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"seat_heating_pad","usage":"card","priority":2}],"status":"active","notes":"Generic educational illustration, not a product image."}'::jsonb,
+    '{"key":"foam_layer_cutaway_project","title":"Seat foam layer cutaway illustration","description":"Project-owned illustration for foam-layer and density explanation.","localPath":"/assets/media/m29-foam-layer-cutaway.svg","downloadUrl":"","sourcePageUrl":"/de/diy/#schaumstoffe","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Cutaway illustration of layered motorcycle seat foam","caption":"Support layer, comfort layer and cover should be planned separately.","dominantColor":"#6f8d7f","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["material","section","card"],"links":[{"entityType":"seat_material","entityKey":"3d_mesh_spacer_fabric","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"gel_insert","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"ventilation_spacer_fabric","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"waterproof_membrane_layer","usage":"card","priority":2},{"entityType":"seat_material","entityKey":"seat_heating_pad","usage":"card","priority":2},{"entityType":"solution_path","entityKey":"diy","usage":"card","priority":1},{"entityType":"product_category","entityKey":"gel_pad","usage":"card","priority":1}],"status":"active","notes":"Generic educational illustration, not a product image."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -7498,6 +7666,30 @@ INSERT INTO content_media_links (
       'seat_heating_pad',
       'card',
       2
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'solution_path',
+      'diy',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'foam_layer_cutaway_project',
+      'product_category',
+      'gel_pad',
+      'card',
+      1
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -8082,7 +8274,7 @@ INSERT INTO media_assets (
     '["material","foam","diy"]'::jsonb,
     'Automotive seat foam photo, not motorcycle-specific; use as material reference only.',
     'active',
-    '{"key":"polyurethane_seat_foam_commons","title":"Molded polyurethane seat foam","description":"Real polyurethane seat foam photo for explaining seat foam structure and material behavior.","localPath":"/assets/media/m33-polyurethane-seat-foam.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_seat_back.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_seat_back.JPG","sourceName":"Wikimedia Commons","creator":"Silverchemist","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Photo: Silverchemist, CC BY-SA 3.0, via Wikimedia Commons","alt":"Molded polyurethane seat foam after removal from mold","caption":"Real molded polyurethane seat foam: useful for explaining support, density and shaping limits.","dominantColor":"#d1c09e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","foam","diy"],"links":[{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":0},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":1}],"status":"active","notes":"Automotive seat foam photo, not motorcycle-specific; use as material reference only."}'::jsonb,
+    '{"key":"polyurethane_seat_foam_commons","title":"Molded polyurethane seat foam","description":"Real polyurethane seat foam photo for explaining seat foam structure and material behavior.","localPath":"/assets/media/m33-polyurethane-seat-foam.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_seat_back.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_seat_back.JPG","sourceName":"Wikimedia Commons","creator":"Silverchemist","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Photo: Silverchemist, CC BY-SA 3.0, via Wikimedia Commons","alt":"Molded polyurethane seat foam after removal from mold","caption":"Real molded polyurethane seat foam: useful for explaining support, density and shaping limits.","dominantColor":"#d1c09e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","foam","diy"],"links":[{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":0},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":1},{"entityType":"page_section","entityKey":"home_foam_materials","usage":"card","priority":1}],"status":"active","notes":"Automotive seat foam photo, not motorcycle-specific; use as material reference only."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -8180,6 +8372,18 @@ INSERT INTO content_media_links (
       'polyurethane_seat_foam_commons',
       'seat_material',
       'memory_foam_thin_layer',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'page_section',
+      'home_foam_materials',
       'card',
       1
     )
@@ -9146,5 +9350,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":110,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

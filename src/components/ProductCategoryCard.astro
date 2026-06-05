@@ -1,4 +1,7 @@
 ---
+import type { MediaAsset } from "../lib/mediaAssets";
+import MediaAssetFigure from "./MediaAssetFigure.astro";
+
 interface Props {
   name: string;
   problemSolved: string;
@@ -8,6 +11,7 @@ interface Props {
   avoidWhen?: string;
   buyingChecks?: string[];
   affiliateStatus?: string;
+  media?: MediaAsset;
 }
 
 const {
@@ -18,11 +22,13 @@ const {
   firstTest,
   avoidWhen,
   buyingChecks = [],
-  affiliateStatus = "not configured"
+  affiliateStatus = "not configured",
+  media,
 } = Astro.props;
 ---
 
 <article class="card product-card">
+  {media && <MediaAssetFigure asset={media} variant="card" />}
   <div class="card-topline">
     <span class="badge">{priceBand}</span>
     <span class="badge muted">{affiliateStatus}</span>

@@ -1,6 +1,39 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DiagnosticMap from "../../components/DiagnosticMap.astro";
+import MediaAssetFigure from "../../components/MediaAssetFigure.astro";
+import { getMediaForEntity } from "../../lib/mediaAssets";
+
+const visualStories = [
+  {
+    eyebrow: "Motorräder",
+    title: "Vom Modell zum echten Problem.",
+    text: "Starte mit deinem Motorradprofil und prüfe erst Fahrdauer, Sitzhaltung und typische Druckpunkte.",
+    media: getMediaForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "hero"),
+    href: "/de/motorrad-sitzbank/",
+  },
+  {
+    eyebrow: "Sitze",
+    title: "Nicht jeder Komfortsitz passt.",
+    text: "OEM, Aftermarket und Sattler werden später nach Fitment, Rückgabe, Preis und Erfahrungsberichten getrennt.",
+    media: getMediaForEntity("page_section", "home_seat_options"),
+    href: "/de/kaufen/",
+  },
+  {
+    eyebrow: "Schaum",
+    title: "Komfort beginnt unter dem Bezug.",
+    text: "Dichte, Stauchhärte, Schichten und Wärmeverhalten entscheiden, ob eine Änderung wirklich hilft.",
+    media: getMediaForEntity("page_section", "home_foam_materials"),
+    href: "/de/diy/#schaumstoffe",
+  },
+  {
+    eyebrow: "Werkstatt",
+    title: "DIY nur mit Plan und Werkzeugdisziplin.",
+    text: "Erst messen und dokumentieren, dann reversible Tests, dann erst schneiden, kleben oder tackern.",
+    media: getMediaForEntity("page_section", "home_tools"),
+    href: "/de/diy/#werkzeug",
+  },
+];
 ---
 
 <BaseLayout
@@ -43,6 +76,28 @@ import DiagnosticMap from "../../components/DiagnosticMap.astro";
           Sitzdruck, Hitze, Rutschen und Ergonomie vor schnellen Produktversprechen.
         </p>
       </article>
+    </div>
+  </section>
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">Visueller Einstieg</p>
+      <h2>Alles beginnt mit einem konkreten Sitzproblem.</h2>
+      <p class="lead">
+        Die Seite soll dich nicht mit Tabellen erschlagen. Du startest visuell und einfach:
+        Motorrad, Lösung, Material oder Werkzeug.
+      </p>
+      <div class="visual-story-grid">
+        {visualStories.map((story) => (
+          <a class="visual-story-card" href={story.href}>
+            {story.media && <MediaAssetFigure asset={story.media} variant="card" showCredit={false} />}
+            <div>
+              <span class="badge muted">{story.eyebrow}</span>
+              <h3>{story.title}</h3>
+              <p>{story.text}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
   <section class="section visual-band">

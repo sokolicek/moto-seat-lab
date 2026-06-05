@@ -1,4 +1,7 @@
 ---
+import type { MediaAsset } from "../lib/mediaAssets";
+import MediaAssetFigure from "./MediaAssetFigure.astro";
+
 interface Props {
   title: string;
   summary: string;
@@ -6,12 +9,14 @@ interface Props {
   notIdealFor: string;
   cost: string;
   confidence: string;
+  media?: MediaAsset;
 }
 
-const { title, summary, bestFor, notIdealFor, cost, confidence } = Astro.props;
+const { title, summary, bestFor, notIdealFor, cost, confidence, media } = Astro.props;
 ---
 
 <article class="card solution-card">
+  {media && <MediaAssetFigure asset={media} variant="card" />}
   <span class="badge">{confidence}</span>
   <h3>{title}</h3>
   <p>{summary}</p>
