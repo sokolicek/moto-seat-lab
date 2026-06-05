@@ -7253,14 +7253,14 @@ INSERT INTO media_assets (
     false,
     'Illustration: Moto Seat Lab',
     'Illustration of a budget adventure touring motorcycle',
-    'Illustration only: used until a clean licensed CFMOTO 800MT photo is curated.',
+    'Illustration-only fallback; the curated CFMOTO MT reference photo is preferred when available.',
     '#547062',
     '3 / 2',
     'center',
     '["card","section","motorcycle_profile"]'::jsonb,
     'Do not describe as an exact product photo.',
     'active',
-    '{"key":"cfmoto_800mt_project_illustration","title":"CFMOTO 800MT budget adventure illustration","description":"Project-owned illustration used when a clean static photo is not yet available.","localPath":"/assets/media/m28-cfmoto-800mt-illustration.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration of a budget adventure touring motorcycle","caption":"Illustration only: used until a clean licensed CFMOTO 800MT photo is curated.","dominantColor":"#547062","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"cfmoto-800mt","usage":"hero","priority":1}],"status":"active","notes":"Do not describe as an exact product photo."}'::jsonb,
+    '{"key":"cfmoto_800mt_project_illustration","title":"CFMOTO 800MT budget adventure illustration","description":"Project-owned illustration used when a clean static photo is not yet available.","localPath":"/assets/media/m28-cfmoto-800mt-illustration.svg","downloadUrl":"","sourcePageUrl":"/de/admin/assets/","sourceName":"Moto Seat Lab","creator":"Moto Seat Lab","licenseName":"Project-owned illustration","licenseCode":"OWNED","licenseUrl":"/de/admin/assets/","rightsStatus":"project_owned","attributionRequired":false,"shareAlikeRequired":false,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Illustration: Moto Seat Lab","alt":"Illustration of a budget adventure touring motorcycle","caption":"Illustration-only fallback; the curated CFMOTO MT reference photo is preferred when available.","dominantColor":"#547062","aspectRatio":"3 / 2","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"cfmoto-800mt","usage":"hero","priority":5}],"status":"active","notes":"Do not describe as an exact product photo."}'::jsonb,
     now()
   )
   ON CONFLICT (key) DO UPDATE SET
@@ -7299,7 +7299,7 @@ INSERT INTO content_media_links (
       'motorcycle_profile',
       'cfmoto-800mt',
       'hero',
-      1
+      5
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority;
@@ -7953,6 +7953,234 @@ INSERT INTO content_media_links (
       'motorcycle_profile',
       'harley-davidson-street-glide',
       'hero',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'cfmoto_700mt_commons_reference',
+    'CFMOTO 700MT reference photo',
+    'Licensed CFMOTO MT-series reference photo used as a closer visual stand-in for the CFMOTO 800MT guide until an exact 800MT asset is curated.',
+    '/assets/media/m32-cfmoto-700mt-reference.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/CFMOTO_700_MT_2024.jpg',
+    'https://commons.wikimedia.org/wiki/File:CFMOTO_700_MT_2024.jpg',
+    'Wikimedia Commons',
+    'Ingeworld',
+    'Creative Commons Attribution-ShareAlike 4.0 International',
+    'CC BY-SA 4.0',
+    'https://creativecommons.org/licenses/by-sa/4.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    true,
+    'Photo: Ingeworld, CC BY-SA 4.0, via Wikimedia Commons',
+    'CFMOTO 700MT motorcycle reference photo',
+    'Closest licensed CFMOTO MT-series reference currently curated; not an exact 800MT product photo.',
+    '#4f675f',
+    '4 / 5',
+    'center',
+    '["card","section","motorcycle_profile"]'::jsonb,
+    'Use as a transparent related-model visual only. Do not claim it is an exact 800MT photo.',
+    'active',
+    '{"key":"cfmoto_700mt_commons_reference","title":"CFMOTO 700MT reference photo","description":"Licensed CFMOTO MT-series reference photo used as a closer visual stand-in for the CFMOTO 800MT guide until an exact 800MT asset is curated.","localPath":"/assets/media/m32-cfmoto-700mt-reference.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/CFMOTO_700_MT_2024.jpg","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:CFMOTO_700_MT_2024.jpg","sourceName":"Wikimedia Commons","creator":"Ingeworld","licenseName":"Creative Commons Attribution-ShareAlike 4.0 International","licenseCode":"CC BY-SA 4.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/4.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":true,"creditLine":"Photo: Ingeworld, CC BY-SA 4.0, via Wikimedia Commons","alt":"CFMOTO 700MT motorcycle reference photo","caption":"Closest licensed CFMOTO MT-series reference currently curated; not an exact 800MT product photo.","dominantColor":"#4f675f","aspectRatio":"4 / 5","objectPosition":"center","recommendedUsage":["card","section","motorcycle_profile"],"links":[{"entityType":"motorcycle_profile","entityKey":"cfmoto-800mt","usage":"hero","priority":0},{"entityType":"motorcycle_profile","entityKey":"cfmoto-800mt","usage":"card","priority":0}],"status":"active","notes":"Use as a transparent related-model visual only. Do not claim it is an exact 800MT photo."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'cfmoto_700mt_commons_reference',
+      'motorcycle_profile',
+      'cfmoto-800mt',
+      'hero',
+      0
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'cfmoto_700mt_commons_reference',
+      'motorcycle_profile',
+      'cfmoto-800mt',
+      'card',
+      0
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO media_assets (
+    key, title, description, local_path, download_url, source_page_url,
+    source_name, creator, license_name, license_code, license_url, rights_status,
+    attribution_required, share_alike_required, modification_allowed,
+    commercial_use_allowed, endorsement_warning, credit_line, alt, caption,
+    dominant_color, aspect_ratio, object_position, recommended_usage, notes, status,
+    source_data, updated_at
+  )
+  VALUES (
+    'polyurethane_seat_foam_commons',
+    'Molded polyurethane seat foam',
+    'Real polyurethane seat foam photo for explaining seat foam structure and material behavior.',
+    '/assets/media/m33-polyurethane-seat-foam.jpg',
+    'https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_seat_back.JPG',
+    'https://commons.wikimedia.org/wiki/File:Foam_seat_back.JPG',
+    'Wikimedia Commons',
+    'Silverchemist',
+    'Creative Commons Attribution-ShareAlike 3.0 Unported',
+    'CC BY-SA 3.0',
+    'https://creativecommons.org/licenses/by-sa/3.0/',
+    'usable_with_attribution_sharealike',
+    true,
+    true,
+    true,
+    true,
+    false,
+    'Photo: Silverchemist, CC BY-SA 3.0, via Wikimedia Commons',
+    'Molded polyurethane seat foam after removal from mold',
+    'Real molded polyurethane seat foam: useful for explaining support, density and shaping limits.',
+    '#d1c09e',
+    '4 / 3',
+    'center',
+    '["material","foam","diy"]'::jsonb,
+    'Automotive seat foam photo, not motorcycle-specific; use as material reference only.',
+    'active',
+    '{"key":"polyurethane_seat_foam_commons","title":"Molded polyurethane seat foam","description":"Real polyurethane seat foam photo for explaining seat foam structure and material behavior.","localPath":"/assets/media/m33-polyurethane-seat-foam.jpg","downloadUrl":"https://commons.wikimedia.org/wiki/Special:Redirect/file/Foam_seat_back.JPG","sourcePageUrl":"https://commons.wikimedia.org/wiki/File:Foam_seat_back.JPG","sourceName":"Wikimedia Commons","creator":"Silverchemist","licenseName":"Creative Commons Attribution-ShareAlike 3.0 Unported","licenseCode":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","rightsStatus":"usable_with_attribution_sharealike","attributionRequired":true,"shareAlikeRequired":true,"modificationAllowed":true,"commercialUseAllowed":true,"endorsementWarning":false,"creditLine":"Photo: Silverchemist, CC BY-SA 3.0, via Wikimedia Commons","alt":"Molded polyurethane seat foam after removal from mold","caption":"Real molded polyurethane seat foam: useful for explaining support, density and shaping limits.","dominantColor":"#d1c09e","aspectRatio":"4 / 3","objectPosition":"center","recommendedUsage":["material","foam","diy"],"links":[{"entityType":"seat_material","entityKey":"pu_comfort_foam","usage":"card","priority":0},{"entityType":"seat_material","entityKey":"memory_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"latex_foam_layer","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"eva_closed_cell_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"rebond_foam","usage":"card","priority":1},{"entityType":"seat_material","entityKey":"memory_foam_thin_layer","usage":"card","priority":1}],"status":"active","notes":"Automotive seat foam photo, not motorcycle-specific; use as material reference only."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    local_path = EXCLUDED.local_path,
+    download_url = EXCLUDED.download_url,
+    source_page_url = EXCLUDED.source_page_url,
+    source_name = EXCLUDED.source_name,
+    creator = EXCLUDED.creator,
+    license_name = EXCLUDED.license_name,
+    license_code = EXCLUDED.license_code,
+    license_url = EXCLUDED.license_url,
+    rights_status = EXCLUDED.rights_status,
+    attribution_required = EXCLUDED.attribution_required,
+    share_alike_required = EXCLUDED.share_alike_required,
+    modification_allowed = EXCLUDED.modification_allowed,
+    commercial_use_allowed = EXCLUDED.commercial_use_allowed,
+    endorsement_warning = EXCLUDED.endorsement_warning,
+    credit_line = EXCLUDED.credit_line,
+    alt = EXCLUDED.alt,
+    caption = EXCLUDED.caption,
+    dominant_color = EXCLUDED.dominant_color,
+    aspect_ratio = EXCLUDED.aspect_ratio,
+    object_position = EXCLUDED.object_position,
+    recommended_usage = EXCLUDED.recommended_usage,
+    notes = EXCLUDED.notes,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'pu_comfort_foam',
+      'card',
+      0
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'memory_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'latex_foam_layer',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'eva_closed_cell_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'rebond_foam',
+      'card',
+      1
+    )
+    ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
+      priority = EXCLUDED.priority;
+INSERT INTO content_media_links (
+      media_key, entity_type, entity_key, usage, priority
+    )
+    VALUES (
+      'polyurethane_seat_foam_commons',
+      'seat_material',
+      'memory_foam_thin_layer',
+      'card',
       1
     )
     ON CONFLICT (media_key, entity_type, entity_key, usage) DO UPDATE SET
@@ -8918,5 +9146,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":37,"content_media_links":102,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":110,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;
