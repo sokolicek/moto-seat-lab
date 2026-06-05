@@ -5,6 +5,7 @@ import SeatComfortEstimator from "../../../../components/SeatComfortEstimator.as
 import SeatLayerGraphic from "../../../../components/SeatLayerGraphic.astro";
 import RiderProfileCard from "../../../../components/RiderProfileCard.astro";
 import SolutionCard from "../../../../components/SolutionCard.astro";
+import SeatCatalogCard from "../../../../components/SeatCatalogCard.astro";
 import SeatOptionCard from "../../../../components/SeatOptionCard.astro";
 import SeatOptionAdvisor from "../../../../components/SeatOptionAdvisor.astro";
 import ComfortTriageCalculator from "../../../../components/ComfortTriageCalculator.astro";
@@ -17,11 +18,13 @@ import riderProfiles from "../../../../data/rider-profiles/gsx-s1000gx.json";
 import sources from "../../../../data/sources/suzuki-gsx-s1000gx.json";
 import disclosures from "../../../../data/disclosures/de.json";
 import { getMediaByKey } from "../../../../lib/mediaAssets";
+import { getSeatCatalogForMotorcycle } from "../../../../lib/seatCatalog";
 import { getVideosForEntity } from "../../../../lib/videoResources";
 
 const forestCurveImage = getMediaByKey("pexels_forest_curve_motorcyclist");
 const touringRoadImage = getMediaByKey("unsplash_touring_motorcycle_road");
 const touringSeatImage = getMediaByKey("touring_seat_goldwing_commons");
+const seatCatalogItems = getSeatCatalogForMotorcycle("suzuki-gsx-s1000gx");
 const gsxVideos = [
   ...getVideosForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "review_context"),
   ...getVideosForEntity("motorcycle_profile", "suzuki-gsx-s1000gx", "ergonomics_context"),
@@ -274,6 +277,18 @@ const gsxVideos = [
       <div class="grid two">
         {seatOptions.map((option) => <SeatOptionCard {...option} />)}
       </div>
+      {seatCatalogItems.length > 0 && (
+        <>
+          <h2 class="section-subtitle">Produktkatalog mit Fitment-Daten</h2>
+          <p class="lead">
+            Diese Einträge sind strukturierte Katalogdaten mit Quelle, Modelljahren, Varianten, Farben und Fitment-Status.
+            Sie ersetzen nicht die lokale Händlerprüfung vor dem Kauf.
+          </p>
+          <div class="grid two">
+            {seatCatalogItems.map((item) => <SeatCatalogCard item={item} />)}
+          </div>
+        </>
+      )}
     </div>
   </section>
 

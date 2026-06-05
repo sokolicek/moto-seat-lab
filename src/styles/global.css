@@ -1124,6 +1124,10 @@ h3 {
   min-height: 68px;
 }
 
+.section-subtitle {
+  margin-top: 32px;
+}
+
 .seat-option-card {
   position: relative;
   display: grid;
@@ -1148,6 +1152,24 @@ h3 {
 
 .seat-option-card p {
   margin: 8px 0;
+}
+
+.seat-catalog-card {
+  border-left: 4px solid rgba(18, 107, 115, 0.28);
+}
+
+.seat-catalog-card.verified_source {
+  border-left-color: var(--color-accent-strong);
+}
+
+.seat-catalog-card.verified_reseller_source,
+.seat-catalog-card.category_verified {
+  border-left-color: #e69245;
+}
+
+.seat-catalog-card.fitment_check_needed,
+.seat-catalog-card.model_generation_check_needed {
+  border-left-color: #b8792c;
 }
 
 .option-card-media {

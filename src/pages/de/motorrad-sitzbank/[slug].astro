@@ -2,6 +2,7 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import LabDataCard from "../../../components/LabDataCard.astro";
 import MediaAssetFigure from "../../../components/MediaAssetFigure.astro";
+import SeatCatalogCard from "../../../components/SeatCatalogCard.astro";
 import SeatOptionCard from "../../../components/SeatOptionCard.astro";
 import SolutionCard from "../../../components/SolutionCard.astro";
 import YouTubeVideoCard from "../../../components/YouTubeVideoCard.astro";
@@ -10,6 +11,7 @@ import technicalProfiles from "../../../data/motorcycles/technical-profiles.json
 import bmwSeatOptions from "../../../data/products/bmw-seat-options.json";
 import solutionPaths from "../../../data/solution-paths/seat-comfort.json";
 import { getMediaForEntity } from "../../../lib/mediaAssets";
+import { getSeatCatalogForMotorcycle } from "../../../lib/seatCatalog";
 import { getVideosForEntity } from "../../../lib/videoResources";
 
 function slugFromPath(path: string) {
@@ -38,6 +40,7 @@ const modelVideos = [
   ...getVideosForEntity("motorcycle_profile", slug, "ergonomics_context"),
   ...getVideosForEntity("motorcycle_profile", slug, "oem_context"),
 ];
+const seatCatalogItems = getSeatCatalogForMotorcycle(slug);
 
 const profileLabel: Record<string, string> = {
   sport_touring: "Sport-Touring",
@@ -227,6 +230,14 @@ const bmwGermanyPriority = [
         <div class="grid two option-grid">
           {bmwOptions.map((option) => <SeatOptionCard {...option} />)}
         </div>
+        {seatCatalogItems.length > 0 && (
+          <>
+            <h2 class="section-subtitle">Katalogdaten: OEM und Aftermarket</h2>
+            <div class="grid two option-grid">
+              {seatCatalogItems.map((item) => <SeatCatalogCard item={item} />)}
+            </div>
+          </>
+        )}
       </div>
     </section>
   )}
@@ -235,12 +246,24 @@ const bmwGermanyPriority = [
     <section class="section" id="andere-sitze">
       <div class="page-inner">
         <p class="eyebrow">Andere Sitze</p>
-        <h2>OEM, Aftermarket und Sattler erst nach Quellenprüfung.</h2>
-        <div class="decision-strip">
-          <span><strong>OEM</strong> Zubehörsitz, niedrige/hohe Variante und Heizungsoption prüfen</span>
-          <span><strong>Aftermarket</strong> Hersteller, Modelljahr, Rückgabe und echte Fahrberichte sammeln</span>
-          <span><strong>Sattler</strong> erst mit Fotos, Maßen und klarer Schmerzbeschreibung anfragen</span>
-        </div>
+        <h2>{seatCatalogItems.length > 0 ? "Erste OEM- und Aftermarket-Sitze aus dem Katalog." : "OEM, Aftermarket und Sattler erst nach Quellenprüfung."}</h2>
+        {seatCatalogItems.length > 0 ? (
+          <>
+            <p class="lead">
+              Diese Daten sind Katalogeinträge, keine blinde Kaufempfehlung. Vor dem Kauf immer Modelljahr,
+              Variante, Sitzheizung, Rückgabe und lokale Verfügbarkeit prüfen.
+            </p>
+            <div class="grid two option-grid">
+              {seatCatalogItems.map((item) => <SeatCatalogCard item={item} />)}
+            </div>
+          </>
+        ) : (
+          <div class="decision-strip">
+            <span><strong>OEM</strong> Zubehörsitz, niedrige/hohe Variante und Heizungsoption prüfen</span>
+            <span><strong>Aftermarket</strong> Hersteller, Modelljahr, Rückgabe und echte Fahrberichte sammeln</span>
+            <span><strong>Sattler</strong> erst mit Fotos, Maßen und klarer Schmerzbeschreibung anfragen</span>
+          </div>
+        )}
       </div>
     </section>
   )}

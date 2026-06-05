@@ -1302,6 +1302,1305 @@ INSERT INTO seat_options (
     source_url = EXCLUDED.source_url,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+DELETE FROM seat_product_fitments;
+DELETE FROM seat_products;
+DELETE FROM seat_manufacturers;
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'suzuki',
+    'Suzuki Genuine Accessories',
+    'oem',
+    'JP',
+    'https://www.globalsuzuki.com/motorcycle/',
+    'OEM accessories; local availability differs by market.',
+    '{"key":"suzuki","name":"Suzuki Genuine Accessories","manufacturerType":"oem","country":"JP","website":"https://www.globalsuzuki.com/motorcycle/","notes":"OEM accessories; local availability differs by market."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'bmw-motorrad',
+    'BMW Motorrad',
+    'oem',
+    'DE',
+    'https://www.bmw-motorrad.com/',
+    'OEM comfort, low, high and heated seat options are usually market and configuration dependent.',
+    '{"key":"bmw-motorrad","name":"BMW Motorrad","manufacturerType":"oem","country":"DE","website":"https://www.bmw-motorrad.com/","notes":"OEM comfort, low, high and heated seat options are usually market and configuration dependent."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'yamaha',
+    'Yamaha Genuine Accessories',
+    'oem',
+    'JP',
+    'https://www.yamaha-motor.eu/',
+    'OEM accessory availability differs by country.',
+    '{"key":"yamaha","name":"Yamaha Genuine Accessories","manufacturerType":"oem","country":"JP","website":"https://www.yamaha-motor.eu/","notes":"OEM accessory availability differs by country."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'honda',
+    'Honda Genuine Accessories',
+    'oem',
+    'JP',
+    'https://www.honda.co.uk/motorcycles/',
+    'OEM accessories and packs differ by model year and national distributor.',
+    '{"key":"honda","name":"Honda Genuine Accessories","manufacturerType":"oem","country":"JP","website":"https://www.honda.co.uk/motorcycles/","notes":"OEM accessories and packs differ by model year and national distributor."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki',
+    'Kawasaki Genuine Accessories',
+    'oem',
+    'JP',
+    'https://www.kawasaki.eu/',
+    'OEM Ergo-Fit and low-seat accessories are common for selected models.',
+    '{"key":"kawasaki","name":"Kawasaki Genuine Accessories","manufacturerType":"oem","country":"JP","website":"https://www.kawasaki.eu/","notes":"OEM Ergo-Fit and low-seat accessories are common for selected models."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'ducati-performance',
+    'Ducati Performance',
+    'oem',
+    'IT',
+    'https://www.ducati.com/',
+    'OEM Ducati accessories; part numbers and model year support can change.',
+    '{"key":"ducati-performance","name":"Ducati Performance","manufacturerType":"oem","country":"IT","website":"https://www.ducati.com/","notes":"OEM Ducati accessories; part numbers and model year support can change."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'wunderlich',
+    'Wunderlich',
+    'aftermarket',
+    'DE',
+    'https://www.wunderlich.de/',
+    'German BMW-focused aftermarket seats and accessories.',
+    '{"key":"wunderlich","name":"Wunderlich","manufacturerType":"aftermarket","country":"DE","website":"https://www.wunderlich.de/","notes":"German BMW-focused aftermarket seats and accessories."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'touratech',
+    'Touratech',
+    'aftermarket',
+    'DE',
+    'https://www.touratech.com/',
+    'Adventure touring accessories and comfort seats.',
+    '{"key":"touratech","name":"Touratech","manufacturerType":"aftermarket","country":"DE","website":"https://www.touratech.com/","notes":"Adventure touring accessories and comfort seats."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'sargent',
+    'Sargent Cycle Products',
+    'aftermarket',
+    'US',
+    'https://www.sargentcycle.com/',
+    'Aftermarket complete seats and seat upgrades; EU buyers must check import, return and heating wiring.',
+    '{"key":"sargent","name":"Sargent Cycle Products","manufacturerType":"aftermarket","country":"US","website":"https://www.sargentcycle.com/","notes":"Aftermarket complete seats and seat upgrades; EU buyers must check import, return and heating wiring."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'bagster',
+    'Bagster',
+    'aftermarket',
+    'FR',
+    'https://www.bagster.com/',
+    'Ready and Ready Luxe complete seats; exact model and year fitment must be checked carefully.',
+    '{"key":"bagster","name":"Bagster","manufacturerType":"aftermarket","country":"FR","website":"https://www.bagster.com/","notes":"Ready and Ready Luxe complete seats; exact model and year fitment must be checked carefully."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'corbin',
+    'Corbin',
+    'aftermarket',
+    'US',
+    'https://www.corbin.com/',
+    'Customizable aftermarket seats; colour, return and fitment risk should be clearly explained.',
+    '{"key":"corbin","name":"Corbin","manufacturerType":"aftermarket","country":"US","website":"https://www.corbin.com/","notes":"Customizable aftermarket seats; colour, return and fitment risk should be clearly explained."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'seat-concepts',
+    'Seat Concepts',
+    'aftermarket',
+    'US',
+    'https://www.seatconcepts.com/',
+    'Foam and cover kits or complete seats, especially offroad/adventure models.',
+    '{"key":"seat-concepts","name":"Seat Concepts","manufacturerType":"aftermarket","country":"US","website":"https://www.seatconcepts.com/","notes":"Foam and cover kits or complete seats, especially offroad/adventure models."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'tappezzeria-italia',
+    'Tappezzeria Italia',
+    'aftermarket_cover',
+    'IT',
+    'https://www.tappezzeriaitalia.it/',
+    'Comfort covers with memory foam; usually requires upholstery work.',
+    '{"key":"tappezzeria-italia","name":"Tappezzeria Italia","manufacturerType":"aftermarket_cover","country":"IT","website":"https://www.tappezzeriaitalia.it/","notes":"Comfort covers with memory foam; usually requires upholstery work."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    'sw-motech',
+    'SW-Motech',
+    'comfort_pad',
+    'DE',
+    'https://sw-motech.com/',
+    'Universal comfort cushions and accessories; not model-specific seat replacement.',
+    '{"key":"sw-motech","name":"SW-Motech","manufacturerType":"comfort_pad","country":"DE","website":"https://sw-motech.com/","notes":"Universal comfort cushions and accessories; not model-specific seat replacement."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-gsx-s1000gx-premium-seat-45100-48820',
+    'suzuki',
+    'Premium Seat',
+    'oem_complete_seat',
+    'verified_source',
+    'mid',
+    'Suzuki USA listed USD 449.95; EU dealer price must be checked locally.',
+    '["double-layer cushion construction","firmer support","cooler surface claim","positive grip"]'::jsonb,
+    '["OEM comfort improvement is not the same as individual ergonomic correction","market availability can change"]'::jsonb,
+    '["black","red stitching"]'::jsonb,
+    '[{"name":"Premium Seat","partNumber":"45100-48820 / 45100-48820-000","position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"black with red double stitching"}]'::jsonb,
+    'Suzuki Global / Suzuki USA',
+    'https://www.globalsuzuki.com/motorcycle/smgs/products/2026gsx-s1000gx/',
+    '2026-06-05',
+    '{"key":"suzuki-gsx-s1000gx-premium-seat-45100-48820","manufacturerKey":"suzuki","name":"Premium Seat","productType":"oem_complete_seat","status":"verified_source","priceBand":"mid","priceNote":"Suzuki USA listed USD 449.95; EU dealer price must be checked locally.","comfortClaims":["double-layer cushion construction","firmer support","cooler surface claim","positive grip"],"risks":["OEM comfort improvement is not the same as individual ergonomic correction","market availability can change"],"colors":["black","red stitching"],"variants":[{"name":"Premium Seat","partNumber":"45100-48820 / 45100-48820-000","position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"black with red double stitching"}],"fitments":[{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Local Suzuki dealer must confirm country-specific accessory availability."}],"source":{"label":"Suzuki Global / Suzuki USA","url":"https://www.globalsuzuki.com/motorcycle/smgs/products/2026gsx-s1000gx/","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'suzuki-gsx-s1000gx-premium-seat-45100-48820',
+      'suzuki-gsx-s1000gx',
+      'Suzuki',
+      'GSX-S1000GX',
+      2024,
+      2026,
+      'verified_source',
+      'Local Suzuki dealer must confirm country-specific accessory availability.',
+      '{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Local Suzuki dealer must confirm country-specific accessory availability."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'suzuki-gsx-s1000gx-low-seat',
+    'suzuki',
+    'Low Seat',
+    'oem_complete_seat',
+    'verified_source',
+    'mid',
+    'Country-specific dealer price required.',
+    '["lower seating position"]'::jsonb,
+    '["lower seat can worsen knee angle","less foam can reduce long-distance comfort"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Low Seat","partNumber":null,"position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"black"}]'::jsonb,
+    'Suzuki Global',
+    'https://www.globalsuzuki.com/motorcycle/smgs/products/2026gsx-s1000gx/',
+    '2026-06-05',
+    '{"key":"suzuki-gsx-s1000gx-low-seat","manufacturerKey":"suzuki","name":"Low Seat","productType":"oem_complete_seat","status":"verified_source","priceBand":"mid","priceNote":"Country-specific dealer price required.","comfortClaims":["lower seating position"],"risks":["lower seat can worsen knee angle","less foam can reduce long-distance comfort"],"colors":["black"],"variants":[{"name":"Low Seat","partNumber":null,"position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"black"}],"fitments":[{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Listed by Suzuki Global as genuine accessory."}],"source":{"label":"Suzuki Global","url":"https://www.globalsuzuki.com/motorcycle/smgs/products/2026gsx-s1000gx/","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'suzuki-gsx-s1000gx-low-seat',
+      'suzuki-gsx-s1000gx',
+      'Suzuki',
+      'GSX-S1000GX',
+      2024,
+      2026,
+      'verified_source',
+      'Listed by Suzuki Global as genuine accessory.',
+      '{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Listed by Suzuki Global as genuine accessory."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'sargent-ws-693f-suzuki-gsx-s1000gx-front',
+    'sargent',
+    'World Sport Performance Front Seat',
+    'aftermarket_front_seat',
+    'verified_source',
+    'high',
+    'US price depends on upholstery and heat options; import costs must be checked.',
+    '["World Sport saddle shape","Performance Plus upholstery option","front seat compatible with OEM rear seat"]'::jsonb,
+    '["expensive for short rides","EU return/import cost","front-only changes rider position but not passenger comfort"]'::jsonb,
+    '["black","custom welt/stitch options"]'::jsonb,
+    '[{"name":"Front Only Performance Plus","partNumber":"WS-693F-SE","position":"front","heightDeltaMm":null,"heated":"optional","cover":"DTX / Performance Plus variants"}]'::jsonb,
+    'Sargent Cycle Products',
+    'https://www.sargentcycle.com/WS-693F-SE',
+    '2026-06-05',
+    '{"key":"sargent-ws-693f-suzuki-gsx-s1000gx-front","manufacturerKey":"sargent","name":"World Sport Performance Front Seat","productType":"aftermarket_front_seat","status":"verified_source","priceBand":"high","priceNote":"US price depends on upholstery and heat options; import costs must be checked.","comfortClaims":["World Sport saddle shape","Performance Plus upholstery option","front seat compatible with OEM rear seat"],"risks":["expensive for short rides","EU return/import cost","front-only changes rider position but not passenger comfort"],"colors":["black","custom welt/stitch options"],"variants":[{"name":"Front Only Performance Plus","partNumber":"WS-693F-SE","position":"front","heightDeltaMm":null,"heated":"optional","cover":"DTX / Performance Plus variants"}],"fitments":[{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Sargent lists GSX-S1000GT and GSX-S1000GX front-only product."}],"source":{"label":"Sargent Cycle Products","url":"https://www.sargentcycle.com/WS-693F-SE","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sargent-ws-693f-suzuki-gsx-s1000gx-front',
+      'suzuki-gsx-s1000gx',
+      'Suzuki',
+      'GSX-S1000GX',
+      2024,
+      NULL,
+      'verified_source',
+      'Sargent lists GSX-S1000GT and GSX-S1000GX front-only product.',
+      '{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Sargent lists GSX-S1000GT and GSX-S1000GX front-only product."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'bagster-ready-luxe-suzuki-gsx-s1000-family',
+    'bagster',
+    'Ready Luxe Seat',
+    'aftermarket_complete_seat',
+    'fitment_check_needed',
+    'mid_high',
+    'Retailer price depends on market and whether seat pan is included.',
+    '["Bultex-style comfort concept","complete seat on replica or OEM-style base depending on product"]'::jsonb,
+    '["GSX-S1000 and GSX-S1000GX fitment must not be assumed","colour and year compatibility must be checked"]'::jsonb,
+    '["black","model-specific trim varies"]'::jsonb,
+    '[{"name":"Ready Luxe GSX-S 1000","partNumber":null,"position":"complete","heightDeltaMm":null,"heated":false,"cover":"Bagster model-specific trim"}]'::jsonb,
+    'Bagster Ready Luxe GSX-S 1000',
+    'https://www.bagster.com/fr/product/s-ready-luxe-gsx-s-1000/',
+    '2026-06-05',
+    '{"key":"bagster-ready-luxe-suzuki-gsx-s1000-family","manufacturerKey":"bagster","name":"Ready Luxe Seat","productType":"aftermarket_complete_seat","status":"fitment_check_needed","priceBand":"mid_high","priceNote":"Retailer price depends on market and whether seat pan is included.","comfortClaims":["Bultex-style comfort concept","complete seat on replica or OEM-style base depending on product"],"risks":["GSX-S1000 and GSX-S1000GX fitment must not be assumed","colour and year compatibility must be checked"],"colors":["black","model-specific trim varies"],"variants":[{"name":"Ready Luxe GSX-S 1000","partNumber":null,"position":"complete","heightDeltaMm":null,"heated":false,"cover":"Bagster model-specific trim"}],"fitments":[{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":null,"fitmentStatus":"research_candidate","notes":"Bagster source is GSX-S 1000 family; GX compatibility requires direct Bagster or dealer confirmation."}],"source":{"label":"Bagster Ready Luxe GSX-S 1000","url":"https://www.bagster.com/fr/product/s-ready-luxe-gsx-s-1000/","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'bagster-ready-luxe-suzuki-gsx-s1000-family',
+      'suzuki-gsx-s1000gx',
+      'Suzuki',
+      'GSX-S1000GX',
+      2024,
+      NULL,
+      'research_candidate',
+      'Bagster source is GSX-S 1000 family; GX compatibility requires direct Bagster or dealer confirmation.',
+      '{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Suzuki","model":"GSX-S1000GX","yearStart":2024,"yearEnd":null,"fitmentStatus":"research_candidate","notes":"Bagster source is GSX-S 1000 family; GX compatibility requires direct Bagster or dealer confirmation."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'wunderlich-aktivkomfort-r1300gs',
+    'wunderlich',
+    'AKTIVKOMFORT Seat',
+    'aftermarket_complete_seat',
+    'verified_source',
+    'high',
+    'Wunderlich America listed starting at USD 574.95; Germany price and variant must be checked.',
+    '["ergonomic 3D contour","ThermoPro cooler surface claim","standard low and high rider options","passenger Queen wider option"]'::jsonb,
+    '["does not fit all configurations","short grab handle exception noted by Wunderlich","heating compatibility differs by variant"]'::jsonb,
+    '["black","green/gold","trophy style"]'::jsonb,
+    '[{"name":"Rider standard","partNumber":"13100002-002","position":"rider","heightDeltaMm":0,"heated":"variant","cover":"black / style variants"},{"name":"Rider low","partNumber":null,"position":"rider","heightDeltaMm":-20,"heated":"variant","cover":"style variants"},{"name":"Rider high","partNumber":null,"position":"rider","heightDeltaMm":20,"heated":"variant","cover":"style variants"},{"name":"Passenger Queen","partNumber":"13114-002 / variant dependent","position":"passenger","heightDeltaMm":0,"heated":"variant","cover":"70 mm wider passenger seat"}]'::jsonb,
+    'Wunderlich AKTIVKOMFORT R1300 GS',
+    'https://www.wunderlichamerica.com/BMW-R1300-GS-Rider-Passenger-Seats',
+    '2026-06-05',
+    '{"key":"wunderlich-aktivkomfort-r1300gs","manufacturerKey":"wunderlich","name":"AKTIVKOMFORT Seat","productType":"aftermarket_complete_seat","status":"verified_source","priceBand":"high","priceNote":"Wunderlich America listed starting at USD 574.95; Germany price and variant must be checked.","comfortClaims":["ergonomic 3D contour","ThermoPro cooler surface claim","standard low and high rider options","passenger Queen wider option"],"risks":["does not fit all configurations","short grab handle exception noted by Wunderlich","heating compatibility differs by variant"],"colors":["black","green/gold","trophy style"],"variants":[{"name":"Rider standard","partNumber":"13100002-002","position":"rider","heightDeltaMm":0,"heated":"variant","cover":"black / style variants"},{"name":"Rider low","partNumber":null,"position":"rider","heightDeltaMm":-20,"heated":"variant","cover":"style variants"},{"name":"Rider high","partNumber":null,"position":"rider","heightDeltaMm":20,"heated":"variant","cover":"style variants"},{"name":"Passenger Queen","partNumber":"13114-002 / variant dependent","position":"passenger","heightDeltaMm":0,"heated":"variant","cover":"70 mm wider passenger seat"}],"fitments":[{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Wunderlich lists R1300 GS fitment with exception."}],"source":{"label":"Wunderlich AKTIVKOMFORT R1300 GS","url":"https://www.wunderlichamerica.com/BMW-R1300-GS-Rider-Passenger-Seats","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'wunderlich-aktivkomfort-r1300gs',
+      'bmw-r-1300-gs',
+      'BMW',
+      'R 1300 GS',
+      2024,
+      2026,
+      'verified_source',
+      'Wunderlich lists R1300 GS fitment with exception.',
+      '{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":2026,"fitmentStatus":"verified_source","notes":"Wunderlich lists R1300 GS fitment with exception."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'touratech-fresh-touch-r1300gs-rider',
+    'touratech',
+    'Comfort Seat Rider Fresh Touch',
+    'aftermarket_rider_seat',
+    'verified_source',
+    'high',
+    'Touratech listed as low as EUR 429.00 incl. tax; exact height/heat variant must be checked.',
+    '["Fresh Touch surface","non-slip texture","four seat heights","plug-and-play installation"]'::jsonb,
+    '["version without BMW seat heating only in listed page","height choice affects knee angle and ground reach"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Rider Fresh Touch without seat heating","partNumber":"01-035-5930-0P","position":"rider","heightDeltaMm":"multiple heights","heated":false,"cover":"Fresh Touch"}]'::jsonb,
+    'Touratech R1300GS Fresh Touch',
+    'https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html',
+    '2026-06-05',
+    '{"key":"touratech-fresh-touch-r1300gs-rider","manufacturerKey":"touratech","name":"Comfort Seat Rider Fresh Touch","productType":"aftermarket_rider_seat","status":"verified_source","priceBand":"high","priceNote":"Touratech listed as low as EUR 429.00 incl. tax; exact height/heat variant must be checked.","comfortClaims":["Fresh Touch surface","non-slip texture","four seat heights","plug-and-play installation"],"risks":["version without BMW seat heating only in listed page","height choice affects knee angle and ground reach"],"colors":["black"],"variants":[{"name":"Rider Fresh Touch without seat heating","partNumber":"01-035-5930-0P","position":"rider","heightDeltaMm":"multiple heights","heated":false,"cover":"Fresh Touch"}],"fitments":[{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Specifically listed for BMW R1300GS models without BMW seat heating."}],"source":{"label":"Touratech R1300GS Fresh Touch","url":"https://www.touratech.com/en/comfort-seat-rider-fresh-touch-for-bmw-r1300gs.html","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'touratech-fresh-touch-r1300gs-rider',
+      'bmw-r-1300-gs',
+      'BMW',
+      'R 1300 GS',
+      2024,
+      NULL,
+      'verified_source',
+      'Specifically listed for BMW R1300GS models without BMW seat heating.',
+      '{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Specifically listed for BMW R1300GS models without BMW seat heating."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'sargent-bmw-gs-world-sport',
+    'sargent',
+    'World Sport Adventure Touring Seat',
+    'aftermarket_complete_seat',
+    'verified_source',
+    'high',
+    'US/EU import price varies by model and options.',
+    '["World Sport touring shape","front/rear variants","heated variants depending on model"]'::jsonb,
+    '["model generation must be selected exactly","import and return cost"]'::jsonb,
+    '["black","custom welt/stitch options"]'::jsonb,
+    '[{"name":"BMW GS World Sport","partNumber":"model dependent","position":"front-rear","heightDeltaMm":"variant dependent","heated":"variant","cover":"Sargent options"}]'::jsonb,
+    'Sargent BMW GS seats',
+    'https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1',
+    '2026-06-05',
+    '{"key":"sargent-bmw-gs-world-sport","manufacturerKey":"sargent","name":"World Sport Adventure Touring Seat","productType":"aftermarket_complete_seat","status":"verified_source","priceBand":"high","priceNote":"US/EU import price varies by model and options.","comfortClaims":["World Sport touring shape","front/rear variants","heated variants depending on model"],"risks":["model generation must be selected exactly","import and return cost"],"colors":["black","custom welt/stitch options"],"variants":[{"name":"BMW GS World Sport","partNumber":"model dependent","position":"front-rear","heightDeltaMm":"variant dependent","heated":"variant","cover":"Sargent options"}],"fitments":[{"motorcycleSlug":"bmw-r-1250-gs","brand":"BMW","model":"R 1250 GS","yearStart":null,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Sargent BMW GS product family; exact model year selection required."},{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":null,"fitmentStatus":"fitment_check_needed","notes":"Forum reports exist; exact Sargent R1300GS product/variant needs direct product confirmation."}],"source":{"label":"Sargent BMW GS seats","url":"https://www.sargentcycle.com/seats/bmw/r/r13gs/r1300gs?page=1","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sargent-bmw-gs-world-sport',
+      'bmw-r-1250-gs',
+      'BMW',
+      'R 1250 GS',
+      NULL,
+      NULL,
+      'verified_source',
+      'Sargent BMW GS product family; exact model year selection required.',
+      '{"motorcycleSlug":"bmw-r-1250-gs","brand":"BMW","model":"R 1250 GS","yearStart":null,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Sargent BMW GS product family; exact model year selection required."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sargent-bmw-gs-world-sport',
+      'bmw-r-1300-gs',
+      'BMW',
+      'R 1300 GS',
+      2024,
+      NULL,
+      'fitment_check_needed',
+      'Forum reports exist; exact Sargent R1300GS product/variant needs direct product confirmation.',
+      '{"motorcycleSlug":"bmw-r-1300-gs","brand":"BMW","model":"R 1300 GS","yearStart":2024,"yearEnd":null,"fitmentStatus":"fitment_check_needed","notes":"Forum reports exist; exact Sargent R1300GS product/variant needs direct product confirmation."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'yamaha-tracer-9-comfort-seat-b5u-247c0',
+    'yamaha',
+    'Comfort Seat for TRACER 9',
+    'oem_complete_seat',
+    'verified_source',
+    'mid',
+    'Local Yamaha price and compatibility checker required.',
+    '["firm foam base","soft surface pouches","long-distance touring comfort"]'::jsonb,
+    '["country availability varies","not necessarily heated"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Comfort seat for TRACER 9","partNumber":"B5U-247C0-00-00","position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"OEM Yamaha"}]'::jsonb,
+    'Yamaha Motor EU',
+    'https://www.yamaha-motor.eu/al/en/accessories/accessories-overview/pdp/comfort-seat-for-tracer-9-b5u-247c0-00-00/',
+    '2026-06-05',
+    '{"key":"yamaha-tracer-9-comfort-seat-b5u-247c0","manufacturerKey":"yamaha","name":"Comfort Seat for TRACER 9","productType":"oem_complete_seat","status":"verified_source","priceBand":"mid","priceNote":"Local Yamaha price and compatibility checker required.","comfortClaims":["firm foam base","soft surface pouches","long-distance touring comfort"],"risks":["country availability varies","not necessarily heated"],"colors":["black"],"variants":[{"name":"Comfort seat for TRACER 9","partNumber":"B5U-247C0-00-00","position":"rider-passenger set","heightDeltaMm":null,"heated":false,"cover":"OEM Yamaha"}],"fitments":[{"motorcycleSlug":"yamaha-tracer-9-9-gt","brand":"Yamaha","model":"Tracer 9 / 9 GT","yearStart":2021,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Use Yamaha compatibility checker before purchase."}],"source":{"label":"Yamaha Motor EU","url":"https://www.yamaha-motor.eu/al/en/accessories/accessories-overview/pdp/comfort-seat-for-tracer-9-b5u-247c0-00-00/","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'yamaha-tracer-9-comfort-seat-b5u-247c0',
+      'yamaha-tracer-9-9-gt',
+      'Yamaha',
+      'Tracer 9 / 9 GT',
+      2021,
+      NULL,
+      'verified_source',
+      'Use Yamaha compatibility checker before purchase.',
+      '{"motorcycleSlug":"yamaha-tracer-9-9-gt","brand":"Yamaha","model":"Tracer 9 / 9 GT","yearStart":2021,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Use Yamaha compatibility checker before purchase."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'sargent-revolution-tracer-9-gt-2021-2023',
+    'sargent',
+    'REVolution Upgrade for Yamaha Tracer 9 GT',
+    'aftermarket_seat_upgrade',
+    'verified_source',
+    'high',
+    'Sargent variant and heat option determine final price.',
+    '["2-piece front and rear set","seat height comparable to OEM","heat installed variant"]'::jsonb,
+    '["listed 2021-2023 range does not automatically cover 2024+ GT+","requires exact model year check"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Performance Plus Black Front Heat","partNumber":"REV-691-SE9-HFK","position":"front-rear","heightDeltaMm":0,"heated":true,"cover":"DTX / Gripzones"}]'::jsonb,
+    'Sargent Tracer 9 GT',
+    'https://www.sargentcycle.com/REV-691-SE9-HFK',
+    '2026-06-05',
+    '{"key":"sargent-revolution-tracer-9-gt-2021-2023","manufacturerKey":"sargent","name":"REVolution Upgrade for Yamaha Tracer 9 GT","productType":"aftermarket_seat_upgrade","status":"verified_source","priceBand":"high","priceNote":"Sargent variant and heat option determine final price.","comfortClaims":["2-piece front and rear set","seat height comparable to OEM","heat installed variant"],"risks":["listed 2021-2023 range does not automatically cover 2024+ GT+","requires exact model year check"],"colors":["black"],"variants":[{"name":"Performance Plus Black Front Heat","partNumber":"REV-691-SE9-HFK","position":"front-rear","heightDeltaMm":0,"heated":true,"cover":"DTX / Gripzones"}],"fitments":[{"motorcycleSlug":"yamaha-tracer-9-9-gt","brand":"Yamaha","model":"Tracer 9 GT","yearStart":2021,"yearEnd":2023,"fitmentStatus":"verified_source","notes":"Sargent page title lists Yamaha Tracer 9GT 2021-23."}],"source":{"label":"Sargent Tracer 9 GT","url":"https://www.sargentcycle.com/REV-691-SE9-HFK","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sargent-revolution-tracer-9-gt-2021-2023',
+      'yamaha-tracer-9-9-gt',
+      'Yamaha',
+      'Tracer 9 GT',
+      2021,
+      2023,
+      'verified_source',
+      'Sargent page title lists Yamaha Tracer 9GT 2021-23.',
+      '{"motorcycleSlug":"yamaha-tracer-9-9-gt","brand":"Yamaha","model":"Tracer 9 GT","yearStart":2021,"yearEnd":2023,"fitmentStatus":"verified_source","notes":"Sargent page title lists Yamaha Tracer 9GT 2021-23."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'honda-africa-twin-crf1100l-comfort-seat',
+    'honda',
+    'CRF1100L Africa Twin Comfort Seat',
+    'oem_complete_seat',
+    'verified_reseller_source',
+    'mid',
+    'Dealer price and exact model year must be checked.',
+    '["OEM comfort accessory"]'::jsonb,
+    '["dealer page must be matched to exact CRF1100L year and Adventure Sports variant"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Comfort Seat","partNumber":null,"position":"rider","heightDeltaMm":null,"heated":false,"cover":"OEM Honda"}]'::jsonb,
+    'Honda of Bournemouth',
+    'https://www.hondaofbournemouth.co.uk/products/crf1100l-africa-twin-comfort-seat',
+    '2026-06-05',
+    '{"key":"honda-africa-twin-crf1100l-comfort-seat","manufacturerKey":"honda","name":"CRF1100L Africa Twin Comfort Seat","productType":"oem_complete_seat","status":"verified_reseller_source","priceBand":"mid","priceNote":"Dealer price and exact model year must be checked.","comfortClaims":["OEM comfort accessory"],"risks":["dealer page must be matched to exact CRF1100L year and Adventure Sports variant"],"colors":["black"],"variants":[{"name":"Comfort Seat","partNumber":null,"position":"rider","heightDeltaMm":null,"heated":false,"cover":"OEM Honda"}],"fitments":[{"motorcycleSlug":"honda-crf1100l-africa-twin","brand":"Honda","model":"CRF1100L Africa Twin","yearStart":null,"yearEnd":null,"fitmentStatus":"dealer_source","notes":"Dealer source; official Honda accessory brochure should be added next."}],"source":{"label":"Honda of Bournemouth","url":"https://www.hondaofbournemouth.co.uk/products/crf1100l-africa-twin-comfort-seat","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'honda-africa-twin-crf1100l-comfort-seat',
+      'honda-crf1100l-africa-twin',
+      'Honda',
+      'CRF1100L Africa Twin',
+      NULL,
+      NULL,
+      'dealer_source',
+      'Dealer source; official Honda accessory brochure should be added next.',
+      '{"motorcycleSlug":"honda-crf1100l-africa-twin","brand":"Honda","model":"CRF1100L Africa Twin","yearStart":null,"yearEnd":null,"fitmentStatus":"dealer_source","notes":"Dealer source; official Honda accessory brochure should be added next."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'seat-concepts-africa-twin-comfort',
+    'seat-concepts',
+    'Comfort Seat Kit',
+    'aftermarket_foam_cover_or_complete',
+    'model_generation_check_needed',
+    'mid_high',
+    'Kit/complete seat and international shipping differ.',
+    '["wider comfort profile","foam and cover concept"]'::jsonb,
+    '["search source is 2016-2019 Africa Twin, not automatically CRF1100L","generation mismatch risk"]'::jsonb,
+    '["black","cover options vary"]'::jsonb,
+    '[{"name":"Comfort Honda Africa Twin","partNumber":null,"position":"rider","heightDeltaMm":"variant dependent","heated":false,"cover":"Seat Concepts cover options"}]'::jsonb,
+    'Seat Concepts Africa Twin product family',
+    'https://www.seatconcepts.com/comfort-honda-16-19-africa-twin',
+    '2026-06-05',
+    '{"key":"seat-concepts-africa-twin-comfort","manufacturerKey":"seat-concepts","name":"Comfort Seat Kit","productType":"aftermarket_foam_cover_or_complete","status":"model_generation_check_needed","priceBand":"mid_high","priceNote":"Kit/complete seat and international shipping differ.","comfortClaims":["wider comfort profile","foam and cover concept"],"risks":["search source is 2016-2019 Africa Twin, not automatically CRF1100L","generation mismatch risk"],"colors":["black","cover options vary"],"variants":[{"name":"Comfort Honda Africa Twin","partNumber":null,"position":"rider","heightDeltaMm":"variant dependent","heated":false,"cover":"Seat Concepts cover options"}],"fitments":[{"motorcycleSlug":"honda-crf1100l-africa-twin","brand":"Honda","model":"CRF1100L Africa Twin","yearStart":2020,"yearEnd":null,"fitmentStatus":"research_candidate","notes":"Needs Seat Concepts CRF1100-specific product confirmation."}],"source":{"label":"Seat Concepts Africa Twin product family","url":"https://www.seatconcepts.com/comfort-honda-16-19-africa-twin","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'seat-concepts-africa-twin-comfort',
+      'honda-crf1100l-africa-twin',
+      'Honda',
+      'CRF1100L Africa Twin',
+      2020,
+      NULL,
+      'research_candidate',
+      'Needs Seat Concepts CRF1100-specific product confirmation.',
+      '{"motorcycleSlug":"honda-crf1100l-africa-twin","brand":"Honda","model":"CRF1100L Africa Twin","yearStart":2020,"yearEnd":null,"fitmentStatus":"research_candidate","notes":"Needs Seat Concepts CRF1100-specific product confirmation."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'kawasaki-versys-1000-low-seat-999941578',
+    'kawasaki',
+    'Low Seat / ERGO-FIT Reduced Reach Seat',
+    'oem_low_seat',
+    'verified_source',
+    'mid',
+    'Country price differs; Kawasaki US and UK/EU pages use related naming.',
+    '["deeper cushioning for long distance comfort","reduced reach / lower seat concept"]'::jsonb,
+    '["low seat may not be softer","reduced reach can change knee angle"]'::jsonb,
+    '["black","contrast stitching varies"]'::jsonb,
+    '[{"name":"Low Seat","partNumber":"999941578","position":"rider","heightDeltaMm":null,"heated":false,"cover":"Kawasaki OEM"}]'::jsonb,
+    'Kawasaki Europe / USA',
+    'https://www.kawasaki.co.uk/en/parts-and-accessories/motorcycles/comfort/999941578_low_seat.html',
+    '2026-06-05',
+    '{"key":"kawasaki-versys-1000-low-seat-999941578","manufacturerKey":"kawasaki","name":"Low Seat / ERGO-FIT Reduced Reach Seat","productType":"oem_low_seat","status":"verified_source","priceBand":"mid","priceNote":"Country price differs; Kawasaki US and UK/EU pages use related naming.","comfortClaims":["deeper cushioning for long distance comfort","reduced reach / lower seat concept"],"risks":["low seat may not be softer","reduced reach can change knee angle"],"colors":["black","contrast stitching varies"],"variants":[{"name":"Low Seat","partNumber":"999941578","position":"rider","heightDeltaMm":null,"heated":false,"cover":"Kawasaki OEM"}],"fitments":[{"motorcycleSlug":"kawasaki-versys-1000","brand":"Kawasaki","model":"Versys 1000 / S / SE","yearStart":null,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Kawasaki pages list Low Seat / ERGO-FIT Reduced Reach Seat for Versys 1000 variants."}],"source":{"label":"Kawasaki Europe / USA","url":"https://www.kawasaki.co.uk/en/parts-and-accessories/motorcycles/comfort/999941578_low_seat.html","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'kawasaki-versys-1000-low-seat-999941578',
+      'kawasaki-versys-1000',
+      'Kawasaki',
+      'Versys 1000 / S / SE',
+      NULL,
+      NULL,
+      'verified_source',
+      'Kawasaki pages list Low Seat / ERGO-FIT Reduced Reach Seat for Versys 1000 variants.',
+      '{"motorcycleSlug":"kawasaki-versys-1000","brand":"Kawasaki","model":"Versys 1000 / S / SE","yearStart":null,"yearEnd":null,"fitmentStatus":"verified_source","notes":"Kawasaki pages list Low Seat / ERGO-FIT Reduced Reach Seat for Versys 1000 variants."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'ducati-multistrada-v4-heated-medium-low-96880941ac',
+    'ducati-performance',
+    'Heated medium/lowered rider seat',
+    'oem_heated_rider_seat',
+    'verified_source',
+    'mid_high',
+    'Ducati US listed USD 344.37; EU price and availability must be checked.',
+    '["two-level heating from dashboard","comfort and versatility"]'::jsonb,
+    '["Ducati model variants and years must be selected exactly","heat may not solve engine heat discomfort"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Heated medium/lowered rider seat","partNumber":"96880941AC","position":"rider","heightDeltaMm":"medium/low","heated":true,"cover":"Ducati OEM"}]'::jsonb,
+    'Ducati Accessories',
+    'https://www.ducati.com/us/en/accessories/ACC012750',
+    '2026-06-05',
+    '{"key":"ducati-multistrada-v4-heated-medium-low-96880941ac","manufacturerKey":"ducati-performance","name":"Heated medium/lowered rider seat","productType":"oem_heated_rider_seat","status":"verified_source","priceBand":"mid_high","priceNote":"Ducati US listed USD 344.37; EU price and availability must be checked.","comfortClaims":["two-level heating from dashboard","comfort and versatility"],"risks":["Ducati model variants and years must be selected exactly","heat may not solve engine heat discomfort"],"colors":["black"],"variants":[{"name":"Heated medium/lowered rider seat","partNumber":"96880941AC","position":"rider","heightDeltaMm":"medium/low","heated":true,"cover":"Ducati OEM"}],"fitments":[{"motorcycleSlug":"ducati-multistrada-v4","brand":"Ducati","model":"Multistrada V4 / V4 S / Rally / Pikes Peak / RS","yearStart":2021,"yearEnd":2025,"fitmentStatus":"verified_source","notes":"Ducati compatible model list includes multiple Multistrada V4 variants."}],"source":{"label":"Ducati Accessories","url":"https://www.ducati.com/us/en/accessories/ACC012750","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'ducati-multistrada-v4-heated-medium-low-96880941ac',
+      'ducati-multistrada-v4',
+      'Ducati',
+      'Multistrada V4 / V4 S / Rally / Pikes Peak / RS',
+      2021,
+      2025,
+      'verified_source',
+      'Ducati compatible model list includes multiple Multistrada V4 variants.',
+      '{"motorcycleSlug":"ducati-multistrada-v4","brand":"Ducati","model":"Multistrada V4 / V4 S / Rally / Pikes Peak / RS","yearStart":2021,"yearEnd":2025,"fitmentStatus":"verified_source","notes":"Ducati compatible model list includes multiple Multistrada V4 variants."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'ducati-multistrada-v4-low-heated-96880921ac',
+    'ducati-performance',
+    'Low Heated Rider Seat',
+    'oem_low_heated_rider_seat',
+    'verified_reseller_source',
+    'mid_high',
+    'AMS Ducati listed product; price and exact current Ducati part support require dealer check.',
+    '["lowered seat height","heated comfort","better ground reach"]'::jsonb,
+    '["low seat may worsen knee angle","engine heat complaints may need heat management, not just seat"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"Low Heated Rider Seat","partNumber":"96880921AC","position":"rider","heightDeltaMm":-30,"heated":true,"cover":"Ducati OEM"}]'::jsonb,
+    'AMS Ducati',
+    'https://amsducati.com/ducati-multistrada-v4-low-heated-rider-seat-new-style-96880921ac',
+    '2026-06-05',
+    '{"key":"ducati-multistrada-v4-low-heated-96880921ac","manufacturerKey":"ducati-performance","name":"Low Heated Rider Seat","productType":"oem_low_heated_rider_seat","status":"verified_reseller_source","priceBand":"mid_high","priceNote":"AMS Ducati listed product; price and exact current Ducati part support require dealer check.","comfortClaims":["lowered seat height","heated comfort","better ground reach"],"risks":["low seat may worsen knee angle","engine heat complaints may need heat management, not just seat"],"colors":["black"],"variants":[{"name":"Low Heated Rider Seat","partNumber":"96880921AC","position":"rider","heightDeltaMm":-30,"heated":true,"cover":"Ducati OEM"}],"fitments":[{"motorcycleSlug":"ducati-multistrada-v4","brand":"Ducati","model":"Multistrada V4 family","yearStart":2021,"yearEnd":2025,"fitmentStatus":"dealer_source","notes":"AMS Ducati lists -30 mm for STD/S/PP/GT/RS and -45 mm for Rally."}],"source":{"label":"AMS Ducati","url":"https://amsducati.com/ducati-multistrada-v4-low-heated-rider-seat-new-style-96880921ac","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'ducati-multistrada-v4-low-heated-96880921ac',
+      'ducati-multistrada-v4',
+      'Ducati',
+      'Multistrada V4 family',
+      2021,
+      2025,
+      'dealer_source',
+      'AMS Ducati lists -30 mm for STD/S/PP/GT/RS and -45 mm for Rally.',
+      '{"motorcycleSlug":"ducati-multistrada-v4","brand":"Ducati","model":"Multistrada V4 family","yearStart":2021,"yearEnd":2025,"fitmentStatus":"dealer_source","notes":"AMS Ducati lists -30 mm for STD/S/PP/GT/RS and -45 mm for Rally."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'tappezzeria-italia-mt07-sanya-comfort',
+    'tappezzeria-italia',
+    'Sanya Comfort System Seat Cover',
+    'aftermarket_comfort_cover',
+    'verified_reseller_source',
+    'mid',
+    'WRS listed seat cover; shipping and installation cost extra.',
+    '["memory foam layer","waterproof materials","reinforced double stitching"]'::jsonb,
+    '["cover only, seat not included","professional fitting recommended","seams not fully waterproof"]'::jsonb,
+    '["black","blue insert","grey insert","black insert"]'::jsonb,
+    '[{"name":"Sanya Comfort System","partNumber":"YMT78SC","position":"cover","heightDeltaMm":null,"heated":false,"cover":"comfort cover with memory foam"}]'::jsonb,
+    'WRS Tappezzeria Italia MT-07',
+    'https://www.wrs.it/en/seat-covers/348293-seat-cover-sanya-comfort-system-yamaha-mt-07-2018-2024.html',
+    '2026-06-05',
+    '{"key":"tappezzeria-italia-mt07-sanya-comfort","manufacturerKey":"tappezzeria-italia","name":"Sanya Comfort System Seat Cover","productType":"aftermarket_comfort_cover","status":"verified_reseller_source","priceBand":"mid","priceNote":"WRS listed seat cover; shipping and installation cost extra.","comfortClaims":["memory foam layer","waterproof materials","reinforced double stitching"],"risks":["cover only, seat not included","professional fitting recommended","seams not fully waterproof"],"colors":["black","blue insert","grey insert","black insert"],"variants":[{"name":"Sanya Comfort System","partNumber":"YMT78SC","position":"cover","heightDeltaMm":null,"heated":false,"cover":"comfort cover with memory foam"}],"fitments":[{"motorcycleSlug":"yamaha-mt-07","brand":"Yamaha","model":"MT-07","yearStart":2018,"yearEnd":2024,"fitmentStatus":"verified_reseller_source","notes":"WRS lists compatibility Yamaha MT-07 2018-2024."}],"source":{"label":"WRS Tappezzeria Italia MT-07","url":"https://www.wrs.it/en/seat-covers/348293-seat-cover-sanya-comfort-system-yamaha-mt-07-2018-2024.html","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'tappezzeria-italia-mt07-sanya-comfort',
+      'yamaha-mt-07',
+      'Yamaha',
+      'MT-07',
+      2018,
+      2024,
+      'verified_reseller_source',
+      'WRS lists compatibility Yamaha MT-07 2018-2024.',
+      '{"motorcycleSlug":"yamaha-mt-07","brand":"Yamaha","model":"MT-07","yearStart":2018,"yearEnd":2024,"fitmentStatus":"verified_reseller_source","notes":"WRS lists compatibility Yamaha MT-07 2018-2024."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    'sw-motech-traveller-comfort-cushion-universal',
+    'sw-motech',
+    'TRAVELLER Comfort Cushion',
+    'universal_comfort_pad',
+    'category_verified',
+    'low_mid',
+    'Model size and retailer price must be checked.',
+    '["reversible quick relief","air/foam cushion category","no seat rebuild required"]'::jsonb,
+    '["can raise seat height","can move around","does not fix wrong seat shape"]'::jsonb,
+    '["black"]'::jsonb,
+    '[{"name":"TRAVELLER / universal comfort pad","partNumber":"size dependent","position":"pad","heightDeltaMm":"small increase","heated":false,"cover":"universal cushion"}]'::jsonb,
+    'SW-Motech comfort cushions',
+    'https://sw-motech.us/en-us/c/ergonomics/comfort-cushions',
+    '2026-06-05',
+    '{"key":"sw-motech-traveller-comfort-cushion-universal","manufacturerKey":"sw-motech","name":"TRAVELLER Comfort Cushion","productType":"universal_comfort_pad","status":"category_verified","priceBand":"low_mid","priceNote":"Model size and retailer price must be checked.","comfortClaims":["reversible quick relief","air/foam cushion category","no seat rebuild required"],"risks":["can raise seat height","can move around","does not fix wrong seat shape"],"colors":["black"],"variants":[{"name":"TRAVELLER / universal comfort pad","partNumber":"size dependent","position":"pad","heightDeltaMm":"small increase","heated":false,"cover":"universal cushion"}],"fitments":[{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Universal","model":"Measure before purchase","yearStart":null,"yearEnd":null,"fitmentStatus":"universal_measure_required","notes":"Use as first reversible test; measure seat width and straps."},{"motorcycleSlug":"bmw-r-1300-gs","brand":"Universal","model":"Measure before purchase","yearStart":null,"yearEnd":null,"fitmentStatus":"universal_measure_required","notes":"Useful first relief before expensive BMW comfort seat."}],"source":{"label":"SW-Motech comfort cushions","url":"https://sw-motech.us/en-us/c/ergonomics/comfort-cushions","checkedAt":"2026-06-05"}}'::jsonb,
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sw-motech-traveller-comfort-cushion-universal',
+      'suzuki-gsx-s1000gx',
+      'Universal',
+      'Measure before purchase',
+      NULL,
+      NULL,
+      'universal_measure_required',
+      'Use as first reversible test; measure seat width and straps.',
+      '{"motorcycleSlug":"suzuki-gsx-s1000gx","brand":"Universal","model":"Measure before purchase","yearStart":null,"yearEnd":null,"fitmentStatus":"universal_measure_required","notes":"Use as first reversible test; measure seat width and straps."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
+INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      'sw-motech-traveller-comfort-cushion-universal',
+      'bmw-r-1300-gs',
+      'Universal',
+      'Measure before purchase',
+      NULL,
+      NULL,
+      'universal_measure_required',
+      'Useful first relief before expensive BMW comfort seat.',
+      '{"motorcycleSlug":"bmw-r-1300-gs","brand":"Universal","model":"Measure before purchase","yearStart":null,"yearEnd":null,"fitmentStatus":"universal_measure_required","notes":"Useful first relief before expensive BMW comfort seat."}'::jsonb
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;
 DELETE FROM research_sources WHERE motorcycle_slug = 'suzuki-gsx-s1000gx';
 INSERT INTO research_sources (
     motorcycle_slug, title, url, notes, confidence, source_data, updated_at
@@ -6640,5 +7939,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":30,"content_media_links":59,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"countries":1,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":30,"content_media_links":59,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

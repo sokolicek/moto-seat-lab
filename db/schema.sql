@@ -80,6 +80,52 @@ CREATE TABLE IF NOT EXISTS seat_options (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS seat_manufacturers (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  manufacturer_type text NOT NULL,
+  country text,
+  website text,
+  notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS seat_products (
+  key text PRIMARY KEY,
+  manufacturer_key text REFERENCES seat_manufacturers(key) ON DELETE SET NULL,
+  name text NOT NULL,
+  product_type text NOT NULL,
+  status text NOT NULL,
+  price_band text,
+  price_note text,
+  comfort_claims jsonb NOT NULL DEFAULT '[]'::jsonb,
+  risks jsonb NOT NULL DEFAULT '[]'::jsonb,
+  colors jsonb NOT NULL DEFAULT '[]'::jsonb,
+  variants jsonb NOT NULL DEFAULT '[]'::jsonb,
+  source_label text,
+  source_url text,
+  source_checked_at text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS seat_product_fitments (
+  product_key text NOT NULL REFERENCES seat_products(key) ON DELETE CASCADE,
+  motorcycle_slug text REFERENCES motorcycles(slug) ON DELETE SET NULL,
+  brand text NOT NULL,
+  model text NOT NULL,
+  year_start integer,
+  year_end integer,
+  fitment_status text NOT NULL,
+  notes text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (product_key, motorcycle_slug, brand, model)
+);
+
 CREATE TABLE IF NOT EXISTS research_sources (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   motorcycle_slug text REFERENCES motorcycles(slug) ON DELETE SET NULL,
@@ -254,6 +300,10 @@ CREATE TABLE IF NOT EXISTS import_runs (
 CREATE INDEX IF NOT EXISTS idx_motorcycles_brand ON motorcycles(brand);
 CREATE INDEX IF NOT EXISTS idx_motorcycles_status ON motorcycles(status);
 CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_slug ON seat_options(motorcycle_slug);
+CREATE INDEX IF NOT EXISTS idx_seat_products_manufacturer ON seat_products(manufacturer_key);
+CREATE INDEX IF NOT EXISTS idx_seat_products_status ON seat_products(status);
+CREATE INDEX IF NOT EXISTS idx_seat_product_fitments_motorcycle ON seat_product_fitments(motorcycle_slug);
+CREATE INDEX IF NOT EXISTS idx_seat_product_fitments_status ON seat_product_fitments(fitment_status);
 CREATE INDEX IF NOT EXISTS idx_research_sources_motorcycle_slug ON research_sources(motorcycle_slug);
 CREATE INDEX IF NOT EXISTS idx_motorcycle_technical_profiles_status ON motorcycle_technical_profiles(riding_triangle_status);
 CREATE INDEX IF NOT EXISTS idx_seat_materials_type ON seat_materials(material_type);
@@ -277,6 +327,12 @@ UNION ALL
 SELECT 'product_categories', count(*)::integer FROM product_categories
 UNION ALL
 SELECT 'seat_options', count(*)::integer FROM seat_options
+UNION ALL
+SELECT 'seat_manufacturers', count(*)::integer FROM seat_manufacturers
+UNION ALL
+SELECT 'seat_products', count(*)::integer FROM seat_products
+UNION ALL
+SELECT 'seat_product_fitments', count(*)::integer FROM seat_product_fitments
 UNION ALL
 SELECT 'research_sources', count(*)::integer FROM research_sources
 UNION ALL
@@ -334,6 +390,34 @@ SELECT
   'seat option confidence is missing'
 FROM seat_options
 WHERE confidence IS NULL
+UNION ALL
+SELECT
+  'seat_products',
+  key,
+  'seat product has no manufacturer'
+FROM seat_products
+WHERE manufacturer_key IS NULL
+UNION ALL
+SELECT
+  'seat_products',
+  key,
+  'seat product has no source URL'
+FROM seat_products
+WHERE source_url IS NULL OR source_url = ''
+UNION ALL
+SELECT
+  'seat_products',
+  key,
+  'seat product has no variants'
+FROM seat_products
+WHERE variants IS NULL OR jsonb_array_length(variants) = 0
+UNION ALL
+SELECT
+  'seat_product_fitments',
+  product_key,
+  'seat product fitment has no motorcycle slug'
+FROM seat_product_fitments
+WHERE motorcycle_slug IS NULL
 UNION ALL
 SELECT
   'research_sources',

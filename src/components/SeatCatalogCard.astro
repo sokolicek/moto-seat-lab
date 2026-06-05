@@ -1,0 +1,65 @@
+---
+import type { SeatCatalogItem } from "../lib/seatCatalog";
+
+interface Props {
+  item: SeatCatalogItem;
+}
+
+const { item } = Astro.props;
+const manufacturer = item.manufacturer;
+const fitment = item.fitment;
+const yearRange =
+  fitment.yearStart && fitment.yearEnd
+    ? `${fitment.yearStart}-${fitment.yearEnd}`
+    : fitment.yearStart
+      ? `ab ${fitment.yearStart}`
+      : "Modelljahr prüfen";
+const statusLabel: Record<string, string> = {
+  verified_source: "Quelle geprüft",
+  verified_reseller_source: "Händlerquelle",
+  category_verified: "Kategorie geprüft",
+  fitment_check_needed: "Fitment prüfen",
+  model_generation_check_needed: "Generation prüfen",
+};
+---
+
+<article class={`card seat-catalog-card ${item.status}`}>
+  <div class="card-topline">
+    <span class="badge">{manufacturer?.name ?? item.manufacturerKey}</span>
+    <span class="badge muted">{item.productType.replaceAll("_", " ")}</span>
+    <span class="badge confidence">{statusLabel[item.status] ?? item.status}</span>
+  </div>
+  <h3>{item.name}</h3>
+  <p>
+    <strong>Passt zu:</strong> {fitment.brand} {fitment.model}, {yearRange}
+  </p>
+  <p><strong>Fitment-Status:</strong> {fitment.fitmentStatus.replaceAll("_", " ")}</p>
+  <div class="quick-facts">
+    <span><strong>Preisband</strong>{item.priceBand}</span>
+    <span><strong>Farben</strong>{item.colors.join(", ")}</span>
+  </div>
+  <details class="card-details" open>
+    <summary>Varianten</summary>
+    <ul class="compact-list">
+      {item.variants.map((variant) => (
+        <li>
+          <strong>{variant.name}</strong>
+          {variant.partNumber && <> · {variant.partNumber}</>}
+          {variant.position && <> · {variant.position}</>}
+          {variant.heightDeltaMm !== null && variant.heightDeltaMm !== undefined && <> · Höhe: {variant.heightDeltaMm}</>}
+          {variant.heated !== null && variant.heated !== undefined && <> · Heizung: {String(variant.heated)}</>}
+        </li>
+      ))}
+    </ul>
+  </details>
+  <details class="card-details">
+    <summary>Komfort und Risiken</summary>
+    <p><strong>Komfortversprechen:</strong> {item.comfortClaims.join("; ")}</p>
+    <p><strong>Aufpassen:</strong> {item.risks.join("; ")}</p>
+    <p><strong>Notiz:</strong> {fitment.notes}</p>
+    <p><strong>Preis:</strong> {item.priceNote}</p>
+  </details>
+  <p class="source-link">
+    <a href={item.source.url} target="_blank" rel="noreferrer">{item.source.label}</a>
+  </p>
+</article>

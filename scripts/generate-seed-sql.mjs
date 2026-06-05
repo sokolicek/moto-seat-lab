@@ -29,6 +29,7 @@ const add = (sql) => rows.push(sql);
 const motorcycles = await readJson("src/data/motorcycles/de-list.json");
 const gsxSeatOptions = await readJson("src/data/products/gsx-s1000gx-seat-options.json");
 const bmwSeatOptions = await readJson("src/data/products/bmw-seat-options.json");
+const seatCatalog = await readJson("src/data/products/seat-catalog.json");
 const solutionPaths = await readJson("src/data/solution-paths/seat-comfort.json");
 const productCategories = await readJson("src/data/product-categories/seat-comfort.json");
 const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
@@ -217,6 +218,102 @@ for (const option of seatOptions) {
     updated_at = now();`);
 }
 counts.seat_options = seatOptions.length;
+
+add("DELETE FROM seat_product_fitments;");
+add("DELETE FROM seat_products;");
+add("DELETE FROM seat_manufacturers;");
+for (const manufacturer of seatCatalog.manufacturers) {
+  add(`INSERT INTO seat_manufacturers (
+    key, name, manufacturer_type, country, website, notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(manufacturer.key)},
+    ${sqlString(manufacturer.name)},
+    ${sqlString(manufacturer.manufacturerType)},
+    ${sqlString(manufacturer.country)},
+    ${sqlString(manufacturer.website)},
+    ${sqlString(manufacturer.notes)},
+    ${sqlJson(manufacturer)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    manufacturer_type = EXCLUDED.manufacturer_type,
+    country = EXCLUDED.country,
+    website = EXCLUDED.website,
+    notes = EXCLUDED.notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.seat_manufacturers = seatCatalog.manufacturers.length;
+
+for (const product of seatCatalog.products) {
+  add(`INSERT INTO seat_products (
+    key, manufacturer_key, name, product_type, status, price_band, price_note,
+    comfort_claims, risks, colors, variants, source_label, source_url,
+    source_checked_at, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(product.key)},
+    ${sqlString(product.manufacturerKey)},
+    ${sqlString(product.name)},
+    ${sqlString(product.productType)},
+    ${sqlString(product.status)},
+    ${sqlString(product.priceBand)},
+    ${sqlString(product.priceNote)},
+    ${sqlJson(product.comfortClaims || [])},
+    ${sqlJson(product.risks || [])},
+    ${sqlJson(product.colors || [])},
+    ${sqlJson(product.variants || [])},
+    ${sqlString(product.source?.label)},
+    ${sqlString(product.source?.url)},
+    ${sqlString(product.source?.checkedAt)},
+    ${sqlJson(product)},
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    manufacturer_key = EXCLUDED.manufacturer_key,
+    name = EXCLUDED.name,
+    product_type = EXCLUDED.product_type,
+    status = EXCLUDED.status,
+    price_band = EXCLUDED.price_band,
+    price_note = EXCLUDED.price_note,
+    comfort_claims = EXCLUDED.comfort_claims,
+    risks = EXCLUDED.risks,
+    colors = EXCLUDED.colors,
+    variants = EXCLUDED.variants,
+    source_label = EXCLUDED.source_label,
+    source_url = EXCLUDED.source_url,
+    source_checked_at = EXCLUDED.source_checked_at,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+
+  for (const fitment of product.fitments || []) {
+    add(`INSERT INTO seat_product_fitments (
+      product_key, motorcycle_slug, brand, model, year_start, year_end,
+      fitment_status, notes, source_data
+    )
+    VALUES (
+      ${sqlString(product.key)},
+      ${sqlString(fitment.motorcycleSlug)},
+      ${sqlString(fitment.brand)},
+      ${sqlString(fitment.model)},
+      ${fitment.yearStart ?? "NULL"},
+      ${fitment.yearEnd ?? "NULL"},
+      ${sqlString(fitment.fitmentStatus)},
+      ${sqlString(fitment.notes)},
+      ${sqlJson(fitment)}
+    )
+    ON CONFLICT (product_key, motorcycle_slug, brand, model) DO UPDATE SET
+      year_start = EXCLUDED.year_start,
+      year_end = EXCLUDED.year_end,
+      fitment_status = EXCLUDED.fitment_status,
+      notes = EXCLUDED.notes,
+      source_data = EXCLUDED.source_data;`);
+  }
+}
+counts.seat_products = seatCatalog.products.length;
+counts.seat_product_fitments = seatCatalog.products.reduce((sum, product) => sum + (product.fitments || []).length, 0);
 
 add("DELETE FROM research_sources WHERE motorcycle_slug = 'suzuki-gsx-s1000gx';");
 for (const source of sources) {

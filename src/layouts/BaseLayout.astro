@@ -20,7 +20,7 @@ const referenceMotorcycle = menuMotorcycles.find((motorcycle) => motorcycle.stat
 const currentMotorcycle =
   menuMotorcycles.find((motorcycle) => motorcycle.path === currentPath) ?? referenceMotorcycle;
 const motorcycleStatusLabel: Record<string, string> = {
-  active: "Referenz",
+  active: "Guide",
   draft: "Basisprofil",
   planned: "geplant",
 };
@@ -102,7 +102,7 @@ const diyShortcuts = [
                     data-motorcycle-slug={slugFromPath(currentMotorcycle.path)}
                     data-motorcycle-name={currentMotorcycle.name}
                   >
-                    <span class="badge">{currentMotorcycle.status === "active" ? "Zuletzt / Referenz" : "Aktuell gewählt"}</span>
+                    <span class="badge">{currentMotorcycle.path === currentPath ? "Aktuell gewählt" : "Zuletzt gewählt"}</span>
                     <strong>{currentMotorcycle.name}</strong>
                     <small>{currentMotorcycle.seatPainFocus}</small>
                   </a>
@@ -143,7 +143,7 @@ const diyShortcuts = [
                       data-motorcycle-slug={slugFromPath(referenceMotorcycle.path)}
                       data-motorcycle-name={referenceMotorcycle.name}
                     >
-                      Suzuki Referenz öffnen
+                      Suzuki GSX-S1000GX öffnen
                     </a>
                     <span>Basisprofile sind bewusst ehrlich markiert, bis Produktdaten geprüft sind.</span>
                   </div>
