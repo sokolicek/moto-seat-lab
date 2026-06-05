@@ -209,13 +209,14 @@ INSERT INTO languages (
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'de',
     'deutschland',
+    '🇩🇪',
     'Germany',
     'Deutschland',
     'de',
@@ -227,11 +228,12 @@ INSERT INTO countries (
     'Schnelle Entlastung zuerst, danach OEM-Komfortsitz, Sattler oder Premium-Aftermarket.',
     '{"tone":"technical, trustworthy, touring-focused","imagery":"touring motorcycles, workshops, product comparison","density":"medium"}'::jsonb,
     '["quick relief pads","BMW and Suzuki touring references","OEM comfort seats","Wunderlich, Touratech, Sargent and local upholsterers","transparent long-distance comfort tradeoffs"]'::jsonb,
-    '{"code":"de","slug":"deutschland","name":"Germany","nativeName":"Deutschland","primaryLanguage":"de","languages":["de"],"region":"DACH","marketTier":"premium_touring","currency":"EUR","seatStrategy":"Schnelle Entlastung zuerst, danach OEM-Komfortsitz, Sattler oder Premium-Aftermarket.","defaultPath":"/de/","status":"active","priority":1,"notes":"Pilot market for the first public Moto Seat Lab version.","designHints":{"tone":"technical, trustworthy, touring-focused","imagery":"touring motorcycles, workshops, product comparison","density":"medium"},"contentFocus":["quick relief pads","BMW and Suzuki touring references","OEM comfort seats","Wunderlich, Touratech, Sargent and local upholsterers","transparent long-distance comfort tradeoffs"]}'::jsonb,
+    '{"code":"de","flagEmoji":"🇩🇪","slug":"deutschland","name":"Germany","nativeName":"Deutschland","primaryLanguage":"de","languages":["de"],"region":"DACH","marketTier":"premium_touring","currency":"EUR","seatStrategy":"Schnelle Entlastung zuerst, danach OEM-Komfortsitz, Sattler oder Premium-Aftermarket.","defaultPath":"/de/","status":"active","priority":1,"notes":"Pilot market for the first public Moto Seat Lab version.","designHints":{"tone":"technical, trustworthy, touring-focused","imagery":"touring motorcycles, workshops, product comparison","density":"medium"},"contentFocus":["quick relief pads","BMW and Suzuki touring references","OEM comfort seats","Wunderlich, Touratech, Sargent and local upholsterers","transparent long-distance comfort tradeoffs"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -260,13 +262,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'at',
     'oesterreich',
+    '🇦🇹',
     'Austria',
     'Österreich',
     'de',
@@ -278,11 +281,12 @@ INSERT INTO countries (
     'Alpine touring comfort, weather resistance and local upholsterer options.',
     '{"tone":"practical touring","imagery":"alpine roads and touring motorcycles","density":"medium"}'::jsonb,
     '["touring","alpine weather","seat heating","local workshops"]'::jsonb,
-    '{"code":"at","slug":"oesterreich","name":"Austria","nativeName":"Österreich","primaryLanguage":"de","languages":["de"],"region":"DACH","marketTier":"premium_touring","currency":"EUR","seatStrategy":"Alpine touring comfort, weather resistance and local upholsterer options.","defaultPath":"/de/","status":"planned","priority":2,"notes":"Can initially reuse German copy with Austria-specific buying channels.","designHints":{"tone":"practical touring","imagery":"alpine roads and touring motorcycles","density":"medium"},"contentFocus":["touring","alpine weather","seat heating","local workshops"]}'::jsonb,
+    '{"code":"at","flagEmoji":"🇦🇹","slug":"oesterreich","name":"Austria","nativeName":"Österreich","primaryLanguage":"de","languages":["de"],"region":"DACH","marketTier":"premium_touring","currency":"EUR","seatStrategy":"Alpine touring comfort, weather resistance and local upholsterer options.","defaultPath":"/de/","status":"planned","priority":2,"notes":"Can initially reuse German copy with Austria-specific buying channels.","designHints":{"tone":"practical touring","imagery":"alpine roads and touring motorcycles","density":"medium"},"contentFocus":["touring","alpine weather","seat heating","local workshops"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -311,13 +315,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'ch',
     'schweiz',
+    '🇨🇭',
     'Switzerland',
     'Schweiz',
     'de',
@@ -329,11 +334,12 @@ INSERT INTO countries (
     'Premium advice with multilingual routing and high trust requirements.',
     '{"tone":"precise, premium, restrained","imagery":"mountain touring, quality workshop detail","density":"medium"}'::jsonb,
     '["premium saddles","multilingual content","high-quality fitment data"]'::jsonb,
-    '{"code":"ch","slug":"schweiz","name":"Switzerland","nativeName":"Schweiz","primaryLanguage":"de","languages":["de","fr","it"],"region":"DACH","marketTier":"premium_touring","currency":"CHF","seatStrategy":"Premium advice with multilingual routing and high trust requirements.","defaultPath":"/de/","status":"planned","priority":3,"notes":"Needs German, French and Italian variants when the Swiss market is activated.","designHints":{"tone":"precise, premium, restrained","imagery":"mountain touring, quality workshop detail","density":"medium"},"contentFocus":["premium saddles","multilingual content","high-quality fitment data"]}'::jsonb,
+    '{"code":"ch","flagEmoji":"🇨🇭","slug":"schweiz","name":"Switzerland","nativeName":"Schweiz","primaryLanguage":"de","languages":["de","fr","it"],"region":"DACH","marketTier":"premium_touring","currency":"CHF","seatStrategy":"Premium advice with multilingual routing and high trust requirements.","defaultPath":"/de/","status":"planned","priority":3,"notes":"Needs German, French and Italian variants when the Swiss market is activated.","designHints":{"tone":"precise, premium, restrained","imagery":"mountain touring, quality workshop detail","density":"medium"},"contentFocus":["premium saddles","multilingual content","high-quality fitment data"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -390,13 +396,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'fr',
     'france',
+    '🇫🇷',
     'France',
     'France',
     'fr',
@@ -408,11 +415,12 @@ INSERT INTO countries (
     'Balance touring comfort with local artisans and practical commuting fixes.',
     '{"tone":"clear, practical, less technical at entry","imagery":"road touring and workshop craft","density":"medium"}'::jsonb,
     '["commuting","touring","local saddlers","seat covers"]'::jsonb,
-    '{"code":"fr","slug":"france","name":"France","nativeName":"France","primaryLanguage":"fr","languages":["fr"],"region":"EU","marketTier":"mixed_touring_commuter","currency":"EUR","seatStrategy":"Balance touring comfort with local artisans and practical commuting fixes.","defaultPath":"/de/","status":"planned","priority":4,"notes":"Requires French copy and local marketplace/saddler research.","designHints":{"tone":"clear, practical, less technical at entry","imagery":"road touring and workshop craft","density":"medium"},"contentFocus":["commuting","touring","local saddlers","seat covers"]}'::jsonb,
+    '{"code":"fr","flagEmoji":"🇫🇷","slug":"france","name":"France","nativeName":"France","primaryLanguage":"fr","languages":["fr"],"region":"EU","marketTier":"mixed_touring_commuter","currency":"EUR","seatStrategy":"Balance touring comfort with local artisans and practical commuting fixes.","defaultPath":"/de/","status":"planned","priority":4,"notes":"Requires French copy and local marketplace/saddler research.","designHints":{"tone":"clear, practical, less technical at entry","imagery":"road touring and workshop craft","density":"medium"},"contentFocus":["commuting","touring","local saddlers","seat covers"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -441,13 +449,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'it',
     'italia',
+    '🇮🇹',
     'Italy',
     'Italia',
     'it',
@@ -459,11 +468,12 @@ INSERT INTO countries (
     'Comfort plus style, covers, stitching and artisan upgrades.',
     '{"tone":"visual, style-aware, still honest","imagery":"seat detail, stitching, touring roads","density":"medium"}'::jsonb,
     '["seat covers","artisan work","style and comfort","touring"]'::jsonb,
-    '{"code":"it","slug":"italia","name":"Italy","nativeName":"Italia","primaryLanguage":"it","languages":["it"],"region":"EU","marketTier":"mixed_touring_style","currency":"EUR","seatStrategy":"Comfort plus style, covers, stitching and artisan upgrades.","defaultPath":"/de/","status":"planned","priority":5,"notes":"Needs Italian copy and product visuals with clear rights.","designHints":{"tone":"visual, style-aware, still honest","imagery":"seat detail, stitching, touring roads","density":"medium"},"contentFocus":["seat covers","artisan work","style and comfort","touring"]}'::jsonb,
+    '{"code":"it","flagEmoji":"🇮🇹","slug":"italia","name":"Italy","nativeName":"Italia","primaryLanguage":"it","languages":["it"],"region":"EU","marketTier":"mixed_touring_style","currency":"EUR","seatStrategy":"Comfort plus style, covers, stitching and artisan upgrades.","defaultPath":"/de/","status":"planned","priority":5,"notes":"Needs Italian copy and product visuals with clear rights.","designHints":{"tone":"visual, style-aware, still honest","imagery":"seat detail, stitching, touring roads","density":"medium"},"contentFocus":["seat covers","artisan work","style and comfort","touring"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -492,13 +502,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'sk',
     'slovensko',
+    '🇸🇰',
     'Slovakia',
     'Slovensko',
     'sk',
@@ -510,11 +521,12 @@ INSERT INTO countries (
     'Najprv lacná a vratná úľava, potom lokálny čalúnnik alebo DIY.',
     '{"tone":"direct, practical, beginner-friendly","imagery":"DIY steps, affordable fixes, workshop table","density":"medium"}'::jsonb,
     '["rýchla úľava","lacné doplnky","čalúnnik","DIY"]'::jsonb,
-    '{"code":"sk","slug":"slovensko","name":"Slovakia","nativeName":"Slovensko","primaryLanguage":"sk","languages":["sk"],"region":"CEE","marketTier":"budget_practical","currency":"EUR","seatStrategy":"Najprv lacná a vratná úľava, potom lokálny čalúnnik alebo DIY.","defaultPath":"/sk/","status":"draft","priority":6,"notes":"Good first non-German language because the project owner can review the copy.","designHints":{"tone":"direct, practical, beginner-friendly","imagery":"DIY steps, affordable fixes, workshop table","density":"medium"},"contentFocus":["rýchla úľava","lacné doplnky","čalúnnik","DIY"]}'::jsonb,
+    '{"code":"sk","flagEmoji":"🇸🇰","slug":"slovensko","name":"Slovakia","nativeName":"Slovensko","primaryLanguage":"sk","languages":["sk"],"region":"CEE","marketTier":"budget_practical","currency":"EUR","seatStrategy":"Najprv lacná a vratná úľava, potom lokálny čalúnnik alebo DIY.","defaultPath":"/sk/","status":"draft","priority":6,"notes":"Good first non-German language because the project owner can review the copy.","designHints":{"tone":"direct, practical, beginner-friendly","imagery":"DIY steps, affordable fixes, workshop table","density":"medium"},"contentFocus":["rýchla úľava","lacné doplnky","čalúnnik","DIY"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -543,13 +555,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'hu',
     'magyarorszag',
+    '🇭🇺',
     'Hungary',
     'Magyarország',
     'hu',
@@ -561,11 +574,12 @@ INSERT INTO countries (
     'Budget-first relief, local upholsterer research and clear fitment warnings.',
     '{"tone":"practical, value-focused","imagery":"commuting, DIY, workshops","density":"medium"}'::jsonb,
     '["budget relief","local upholsterers","commuting"]'::jsonb,
-    '{"code":"hu","slug":"magyarorszag","name":"Hungary","nativeName":"Magyarország","primaryLanguage":"hu","languages":["hu"],"region":"CEE","marketTier":"budget_practical","currency":"HUF","seatStrategy":"Budget-first relief, local upholsterer research and clear fitment warnings.","defaultPath":"/de/","status":"planned","priority":7,"notes":"Requires Hungarian copy and local sourcing research.","designHints":{"tone":"practical, value-focused","imagery":"commuting, DIY, workshops","density":"medium"},"contentFocus":["budget relief","local upholsterers","commuting"]}'::jsonb,
+    '{"code":"hu","flagEmoji":"🇭🇺","slug":"magyarorszag","name":"Hungary","nativeName":"Magyarország","primaryLanguage":"hu","languages":["hu"],"region":"CEE","marketTier":"budget_practical","currency":"HUF","seatStrategy":"Budget-first relief, local upholsterer research and clear fitment warnings.","defaultPath":"/de/","status":"planned","priority":7,"notes":"Requires Hungarian copy and local sourcing research.","designHints":{"tone":"practical, value-focused","imagery":"commuting, DIY, workshops","density":"medium"},"contentFocus":["budget relief","local upholsterers","commuting"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -594,13 +608,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'pl',
     'polska',
+    '🇵🇱',
     'Poland',
     'Polska',
     'pl',
@@ -612,11 +627,12 @@ INSERT INTO countries (
     'Strong DIY and workshop angle with mid-price product comparison.',
     '{"tone":"practical, comparison-driven","imagery":"DIY, product comparison, touring","density":"medium"}'::jsonb,
     '["DIY","mid-price upgrades","marketplace checks"]'::jsonb,
-    '{"code":"pl","slug":"polska","name":"Poland","nativeName":"Polska","primaryLanguage":"pl","languages":["pl"],"region":"CEE","marketTier":"budget_to_mid","currency":"PLN","seatStrategy":"Strong DIY and workshop angle with mid-price product comparison.","defaultPath":"/de/","status":"planned","priority":8,"notes":"Likely strong community/forum research value.","designHints":{"tone":"practical, comparison-driven","imagery":"DIY, product comparison, touring","density":"medium"},"contentFocus":["DIY","mid-price upgrades","marketplace checks"]}'::jsonb,
+    '{"code":"pl","flagEmoji":"🇵🇱","slug":"polska","name":"Poland","nativeName":"Polska","primaryLanguage":"pl","languages":["pl"],"region":"CEE","marketTier":"budget_to_mid","currency":"PLN","seatStrategy":"Strong DIY and workshop angle with mid-price product comparison.","defaultPath":"/de/","status":"planned","priority":8,"notes":"Likely strong community/forum research value.","designHints":{"tone":"practical, comparison-driven","imagery":"DIY, product comparison, touring","density":"medium"},"contentFocus":["DIY","mid-price upgrades","marketplace checks"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -645,13 +661,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'ru',
     'rossiya',
+    '🇷🇺',
     'Russia',
     'Россия',
     'ru',
@@ -663,11 +680,12 @@ INSERT INTO countries (
     'Availability-first advice, DIY alternatives and broad fitment caveats.',
     '{"tone":"practical, availability-aware","imagery":"workshop, endurance touring","density":"medium"}'::jsonb,
     '["availability","DIY","universal pads","repair"]'::jsonb,
-    '{"code":"ru","slug":"rossiya","name":"Russia","nativeName":"Россия","primaryLanguage":"ru","languages":["ru"],"region":"Eurasia","marketTier":"availability_sensitive","currency":"RUB","seatStrategy":"Availability-first advice, DIY alternatives and broad fitment caveats.","defaultPath":"/de/","status":"planned","priority":9,"notes":"Needs careful sourcing and availability disclaimers.","designHints":{"tone":"practical, availability-aware","imagery":"workshop, endurance touring","density":"medium"},"contentFocus":["availability","DIY","universal pads","repair"]}'::jsonb,
+    '{"code":"ru","flagEmoji":"🇷🇺","slug":"rossiya","name":"Russia","nativeName":"Россия","primaryLanguage":"ru","languages":["ru"],"region":"Eurasia","marketTier":"availability_sensitive","currency":"RUB","seatStrategy":"Availability-first advice, DIY alternatives and broad fitment caveats.","defaultPath":"/de/","status":"planned","priority":9,"notes":"Needs careful sourcing and availability disclaimers.","designHints":{"tone":"practical, availability-aware","imagery":"workshop, endurance touring","density":"medium"},"contentFocus":["availability","DIY","universal pads","repair"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -696,13 +714,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'tr',
     'turkiye',
+    '🇹🇷',
     'Turkey',
     'Türkiye',
     'tr',
@@ -714,11 +733,12 @@ INSERT INTO countries (
     'Daily riding comfort, local workshops and value-focused add-ons.',
     '{"tone":"clear, practical, cost-aware","imagery":"urban riding, workshops, touring","density":"medium"}'::jsonb,
     '["daily riding","local workshops","affordable pads"]'::jsonb,
-    '{"code":"tr","slug":"turkiye","name":"Turkey","nativeName":"Türkiye","primaryLanguage":"tr","languages":["tr"],"region":"Eurasia","marketTier":"budget_to_mid","currency":"TRY","seatStrategy":"Daily riding comfort, local workshops and value-focused add-ons.","defaultPath":"/de/","status":"planned","priority":10,"notes":"Needs Turkish copy and local supplier research.","designHints":{"tone":"clear, practical, cost-aware","imagery":"urban riding, workshops, touring","density":"medium"},"contentFocus":["daily riding","local workshops","affordable pads"]}'::jsonb,
+    '{"code":"tr","flagEmoji":"🇹🇷","slug":"turkiye","name":"Turkey","nativeName":"Türkiye","primaryLanguage":"tr","languages":["tr"],"region":"Eurasia","marketTier":"budget_to_mid","currency":"TRY","seatStrategy":"Daily riding comfort, local workshops and value-focused add-ons.","defaultPath":"/de/","status":"planned","priority":10,"notes":"Needs Turkish copy and local supplier research.","designHints":{"tone":"clear, practical, cost-aware","imagery":"urban riding, workshops, touring","density":"medium"},"contentFocus":["daily riding","local workshops","affordable pads"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -747,13 +767,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'th',
     'thailand',
+    '🇹🇭',
     'Thailand',
     'ไทย',
     'th',
@@ -765,11 +786,12 @@ INSERT INTO countries (
     'Heat, rain, scooter comfort and low-cost reversible add-ons before premium saddles.',
     '{"tone":"simple, visual, mobile-first","imagery":"scooters, mesh covers, rain/heat","density":"low"}'::jsonb,
     '["3D mesh covers","rain and heat","scooters","low-cost pads"]'::jsonb,
-    '{"code":"th","slug":"thailand","name":"Thailand","nativeName":"ไทย","primaryLanguage":"th","languages":["th"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"THB","seatStrategy":"Heat, rain, scooter comfort and low-cost reversible add-ons before premium saddles.","defaultPath":"/de/","status":"planned","priority":11,"notes":"Should not lead with expensive European touring seats.","designHints":{"tone":"simple, visual, mobile-first","imagery":"scooters, mesh covers, rain/heat","density":"low"},"contentFocus":["3D mesh covers","rain and heat","scooters","low-cost pads"]}'::jsonb,
+    '{"code":"th","flagEmoji":"🇹🇭","slug":"thailand","name":"Thailand","nativeName":"ไทย","primaryLanguage":"th","languages":["th"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"THB","seatStrategy":"Heat, rain, scooter comfort and low-cost reversible add-ons before premium saddles.","defaultPath":"/de/","status":"planned","priority":11,"notes":"Should not lead with expensive European touring seats.","designHints":{"tone":"simple, visual, mobile-first","imagery":"scooters, mesh covers, rain/heat","density":"low"},"contentFocus":["3D mesh covers","rain and heat","scooters","low-cost pads"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -798,13 +820,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'id',
     'indonesia',
+    '🇮🇩',
     'Indonesia',
     'Indonesia',
     'id',
@@ -816,11 +839,12 @@ INSERT INTO countries (
     'Scooter and commuter comfort, heat/rain materials, local upholstery and cheap pads.',
     '{"tone":"visual, concise, mobile-first","imagery":"scooters, rain, breathable covers, local workshops","density":"low"}'::jsonb,
     '["scooters","breathable covers","rain","budget"]'::jsonb,
-    '{"code":"id","slug":"indonesia","name":"Indonesia","nativeName":"Indonesia","primaryLanguage":"id","languages":["id"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"IDR","seatStrategy":"Scooter and commuter comfort, heat/rain materials, local upholstery and cheap pads.","defaultPath":"/de/","status":"planned","priority":12,"notes":"Country logic should prioritize low-cost add-ons and scooter content.","designHints":{"tone":"visual, concise, mobile-first","imagery":"scooters, rain, breathable covers, local workshops","density":"low"},"contentFocus":["scooters","breathable covers","rain","budget"]}'::jsonb,
+    '{"code":"id","flagEmoji":"🇮🇩","slug":"indonesia","name":"Indonesia","nativeName":"Indonesia","primaryLanguage":"id","languages":["id"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"IDR","seatStrategy":"Scooter and commuter comfort, heat/rain materials, local upholstery and cheap pads.","defaultPath":"/de/","status":"planned","priority":12,"notes":"Country logic should prioritize low-cost add-ons and scooter content.","designHints":{"tone":"visual, concise, mobile-first","imagery":"scooters, rain, breathable covers, local workshops","density":"low"},"contentFocus":["scooters","breathable covers","rain","budget"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,
@@ -849,13 +873,14 @@ INSERT INTO country_languages (
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
 INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     'my',
     'malaysia',
+    '🇲🇾',
     'Malaysia',
     'Malaysia',
     'ms',
@@ -867,11 +892,12 @@ INSERT INTO countries (
     'Heat/rain comfort, scooter and commuter use, bilingual Malay/English path.',
     '{"tone":"concise, visual, mobile-first","imagery":"commuting, scooters, breathable covers","density":"low"}'::jsonb,
     '["commuting","mesh covers","rain","budget"]'::jsonb,
-    '{"code":"my","slug":"malaysia","name":"Malaysia","nativeName":"Malaysia","primaryLanguage":"ms","languages":["ms","en"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"MYR","seatStrategy":"Heat/rain comfort, scooter and commuter use, bilingual Malay/English path.","defaultPath":"/de/","status":"planned","priority":13,"notes":"Can support Malay first with English fallback.","designHints":{"tone":"concise, visual, mobile-first","imagery":"commuting, scooters, breathable covers","density":"low"},"contentFocus":["commuting","mesh covers","rain","budget"]}'::jsonb,
+    '{"code":"my","flagEmoji":"🇲🇾","slug":"malaysia","name":"Malaysia","nativeName":"Malaysia","primaryLanguage":"ms","languages":["ms","en"],"region":"SEA","marketTier":"scooter_budget_heat","currency":"MYR","seatStrategy":"Heat/rain comfort, scooter and commuter use, bilingual Malay/English path.","defaultPath":"/de/","status":"planned","priority":13,"notes":"Can support Malay first with English fallback.","designHints":{"tone":"concise, visual, mobile-first","imagery":"commuting, scooters, breathable covers","density":"low"},"contentFocus":["commuting","mesh covers","rain","budget"]}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,

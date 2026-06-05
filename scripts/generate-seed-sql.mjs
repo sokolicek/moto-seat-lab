@@ -105,13 +105,14 @@ counts.languages = languageCodes.length;
 
 for (const country of countries) {
   add(`INSERT INTO countries (
-    code, slug, name, native_name, language_code, region, market_tier,
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
     source_data, updated_at
   )
   VALUES (
     ${sqlString(country.code)},
     ${sqlString(country.slug)},
+    ${sqlString(country.flagEmoji)},
     ${sqlString(country.name)},
     ${sqlString(country.nativeName)},
     ${sqlString(country.primaryLanguage)},
@@ -128,6 +129,7 @@ for (const country of countries) {
   )
   ON CONFLICT (code) DO UPDATE SET
     slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
     name = EXCLUDED.name,
     native_name = EXCLUDED.native_name,
     language_code = EXCLUDED.language_code,

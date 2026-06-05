@@ -5,6 +5,7 @@ export type LocaleStatus = "active" | "draft" | "planned";
 
 export interface CountryProfile {
   code: string;
+  flagEmoji: string;
   slug: string;
   name: string;
   nativeName: string;

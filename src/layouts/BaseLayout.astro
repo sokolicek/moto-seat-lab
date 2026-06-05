@@ -20,6 +20,10 @@ const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com"
 const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.com").toString() : undefined;
 const currentPath = Astro.url.pathname;
 const countrySwitcher = getCountriesForSwitcher();
+const currentCountry =
+  countrySwitcher.find((country) => currentPath === country.defaultPath || currentPath.startsWith(`/${country.code}/`)) ??
+  countrySwitcher.find((country) => country.primaryLanguage === locale && country.status === "active") ??
+  countrySwitcher[0];
 const menuMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
 const referenceMotorcycle = menuMotorcycles.find((motorcycle) => motorcycle.status === "active") ?? menuMotorcycles[0];
 const currentMotorcycle =
@@ -198,8 +202,9 @@ const diyShortcuts = [
             </details>
             <a href="/de/bilder/">{t("nav.images")}</a>
             <details class="nav-dropdown locale-dropdown">
-              <summary>
-                <span>{t("nav.locale")}</span>
+              <summary class="locale-summary" aria-label={`${t("nav.locale")}: ${currentCountry.nativeName}`}>
+                <span class="locale-summary-flag" aria-hidden="true">{currentCountry.flagEmoji}</span>
+                <span class="locale-summary-code">{currentCountry.primaryLanguage.toUpperCase()}</span>
                 <span class="dropdown-caret" aria-hidden="true"></span>
               </summary>
               <div class="dropdown-panel locale-panel">
@@ -213,7 +218,8 @@ const diyShortcuts = [
                     const href = hasLocalPage ? country.defaultPath : "/de/";
                     return (
                       <a class={`locale-card ${country.status}`} href={href} lang={country.primaryLanguage}>
-                        <span>
+                        <span class="locale-flag" aria-hidden="true">{country.flagEmoji}</span>
+                        <span class="locale-copy">
                           <strong>{country.nativeName}</strong>
                           <small>{country.region} · {country.currency} · {country.primaryLanguage.toUpperCase()}</small>
                         </span>

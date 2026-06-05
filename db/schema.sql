@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS countries (
 
 ALTER TABLE countries
   ADD COLUMN IF NOT EXISTS slug text,
+  ADD COLUMN IF NOT EXISTS flag_emoji text,
   ADD COLUMN IF NOT EXISTS native_name text,
   ADD COLUMN IF NOT EXISTS region text,
   ADD COLUMN IF NOT EXISTS market_tier text,
@@ -406,6 +407,13 @@ UNION ALL
 SELECT 'content_video_links', count(*)::integer FROM content_video_links;
 
 CREATE OR REPLACE VIEW v_validation_issues AS
+SELECT
+  'countries' AS table_name,
+  code AS record_key,
+  'country has no flag emoji' AS issue
+FROM countries
+WHERE flag_emoji IS NULL OR flag_emoji = ''
+UNION ALL
 SELECT
   'countries' AS table_name,
   code AS record_key,

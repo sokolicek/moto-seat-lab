@@ -1,6 +1,7 @@
 [
   {
     "code": "de",
+    "flagEmoji": "🇩🇪",
     "slug": "deutschland",
     "name": "Germany",
     "nativeName": "Deutschland",
@@ -29,6 +30,7 @@
   },
   {
     "code": "at",
+    "flagEmoji": "🇦🇹",
     "slug": "oesterreich",
     "name": "Austria",
     "nativeName": "Österreich",
@@ -51,6 +53,7 @@
   },
   {
     "code": "ch",
+    "flagEmoji": "🇨🇭",
     "slug": "schweiz",
     "name": "Switzerland",
     "nativeName": "Schweiz",
@@ -73,6 +76,7 @@
   },
   {
     "code": "fr",
+    "flagEmoji": "🇫🇷",
     "slug": "france",
     "name": "France",
     "nativeName": "France",
@@ -95,6 +99,7 @@
   },
   {
     "code": "it",
+    "flagEmoji": "🇮🇹",
     "slug": "italia",
     "name": "Italy",
     "nativeName": "Italia",
@@ -117,6 +122,7 @@
   },
   {
     "code": "sk",
+    "flagEmoji": "🇸🇰",
     "slug": "slovensko",
     "name": "Slovakia",
     "nativeName": "Slovensko",
@@ -139,6 +145,7 @@
   },
   {
     "code": "hu",
+    "flagEmoji": "🇭🇺",
     "slug": "magyarorszag",
     "name": "Hungary",
     "nativeName": "Magyarország",
@@ -161,6 +168,7 @@
   },
   {
     "code": "pl",
+    "flagEmoji": "🇵🇱",
     "slug": "polska",
     "name": "Poland",
     "nativeName": "Polska",
@@ -183,6 +191,7 @@
   },
   {
     "code": "ru",
+    "flagEmoji": "🇷🇺",
     "slug": "rossiya",
     "name": "Russia",
     "nativeName": "Россия",
@@ -205,6 +214,7 @@
   },
   {
     "code": "tr",
+    "flagEmoji": "🇹🇷",
     "slug": "turkiye",
     "name": "Turkey",
     "nativeName": "Türkiye",
@@ -227,6 +237,7 @@
   },
   {
     "code": "th",
+    "flagEmoji": "🇹🇭",
     "slug": "thailand",
     "name": "Thailand",
     "nativeName": "ไทย",
@@ -249,6 +260,7 @@
   },
   {
     "code": "id",
+    "flagEmoji": "🇮🇩",
     "slug": "indonesia",
     "name": "Indonesia",
     "nativeName": "Indonesia",
@@ -271,6 +283,7 @@
   },
   {
     "code": "my",
+    "flagEmoji": "🇲🇾",
     "slug": "malaysia",
     "name": "Malaysia",
     "nativeName": "Malaysia",
