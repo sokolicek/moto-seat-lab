@@ -14,7 +14,25 @@ interface Props {
 const { title, description, canonicalPath = "/", imagePath, preloadImagePath } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com").toString();
 const image = imagePath ? new URL(imagePath, Astro.site ?? "https://motoseatlab.com").toString() : undefined;
-const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
+const currentPath = Astro.url.pathname;
+const menuMotorcycles = motorcycles.filter((motorcycle) => motorcycle.path);
+const referenceMotorcycle = menuMotorcycles.find((motorcycle) => motorcycle.status === "active") ?? menuMotorcycles[0];
+const currentMotorcycle =
+  menuMotorcycles.find((motorcycle) => motorcycle.path === currentPath) ?? referenceMotorcycle;
+const motorcycleStatusLabel: Record<string, string> = {
+  active: "Referenz",
+  draft: "Basisprofil",
+  planned: "geplant",
+};
+const motorcycleGroups = Array.from(
+  menuMotorcycles.reduce((groups, motorcycle) => {
+    const group = groups.get(motorcycle.brand) ?? [];
+    group.push(motorcycle);
+    groups.set(motorcycle.brand, group);
+    return groups;
+  }, new Map<string, typeof menuMotorcycles>())
+);
+const slugFromPath = (path: string) => path.split("/").filter(Boolean).at(-1) ?? "";
 const buyingShortcuts = [
   { label: "Kaufen Übersicht", href: "/de/kaufen/", note: "Startseite für Kaufentscheidungen" },
   { label: "Schnelle Hilfe", href: "/de/kaufen/#schnellhilfe", note: "Auflage, Mesh, Gel, Airpad" },
@@ -73,20 +91,63 @@ const diyShortcuts = [
               </summary>
               <div class="dropdown-panel">
                 <div class="dropdown-head">
-                  <strong>Motorrad auswählen</strong>
+                  <strong>{menuMotorcycles.length} Motorräder</strong>
                   <a href="/de/motorrad-sitzbank/">Alle Modelle ansehen</a>
                 </div>
-                <div class="dropdown-list">
-                  {activeMotorcycles.map((motorcycle) => (
-                    <a class={`dropdown-bike ${motorcycle.status}`} href={motorcycle.path}>
-                      <span>
-                        <strong>{motorcycle.name}</strong>
-                        <small>{motorcycle.segment}</small>
-                      </span>
-                      <em>{motorcycle.status === "active" ? "Referenz" : "Öffnen"}</em>
-                    </a>
+                {currentMotorcycle && (
+                  <a
+                    class="dropdown-featured-bike"
+                    href={currentMotorcycle.path}
+                    data-motorcycle-link
+                    data-motorcycle-slug={slugFromPath(currentMotorcycle.path)}
+                    data-motorcycle-name={currentMotorcycle.name}
+                  >
+                    <span class="badge">{currentMotorcycle.status === "active" ? "Zuletzt / Referenz" : "Aktuell gewählt"}</span>
+                    <strong>{currentMotorcycle.name}</strong>
+                    <small>{currentMotorcycle.seatPainFocus}</small>
+                  </a>
+                )}
+                <div class="dropdown-brand-list">
+                  {motorcycleGroups.map(([brand, brandMotorcycles]) => (
+                    <section class="dropdown-brand-group" aria-label={`${brand} Modelle`}>
+                      <h3>{brand}</h3>
+                      <div class="dropdown-list">
+                        {brandMotorcycles.map((motorcycle) => {
+                          const isCurrent = motorcycle.path === currentPath;
+                          return (
+                            <a
+                              class={`dropdown-bike ${motorcycle.status} ${isCurrent ? "current" : ""}`}
+                              href={motorcycle.path}
+                              aria-current={isCurrent ? "page" : undefined}
+                              data-motorcycle-link
+                              data-motorcycle-slug={slugFromPath(motorcycle.path)}
+                              data-motorcycle-name={motorcycle.name}
+                            >
+                              <span>
+                                <strong>{motorcycle.name}</strong>
+                                <small>{motorcycle.segment} · {motorcycle.countryPriority}</small>
+                              </span>
+                              <em>{isCurrent ? "Aktuell" : motorcycleStatusLabel[motorcycle.status] ?? "Öffnen"}</em>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </section>
                   ))}
                 </div>
+                {referenceMotorcycle && (
+                  <div class="dropdown-foot">
+                    <a
+                      href={referenceMotorcycle.path}
+                      data-motorcycle-link
+                      data-motorcycle-slug={slugFromPath(referenceMotorcycle.path)}
+                      data-motorcycle-name={referenceMotorcycle.name}
+                    >
+                      Suzuki Referenz öffnen
+                    </a>
+                    <span>Basisprofile sind bewusst ehrlich markiert, bis Produktdaten geprüft sind.</span>
+                  </div>
+                )}
               </div>
             </details>
             <a href="/de/loesungen/">Lösungen</a>
@@ -187,6 +248,17 @@ const diyShortcuts = [
         if (target.closest(".nav-dropdown")) return;
         dropdowns.forEach((dropdown) => {
           if (dropdown instanceof HTMLDetailsElement) dropdown.open = false;
+        });
+      });
+
+      document.querySelectorAll("[data-motorcycle-link]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (!(link instanceof HTMLElement)) return;
+          const slug = link.dataset.motorcycleSlug;
+          const name = link.dataset.motorcycleName;
+          if (!slug) return;
+          window.localStorage.setItem("motoseatlab_last_motorcycle", slug);
+          if (name) window.localStorage.setItem("motoseatlab_last_motorcycle_name", name);
         });
       });
     </script>

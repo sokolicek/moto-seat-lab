@@ -208,7 +208,7 @@ select {
   top: calc(100% + 10px);
   right: 0;
   z-index: 30;
-  width: min(92vw, 520px);
+  width: min(94vw, 720px);
   border: 1px solid rgba(18, 107, 115, 0.18);
   border-radius: var(--radius);
   background:
@@ -253,9 +253,54 @@ select {
 .dropdown-list {
   display: grid;
   gap: 6px;
-  max-height: min(68vh, 520px);
+}
+
+.dropdown-featured-bike {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+  border: 1px solid rgba(18, 107, 115, 0.22);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(18, 107, 115, 0.12), transparent 52%),
+    #eef8f6;
+  padding: 12px;
+}
+
+.dropdown-featured-bike strong {
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.dropdown-featured-bike small {
+  color: var(--color-muted);
+  line-height: 1.35;
+}
+
+.dropdown-brand-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-height: min(64vh, 560px);
   overflow: auto;
-  padding-top: 10px;
+  padding: 12px 2px 4px;
+}
+
+.dropdown-brand-group {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  min-width: 0;
+}
+
+.dropdown-brand-group h3 {
+  margin: 0;
+  color: var(--color-accent-strong);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .shortcut-panel {
@@ -347,6 +392,40 @@ select {
 .dropdown-bike.active em {
   background: #dceceb;
   color: var(--color-accent-strong);
+}
+
+.dropdown-bike.current {
+  border-color: rgba(230, 146, 69, 0.44);
+  background: #fff6e9;
+}
+
+.dropdown-bike.current em {
+  background: #e69245;
+  color: #101820;
+}
+
+.dropdown-bike.draft em {
+  background: #eef2f2;
+  color: var(--color-accent-strong);
+}
+
+.dropdown-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(216, 208, 193, 0.72);
+  margin-top: 10px;
+  padding: 10px 4px 0;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+.dropdown-foot a {
+  flex: 0 0 auto;
+  color: var(--color-accent-strong);
+  padding: 0;
+  font-weight: 900;
 }
 
 main {
@@ -1978,6 +2057,17 @@ h3 {
   }
 
   .dropdown-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dropdown-brand-list {
+    grid-template-columns: 1fr;
+    max-height: 58vh;
+  }
+
+  .dropdown-foot {
     align-items: flex-start;
     flex-direction: column;
     gap: 6px;
