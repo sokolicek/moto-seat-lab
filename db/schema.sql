@@ -12,6 +12,48 @@ CREATE TABLE IF NOT EXISTS countries (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+ALTER TABLE countries
+  ADD COLUMN IF NOT EXISTS slug text,
+  ADD COLUMN IF NOT EXISTS native_name text,
+  ADD COLUMN IF NOT EXISTS region text,
+  ADD COLUMN IF NOT EXISTS market_tier text,
+  ADD COLUMN IF NOT EXISTS currency_code text,
+  ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'planned',
+  ADD COLUMN IF NOT EXISTS priority integer NOT NULL DEFAULT 100,
+  ADD COLUMN IF NOT EXISTS design_hints jsonb NOT NULL DEFAULT '{}'::jsonb,
+  ADD COLUMN IF NOT EXISTS content_focus jsonb NOT NULL DEFAULT '[]'::jsonb;
+
+CREATE TABLE IF NOT EXISTS languages (
+  code text PRIMARY KEY,
+  name text NOT NULL,
+  native_name text NOT NULL,
+  status text NOT NULL DEFAULT 'planned',
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS country_languages (
+  country_code text NOT NULL REFERENCES countries(code) ON DELETE CASCADE,
+  language_code text NOT NULL REFERENCES languages(code) ON DELETE CASCADE,
+  is_primary boolean NOT NULL DEFAULT false,
+  priority integer NOT NULL DEFAULT 10,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (country_code, language_code)
+);
+
+CREATE TABLE IF NOT EXISTS ui_translations (
+  language_code text NOT NULL REFERENCES languages(code) ON DELETE CASCADE,
+  translation_key text NOT NULL,
+  translation_value text NOT NULL,
+  status text NOT NULL DEFAULT 'draft',
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (language_code, translation_key)
+);
+
 CREATE TABLE IF NOT EXISTS motorcycles (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   slug text UNIQUE NOT NULL,
@@ -298,6 +340,9 @@ CREATE TABLE IF NOT EXISTS import_runs (
 );
 
 CREATE INDEX IF NOT EXISTS idx_motorcycles_brand ON motorcycles(brand);
+CREATE INDEX IF NOT EXISTS idx_countries_status ON countries(status);
+CREATE INDEX IF NOT EXISTS idx_country_languages_language ON country_languages(language_code);
+CREATE INDEX IF NOT EXISTS idx_ui_translations_key ON ui_translations(translation_key);
 CREATE INDEX IF NOT EXISTS idx_motorcycles_status ON motorcycles(status);
 CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_slug ON seat_options(motorcycle_slug);
 CREATE INDEX IF NOT EXISTS idx_seat_products_manufacturer ON seat_products(manufacturer_key);
@@ -317,6 +362,12 @@ CREATE INDEX IF NOT EXISTS idx_content_video_links_entity ON content_video_links
 
 CREATE OR REPLACE VIEW v_content_summary AS
 SELECT 'countries' AS item, count(*)::integer AS count FROM countries
+UNION ALL
+SELECT 'languages', count(*)::integer FROM languages
+UNION ALL
+SELECT 'country_languages', count(*)::integer FROM country_languages
+UNION ALL
+SELECT 'ui_translations', count(*)::integer FROM ui_translations
 UNION ALL
 SELECT 'motorcycles', count(*)::integer FROM motorcycles
 UNION ALL
@@ -355,6 +406,25 @@ UNION ALL
 SELECT 'content_video_links', count(*)::integer FROM content_video_links;
 
 CREATE OR REPLACE VIEW v_validation_issues AS
+SELECT
+  'countries' AS table_name,
+  code AS record_key,
+  'country has no primary language link' AS issue
+FROM countries
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM country_languages
+  WHERE country_languages.country_code = countries.code
+    AND country_languages.is_primary = true
+)
+UNION ALL
+SELECT
+  'ui_translations',
+  language_code || ':' || translation_key,
+  'translation has empty value'
+FROM ui_translations
+WHERE translation_value IS NULL OR translation_value = ''
+UNION ALL
 SELECT
   'motorcycles' AS table_name,
   slug AS record_key,

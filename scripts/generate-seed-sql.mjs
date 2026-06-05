@@ -33,7 +33,8 @@ const seatCatalog = await readJson("src/data/products/seat-catalog.json");
 const solutionPaths = await readJson("src/data/solution-paths/seat-comfort.json");
 const productCategories = await readJson("src/data/product-categories/seat-comfort.json");
 const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
-const countryProfile = await readJson("src/data/country-profiles/de.json");
+const countries = await readJson("src/data/i18n/countries.json");
+const uiCopy = await readJson("src/data/i18n/ui-copy.json");
 const technicalProfiles = await readJson("src/data/motorcycles/technical-profiles.json");
 const seatMaterials = await readJson("src/data/materials/seat-materials.json");
 const workshopTools = await readJson("src/data/tools/seat-tools.json");
@@ -41,7 +42,6 @@ const workshopSupplies = await readJson("src/data/supplies/seat-supplies.json");
 const buyingChannels = await readJson("src/data/marketplaces/de.json");
 const mediaAssets = await readJson("src/data/media/media-assets.json");
 const videoResources = await readJson("src/data/videos/seat-videos.json");
-const countryName = countryProfile.name || (countryProfile.country === "DE" ? "Deutschland" : countryProfile.country);
 const seatOptions = [
   ...gsxSeatOptions.map((option) => ({
     ...option,
@@ -57,24 +57,134 @@ const seatOptions = [
   ),
 ];
 
+const languageMeta = {
+  de: { name: "German", nativeName: "Deutsch", status: "active" },
+  sk: { name: "Slovak", nativeName: "Slovenčina", status: "draft" },
+  en: { name: "English", nativeName: "English", status: "draft" },
+  fr: { name: "French", nativeName: "Français", status: "planned" },
+  it: { name: "Italian", nativeName: "Italiano", status: "planned" },
+  hu: { name: "Hungarian", nativeName: "Magyar", status: "planned" },
+  pl: { name: "Polish", nativeName: "Polski", status: "planned" },
+  ru: { name: "Russian", nativeName: "Русский", status: "planned" },
+  tr: { name: "Turkish", nativeName: "Türkçe", status: "planned" },
+  th: { name: "Thai", nativeName: "ไทย", status: "planned" },
+  id: { name: "Indonesian", nativeName: "Bahasa Indonesia", status: "planned" },
+  ms: { name: "Malay", nativeName: "Bahasa Melayu", status: "planned" },
+};
+
+const languageCodes = Array.from(
+  new Set([...countries.flatMap((country) => country.languages || []), ...Object.keys(uiCopy)])
+).sort();
+
 add("BEGIN;");
 
-add(`INSERT INTO countries (code, name, language_code, market_notes, source_data, updated_at)
-VALUES (
-  'de',
-  ${sqlString(countryName)},
-  ${sqlString(countryProfile.language || "de")},
-  ${sqlString(countryProfile.marketNotes || countryProfile.notes || "German pilot market")},
-  ${sqlJson(countryProfile)},
-  now()
-)
-ON CONFLICT (code) DO UPDATE SET
-  name = EXCLUDED.name,
-  language_code = EXCLUDED.language_code,
-  market_notes = EXCLUDED.market_notes,
-  source_data = EXCLUDED.source_data,
-  updated_at = now();`);
-counts.countries = 1;
+add("DELETE FROM ui_translations;");
+add("DELETE FROM country_languages;");
+
+for (const code of languageCodes) {
+  const meta = languageMeta[code] || { name: code.toUpperCase(), nativeName: code.toUpperCase(), status: "planned" };
+  add(`INSERT INTO languages (
+    code, name, native_name, status, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(code)},
+    ${sqlString(meta.name)},
+    ${sqlString(meta.nativeName)},
+    ${sqlString(meta.status)},
+    ${sqlJson({ code, ...meta })},
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.languages = languageCodes.length;
+
+for (const country of countries) {
+  add(`INSERT INTO countries (
+    code, slug, name, native_name, language_code, region, market_tier,
+    currency_code, status, priority, market_notes, design_hints, content_focus,
+    source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(country.code)},
+    ${sqlString(country.slug)},
+    ${sqlString(country.name)},
+    ${sqlString(country.nativeName)},
+    ${sqlString(country.primaryLanguage)},
+    ${sqlString(country.region)},
+    ${sqlString(country.marketTier)},
+    ${sqlString(country.currency)},
+    ${sqlString(country.status)},
+    ${country.priority ?? 100},
+    ${sqlString(country.seatStrategy || country.notes)},
+    ${sqlJson(country.designHints || {})},
+    ${sqlJson(country.contentFocus || [])},
+    ${sqlJson(country)},
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    slug = EXCLUDED.slug,
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    language_code = EXCLUDED.language_code,
+    region = EXCLUDED.region,
+    market_tier = EXCLUDED.market_tier,
+    currency_code = EXCLUDED.currency_code,
+    status = EXCLUDED.status,
+    priority = EXCLUDED.priority,
+    market_notes = EXCLUDED.market_notes,
+    design_hints = EXCLUDED.design_hints,
+    content_focus = EXCLUDED.content_focus,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+
+  for (const [index, languageCode] of (country.languages || [country.primaryLanguage]).entries()) {
+    add(`INSERT INTO country_languages (
+      country_code, language_code, is_primary, priority, source_data
+    )
+    VALUES (
+      ${sqlString(country.code)},
+      ${sqlString(languageCode)},
+      ${languageCode === country.primaryLanguage ? "true" : "false"},
+      ${index + 1},
+      ${sqlJson({ countryCode: country.code, languageCode, primaryLanguage: country.primaryLanguage })}
+    )
+    ON CONFLICT (country_code, language_code) DO UPDATE SET
+      is_primary = EXCLUDED.is_primary,
+      priority = EXCLUDED.priority,
+      source_data = EXCLUDED.source_data;`);
+  }
+}
+counts.countries = countries.length;
+counts.country_languages = countries.reduce((sum, country) => sum + (country.languages || [country.primaryLanguage]).length, 0);
+
+let translationCount = 0;
+for (const [languageCode, translations] of Object.entries(uiCopy)) {
+  for (const [key, value] of Object.entries(translations)) {
+    translationCount += 1;
+    add(`INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      ${sqlString(languageCode)},
+      ${sqlString(key)},
+      ${sqlString(value)},
+      ${languageCode === "de" ? "'active'" : "'draft'"},
+      ${sqlJson({ languageCode, key })},
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();`);
+  }
+}
+counts.ui_translations = translationCount;
 
 for (const motorcycle of motorcycles) {
   const slug = slugify(motorcycle.name);
