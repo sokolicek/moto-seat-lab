@@ -13,7 +13,7 @@
     "locale.planned": "geplant",
     "locale.panelTitle": "Länder und Sprachen",
     "locale.panelLink": "Lokalisierung vorbereiten",
-    "locale.panelNote": "Jede Flagge öffnet die Länderfassung. Entwürfe sind bewusst als Arbeitsstand markiert.",
+    "locale.panelNote": "Jede Flagge öffnet die passende Länderfassung mit eigener Sprache und lokaler Startlogik.",
     "footer.summary": "Unabhängiges Konzeptprojekt für Sitzkomfort, Recherche und klare Kaufentscheidungen. Keine Empfehlung ist eine Garantie für Passform, Komfort oder medizinische Wirkung.",
     "footer.mvp": "MVP-Status: lokale Entwicklung, keine aktiven Werbenetzwerke, keine bezahlten Affiliate-Links.",
     "footer.legal": "Rechtliche Hinweise",
@@ -22,7 +22,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Minimaler Cookie-Hinweis, lokale Speicherung und geplante Optionen.",
     "footer.imprint": "Impressum",
-    "footer.imprintNote": "Betreiberangaben vor Veröffentlichung ergänzen und rechtlich prüfen."
+    "footer.imprintNote": "Betreiberangaben vor Veröffentlichung ergänzen und rechtlich prüfen.",
+    "cookie.label": "Cookie Hinweis",
+    "cookie.text": "Wir nutzen notwendige Cookies für den Betrieb. Optionale Einstellungen können später Komfortfunktionen und Statistiken ermöglichen. Im MVP laden wir keine Werbenetzwerke.",
+    "cookie.optional": "Optional akzeptieren",
+    "cookie.necessary": "Nur notwendige",
+    "cookie.details": "Details"
   },
   "sk": {
     "brand.subtitle": "Pohodlie sedla bez nákupu naslepo",
@@ -38,7 +43,7 @@
     "locale.planned": "plánované",
     "locale.panelTitle": "Krajiny a jazyky",
     "locale.panelLink": "Pripraviť lokalizáciu",
-    "locale.panelNote": "Každá vlajka otvorí krajinskú verziu. Návrhy sú zámerne označené ako pracovná verzia.",
+    "locale.panelNote": "Každá vlajka otvorí krajinskú verziu s vlastným jazykom a lokálnou štartovacou logikou.",
     "footer.summary": "Nezávislý koncept pre pohodlie sedla, výskum a jasné nákupné rozhodnutia. Žiadne odporúčanie nie je záruka kompatibility, komfortu ani zdravotného účinku.",
     "footer.mvp": "MVP stav: lokálny vývoj, bez aktívnych reklamných sietí a bez platených affiliate odkazov.",
     "footer.legal": "Právne informácie",
@@ -47,7 +52,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Minimálny cookie oznam, lokálne uloženie a plánované voľby.",
     "footer.imprint": "Impressum",
-    "footer.imprintNote": "Údaje prevádzkovateľa treba doplniť a právne skontrolovať pred publikovaním."
+    "footer.imprintNote": "Údaje prevádzkovateľa treba doplniť a právne skontrolovať pred publikovaním.",
+    "cookie.label": "Cookie oznam",
+    "cookie.text": "Používame nevyhnutné cookies na prevádzku. Voliteľné nastavenia môžu neskôr zapnúť komfortné funkcie a štatistiky. V MVP nenačítavame reklamné siete.",
+    "cookie.optional": "Prijať voliteľné",
+    "cookie.necessary": "Len nevyhnutné",
+    "cookie.details": "Detaily"
   },
   "en": {
     "brand.subtitle": "Seat comfort without blind buying",
@@ -63,7 +73,7 @@
     "locale.planned": "planned",
     "locale.panelTitle": "Countries and languages",
     "locale.panelLink": "Prepare localization",
-    "locale.panelNote": "Each flag opens the country version. Drafts are clearly marked as work in progress.",
+    "locale.panelNote": "Each flag opens the matching country version with its own language and local starting logic.",
     "footer.summary": "Independent concept project for seat comfort, research and clear buying decisions. No recommendation is a guarantee of fit, comfort or medical effect.",
     "footer.mvp": "MVP status: local development, no active ad networks, no paid affiliate links.",
     "footer.legal": "Legal information",
@@ -72,7 +82,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Minimal cookie notice, local storage and planned options.",
     "footer.imprint": "Imprint",
-    "footer.imprintNote": "Operator details must be completed and legally checked before publishing."
+    "footer.imprintNote": "Operator details must be completed and legally checked before publishing.",
+    "cookie.label": "Cookie notice",
+    "cookie.text": "We use necessary cookies for operation. Optional settings may later enable comfort features and statistics. In the MVP we do not load ad networks.",
+    "cookie.optional": "Accept optional",
+    "cookie.necessary": "Necessary only",
+    "cookie.details": "Details"
   },
   "fr": {
     "brand.subtitle": "Confort de selle sans achat à l’aveugle",
@@ -88,7 +103,7 @@
     "locale.planned": "prévu",
     "locale.panelTitle": "Pays et langues",
     "locale.panelLink": "Préparer la localisation",
-    "locale.panelNote": "Chaque drapeau ouvre la version du pays. Les brouillons sont indiqués comme travail en cours.",
+    "locale.panelNote": "Chaque drapeau ouvre la version du pays avec sa propre langue et sa logique locale.",
     "footer.summary": "Projet indépendant pour le confort de selle, la recherche et des décisions d’achat claires. Aucune recommandation ne garantit l’ajustement, le confort ou un effet médical.",
     "footer.mvp": "Statut MVP : développement local, pas de réseaux publicitaires actifs, pas de liens affiliés payés.",
     "footer.legal": "Informations légales",
@@ -97,7 +112,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Avis cookies minimal, stockage local et options prévues.",
     "footer.imprint": "Mentions légales",
-    "footer.imprintNote": "Les informations de l’exploitant doivent être complétées et vérifiées avant publication."
+    "footer.imprintNote": "Les informations de l’exploitant doivent être complétées et vérifiées avant publication.",
+    "cookie.label": "Avis cookies",
+    "cookie.text": "Nous utilisons les cookies nécessaires au fonctionnement. Les options pourront plus tard activer des fonctions de confort et des statistiques. Le MVP ne charge aucun réseau publicitaire.",
+    "cookie.optional": "Accepter optionnels",
+    "cookie.necessary": "Nécessaires uniquement",
+    "cookie.details": "Détails"
   },
   "it": {
     "brand.subtitle": "Comfort della sella senza comprare alla cieca",
@@ -113,7 +133,7 @@
     "locale.planned": "previsto",
     "locale.panelTitle": "Paesi e lingue",
     "locale.panelLink": "Preparare la localizzazione",
-    "locale.panelNote": "Ogni bandiera apre la versione del Paese. Le bozze sono marcate come lavoro in corso.",
+    "locale.panelNote": "Ogni bandiera apre la versione del Paese con lingua propria e logica locale.",
     "footer.summary": "Progetto indipendente per comfort della sella, ricerca e decisioni d’acquisto chiare. Nessuna raccomandazione garantisce compatibilità, comfort o effetto medico.",
     "footer.mvp": "Stato MVP: sviluppo locale, nessuna rete pubblicitaria attiva, nessun link affiliato pagato.",
     "footer.legal": "Informazioni legali",
@@ -122,7 +142,12 @@
     "footer.cookies": "Cookie",
     "footer.cookiesNote": "Avviso cookie minimo, salvataggio locale e opzioni previste.",
     "footer.imprint": "Impressum",
-    "footer.imprintNote": "I dati del gestore vanno completati e verificati legalmente prima della pubblicazione."
+    "footer.imprintNote": "I dati del gestore vanno completati e verificati legalmente prima della pubblicazione.",
+    "cookie.label": "Avviso cookie",
+    "cookie.text": "Usiamo i cookie necessari per il funzionamento. Le opzioni potranno in seguito abilitare funzioni di comfort e statistiche. Nel MVP non carichiamo reti pubblicitarie.",
+    "cookie.optional": "Accetta opzionali",
+    "cookie.necessary": "Solo necessari",
+    "cookie.details": "Dettagli"
   },
   "hu": {
     "brand.subtitle": "Üléskényelem vak vásárlás nélkül",
@@ -138,7 +163,7 @@
     "locale.planned": "tervezett",
     "locale.panelTitle": "Országok és nyelvek",
     "locale.panelLink": "Lokalizáció előkészítése",
-    "locale.panelNote": "Minden zászló az adott ország verzióját nyitja meg. A vázlatok munkaverzióként vannak jelölve.",
+    "locale.panelNote": "Minden zászló a megfelelő országverziót nyitja meg saját nyelvvel és helyi logikával.",
     "footer.summary": "Független koncepcióprojekt üléskényelemhez, kutatáshoz és tiszta vásárlási döntésekhez. Egyetlen ajánlás sem garancia illeszkedésre, kényelemre vagy orvosi hatásra.",
     "footer.mvp": "MVP állapot: helyi fejlesztés, aktív hirdetési hálózatok és fizetett affiliate linkek nélkül.",
     "footer.legal": "Jogi információk",
@@ -147,7 +172,12 @@
     "footer.cookies": "Sütik",
     "footer.cookiesNote": "Minimális sütiértesítés, helyi tárolás és tervezett opciók.",
     "footer.imprint": "Impresszum",
-    "footer.imprintNote": "Az üzemeltetői adatokat publikálás előtt ki kell egészíteni és jogilag ellenőrizni."
+    "footer.imprintNote": "Az üzemeltetői adatokat publikálás előtt ki kell egészíteni és jogilag ellenőrizni.",
+    "cookie.label": "Sütiértesítés",
+    "cookie.text": "A működéshez szükséges sütiket használunk. Az opcionális beállítások később kényelmi funkciókat és statisztikákat tehetnek lehetővé. Az MVP nem tölt be hirdetési hálózatokat.",
+    "cookie.optional": "Opcionális elfogadása",
+    "cookie.necessary": "Csak szükséges",
+    "cookie.details": "Részletek"
   },
   "pl": {
     "brand.subtitle": "Komfort siedzenia bez kupowania w ciemno",
@@ -163,7 +193,7 @@
     "locale.planned": "planowane",
     "locale.panelTitle": "Kraje i języki",
     "locale.panelLink": "Przygotuj lokalizację",
-    "locale.panelNote": "Każda flaga otwiera wersję kraju. Wersje robocze są jasno oznaczone.",
+    "locale.panelNote": "Każda flaga otwiera wersję kraju z własnym językiem i lokalną logiką startową.",
     "footer.summary": "Niezależny projekt koncepcyjny o komforcie siedzenia, badaniu źródeł i jasnych decyzjach zakupowych. Żadna rekomendacja nie gwarantuje dopasowania, komfortu ani efektu medycznego.",
     "footer.mvp": "Status MVP: rozwój lokalny, brak aktywnych sieci reklamowych, brak płatnych linków afiliacyjnych.",
     "footer.legal": "Informacje prawne",
@@ -172,7 +202,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Minimalna informacja o cookies, lokalne przechowywanie i planowane opcje.",
     "footer.imprint": "Impressum",
-    "footer.imprintNote": "Dane operatora trzeba uzupełnić i sprawdzić prawnie przed publikacją."
+    "footer.imprintNote": "Dane operatora trzeba uzupełnić i sprawdzić prawnie przed publikacją.",
+    "cookie.label": "Informacja o cookies",
+    "cookie.text": "Używamy cookies niezbędnych do działania. Opcje mogą później włączyć funkcje wygody i statystyki. W MVP nie ładujemy sieci reklamowych.",
+    "cookie.optional": "Akceptuj opcjonalne",
+    "cookie.necessary": "Tylko niezbędne",
+    "cookie.details": "Szczegóły"
   },
   "ru": {
     "brand.subtitle": "Комфорт сиденья без покупки вслепую",
@@ -188,7 +223,7 @@
     "locale.planned": "планируется",
     "locale.panelTitle": "Страны и языки",
     "locale.panelLink": "Подготовить локализацию",
-    "locale.panelNote": "Каждый флаг открывает версию страны. Черновики отмечены как рабочая версия.",
+    "locale.panelNote": "Каждый флаг открывает версию страны со своим языком и локальной логикой старта.",
     "footer.summary": "Независимый концепт-проект о комфорте сиденья, исследовании и понятных решениях покупки. Ни одна рекомендация не является гарантией посадки, комфорта или медицинского эффекта.",
     "footer.mvp": "Статус MVP: локальная разработка, без активных рекламных сетей и платных affiliate-ссылок.",
     "footer.legal": "Правовая информация",
@@ -197,7 +232,12 @@
     "footer.cookies": "Cookies",
     "footer.cookiesNote": "Минимальное уведомление о cookies, локальное хранение и планируемые настройки.",
     "footer.imprint": "Контакты",
-    "footer.imprintNote": "Данные оператора нужно дополнить и юридически проверить перед публикацией."
+    "footer.imprintNote": "Данные оператора нужно дополнить и юридически проверить перед публикацией.",
+    "cookie.label": "Уведомление о cookies",
+    "cookie.text": "Мы используем необходимые cookies для работы сайта. Дополнительные настройки позже могут включить удобные функции и статистику. В MVP рекламные сети не загружаются.",
+    "cookie.optional": "Принять дополнительные",
+    "cookie.necessary": "Только необходимые",
+    "cookie.details": "Подробнее"
   },
   "tr": {
     "brand.subtitle": "Körlemesine alışveriş yapmadan sele konforu",
@@ -213,7 +253,7 @@
     "locale.planned": "planlandı",
     "locale.panelTitle": "Ülkeler ve diller",
     "locale.panelLink": "Yerelleştirmeyi hazırla",
-    "locale.panelNote": "Her bayrak ülke sürümünü açar. Taslaklar çalışma sürümü olarak işaretlenmiştir.",
+    "locale.panelNote": "Her bayrak kendi dili ve yerel başlangıç mantığı olan ülke sürümünü açar.",
     "footer.summary": "Sele konforu, araştırma ve net satın alma kararları için bağımsız konsept proje. Hiçbir öneri uyum, konfor veya tıbbi etki garantisi değildir.",
     "footer.mvp": "MVP durumu: yerel geliştirme, aktif reklam ağı yok, ücretli affiliate bağlantısı yok.",
     "footer.legal": "Yasal bilgiler",
@@ -222,7 +262,12 @@
     "footer.cookies": "Çerezler",
     "footer.cookiesNote": "Minimal çerez bildirimi, yerel saklama ve planlanan seçenekler.",
     "footer.imprint": "Künye",
-    "footer.imprintNote": "Yayınlamadan önce işletmeci bilgileri tamamlanmalı ve hukuken kontrol edilmelidir."
+    "footer.imprintNote": "Yayınlamadan önce işletmeci bilgileri tamamlanmalı ve hukuken kontrol edilmelidir.",
+    "cookie.label": "Çerez bildirimi",
+    "cookie.text": "Çalışma için gerekli çerezleri kullanıyoruz. İsteğe bağlı ayarlar daha sonra konfor özellikleri ve istatistikleri açabilir. MVP’de reklam ağları yüklenmez.",
+    "cookie.optional": "İsteğe bağlıları kabul et",
+    "cookie.necessary": "Sadece gerekli",
+    "cookie.details": "Detaylar"
   },
   "th": {
     "brand.subtitle": "ความสบายของเบาะโดยไม่ต้องซื้อแบบเดาสุ่ม",
@@ -238,7 +283,7 @@
     "locale.planned": "วางแผน",
     "locale.panelTitle": "ประเทศและภาษา",
     "locale.panelLink": "เตรียมการแปล",
-    "locale.panelNote": "แต่ละธงเปิดเวอร์ชันของประเทศนั้น ฉบับร่างถูกระบุว่าเป็นงานระหว่างทำ",
+    "locale.panelNote": "แต่ละธงเปิดเวอร์ชันประเทศพร้อมภาษาและลำดับคำแนะนำท้องถิ่น",
     "footer.summary": "โครงการแนวคิดอิสระเกี่ยวกับความสบายของเบาะ การค้นคว้า และการตัดสินใจซื้อที่ชัดเจน คำแนะนำไม่ใช่การรับประกันความพอดี ความสบาย หรือผลทางการแพทย์",
     "footer.mvp": "สถานะ MVP: พัฒนาในเครื่อง ไม่มีเครือข่ายโฆษณาที่ใช้งาน และไม่มีลิงก์ affiliate แบบชำระเงิน",
     "footer.legal": "ข้อมูลทางกฎหมาย",
@@ -247,7 +292,12 @@
     "footer.cookies": "คุกกี้",
     "footer.cookiesNote": "ประกาศคุกกี้แบบเรียบง่าย การเก็บในเครื่อง และตัวเลือกที่วางแผนไว้",
     "footer.imprint": "ข้อมูลผู้ดำเนินการ",
-    "footer.imprintNote": "ต้องเติมข้อมูลผู้ดำเนินการและตรวจทางกฎหมายก่อนเผยแพร่"
+    "footer.imprintNote": "ต้องเติมข้อมูลผู้ดำเนินการและตรวจทางกฎหมายก่อนเผยแพร่",
+    "cookie.label": "ประกาศคุกกี้",
+    "cookie.text": "เราใช้คุกกี้ที่จำเป็นต่อการทำงาน ตัวเลือกเพิ่มเติมอาจใช้เปิดฟังก์ชันอำนวยความสะดวกและสถิติในภายหลัง ใน MVP เราไม่โหลดเครือข่ายโฆษณา",
+    "cookie.optional": "ยอมรับตัวเลือกเพิ่มเติม",
+    "cookie.necessary": "เฉพาะที่จำเป็น",
+    "cookie.details": "รายละเอียด"
   },
   "id": {
     "brand.subtitle": "Kenyamanan jok tanpa membeli secara buta",
@@ -263,7 +313,7 @@
     "locale.planned": "direncanakan",
     "locale.panelTitle": "Negara dan bahasa",
     "locale.panelLink": "Siapkan lokalisasi",
-    "locale.panelNote": "Setiap bendera membuka versi negara. Draf ditandai sebagai pekerjaan berjalan.",
+    "locale.panelNote": "Setiap bendera membuka versi negara dengan bahasa dan logika awal lokal.",
     "footer.summary": "Proyek konsep independen untuk kenyamanan jok, riset, dan keputusan beli yang jelas. Tidak ada rekomendasi yang menjamin kecocokan, kenyamanan, atau efek medis.",
     "footer.mvp": "Status MVP: pengembangan lokal, tanpa jaringan iklan aktif, tanpa tautan affiliate berbayar.",
     "footer.legal": "Informasi hukum",
@@ -272,7 +322,12 @@
     "footer.cookies": "Cookie",
     "footer.cookiesNote": "Pemberitahuan cookie minimal, penyimpanan lokal, dan opsi yang direncanakan.",
     "footer.imprint": "Imprint",
-    "footer.imprintNote": "Data operator harus dilengkapi dan diperiksa secara hukum sebelum publikasi."
+    "footer.imprintNote": "Data operator harus dilengkapi dan diperiksa secara hukum sebelum publikasi.",
+    "cookie.label": "Pemberitahuan cookie",
+    "cookie.text": "Kami menggunakan cookie yang diperlukan untuk operasi. Pengaturan opsional nantinya dapat mengaktifkan fitur kenyamanan dan statistik. Pada MVP kami tidak memuat jaringan iklan.",
+    "cookie.optional": "Terima opsional",
+    "cookie.necessary": "Hanya perlu",
+    "cookie.details": "Detail"
   },
   "ms": {
     "brand.subtitle": "Keselesaan tempat duduk tanpa membeli secara membuta tuli",
@@ -288,7 +343,7 @@
     "locale.planned": "dirancang",
     "locale.panelTitle": "Negara dan bahasa",
     "locale.panelLink": "Sediakan lokalisasi",
-    "locale.panelNote": "Setiap bendera membuka versi negara. Draf ditanda sebagai kerja sedang berjalan.",
+    "locale.panelNote": "Setiap bendera membuka versi negara dengan bahasa sendiri dan logik permulaan tempatan.",
     "footer.summary": "Projek konsep bebas untuk keselesaan tempat duduk, penyelidikan dan keputusan pembelian yang jelas. Tiada cadangan menjamin kesesuaian, keselesaan atau kesan perubatan.",
     "footer.mvp": "Status MVP: pembangunan tempatan, tiada rangkaian iklan aktif, tiada pautan affiliate berbayar.",
     "footer.legal": "Maklumat undang-undang",
@@ -297,6 +352,11 @@
     "footer.cookies": "Kuki",
     "footer.cookiesNote": "Notis kuki minimum, storan tempatan dan pilihan yang dirancang.",
     "footer.imprint": "Imprint",
-    "footer.imprintNote": "Butiran pengendali perlu dilengkapkan dan disemak secara undang-undang sebelum penerbitan."
+    "footer.imprintNote": "Butiran pengendali perlu dilengkapkan dan disemak secara undang-undang sebelum penerbitan.",
+    "cookie.label": "Notis kuki",
+    "cookie.text": "Kami menggunakan kuki yang diperlukan untuk operasi. Tetapan pilihan boleh mengaktifkan fungsi keselesaan dan statistik kemudian. Dalam MVP kami tidak memuatkan rangkaian iklan.",
+    "cookie.optional": "Terima pilihan",
+    "cookie.necessary": "Perlu sahaja",
+    "cookie.details": "Butiran"
   }
 }

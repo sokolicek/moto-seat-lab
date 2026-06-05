@@ -1154,7 +1154,7 @@ INSERT INTO ui_translations (
     VALUES (
       'de',
       'locale.panelNote',
-      'Jede Flagge öffnet die Länderfassung. Entwürfe sind bewusst als Arbeitsstand markiert.',
+      'Jede Flagge öffnet die passende Länderfassung mit eigener Sprache und lokaler Startlogik.',
       'active',
       '{"languageCode":"de","key":"locale.panelNote"}'::jsonb,
       now()
@@ -1301,6 +1301,86 @@ INSERT INTO ui_translations (
       'Betreiberangaben vor Veröffentlichung ergänzen und rechtlich prüfen.',
       'active',
       '{"languageCode":"de","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'cookie.label',
+      'Cookie Hinweis',
+      'active',
+      '{"languageCode":"de","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'cookie.text',
+      'Wir nutzen notwendige Cookies für den Betrieb. Optionale Einstellungen können später Komfortfunktionen und Statistiken ermöglichen. Im MVP laden wir keine Werbenetzwerke.',
+      'active',
+      '{"languageCode":"de","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'cookie.optional',
+      'Optional akzeptieren',
+      'active',
+      '{"languageCode":"de","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'cookie.necessary',
+      'Nur notwendige',
+      'active',
+      '{"languageCode":"de","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'cookie.details',
+      'Details',
+      'active',
+      '{"languageCode":"de","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -1522,7 +1602,7 @@ INSERT INTO ui_translations (
     VALUES (
       'sk',
       'locale.panelNote',
-      'Každá vlajka otvorí krajinskú verziu. Návrhy sú zámerne označené ako pracovná verzia.',
+      'Každá vlajka otvorí krajinskú verziu s vlastným jazykom a lokálnou štartovacou logikou.',
       'draft',
       '{"languageCode":"sk","key":"locale.panelNote"}'::jsonb,
       now()
@@ -1669,6 +1749,86 @@ INSERT INTO ui_translations (
       'Údaje prevádzkovateľa treba doplniť a právne skontrolovať pred publikovaním.',
       'draft',
       '{"languageCode":"sk","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'cookie.label',
+      'Cookie oznam',
+      'draft',
+      '{"languageCode":"sk","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'cookie.text',
+      'Používame nevyhnutné cookies na prevádzku. Voliteľné nastavenia môžu neskôr zapnúť komfortné funkcie a štatistiky. V MVP nenačítavame reklamné siete.',
+      'draft',
+      '{"languageCode":"sk","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'cookie.optional',
+      'Prijať voliteľné',
+      'draft',
+      '{"languageCode":"sk","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'cookie.necessary',
+      'Len nevyhnutné',
+      'draft',
+      '{"languageCode":"sk","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'cookie.details',
+      'Detaily',
+      'draft',
+      '{"languageCode":"sk","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -1890,7 +2050,7 @@ INSERT INTO ui_translations (
     VALUES (
       'en',
       'locale.panelNote',
-      'Each flag opens the country version. Drafts are clearly marked as work in progress.',
+      'Each flag opens the matching country version with its own language and local starting logic.',
       'draft',
       '{"languageCode":"en","key":"locale.panelNote"}'::jsonb,
       now()
@@ -2037,6 +2197,86 @@ INSERT INTO ui_translations (
       'Operator details must be completed and legally checked before publishing.',
       'draft',
       '{"languageCode":"en","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'cookie.label',
+      'Cookie notice',
+      'draft',
+      '{"languageCode":"en","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'cookie.text',
+      'We use necessary cookies for operation. Optional settings may later enable comfort features and statistics. In the MVP we do not load ad networks.',
+      'draft',
+      '{"languageCode":"en","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'cookie.optional',
+      'Accept optional',
+      'draft',
+      '{"languageCode":"en","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'cookie.necessary',
+      'Necessary only',
+      'draft',
+      '{"languageCode":"en","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'cookie.details',
+      'Details',
+      'draft',
+      '{"languageCode":"en","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -2258,7 +2498,7 @@ INSERT INTO ui_translations (
     VALUES (
       'fr',
       'locale.panelNote',
-      'Chaque drapeau ouvre la version du pays. Les brouillons sont indiqués comme travail en cours.',
+      'Chaque drapeau ouvre la version du pays avec sa propre langue et sa logique locale.',
       'draft',
       '{"languageCode":"fr","key":"locale.panelNote"}'::jsonb,
       now()
@@ -2405,6 +2645,86 @@ INSERT INTO ui_translations (
       'Les informations de l’exploitant doivent être complétées et vérifiées avant publication.',
       'draft',
       '{"languageCode":"fr","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'cookie.label',
+      'Avis cookies',
+      'draft',
+      '{"languageCode":"fr","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'cookie.text',
+      'Nous utilisons les cookies nécessaires au fonctionnement. Les options pourront plus tard activer des fonctions de confort et des statistiques. Le MVP ne charge aucun réseau publicitaire.',
+      'draft',
+      '{"languageCode":"fr","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'cookie.optional',
+      'Accepter optionnels',
+      'draft',
+      '{"languageCode":"fr","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'cookie.necessary',
+      'Nécessaires uniquement',
+      'draft',
+      '{"languageCode":"fr","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'cookie.details',
+      'Détails',
+      'draft',
+      '{"languageCode":"fr","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -2626,7 +2946,7 @@ INSERT INTO ui_translations (
     VALUES (
       'it',
       'locale.panelNote',
-      'Ogni bandiera apre la versione del Paese. Le bozze sono marcate come lavoro in corso.',
+      'Ogni bandiera apre la versione del Paese con lingua propria e logica locale.',
       'draft',
       '{"languageCode":"it","key":"locale.panelNote"}'::jsonb,
       now()
@@ -2773,6 +3093,86 @@ INSERT INTO ui_translations (
       'I dati del gestore vanno completati e verificati legalmente prima della pubblicazione.',
       'draft',
       '{"languageCode":"it","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'cookie.label',
+      'Avviso cookie',
+      'draft',
+      '{"languageCode":"it","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'cookie.text',
+      'Usiamo i cookie necessari per il funzionamento. Le opzioni potranno in seguito abilitare funzioni di comfort e statistiche. Nel MVP non carichiamo reti pubblicitarie.',
+      'draft',
+      '{"languageCode":"it","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'cookie.optional',
+      'Accetta opzionali',
+      'draft',
+      '{"languageCode":"it","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'cookie.necessary',
+      'Solo necessari',
+      'draft',
+      '{"languageCode":"it","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'cookie.details',
+      'Dettagli',
+      'draft',
+      '{"languageCode":"it","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -2994,7 +3394,7 @@ INSERT INTO ui_translations (
     VALUES (
       'hu',
       'locale.panelNote',
-      'Minden zászló az adott ország verzióját nyitja meg. A vázlatok munkaverzióként vannak jelölve.',
+      'Minden zászló a megfelelő országverziót nyitja meg saját nyelvvel és helyi logikával.',
       'draft',
       '{"languageCode":"hu","key":"locale.panelNote"}'::jsonb,
       now()
@@ -3141,6 +3541,86 @@ INSERT INTO ui_translations (
       'Az üzemeltetői adatokat publikálás előtt ki kell egészíteni és jogilag ellenőrizni.',
       'draft',
       '{"languageCode":"hu","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'cookie.label',
+      'Sütiértesítés',
+      'draft',
+      '{"languageCode":"hu","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'cookie.text',
+      'A működéshez szükséges sütiket használunk. Az opcionális beállítások később kényelmi funkciókat és statisztikákat tehetnek lehetővé. Az MVP nem tölt be hirdetési hálózatokat.',
+      'draft',
+      '{"languageCode":"hu","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'cookie.optional',
+      'Opcionális elfogadása',
+      'draft',
+      '{"languageCode":"hu","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'cookie.necessary',
+      'Csak szükséges',
+      'draft',
+      '{"languageCode":"hu","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'cookie.details',
+      'Részletek',
+      'draft',
+      '{"languageCode":"hu","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -3362,7 +3842,7 @@ INSERT INTO ui_translations (
     VALUES (
       'pl',
       'locale.panelNote',
-      'Każda flaga otwiera wersję kraju. Wersje robocze są jasno oznaczone.',
+      'Każda flaga otwiera wersję kraju z własnym językiem i lokalną logiką startową.',
       'draft',
       '{"languageCode":"pl","key":"locale.panelNote"}'::jsonb,
       now()
@@ -3509,6 +3989,86 @@ INSERT INTO ui_translations (
       'Dane operatora trzeba uzupełnić i sprawdzić prawnie przed publikacją.',
       'draft',
       '{"languageCode":"pl","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'cookie.label',
+      'Informacja o cookies',
+      'draft',
+      '{"languageCode":"pl","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'cookie.text',
+      'Używamy cookies niezbędnych do działania. Opcje mogą później włączyć funkcje wygody i statystyki. W MVP nie ładujemy sieci reklamowych.',
+      'draft',
+      '{"languageCode":"pl","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'cookie.optional',
+      'Akceptuj opcjonalne',
+      'draft',
+      '{"languageCode":"pl","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'cookie.necessary',
+      'Tylko niezbędne',
+      'draft',
+      '{"languageCode":"pl","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'cookie.details',
+      'Szczegóły',
+      'draft',
+      '{"languageCode":"pl","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -3730,7 +4290,7 @@ INSERT INTO ui_translations (
     VALUES (
       'ru',
       'locale.panelNote',
-      'Каждый флаг открывает версию страны. Черновики отмечены как рабочая версия.',
+      'Каждый флаг открывает версию страны со своим языком и локальной логикой старта.',
       'draft',
       '{"languageCode":"ru","key":"locale.panelNote"}'::jsonb,
       now()
@@ -3877,6 +4437,86 @@ INSERT INTO ui_translations (
       'Данные оператора нужно дополнить и юридически проверить перед публикацией.',
       'draft',
       '{"languageCode":"ru","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'cookie.label',
+      'Уведомление о cookies',
+      'draft',
+      '{"languageCode":"ru","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'cookie.text',
+      'Мы используем необходимые cookies для работы сайта. Дополнительные настройки позже могут включить удобные функции и статистику. В MVP рекламные сети не загружаются.',
+      'draft',
+      '{"languageCode":"ru","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'cookie.optional',
+      'Принять дополнительные',
+      'draft',
+      '{"languageCode":"ru","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'cookie.necessary',
+      'Только необходимые',
+      'draft',
+      '{"languageCode":"ru","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'cookie.details',
+      'Подробнее',
+      'draft',
+      '{"languageCode":"ru","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -4098,7 +4738,7 @@ INSERT INTO ui_translations (
     VALUES (
       'tr',
       'locale.panelNote',
-      'Her bayrak ülke sürümünü açar. Taslaklar çalışma sürümü olarak işaretlenmiştir.',
+      'Her bayrak kendi dili ve yerel başlangıç mantığı olan ülke sürümünü açar.',
       'draft',
       '{"languageCode":"tr","key":"locale.panelNote"}'::jsonb,
       now()
@@ -4245,6 +4885,86 @@ INSERT INTO ui_translations (
       'Yayınlamadan önce işletmeci bilgileri tamamlanmalı ve hukuken kontrol edilmelidir.',
       'draft',
       '{"languageCode":"tr","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'cookie.label',
+      'Çerez bildirimi',
+      'draft',
+      '{"languageCode":"tr","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'cookie.text',
+      'Çalışma için gerekli çerezleri kullanıyoruz. İsteğe bağlı ayarlar daha sonra konfor özellikleri ve istatistikleri açabilir. MVP’de reklam ağları yüklenmez.',
+      'draft',
+      '{"languageCode":"tr","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'cookie.optional',
+      'İsteğe bağlıları kabul et',
+      'draft',
+      '{"languageCode":"tr","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'cookie.necessary',
+      'Sadece gerekli',
+      'draft',
+      '{"languageCode":"tr","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'cookie.details',
+      'Detaylar',
+      'draft',
+      '{"languageCode":"tr","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -4466,7 +5186,7 @@ INSERT INTO ui_translations (
     VALUES (
       'th',
       'locale.panelNote',
-      'แต่ละธงเปิดเวอร์ชันของประเทศนั้น ฉบับร่างถูกระบุว่าเป็นงานระหว่างทำ',
+      'แต่ละธงเปิดเวอร์ชันประเทศพร้อมภาษาและลำดับคำแนะนำท้องถิ่น',
       'draft',
       '{"languageCode":"th","key":"locale.panelNote"}'::jsonb,
       now()
@@ -4613,6 +5333,86 @@ INSERT INTO ui_translations (
       'ต้องเติมข้อมูลผู้ดำเนินการและตรวจทางกฎหมายก่อนเผยแพร่',
       'draft',
       '{"languageCode":"th","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'cookie.label',
+      'ประกาศคุกกี้',
+      'draft',
+      '{"languageCode":"th","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'cookie.text',
+      'เราใช้คุกกี้ที่จำเป็นต่อการทำงาน ตัวเลือกเพิ่มเติมอาจใช้เปิดฟังก์ชันอำนวยความสะดวกและสถิติในภายหลัง ใน MVP เราไม่โหลดเครือข่ายโฆษณา',
+      'draft',
+      '{"languageCode":"th","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'cookie.optional',
+      'ยอมรับตัวเลือกเพิ่มเติม',
+      'draft',
+      '{"languageCode":"th","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'cookie.necessary',
+      'เฉพาะที่จำเป็น',
+      'draft',
+      '{"languageCode":"th","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'cookie.details',
+      'รายละเอียด',
+      'draft',
+      '{"languageCode":"th","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -4834,7 +5634,7 @@ INSERT INTO ui_translations (
     VALUES (
       'id',
       'locale.panelNote',
-      'Setiap bendera membuka versi negara. Draf ditandai sebagai pekerjaan berjalan.',
+      'Setiap bendera membuka versi negara dengan bahasa dan logika awal lokal.',
       'draft',
       '{"languageCode":"id","key":"locale.panelNote"}'::jsonb,
       now()
@@ -4981,6 +5781,86 @@ INSERT INTO ui_translations (
       'Data operator harus dilengkapi dan diperiksa secara hukum sebelum publikasi.',
       'draft',
       '{"languageCode":"id","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'cookie.label',
+      'Pemberitahuan cookie',
+      'draft',
+      '{"languageCode":"id","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'cookie.text',
+      'Kami menggunakan cookie yang diperlukan untuk operasi. Pengaturan opsional nantinya dapat mengaktifkan fitur kenyamanan dan statistik. Pada MVP kami tidak memuat jaringan iklan.',
+      'draft',
+      '{"languageCode":"id","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'cookie.optional',
+      'Terima opsional',
+      'draft',
+      '{"languageCode":"id","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'cookie.necessary',
+      'Hanya perlu',
+      'draft',
+      '{"languageCode":"id","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'cookie.details',
+      'Detail',
+      'draft',
+      '{"languageCode":"id","key":"cookie.details"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -5202,7 +6082,7 @@ INSERT INTO ui_translations (
     VALUES (
       'ms',
       'locale.panelNote',
-      'Setiap bendera membuka versi negara. Draf ditanda sebagai kerja sedang berjalan.',
+      'Setiap bendera membuka versi negara dengan bahasa sendiri dan logik permulaan tempatan.',
       'draft',
       '{"languageCode":"ms","key":"locale.panelNote"}'::jsonb,
       now()
@@ -5356,6 +6236,86 @@ INSERT INTO ui_translations (
       status = EXCLUDED.status,
       source_data = EXCLUDED.source_data,
       updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'cookie.label',
+      'Notis kuki',
+      'draft',
+      '{"languageCode":"ms","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'cookie.text',
+      'Kami menggunakan kuki yang diperlukan untuk operasi. Tetapan pilihan boleh mengaktifkan fungsi keselesaan dan statistik kemudian. Dalam MVP kami tidak memuatkan rangkaian iklan.',
+      'draft',
+      '{"languageCode":"ms","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'cookie.optional',
+      'Terima pilihan',
+      'draft',
+      '{"languageCode":"ms","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'cookie.necessary',
+      'Perlu sahaja',
+      'draft',
+      '{"languageCode":"ms","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'cookie.details',
+      'Butiran',
+      'draft',
+      '{"languageCode":"ms","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
 INSERT INTO localized_pages (
     country_code, language_code, page_key, route_path, title, description,
     status, content, source_data, updated_at
@@ -5366,9 +6326,9 @@ INSERT INTO localized_pages (
     'home',
     '/at/',
     'Moto Seat Lab Österreich - Sitzbank Komfort',
-    'Entwurf für Österreich: Motorradsitzbank-Komfort für Alpen, Touren, Wetter und lokale Sattler.',
+    'Österreichische Länderfassung: Motorradsitzbank-Komfort für Alpen, Touren, Wetter und lokale Sattler.',
     'draft',
-    '{"title":"Moto Seat Lab Österreich - Sitzbank Komfort","description":"Entwurf für Österreich: Motorradsitzbank-Komfort für Alpen, Touren, Wetter und lokale Sattler.","eyebrow":"Moto Seat Lab Österreich · Entwurf","headline":"Deine Sitzbank passt auf langen Touren nicht?","lead":"Österreich startet mit Touring, Alpenwetter und realistischen Komforttests: erst reversible Entlastung, dann OEM-Sitz, Sattler oder DIY.","primaryAction":"Deutschen MVP ansehen","secondaryAction":"Motorräder öffnen","assetNote":"Draft-Lokalisierung. Produktdaten und lokale Anbieter werden noch geprüft.","strategyEyebrow":"Lokale Strategie","strategyTitle":"Alpen, Regen, Hitze und lange Tage.","strategyText":"Für Österreich zählen Sitzdruck, Wetterbeständigkeit und Sitzheizung mehr als reine Show-Optik. Premium-Lösungen sind möglich, aber erst nach einfachem Test.","priorityEyebrow":"Empfehlungslogik","priorityTitle":"Was zuerst kommt","priorities":["Schnelle Entlastung: Mesh, Luftkissen oder Gel nur als Vergleichstest.","OEM-Komfortsitz und lokale Sattler mit Rückgabe- oder Anpassungsoption prüfen.","DIY erst nach Messung der Druckpunkte und Sitzhöhe."]}'::jsonb,
+    '{"title":"Moto Seat Lab Österreich - Sitzbank Komfort","description":"Österreichische Länderfassung: Motorradsitzbank-Komfort für Alpen, Touren, Wetter und lokale Sattler.","eyebrow":"Moto Seat Lab Österreich","headline":"Deine Sitzbank passt auf langen Touren nicht?","lead":"Österreich startet mit Touring, Alpenwetter und realistischen Komforttests: erst reversible Entlastung, dann OEM-Sitz, Sattler oder DIY.","primaryAction":"Deutschen MVP ansehen","secondaryAction":"Motorräder öffnen","assetNote":"Österreichische Länderfassung: erste Inhalte sind aktiv, Produktdaten und lokale Anbieter werden weiter geprüft.","strategyEyebrow":"Lokale Strategie","strategyTitle":"Alpen, Regen, Hitze und lange Tage.","strategyText":"Für Österreich zählen Sitzdruck, Wetterbeständigkeit und Sitzheizung mehr als reine Show-Optik. Premium-Lösungen sind möglich, aber erst nach einfachem Test.","priorityEyebrow":"Empfehlungslogik","priorityTitle":"Was zuerst kommt","priorities":["Schnelle Entlastung: Mesh, Luftkissen oder Gel nur als Vergleichstest.","OEM-Komfortsitz und lokale Sattler mit Rückgabe- oder Anpassungsoption prüfen.","DIY erst nach Messung der Druckpunkte und Sitzhöhe."]}'::jsonb,
     '{"countryCode":"at","languageCode":"de","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5390,9 +6350,9 @@ INSERT INTO localized_pages (
     'home',
     '/ch/',
     'Moto Seat Lab Schweiz - Sitzbank Komfort',
-    'Entwurf für die Schweiz: mehrsprachige Beratung für Premium-Touring, Sitzkomfort und klare Quellen.',
+    'Schweizer Länderfassung: mehrsprachige Beratung für Premium-Touring, Sitzkomfort und klare Quellen.',
     'draft',
-    '{"title":"Moto Seat Lab Schweiz - Sitzbank Komfort","description":"Entwurf für die Schweiz: mehrsprachige Beratung für Premium-Touring, Sitzkomfort und klare Quellen.","eyebrow":"Moto Seat Lab Schweiz · Entwurf","headline":"Sitzkomfort ohne teuren Fehlkauf.","lead":"Die Schweizer Version priorisiert präzise Daten, hochwertige Anbieter und mehrsprachige Orientierung für Deutsch, Französisch und Italienisch.","primaryAction":"Deutschen MVP ansehen","secondaryAction":"Motorräder öffnen","assetNote":"Draft-Lokalisierung. Schweizer Anbieter und Preislogik sind noch nicht final geprüft.","strategyEyebrow":"Lokale Strategie","strategyTitle":"Premium ist erlaubt, aber nur mit Beleg.","strategyText":"Die Seite soll nicht automatisch das teuerste Produkt empfehlen. Passform, Rückgabe, Erfahrungsberichte und Körperdaten entscheiden.","priorityEyebrow":"Empfehlungslogik","priorityTitle":"Schweizer Startpunkt","priorities":["Klare Diagnose: Druckpunkt, Fahrdauer, Temperatur und Kleidung.","Premium-Sitze nur mit Fitment, Quelle und Rückgabeoption vergleichen.","Mehrsprachige Inhalte später getrennt für DE, FR und IT pflegen."]}'::jsonb,
+    '{"title":"Moto Seat Lab Schweiz - Sitzbank Komfort","description":"Schweizer Länderfassung: mehrsprachige Beratung für Premium-Touring, Sitzkomfort und klare Quellen.","eyebrow":"Moto Seat Lab Schweiz","headline":"Sitzkomfort ohne teuren Fehlkauf.","lead":"Die Schweizer Version priorisiert präzise Daten, hochwertige Anbieter und mehrsprachige Orientierung für Deutsch, Französisch und Italienisch.","primaryAction":"Deutschen MVP ansehen","secondaryAction":"Motorräder öffnen","assetNote":"Schweizer Länderfassung: mehrsprachige Struktur ist aktiv, lokale Anbieter und Preise werden weiter geprüft.","strategyEyebrow":"Lokale Strategie","strategyTitle":"Premium ist erlaubt, aber nur mit Beleg.","strategyText":"Die Seite soll nicht automatisch das teuerste Produkt empfehlen. Passform, Rückgabe, Erfahrungsberichte und Körperdaten entscheiden.","priorityEyebrow":"Empfehlungslogik","priorityTitle":"Schweizer Startpunkt","priorities":["Klare Diagnose: Druckpunkt, Fahrdauer, Temperatur und Kleidung.","Premium-Sitze nur mit Fitment, Quelle und Rückgabeoption vergleichen.","Mehrsprachige Inhalte später getrennt für DE, FR und IT pflegen."]}'::jsonb,
     '{"countryCode":"ch","languageCode":"de","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5414,9 +6374,9 @@ INSERT INTO localized_pages (
     'home',
     '/fr/',
     'Moto Seat Lab France - confort de selle moto',
-    'Brouillon pour la France : confort de selle, solutions rapides, artisans et comparaisons honnêtes.',
+    'Version française : confort de selle, solutions rapides, artisans et comparaisons honnêtes.',
     'draft',
-    '{"title":"Moto Seat Lab France - confort de selle moto","description":"Brouillon pour la France : confort de selle, solutions rapides, artisans et comparaisons honnêtes.","eyebrow":"Moto Seat Lab France · brouillon","headline":"Ta selle devient douloureuse après une heure ?","lead":"La version française commence simple : comprendre la douleur, tester une solution réversible, puis comparer selle confort, artisan ou DIY.","primaryAction":"Voir le MVP allemand","secondaryAction":"Voir les motos","assetNote":"Traduction de travail. Les fournisseurs français doivent encore être vérifiés.","strategyEyebrow":"Stratégie locale","strategyTitle":"Confort, usage quotidien et artisans.","strategyText":"Pour la France, le portail doit couvrir les trajets quotidiens, le tourisme et les ateliers locaux sans vendre une selle chère comme solution magique.","priorityEyebrow":"Ordre conseillé","priorityTitle":"Commencer sans risque","priorities":["Tester une housse mesh, un coussin air ou gel si le problème est récent.","Comparer selle OEM, aftermarket et sellier avec prix et retour.","Passer au DIY seulement après mesure et documentation."]}'::jsonb,
+    '{"title":"Moto Seat Lab France - confort de selle moto","description":"Version française : confort de selle, solutions rapides, artisans et comparaisons honnêtes.","eyebrow":"Moto Seat Lab France","headline":"Ta selle devient douloureuse après une heure ?","lead":"La version française commence simple : comprendre la douleur, tester une solution réversible, puis comparer selle confort, artisan ou DIY.","primaryAction":"Voir le MVP allemand","secondaryAction":"Voir les motos","assetNote":"Version française active : les fournisseurs, prix et liens locaux seront enrichis progressivement.","strategyEyebrow":"Stratégie locale","strategyTitle":"Confort, usage quotidien et artisans.","strategyText":"Pour la France, le portail doit couvrir les trajets quotidiens, le tourisme et les ateliers locaux sans vendre une selle chère comme solution magique.","priorityEyebrow":"Ordre conseillé","priorityTitle":"Commencer sans risque","priorities":["Tester une housse mesh, un coussin air ou gel si le problème est récent.","Comparer selle OEM, aftermarket et sellier avec prix et retour.","Passer au DIY seulement après mesure et documentation."]}'::jsonb,
     '{"countryCode":"fr","languageCode":"fr","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5438,9 +6398,9 @@ INSERT INTO localized_pages (
     'home',
     '/it/',
     'Moto Seat Lab Italia - comfort sella moto',
-    'Bozza per l’Italia: comfort sella, stile, artigiani, coperture e confronti realistici.',
+    'Versione italiana: comfort sella, stile, artigiani, coperture e confronti realistici.',
     'draft',
-    '{"title":"Moto Seat Lab Italia - comfort sella moto","description":"Bozza per l’Italia: comfort sella, stile, artigiani, coperture e confronti realistici.","eyebrow":"Moto Seat Lab Italia · bozza","headline":"La sella ti dà fastidio dopo un’ora?","lead":"La versione italiana unisce comfort e stile: prima capire il problema, poi test reversibili, quindi sella comfort, artigiano o DIY.","primaryAction":"Vedi MVP tedesco","secondaryAction":"Apri moto","assetNote":"Bozza di localizzazione. Prodotti e artigiani italiani richiedono verifica.","strategyEyebrow":"Strategia locale","strategyTitle":"Comfort sì, estetica senza illusioni.","strategyText":"Cuciture e rivestimenti contano, ma la pressione sulle ossa ischiatiche, calore e postura decidono se una sella funziona davvero.","priorityEyebrow":"Ordine consigliato","priorityTitle":"Prima prova, poi modifica","priorities":["Partire con mesh, gel o aria come test economico e reversibile.","Confrontare sella OEM, aftermarket e tappezziere con prezzo e rischio.","DIY solo con misure, materiali e piano di prova."]}'::jsonb,
+    '{"title":"Moto Seat Lab Italia - comfort sella moto","description":"Versione italiana: comfort sella, stile, artigiani, coperture e confronti realistici.","eyebrow":"Moto Seat Lab Italia","headline":"La sella ti dà fastidio dopo un’ora?","lead":"La versione italiana unisce comfort e stile: prima capire il problema, poi test reversibili, quindi sella comfort, artigiano o DIY.","primaryAction":"Vedi MVP tedesco","secondaryAction":"Apri moto","assetNote":"Versione italiana attiva: prodotti, prezzi e artigiani locali saranno arricchiti passo dopo passo.","strategyEyebrow":"Strategia locale","strategyTitle":"Comfort sì, estetica senza illusioni.","strategyText":"Cuciture e rivestimenti contano, ma la pressione sulle ossa ischiatiche, calore e postura decidono se una sella funziona davvero.","priorityEyebrow":"Ordine consigliato","priorityTitle":"Prima prova, poi modifica","priorities":["Partire con mesh, gel o aria come test economico e reversibile.","Confrontare sella OEM, aftermarket e tappezziere con prezzo e rischio.","DIY solo con misure, materiali e piano di prova."]}'::jsonb,
     '{"countryCode":"it","languageCode":"it","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5462,9 +6422,9 @@ INSERT INTO localized_pages (
     'home',
     '/sk/',
     'Moto Seat Lab Slovensko - pohodlie sedla',
-    'Slovenský návrh: pohodlie sedla, rýchla úľava, lokálny čalúnnik, DIY a porovnanie s drahšími riešeniami.',
+    'Slovenská verzia: pohodlie sedla, rýchla úľava, lokálny čalúnnik, DIY a porovnanie s drahšími riešeniami.',
     'draft',
-    '{"title":"Moto Seat Lab Slovensko - pohodlie sedla","description":"Slovenský návrh: pohodlie sedla, rýchla úľava, lokálny čalúnnik, DIY a porovnanie s drahšími riešeniami.","eyebrow":"Moto Seat Lab Slovensko · návrh","headline":"Bolí ťa sedlo po hodine jazdy?","lead":"Slovenská verzia bude priamočiara: najprv lacná a vratná úľava, potom porovnanie sediel a až nakoniec zásah do peny alebo poťahu.","primaryAction":"Pozrieť nemecký MVP","secondaryAction":"Otvoriť motorky","assetNote":"Draft jazykovej mutácie. Dáta krajiny sú pripravené v databázovej štruktúre.","strategyEyebrow":"Lokálna stratégia","strategyTitle":"Najprv pomoc, potom expert mód.","strategyText":"Nebudeme automaticky tlačiť drahé prémiové sedlá. Pre bežného jazdca má väčší zmysel lacný test, čalúnnik a jasné meranie problému.","priorityEyebrow":"Poradie odporúčaní","priorityTitle":"Salámová metóda","priorities":["Najprv lacná a vratná úľava: 3D mesh, gélová alebo vzduchová podložka.","Potom porovnanie so sériovým sedlom a dostupnými komfortnými sedlami.","Až nakoniec čalúnnik alebo DIY zásah, keď je jasné, kde sedlo tlačí."]}'::jsonb,
+    '{"title":"Moto Seat Lab Slovensko - pohodlie sedla","description":"Slovenská verzia: pohodlie sedla, rýchla úľava, lokálny čalúnnik, DIY a porovnanie s drahšími riešeniami.","eyebrow":"Moto Seat Lab Slovensko","headline":"Bolí ťa sedlo po hodine jazdy?","lead":"Slovenská verzia bude priamočiara: najprv lacná a vratná úľava, potom porovnanie sediel a až nakoniec zásah do peny alebo poťahu.","primaryAction":"Pozrieť nemecký MVP","secondaryAction":"Otvoriť motorky","assetNote":"Slovenská krajinská verzia je aktívna. Lokálne produkty, ceny a odkazy budeme dopĺňať postupne.","strategyEyebrow":"Lokálna stratégia","strategyTitle":"Najprv pomoc, potom expert mód.","strategyText":"Nebudeme automaticky tlačiť drahé prémiové sedlá. Pre bežného jazdca má väčší zmysel lacný test, čalúnnik a jasné meranie problému.","priorityEyebrow":"Poradie odporúčaní","priorityTitle":"Salámová metóda","priorities":["Najprv lacná a vratná úľava: 3D mesh, gélová alebo vzduchová podložka.","Potom porovnanie so sériovým sedlom a dostupnými komfortnými sedlami.","Až nakoniec čalúnnik alebo DIY zásah, keď je jasné, kde sedlo tlačí."]}'::jsonb,
     '{"countryCode":"sk","languageCode":"sk","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5486,9 +6446,9 @@ INSERT INTO localized_pages (
     'home',
     '/hu/',
     'Moto Seat Lab Magyarország - motorülés kényelem',
-    'Magyarországi vázlat: üléskényelem, olcsó teszt, helyi kárpitos és DIY útvonal.',
+    'Magyarországi verzió: üléskényelem, olcsó teszt, helyi kárpitos és DIY útvonal.',
     'draft',
-    '{"title":"Moto Seat Lab Magyarország - motorülés kényelem","description":"Magyarországi vázlat: üléskényelem, olcsó teszt, helyi kárpitos és DIY útvonal.","eyebrow":"Moto Seat Lab Magyarország · vázlat","headline":"Egy óra után kényelmetlen a motorülés?","lead":"A magyar verzió értékalapú: először olcsó, visszafordítható segítség, majd helyi kárpitos vagy pontosabb üléscsere.","primaryAction":"Német MVP megnyitása","secondaryAction":"Motorok megnyitása","assetNote":"Munkaverziós lokalizáció. Helyi beszerzési adatok még ellenőrzés alatt.","strategyEyebrow":"Helyi stratégia","strategyTitle":"Olcsó próba, tiszta döntés.","strategyText":"Nem minden drága ülés oldja meg a problémát. A fájdalom helye, a testalkat és a használat fontosabb, mint a marketing.","priorityEyebrow":"Ajánlási sorrend","priorityTitle":"Mit próbálj először","priorities":["Mesh, levegős vagy gél párna rövid, összehasonlítható tesztként.","Helyi kárpitos vagy gyári komfortülés csak illeszkedési adatokkal.","DIY csak mérés és fotódokumentáció után."]}'::jsonb,
+    '{"title":"Moto Seat Lab Magyarország - motorülés kényelem","description":"Magyarországi verzió: üléskényelem, olcsó teszt, helyi kárpitos és DIY útvonal.","eyebrow":"Moto Seat Lab Magyarország","headline":"Egy óra után kényelmetlen a motorülés?","lead":"A magyar verzió értékalapú: először olcsó, visszafordítható segítség, majd helyi kárpitos vagy pontosabb üléscsere.","primaryAction":"Német MVP megnyitása","secondaryAction":"Motorok megnyitása","assetNote":"Magyarországi országverzió aktív. A helyi forrásokat, árakat és műhelyeket később bővítjük.","strategyEyebrow":"Helyi stratégia","strategyTitle":"Olcsó próba, tiszta döntés.","strategyText":"Nem minden drága ülés oldja meg a problémát. A fájdalom helye, a testalkat és a használat fontosabb, mint a marketing.","priorityEyebrow":"Ajánlási sorrend","priorityTitle":"Mit próbálj először","priorities":["Mesh, levegős vagy gél párna rövid, összehasonlítható tesztként.","Helyi kárpitos vagy gyári komfortülés csak illeszkedési adatokkal.","DIY csak mérés és fotódokumentáció után."]}'::jsonb,
     '{"countryCode":"hu","languageCode":"hu","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5510,9 +6470,9 @@ INSERT INTO localized_pages (
     'home',
     '/pl/',
     'Moto Seat Lab Polska - komfort siedzenia motocykla',
-    'Polska wersja robocza: ból kanapy, szybka ulga, tapicer, DIY i uczciwe porównanie opcji.',
+    'Polska wersja: ból kanapy, szybka ulga, tapicer, DIY i uczciwe porównanie opcji.',
     'draft',
-    '{"title":"Moto Seat Lab Polska - komfort siedzenia motocykla","description":"Polska wersja robocza: ból kanapy, szybka ulga, tapicer, DIY i uczciwe porównanie opcji.","eyebrow":"Moto Seat Lab Polska · wersja robocza","headline":"Kanapa boli po godzinie jazdy?","lead":"Polska wersja zaczyna praktycznie: tani test, potem porównanie kanapy seryjnej, komfortowej, tapicera i DIY.","primaryAction":"Zobacz niemieckie MVP","secondaryAction":"Otwórz motocykle","assetNote":"Robocza lokalizacja. Lokalni sprzedawcy i ceny wymagają sprawdzenia.","strategyEyebrow":"Strategia lokalna","strategyTitle":"DIY i tapicer mają sens, ale z planem.","strategyText":"Portal ma pomagać początkującym: bez tabel materiałów na start, najpierw objaw, użycie i tani test porównawczy.","priorityEyebrow":"Kolejność porad","priorityTitle":"Od czego zacząć","priorities":["Test 3D mesh, airpad lub gel jako szybka i odwracalna ulga.","Porównanie OEM, aftermarket i tapicera z ryzykiem oraz ceną.","DIY dopiero po pomiarze punktów nacisku i wysokości siedzenia."]}'::jsonb,
+    '{"title":"Moto Seat Lab Polska - komfort siedzenia motocykla","description":"Polska wersja: ból kanapy, szybka ulga, tapicer, DIY i uczciwe porównanie opcji.","eyebrow":"Moto Seat Lab Polska","headline":"Kanapa boli po godzinie jazdy?","lead":"Polska wersja zaczyna praktycznie: tani test, potem porównanie kanapy seryjnej, komfortowej, tapicera i DIY.","primaryAction":"Zobacz niemieckie MVP","secondaryAction":"Otwórz motocykle","assetNote":"Polska wersja kraju jest aktywna. Lokalne produkty, ceny i źródła będą rozwijane krok po kroku.","strategyEyebrow":"Strategia lokalna","strategyTitle":"DIY i tapicer mają sens, ale z planem.","strategyText":"Portal ma pomagać początkującym: bez tabel materiałów na start, najpierw objaw, użycie i tani test porównawczy.","priorityEyebrow":"Kolejność porad","priorityTitle":"Od czego zacząć","priorities":["Test 3D mesh, airpad lub gel jako szybka i odwracalna ulga.","Porównanie OEM, aftermarket i tapicera z ryzykiem oraz ceną.","DIY dopiero po pomiarze punktów nacisku i wysokości siedzenia."]}'::jsonb,
     '{"countryCode":"pl","languageCode":"pl","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5534,9 +6494,9 @@ INSERT INTO localized_pages (
     'home',
     '/ru/',
     'Moto Seat Lab Россия - комфорт сиденья мотоцикла',
-    'Черновик для России: комфорт сиденья, доступность, недорогие решения, мастерская и DIY.',
+    'Версия для России: комфорт сиденья, доступность, недорогие решения, мастерская и DIY.',
     'draft',
-    '{"title":"Moto Seat Lab Россия - комфорт сиденья мотоцикла","description":"Черновик для России: комфорт сиденья, доступность, недорогие решения, мастерская и DIY.","eyebrow":"Moto Seat Lab Россия · черновик","headline":"Сиденье начинает болеть через час езды?","lead":"Русская версия должна сначала учитывать доступность: простые накладки, местная мастерская и DIY до дорогих импортных решений.","primaryAction":"Открыть немецкий MVP","secondaryAction":"Открыть мотоциклы","assetNote":"Черновая локализация. Доступность товаров и источники нужно проверять отдельно.","strategyEyebrow":"Локальная стратегия","strategyTitle":"Сначала доступное решение.","strategyText":"Нет смысла советовать дорогую европейскую сидушку, если она недоступна или не имеет подтвержденной посадки. Начинаем с причины боли.","priorityEyebrow":"Порядок рекомендаций","priorityTitle":"Что пробовать первым","priorities":["Недорогая сетка, гель или воздушная подушка как обратимый тест.","Местная перетяжка или ремонт с понятным описанием материалов.","DIY только после измерений и проверки риска для оригинального сиденья."]}'::jsonb,
+    '{"title":"Moto Seat Lab Россия - комфорт сиденья мотоцикла","description":"Версия для России: комфорт сиденья, доступность, недорогие решения, мастерская и DIY.","eyebrow":"Moto Seat Lab Россия","headline":"Сиденье начинает болеть через час езды?","lead":"Русская версия должна сначала учитывать доступность: простые накладки, местная мастерская и DIY до дорогих импортных решений.","primaryAction":"Открыть немецкий MVP","secondaryAction":"Открыть мотоциклы","assetNote":"Версия для страны активна. Доступность товаров, цены и источники будут дополняться постепенно.","strategyEyebrow":"Локальная стратегия","strategyTitle":"Сначала доступное решение.","strategyText":"Нет смысла советовать дорогую европейскую сидушку, если она недоступна или не имеет подтвержденной посадки. Начинаем с причины боли.","priorityEyebrow":"Порядок рекомендаций","priorityTitle":"Что пробовать первым","priorities":["Недорогая сетка, гель или воздушная подушка как обратимый тест.","Местная перетяжка или ремонт с понятным описанием материалов.","DIY только после измерений и проверки риска для оригинального сиденья."]}'::jsonb,
     '{"countryCode":"ru","languageCode":"ru","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5558,9 +6518,9 @@ INSERT INTO localized_pages (
     'home',
     '/tr/',
     'Moto Seat Lab Türkiye - motosiklet sele konforu',
-    'Türkiye taslağı: sele ağrısı, günlük kullanım, uygun fiyatlı çözümler, yerel ustalar ve DIY.',
+    'Türkiye sürümü: sele ağrısı, günlük kullanım, uygun fiyatlı çözümler, yerel ustalar ve DIY.',
     'draft',
-    '{"title":"Moto Seat Lab Türkiye - motosiklet sele konforu","description":"Türkiye taslağı: sele ağrısı, günlük kullanım, uygun fiyatlı çözümler, yerel ustalar ve DIY.","eyebrow":"Moto Seat Lab Türkiye · taslak","headline":"Bir saat sonra sele rahatsız ediyor mu?","lead":"Türkiye sürümü günlük kullanım ve bütçeye odaklanır: önce ucuz ve geri alınabilir çözüm, sonra usta, konfor sele veya DIY.","primaryAction":"Alman MVP’yi aç","secondaryAction":"Motosikletleri aç","assetNote":"Taslak yerelleştirme. Yerel tedarikçiler ve fiyatlar ayrıca kontrol edilmeli.","strategyEyebrow":"Yerel strateji","strategyTitle":"Günlük konfor ve gerçek maliyet.","strategyText":"Pahalı sele her zaman doğru cevap değildir. Kullanım, sürüş süresi, sıcaklık ve vücut yapısı önce gelir.","priorityEyebrow":"Öneri sırası","priorityTitle":"Önce ne denenmeli","priorities":["3D mesh, jel veya hava yastığı ile kısa ve geri alınabilir test.","Yerel usta veya OEM konfor sele seçeneğini fiyat ve uyumla karşılaştır.","DIY sadece ölçüm ve malzeme planından sonra."]}'::jsonb,
+    '{"title":"Moto Seat Lab Türkiye - motosiklet sele konforu","description":"Türkiye sürümü: sele ağrısı, günlük kullanım, uygun fiyatlı çözümler, yerel ustalar ve DIY.","eyebrow":"Moto Seat Lab Türkiye","headline":"Bir saat sonra sele rahatsız ediyor mu?","lead":"Türkiye sürümü günlük kullanım ve bütçeye odaklanır: önce ucuz ve geri alınabilir çözüm, sonra usta, konfor sele veya DIY.","primaryAction":"Alman MVP’yi aç","secondaryAction":"Motosikletleri aç","assetNote":"Türkiye ülke sürümü aktif. Yerel ürünler, fiyatlar ve kaynaklar adım adım eklenecek.","strategyEyebrow":"Yerel strateji","strategyTitle":"Günlük konfor ve gerçek maliyet.","strategyText":"Pahalı sele her zaman doğru cevap değildir. Kullanım, sürüş süresi, sıcaklık ve vücut yapısı önce gelir.","priorityEyebrow":"Öneri sırası","priorityTitle":"Önce ne denenmeli","priorities":["3D mesh, jel veya hava yastığı ile kısa ve geri alınabilir test.","Yerel usta veya OEM konfor sele seçeneğini fiyat ve uyumla karşılaştır.","DIY sadece ölçüm ve malzeme planından sonra."]}'::jsonb,
     '{"countryCode":"tr","languageCode":"tr","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5582,9 +6542,9 @@ INSERT INTO localized_pages (
     'home',
     '/th/',
     'Moto Seat Lab ประเทศไทย - ความสบายเบาะมอเตอร์ไซค์',
-    'ฉบับร่างสำหรับไทย: ความร้อน ฝน สกู๊ตเตอร์ แผ่นรองราคาประหยัด และงานหุ้มเบาะท้องถิ่น',
+    'เวอร์ชันสำหรับไทย: ความร้อน ฝน สกู๊ตเตอร์ แผ่นรองราคาประหยัด และงานหุ้มเบาะท้องถิ่น',
     'draft',
-    '{"title":"Moto Seat Lab ประเทศไทย - ความสบายเบาะมอเตอร์ไซค์","description":"ฉบับร่างสำหรับไทย: ความร้อน ฝน สกู๊ตเตอร์ แผ่นรองราคาประหยัด และงานหุ้มเบาะท้องถิ่น","eyebrow":"Moto Seat Lab ประเทศไทย · ฉบับร่าง","headline":"ขี่ไปสักพักแล้วเบาะเริ่มเจ็บ?","lead":"เวอร์ชันไทยจะไม่เริ่มด้วยเบาะราคาแพงจากยุโรป แต่เริ่มจากความร้อน ฝน สกู๊ตเตอร์ และแผ่นรองที่ถอดออกได้","primaryAction":"ดู MVP ภาษาเยอรมัน","secondaryAction":"เปิดรายชื่อมอเตอร์ไซค์","assetNote":"ฉบับร่างการแปล ข้อมูลร้านค้าและสินค้าในไทยยังต้องตรวจสอบ","strategyEyebrow":"กลยุทธ์ท้องถิ่น","strategyTitle":"ร้อน ฝน และการใช้งานทุกวัน","strategyText":"สำหรับไทย ควรเริ่มจากผ้าคลุมระบายอากาศ แผ่นรอง และงานหุ้มเบาะท้องถิ่น ก่อนคิดถึงเบาะพรีเมียม","priorityEyebrow":"ลำดับคำแนะนำ","priorityTitle":"เริ่มจากอะไร","priorities":["ลองผ้าคลุม 3D mesh หรือแผ่นรองราคาประหยัดก่อน","ดูวัสดุที่ทนฝน ความร้อน และไม่อมน้ำ","งาน DIY หรือหุ้มใหม่ควรทำเมื่อรู้จุดกดทับชัดเจน"]}'::jsonb,
+    '{"title":"Moto Seat Lab ประเทศไทย - ความสบายเบาะมอเตอร์ไซค์","description":"เวอร์ชันสำหรับไทย: ความร้อน ฝน สกู๊ตเตอร์ แผ่นรองราคาประหยัด และงานหุ้มเบาะท้องถิ่น","eyebrow":"Moto Seat Lab ประเทศไทย","headline":"ขี่ไปสักพักแล้วเบาะเริ่มเจ็บ?","lead":"เวอร์ชันไทยจะไม่เริ่มด้วยเบาะราคาแพงจากยุโรป แต่เริ่มจากความร้อน ฝน สกู๊ตเตอร์ และแผ่นรองที่ถอดออกได้","primaryAction":"ดู MVP ภาษาเยอรมัน","secondaryAction":"เปิดรายชื่อมอเตอร์ไซค์","assetNote":"เวอร์ชันประเทศไทยใช้งานแล้ว ข้อมูลสินค้า ราคา และแหล่งซื้อในพื้นที่จะค่อย ๆ เพิ่มเติม","strategyEyebrow":"กลยุทธ์ท้องถิ่น","strategyTitle":"ร้อน ฝน และการใช้งานทุกวัน","strategyText":"สำหรับไทย ควรเริ่มจากผ้าคลุมระบายอากาศ แผ่นรอง และงานหุ้มเบาะท้องถิ่น ก่อนคิดถึงเบาะพรีเมียม","priorityEyebrow":"ลำดับคำแนะนำ","priorityTitle":"เริ่มจากอะไร","priorities":["ลองผ้าคลุม 3D mesh หรือแผ่นรองราคาประหยัดก่อน","ดูวัสดุที่ทนฝน ความร้อน และไม่อมน้ำ","งาน DIY หรือหุ้มใหม่ควรทำเมื่อรู้จุดกดทับชัดเจน"]}'::jsonb,
     '{"countryCode":"th","languageCode":"th","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5606,9 +6566,9 @@ INSERT INTO localized_pages (
     'home',
     '/id/',
     'Moto Seat Lab Indonesia - kenyamanan jok motor',
-    'Draf Indonesia: panas, hujan, skuter, jok harian, bantalan murah, bengkel jok lokal dan DIY.',
+    'Versi Indonesia: panas, hujan, skuter, jok harian, bantalan murah, bengkel jok lokal dan DIY.',
     'draft',
-    '{"title":"Moto Seat Lab Indonesia - kenyamanan jok motor","description":"Draf Indonesia: panas, hujan, skuter, jok harian, bantalan murah, bengkel jok lokal dan DIY.","eyebrow":"Moto Seat Lab Indonesia · draf","headline":"Jok mulai sakit setelah dipakai lama?","lead":"Versi Indonesia tidak memulai dari jok touring mahal. Fokusnya skuter, panas, hujan, cover breathable dan solusi murah yang bisa dicoba dulu.","primaryAction":"Lihat MVP Jerman","secondaryAction":"Buka daftar motor","assetNote":"Draf lokalisasi. Toko lokal dan harga perlu riset tambahan.","strategyEyebrow":"Strategi lokal","strategyTitle":"Panas, hujan, harian, budget.","strategyText":"Untuk Indonesia, solusi awal harus murah, mudah dilepas, tahan cuaca dan cocok untuk motor harian atau skuter.","priorityEyebrow":"Urutan saran","priorityTitle":"Mulai dari sini","priorities":["Coba 3D mesh cover, gel tipis atau bantalan udara sebagai tes cepat.","Periksa bahan yang tidak panas, tidak licin dan tidak menyerap air.","Bengkel jok atau DIY dilakukan setelah titik tekanan diketahui."]}'::jsonb,
+    '{"title":"Moto Seat Lab Indonesia - kenyamanan jok motor","description":"Versi Indonesia: panas, hujan, skuter, jok harian, bantalan murah, bengkel jok lokal dan DIY.","eyebrow":"Moto Seat Lab Indonesia","headline":"Jok mulai sakit setelah dipakai lama?","lead":"Versi Indonesia tidak memulai dari jok touring mahal. Fokusnya skuter, panas, hujan, cover breathable dan solusi murah yang bisa dicoba dulu.","primaryAction":"Lihat MVP Jerman","secondaryAction":"Buka daftar motor","assetNote":"Versi negara Indonesia aktif. Produk lokal, harga, dan sumber akan ditambah bertahap.","strategyEyebrow":"Strategi lokal","strategyTitle":"Panas, hujan, harian, budget.","strategyText":"Untuk Indonesia, solusi awal harus murah, mudah dilepas, tahan cuaca dan cocok untuk motor harian atau skuter.","priorityEyebrow":"Urutan saran","priorityTitle":"Mulai dari sini","priorities":["Coba 3D mesh cover, gel tipis atau bantalan udara sebagai tes cepat.","Periksa bahan yang tidak panas, tidak licin dan tidak menyerap air.","Bengkel jok atau DIY dilakukan setelah titik tekanan diketahui."]}'::jsonb,
     '{"countryCode":"id","languageCode":"id","pageKey":"home"}'::jsonb,
     now()
   )
@@ -5630,9 +6590,9 @@ INSERT INTO localized_pages (
     'home',
     '/my/',
     'Moto Seat Lab Malaysia - keselesaan tempat duduk motosikal',
-    'Draf Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.',
+    'Versi Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.',
     'draft',
-    '{"title":"Moto Seat Lab Malaysia - keselesaan tempat duduk motosikal","description":"Draf Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.","eyebrow":"Moto Seat Lab Malaysia · draf","headline":"Tempat duduk mula sakit selepas lama menunggang?","lead":"Versi Malaysia fokus pada cuaca panas, hujan, skuter dan kegunaan harian. Mulakan dengan penyelesaian murah sebelum tempat duduk premium.","primaryAction":"Lihat MVP Jerman","secondaryAction":"Buka motosikal","assetNote":"Draf lokalisasi. Pembekal tempatan dan harga masih perlu disemak.","strategyEyebrow":"Strategi tempatan","strategyTitle":"Cuaca panas, hujan dan perjalanan harian.","strategyText":"Nasihat awal patut mengutamakan cover mesh, alas mudah tanggal dan bahan yang tidak terlalu panas atau licin.","priorityEyebrow":"Urutan cadangan","priorityTitle":"Cuba dahulu","priorities":["Cover 3D mesh, gel nipis atau air cushion sebagai ujian awal.","Bandingkan bahan untuk hujan, haba dan penggunaan harian.","Bengkel tempat duduk atau DIY hanya selepas titik tekanan jelas."]}'::jsonb,
+    '{"title":"Moto Seat Lab Malaysia - keselesaan tempat duduk motosikal","description":"Versi Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.","eyebrow":"Moto Seat Lab Malaysia","headline":"Tempat duduk mula sakit selepas lama menunggang?","lead":"Versi Malaysia fokus pada cuaca panas, hujan, skuter dan kegunaan harian. Mulakan dengan penyelesaian murah sebelum tempat duduk premium.","primaryAction":"Lihat MVP Jerman","secondaryAction":"Buka motosikal","assetNote":"Versi negara Malaysia aktif. Produk tempatan, harga dan sumber akan ditambah secara berperingkat.","strategyEyebrow":"Strategi tempatan","strategyTitle":"Cuaca panas, hujan dan perjalanan harian.","strategyText":"Nasihat awal patut mengutamakan cover mesh, alas mudah tanggal dan bahan yang tidak terlalu panas atau licin.","priorityEyebrow":"Urutan cadangan","priorityTitle":"Cuba dahulu","priorities":["Cover 3D mesh, gel nipis atau air cushion sebagai ujian awal.","Bandingkan bahan untuk hujan, haba dan penggunaan harian.","Bengkel tempat duduk atau DIY hanya selepas titik tekanan jelas."]}'::jsonb,
     '{"countryCode":"my","languageCode":"ms","pageKey":"home"}'::jsonb,
     now()
   )
@@ -14977,5 +15937,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"languages":12,"countries":13,"country_languages":16,"ui_translations":276,"localized_pages":12,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"languages":12,"countries":13,"country_languages":16,"ui_translations":336,"localized_pages":12,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

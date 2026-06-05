@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import CookieBar from "../components/CookieBar.astro";
 import motorcycles from "../data/motorcycles/de-list.json";
-import { getCopy, getCountriesForSwitcher, getCountryStatusLabel, getLocaleFromPath } from "../lib/i18n";
+import { getCopy, getCountriesForSwitcher, getLocaleFromPath } from "../lib/i18n";
 
 interface Props {
   title: string;
@@ -33,6 +33,7 @@ const motorcycleStatusLabel: Record<string, string> = {
   draft: "Basisprofil",
   planned: "geplant",
 };
+const statusClass = (status: string) => (status === "draft" ? "basis-profile" : status);
 const motorcycleGroups = Array.from(
   menuMotorcycles.reduce((groups, motorcycle) => {
     const group = groups.get(motorcycle.brand) ?? [];
@@ -125,7 +126,7 @@ const diyShortcuts = [
                           const isCurrent = motorcycle.path === currentPath;
                           return (
                             <a
-                              class={`dropdown-bike ${motorcycle.status} ${isCurrent ? "current" : ""}`}
+                              class={`dropdown-bike ${statusClass(motorcycle.status)} ${isCurrent ? "current" : ""}`}
                               href={motorcycle.path}
                               aria-current={isCurrent ? "page" : undefined}
                               data-motorcycle-link
@@ -216,13 +217,13 @@ const diyShortcuts = [
                   {countrySwitcher.map((country) => {
                     const href = country.defaultPath;
                     return (
-                      <a class={`locale-card ${country.status}`} href={href} lang={country.primaryLanguage}>
+                      <a class={`locale-card ${statusClass(country.status)}`} href={href} lang={country.primaryLanguage}>
                         <span class="locale-flag" aria-hidden="true">{country.flagEmoji}</span>
                         <span class="locale-copy">
                           <strong>{country.nativeName}</strong>
                           <small>{country.region} · {country.currency} · {country.primaryLanguage.toUpperCase()}</small>
                         </span>
-                        <em>{getCountryStatusLabel(country.status, locale)}</em>
+                        <em>{country.primaryLanguage.toUpperCase()}</em>
                       </a>
                     );
                   })}
@@ -264,7 +265,7 @@ const diyShortcuts = [
         </div>
       </footer>
     </div>
-    <CookieBar />
+    <CookieBar locale={locale} />
     <script>
       const dropdowns = document.querySelectorAll(".nav-dropdown");
 

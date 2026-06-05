@@ -404,7 +404,7 @@ select {
   color: #101820;
 }
 
-.dropdown-bike.draft em {
+.dropdown-bike.basis-profile em {
   background: #eef2f2;
   color: var(--color-accent-strong);
 }
@@ -529,7 +529,7 @@ select {
   opacity: 0.72;
 }
 
-.locale-card.draft em {
+.locale-card.basis-profile em {
   background: rgba(184, 120, 48, 0.15);
   color: #7b4d16;
 }
@@ -966,6 +966,29 @@ h3 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   margin-top: 22px;
+}
+
+.visual-story-grid.compact {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.mini-info-card {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(216, 208, 193, 0.88);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(25, 33, 43, 0.06);
+}
+
+.mini-info-card strong {
+  color: var(--color-ink);
+  font-size: 0.96rem;
 }
 
 .visual-story-card {
@@ -1498,7 +1521,7 @@ h3 {
     #fffaf0;
 }
 
-.motorcycle-selector-result.draft {
+.motorcycle-selector-result.basis-profile {
   border-color: rgba(18, 107, 115, 0.22);
   background:
     linear-gradient(135deg, rgba(18, 107, 115, 0.12), transparent 45%),

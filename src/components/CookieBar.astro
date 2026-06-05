@@ -1,13 +1,21 @@
-<aside class="cookie-bar" id="cookie-bar" aria-label="Cookie Hinweis">
+---
+import { getCopy, getLocaleFromPath } from "../lib/i18n";
+
+interface Props {
+  locale?: string;
+}
+
+const locale = Astro.props.locale ?? getLocaleFromPath(Astro.url.pathname);
+const t = (key: string) => getCopy(locale, key);
+---
+
+<aside class="cookie-bar" id="cookie-bar" aria-label={t("cookie.label")}>
   <strong>Cookies</strong>
-  <p>
-    Wir nutzen notwendige Cookies für den Betrieb. Optionale Einstellungen können später Komfortfunktionen
-    und Statistiken ermöglichen. Im MVP laden wir keine Werbenetzwerke.
-  </p>
+  <p>{t("cookie.text")}</p>
   <div class="cookie-actions">
-    <button class="primary" type="button" data-cookie-choice="optional">Optional akzeptieren</button>
-    <button type="button" data-cookie-choice="necessary">Nur notwendige</button>
-    <a class="button secondary" href="/de/cookies/">Details</a>
+    <button class="primary" type="button" data-cookie-choice="optional">{t("cookie.optional")}</button>
+    <button type="button" data-cookie-choice="necessary">{t("cookie.necessary")}</button>
+    <a class="button secondary" href="/de/cookies/">{t("cookie.details")}</a>
   </div>
 </aside>
 

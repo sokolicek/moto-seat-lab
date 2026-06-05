@@ -80,13 +80,13 @@ const slugFromMotorcycle = (motorcycle: (typeof motorcycles)[number]) =>
       }
 
       if (status === "draft") {
-        result.className = "motorcycle-selector-result draft";
+        result.className = "motorcycle-selector-result basis-profile";
         result.innerHTML = `
           <span class="badge">Basisprofil</span>
           <strong>${name}</strong>
           <p><strong>${segment}</strong> · ${focus}</p>
           <p>${why}</p>
-          <p class="muted-line">Öffne den Draft-Guide: Daten, Risiken und erste Messpunkte sind vorbereitet, Produktrecherche ist noch offen.</p>
+          <p class="muted-line">Öffne das Basisprofil: Daten, Risiken und erste Messpunkte sind vorbereitet, Produktrecherche ist noch offen.</p>
         `;
         return;
       }
