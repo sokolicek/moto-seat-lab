@@ -10,6 +10,7 @@ coverage/
 .cache/
 .tmp/
 tmp/
+backups/db/*.sql
 
 *.log
 *.tmp

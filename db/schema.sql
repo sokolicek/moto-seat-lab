@@ -355,6 +355,28 @@ CREATE TABLE IF NOT EXISTS import_runs (
   row_counts jsonb NOT NULL DEFAULT '{}'::jsonb
 );
 
+CREATE TABLE IF NOT EXISTS controlled_vocabularies (
+  key text PRIMARY KEY,
+  name text NOT NULL,
+  description text,
+  join_policy text NOT NULL DEFAULT 'optional_reference',
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS controlled_vocabulary_terms (
+  vocabulary_key text NOT NULL REFERENCES controlled_vocabularies(key) ON DELETE CASCADE,
+  term_key text NOT NULL,
+  label text NOT NULL,
+  description text,
+  sort_order integer NOT NULL DEFAULT 100,
+  status text NOT NULL DEFAULT 'active',
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (vocabulary_key, term_key)
+);
+
 CREATE INDEX IF NOT EXISTS idx_motorcycles_brand ON motorcycles(brand);
 CREATE INDEX IF NOT EXISTS idx_countries_status ON countries(status);
 CREATE INDEX IF NOT EXISTS idx_country_languages_language ON country_languages(language_code);
@@ -377,6 +399,12 @@ CREATE INDEX IF NOT EXISTS idx_content_media_links_entity ON content_media_links
 CREATE INDEX IF NOT EXISTS idx_video_resources_status ON video_resources(status);
 CREATE INDEX IF NOT EXISTS idx_video_resources_provider ON video_resources(provider, provider_video_id);
 CREATE INDEX IF NOT EXISTS idx_content_video_links_entity ON content_video_links(entity_type, entity_key, usage, priority);
+CREATE INDEX IF NOT EXISTS idx_vocab_terms_status ON controlled_vocabulary_terms(vocabulary_key, status, sort_order);
+CREATE INDEX IF NOT EXISTS idx_seat_options_motorcycle_confidence ON seat_options(motorcycle_slug, confidence DESC NULLS LAST);
+CREATE INDEX IF NOT EXISTS idx_content_media_links_lookup ON content_media_links(entity_type, entity_key, priority, usage);
+CREATE INDEX IF NOT EXISTS idx_content_video_links_lookup ON content_video_links(entity_type, entity_key, priority, usage);
+CREATE INDEX IF NOT EXISTS idx_media_assets_rights ON media_assets(rights_status, commercial_use_allowed, attribution_required);
+CREATE INDEX IF NOT EXISTS idx_video_resources_language_topic ON video_resources(language_code, topic, status);
 
 CREATE OR REPLACE VIEW v_content_summary AS
 SELECT 'countries' AS item, count(*)::integer AS count FROM countries
@@ -652,5 +680,55 @@ FROM video_resources
 WHERE NOT EXISTS (
   SELECT 1 FROM content_video_links WHERE content_video_links.video_key = video_resources.key
 );
+
+CREATE OR REPLACE VIEW v_duplicate_candidates AS
+SELECT
+  'seat_options.source_url' AS check_name,
+  source_url AS duplicate_value,
+  count(*)::integer AS row_count,
+  jsonb_agg(key ORDER BY key) AS record_keys,
+  'Review only: one manufacturer page may legitimately cover multiple fitments.' AS recommendation
+FROM seat_options
+WHERE source_url IS NOT NULL AND source_url <> ''
+GROUP BY source_url
+HAVING count(*) > 1
+UNION ALL
+SELECT
+  'media_assets.local_path',
+  local_path,
+  count(*)::integer,
+  jsonb_agg(key ORDER BY key),
+  'Replace placeholder reuse with specific assets when final images are available.'
+FROM media_assets
+WHERE local_path IS NOT NULL AND local_path <> ''
+GROUP BY local_path
+HAVING count(*) > 1
+UNION ALL
+SELECT
+  'video_resources.provider_video_id',
+  provider || ':' || coalesce(provider_video_id, provider_url),
+  count(*)::integer,
+  jsonb_agg(key ORDER BY key),
+  'Keep one resource per actual video unless different editorial summaries are required.'
+FROM video_resources
+GROUP BY provider, coalesce(provider_video_id, provider_url)
+HAVING count(*) > 1;
+
+CREATE OR REPLACE VIEW v_schema_health AS
+SELECT 'validation_issues' AS check_name, count(*)::integer AS value, '0 required' AS target
+FROM v_validation_issues
+UNION ALL
+SELECT 'duplicate_candidates', count(*)::integer, 'review, not always error'
+FROM v_duplicate_candidates
+UNION ALL
+SELECT 'tables_with_dead_rows', count(*)::integer, 'run VACUUM ANALYZE after repeated seed imports'
+FROM pg_stat_user_tables
+WHERE n_dead_tup > 0
+UNION ALL
+SELECT 'controlled_vocabularies', count(*)::integer, '>= 6'
+FROM controlled_vocabularies
+UNION ALL
+SELECT 'controlled_vocabulary_terms', count(*)::integer, 'grows with catalog'
+FROM controlled_vocabulary_terms;
 
 COMMIT;

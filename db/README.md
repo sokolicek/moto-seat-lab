@@ -15,6 +15,10 @@ copy .env.example .env
 make db-up
 make db-seed
 make db-check
+make db-health
+make db-performance
+make db-backup
+make db-migrate
 make db-psql
 ```
 
@@ -38,6 +42,14 @@ Use:
 
 `make db-check` prints `v_content_summary`, lists `v_validation_issues`, and exits with a failure when required editorial fields are missing.
 
+`make db-health` adds schema health, duplicate-candidate reporting, and table bloat signals.
+
+`make db-performance` runs `EXPLAIN (ANALYZE, BUFFERS)` probes for common page queries.
+
+`make db-backup` writes a local SQL dump into `backups/db/`.
+
+`make db-migrate` creates a backup, applies SQL migrations in `db/migrations/`, and then runs the health check.
+
 Current checks include:
 
 - active motorcycles must have a guide path,
@@ -49,3 +61,11 @@ Current checks include:
 - seat materials must have a comfort role,
 - workshop tools must have risk notes,
 - buying channels must have affiliate potential.
+
+## Normalization Policy
+
+The schema normalizes stable identity data such as countries, languages, motorcycles, products, fitments, media, and videos.
+
+It intentionally keeps some display-oriented content in JSONB arrays and `source_data` to avoid unnecessary joins while the project is still content-heavy and evolving quickly.
+
+Controlled vocabulary tables provide a 3NF-friendly reference layer for repeated status/type/entity values without forcing every read query to join through them.

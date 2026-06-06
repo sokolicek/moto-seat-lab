@@ -214,10 +214,10 @@ INSERT INTO languages (
   )
   VALUES (
     'zh',
-    'ZH',
-    'ZH',
+    'Chinese',
+    '中文',
     'planned',
-    '{"code":"zh","name":"ZH","nativeName":"ZH","status":"planned"}'::jsonb,
+    '{"code":"zh","name":"Chinese","nativeName":"中文","status":"planned"}'::jsonb,
     now()
   )
   ON CONFLICT (code) DO UPDATE SET
@@ -25214,6 +25214,950 @@ INSERT INTO content_video_links (
     ON CONFLICT (video_key, entity_type, entity_key, usage) DO UPDATE SET
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'record_status',
+    'Record status',
+    'Reusable status labels used by content and catalog tables.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Motorcycle segment',
+    'High-level motorcycle categories for filtering and advice.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'Seat option type',
+    'Commercial and DIY option classes for seat comfort advice.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'product_type',
+    'Product type',
+    'Manufacturer product classes.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'Media entity type',
+    'Entity keys used by content_media_links.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'Video entity type',
+    'Entity keys used by content_video_links.',
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'buying_channel',
+    'buying_channel',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'motorcycle_profile',
+    'motorcycle_profile',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'page_section',
+    'page_section',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'product_category',
+    'product_category',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'seat_material',
+    'seat_material',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'seat_option',
+    'seat_option',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'solution_path',
+    'solution_path',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'workshop_supply',
+    'workshop_supply',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'media_entity_type',
+    'workshop_tool',
+    'workshop_tool',
+    '{"sourceTables":["content_media_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Adventure / Reiseenduro',
+    'Adventure / Reiseenduro',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Adventure Touring',
+    'Adventure Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Alltag / Crossover',
+    'Alltag / Crossover',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Budget Adventure / Reiseenduro',
+    'Budget Adventure / Reiseenduro',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Budget Adventure Touring',
+    'Budget Adventure Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Crossover Touring',
+    'Crossover Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Cruiser / Bagger',
+    'Cruiser / Bagger',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Maxi-Scooter',
+    'Maxi-Scooter',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Mittelklasse Adventure / Retro Touring',
+    'Mittelklasse Adventure / Retro Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Naked Bike',
+    'Naked Bike',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Naked Bike / Einsteiger',
+    'Naked Bike / Einsteiger',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Premium Adventure Touring',
+    'Premium Adventure Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Sport Touring',
+    'Sport Touring',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Sport-Tourer / Crossover',
+    'Sport-Tourer / Crossover',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'motorcycle_segment',
+    'Urban Scooter',
+    'Urban Scooter',
+    '{"sourceTables":["motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_comfort_cover',
+    'aftermarket_comfort_cover',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_complete_seat',
+    'aftermarket_complete_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_foam_cover_or_complete',
+    'aftermarket_foam_cover_or_complete',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_front_seat',
+    'aftermarket_front_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_rider_seat',
+    'aftermarket_rider_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'aftermarket_seat_upgrade',
+    'aftermarket_seat_upgrade',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'oem_complete_seat',
+    'oem_complete_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'oem_heated_rider_seat',
+    'oem_heated_rider_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'oem_low_heated_rider_seat',
+    'oem_low_heated_rider_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'oem_low_seat',
+    'oem_low_seat',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'product_type',
+    'universal_comfort_pad',
+    'universal_comfort_pad',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'active',
+    'active',
+    '{"sourceTables":["countries","media_assets","motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'category_verified',
+    'category_verified',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'download_pending',
+    'download_pending',
+    '{"sourceTables":["media_assets"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'draft',
+    'draft',
+    '{"sourceTables":["countries","motorcycles"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'embed_candidate',
+    'embed_candidate',
+    '{"sourceTables":["video_resources"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'fitment_check_needed',
+    'fitment_check_needed',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'model_generation_check_needed',
+    'model_generation_check_needed',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'permission_needed',
+    'permission_needed',
+    '{"sourceTables":["media_assets"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'source_only',
+    'source_only',
+    '{"sourceTables":["media_assets"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'source_page_video_candidate',
+    'source_page_video_candidate',
+    '{"sourceTables":["video_resources"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'verified_oembed',
+    'verified_oembed',
+    '{"sourceTables":["video_resources"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'verified_reseller_source',
+    'verified_reseller_source',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'record_status',
+    'verified_source',
+    'verified_source',
+    '{"sourceTables":["seat_products"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'aftermarket front seat',
+    'aftermarket front seat',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'custom upholstery',
+    'custom upholstery',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'German aftermarket seat',
+    'German aftermarket seat',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'German touring seat',
+    'German touring seat',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'global aftermarket seat',
+    'global aftermarket seat',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'OEM comfort seat',
+    'OEM comfort seat',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'reversible add-on',
+    'reversible add-on',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'seat_option_type',
+    'reversible first relief',
+    'reversible first relief',
+    '{"sourceTables":["seat_options"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'motorcycle_profile',
+    'motorcycle_profile',
+    '{"sourceTables":["content_video_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'page_section',
+    'page_section',
+    '{"sourceTables":["content_video_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'seat_material',
+    'seat_material',
+    '{"sourceTables":["content_video_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'workshop_supply',
+    'workshop_supply',
+    '{"sourceTables":["content_video_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    'video_entity_type',
+    'workshop_tool',
+    'workshop_tool',
+    '{"sourceTables":["content_video_links"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22,"controlled_vocabularies":6,"controlled_vocabulary_terms":61}'::jsonb);
 COMMIT;

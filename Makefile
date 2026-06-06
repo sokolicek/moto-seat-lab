@@ -1,4 +1,4 @@
-.PHONY: dev build check media-download db-up db-down db-logs db-seed db-check db-reset db-psql db-adminer
+.PHONY: dev build check media-download db-up db-down db-logs db-seed db-check db-health db-performance db-backup db-migrate db-reset db-psql db-adminer
 
 dev:
 	npm run dev
@@ -26,6 +26,18 @@ db-seed:
 
 db-check:
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-check.ps1
+
+db-health:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-health-check.ps1
+
+db-performance:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-performance-check.ps1
+
+db-backup:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-backup.ps1
+
+db-migrate:
+	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-migrate.ps1
 
 db-reset:
 	powershell -NoProfile -ExecutionPolicy Bypass -File scripts/db-reset.ps1

@@ -71,6 +71,7 @@ const languageMeta = {
   th: { name: "Thai", nativeName: "ไทย", status: "planned" },
   id: { name: "Indonesian", nativeName: "Bahasa Indonesia", status: "planned" },
   ms: { name: "Malay", nativeName: "Bahasa Melayu", status: "planned" },
+  zh: { name: "Chinese", nativeName: "中文", status: "planned" },
 };
 
 const languageCodes = Array.from(
@@ -792,6 +793,111 @@ for (const video of videoResources) {
 }
 counts.video_resources = videoResources.length;
 counts.content_video_links = videoResources.reduce((sum, video) => sum + (video.links || []).length, 0);
+
+const vocabularies = [
+  {
+    key: "record_status",
+    name: "Record status",
+    description: "Reusable status labels used by content and catalog tables.",
+  },
+  {
+    key: "motorcycle_segment",
+    name: "Motorcycle segment",
+    description: "High-level motorcycle categories for filtering and advice.",
+  },
+  {
+    key: "seat_option_type",
+    name: "Seat option type",
+    description: "Commercial and DIY option classes for seat comfort advice.",
+  },
+  {
+    key: "product_type",
+    name: "Product type",
+    description: "Manufacturer product classes.",
+  },
+  {
+    key: "media_entity_type",
+    name: "Media entity type",
+    description: "Entity keys used by content_media_links.",
+  },
+  {
+    key: "video_entity_type",
+    name: "Video entity type",
+    description: "Entity keys used by content_video_links.",
+  },
+];
+
+for (const vocabulary of vocabularies) {
+  add(`INSERT INTO controlled_vocabularies (
+    key, name, description, join_policy, updated_at
+  )
+  VALUES (
+    ${sqlString(vocabulary.key)},
+    ${sqlString(vocabulary.name)},
+    ${sqlString(vocabulary.description)},
+    'optional_reference',
+    now()
+  )
+  ON CONFLICT (key) DO UPDATE SET
+    name = EXCLUDED.name,
+    description = EXCLUDED.description,
+    join_policy = EXCLUDED.join_policy,
+    updated_at = now();`);
+}
+
+const vocabularyTerms = new Map();
+const addVocabularyTerm = (vocabularyKey, termKey, sourceTable) => {
+  if (!termKey) return;
+  const key = `${vocabularyKey}:${termKey}`;
+  const current = vocabularyTerms.get(key) || {
+    vocabularyKey,
+    termKey,
+    label: termKey,
+    sourceTables: new Set(),
+  };
+  current.sourceTables.add(sourceTable);
+  vocabularyTerms.set(key, current);
+};
+
+for (const country of countries) addVocabularyTerm("record_status", country.status, "countries");
+for (const motorcycle of motorcycles) {
+  addVocabularyTerm("record_status", motorcycle.status, "motorcycles");
+  addVocabularyTerm("motorcycle_segment", motorcycle.segment, "motorcycles");
+}
+for (const option of seatOptions) addVocabularyTerm("seat_option_type", option.type, "seat_options");
+for (const product of seatCatalog.products) {
+  addVocabularyTerm("record_status", product.status, "seat_products");
+  addVocabularyTerm("product_type", product.productType, "seat_products");
+}
+for (const asset of mediaAssets) {
+  addVocabularyTerm("record_status", asset.status || "active", "media_assets");
+  for (const link of asset.links || []) addVocabularyTerm("media_entity_type", link.entityType, "content_media_links");
+}
+for (const video of videoResources) {
+  addVocabularyTerm("record_status", video.status || "curation_needed", "video_resources");
+  for (const link of video.links || []) addVocabularyTerm("video_entity_type", link.entityType, "content_video_links");
+}
+
+for (const term of Array.from(vocabularyTerms.values()).sort((a, b) =>
+  `${a.vocabularyKey}:${a.termKey}`.localeCompare(`${b.vocabularyKey}:${b.termKey}`)
+)) {
+  add(`INSERT INTO controlled_vocabulary_terms (
+    vocabulary_key, term_key, label, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(term.vocabularyKey)},
+    ${sqlString(term.termKey)},
+    ${sqlString(term.label)},
+    ${sqlJson({ sourceTables: Array.from(term.sourceTables).sort() })},
+    now()
+  )
+  ON CONFLICT (vocabulary_key, term_key) DO UPDATE SET
+    label = EXCLUDED.label,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+}
+counts.controlled_vocabularies = vocabularies.length;
+counts.controlled_vocabulary_terms = vocabularyTerms.size;
 
 add(`INSERT INTO import_runs (label, row_counts)
 VALUES ('json seed import', ${sqlJson(counts)});`);

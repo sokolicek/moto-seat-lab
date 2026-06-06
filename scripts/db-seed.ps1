@@ -23,7 +23,10 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Write-Host "Applying schema..."
-Get-Content "db/schema.sql" -Raw | docker compose exec -T db psql -U motoseatlab -d motoseatlab -v ON_ERROR_STOP=1 | Write-Host
+Get-Content "db/schema.sql" -Raw | docker compose exec -T db psql -U motoseatlab -d motoseatlab -v ON_ERROR_STOP=1
+if ($LASTEXITCODE -ne 0) {
+  throw "Schema apply failed."
+}
 
 Write-Host "Generating seed SQL..."
 $nodeFallback = "C:\Program Files\nodejs\node.exe"
@@ -37,6 +40,9 @@ if (Test-Path $nodeFallback) {
 }
 
 Write-Host "Applying seed data..."
-Get-Content "db/seed.generated.sql" -Raw | docker compose exec -T db psql -U motoseatlab -d motoseatlab -v ON_ERROR_STOP=1 | Write-Host
+Get-Content "db/seed.generated.sql" -Raw | docker compose exec -T db psql -U motoseatlab -d motoseatlab -v ON_ERROR_STOP=1
+if ($LASTEXITCODE -ne 0) {
+  throw "Seed apply failed."
+}
 
 Write-Host "Seed complete."
