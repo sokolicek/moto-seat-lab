@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import countries from "../../../../data/i18n/countries.json";
+import motorcycles from "../../../../data/motorcycles/de-list.json";
+import mediaAssets from "../../../../data/media/media-assets.json";
+import videos from "../../../../data/videos/seat-videos.json";
+import uiCopy from "../../../../data/i18n/ui-copy.json";
+import countrySeatIntelligence from "../../../../data/country-seat-intelligence.json";
+
+const activeCountries = countries.filter((country) => country.status === "active" || country.status === "draft");
+const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
+const draftMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "draft");
+const forumSourceCount = countrySeatIntelligence.reduce((sum, item) => sum + item.forumSources.length, 0);
+const translationCount = Object.values(uiCopy).reduce((sum, translations) => sum + Object.keys(translations).length, 0);
+const analyticsPlan = [
+  "privacy-first cookie banner is present, but real visitor capture is not implemented in the static MVP",
+  "recommended next step: Plausible, Umami or Google Search Console for SEO/search visibility",
+  "if GA4 is used, keep it optional and document consent mode before production",
+  "server-side country statistics require backend logging or a hosted analytics provider"
+];
+---
+
+<BaseLayout
+  title="Moto Seat Lab Admin Intelligence"
+  description="Lokaler Admin-Überblick über Länderlogik, Katalogtiefe, Quellen, Foren, Medien und Analytics-Readiness."
+  canonicalPath="/de/admin/intelligence/"
+>
+  <section class="hero">
+    <div class="page-inner">
+      <p class="eyebrow">Admin · Intelligence</p>
+      <h1>Country-aware seat advice dashboard</h1>
+      <p class="lead">
+        Diese Seite zeigt, welche Länderlogik, Quellen, Motorradsegmente und Admin-Lücken bereits im System
+        liegen. Ziel: Moto Seat Lab soll pro Land zuerst das zeigen, was dort wirklich wahrscheinlich hilft.
+      </p>
+      <div class="admin-stat-grid">
+        <span class="admin-stat"><strong>{countries.length}</strong><small>Länder</small></span>
+        <span class="admin-stat"><strong>{motorcycles.length}</strong><small>Motorräder</small></span>
+        <span class="admin-stat"><strong>{forumSourceCount}</strong><small>Forum-/Research-Quellen</small></span>
+        <span class="admin-stat"><strong>{translationCount}</strong><small>UI-Übersetzungen</small></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner admin-dashboard-grid">
+      <article class="card">
+        <p class="eyebrow">Catalog</p>
+        <h2>Coverage</h2>
+        <div class="quick-facts">
+          <span><strong>Active countries</strong>{activeCountries.length}</span>
+          <span><strong>Active motorcycles</strong>{activeMotorcycles.length}</span>
+          <span><strong>Draft motorcycles</strong>{draftMotorcycles.length}</span>
+          <span><strong>Media assets</strong>{mediaAssets.length}</span>
+          <span><strong>Videos</strong>{videos.length}</span>
+        </div>
+      </article>
+      <article class="card">
+        <p class="eyebrow">Analytics</p>
+        <h2>Visitor statistics status</h2>
+        <ul class="check-list">
+          {analyticsPlan.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="page-inner">
+      <p class="eyebrow">Countries</p>
+      <h2>Country strategy matrix</h2>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Market mode</th>
+            <th>Lead segments</th>
+            <th>First recommendation</th>
+            <th>Sources</th>
+          </tr>
+        </thead>
+        <tbody>
+          {countrySeatIntelligence.map((item) => {
+            const country = countries.find((entry) => entry.code === item.countryCode);
+            return (
+              <tr>
+                <td><strong>{country?.flagEmoji} {country?.nativeName ?? item.countryCode}</strong></td>
+                <td>{item.marketMode.replaceAll("_", " ")}</td>
+                <td>{item.leadMotorcycleSegments.join(", ")}</td>
+                <td>{item.firstRecommendation}</td>
+                <td>
+                  <ul class="source-list">
+                    {item.forumSources.map((source) => (
+                      <li>
+                        <a href={source.url}>{source.name}</a>
+                        <span>{source.language}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</BaseLayout>

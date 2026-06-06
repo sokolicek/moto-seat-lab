@@ -1,6 +1,7 @@
 import countries from "../data/i18n/countries.json";
 import localizedHome from "../data/i18n/localized-home.json";
 import uiCopy from "../data/i18n/ui-copy.json";
+import countrySeatIntelligence from "../data/country-seat-intelligence.json";
 
 export type LocaleStatus = "active" | "draft" | "planned";
 
@@ -22,6 +23,25 @@ export interface CountryProfile {
   notes: string;
   designHints: Record<string, string>;
   contentFocus: string[];
+}
+
+export interface CountrySeatIntelligence {
+  countryCode: string;
+  priority: number;
+  marketMode: string;
+  leadMotorcycleSegments: string[];
+  leadMotorcycles: string[];
+  primaryPainPoints: string[];
+  firstRecommendation: string;
+  budgetLogic: string;
+  forumSources: {
+    name: string;
+    url: string;
+    language: string;
+    note: string;
+  }[];
+  buyingPriorities: string[];
+  adminNotes: string;
 }
 
 type CopyMap = Record<string, Record<string, string>>;
@@ -46,6 +66,7 @@ type LocalizedHomeMap = Record<
 >;
 
 const countryProfiles = countries as CountryProfile[];
+const countrySeatIntelligenceList = countrySeatIntelligence as CountrySeatIntelligence[];
 const copyMap = uiCopy as CopyMap;
 const localizedHomeMap = localizedHome as LocalizedHomeMap;
 
@@ -99,3 +120,10 @@ export const getCountryStatusLabel = (status: LocaleStatus, locale: string) =>
 
 export const getLocalizedHome = (countryCode: string) =>
   localizedHomeMap[countryCode] ?? localizedHomeMap.sk;
+
+export const getCountrySeatIntelligence = (countryCode: string) =>
+  countrySeatIntelligenceList.find((item) => item.countryCode === countryCode) ??
+  countrySeatIntelligenceList.find((item) => item.countryCode === "de");
+
+export const getCountrySeatIntelligenceList = () =>
+  [...countrySeatIntelligenceList].sort((left, right) => left.priority - right.priority);

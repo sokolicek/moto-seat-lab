@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import countries from "../../data/i18n/countries.json";
-import { getCopy, getCountryHreflang, getLocalizedHome } from "../../lib/i18n";
+import { getCopy, getCountryHreflang, getCountrySeatIntelligence, getLocalizedHome } from "../../lib/i18n";
 
 export function getStaticPaths() {
   return countries
@@ -14,6 +14,7 @@ export function getStaticPaths() {
 
 const { country } = Astro.props;
 const home = getLocalizedHome(country.code);
+const intelligence = getCountrySeatIntelligence(country.code);
 const t = (key: string) => getCopy(country.primaryLanguage, key);
 const countryAlternates = countries.map((item) => ({
   lang: getCountryHreflang(item),
@@ -74,6 +75,53 @@ const translatedUiExamples = [
       </article>
     </div>
   </section>
+
+  {intelligence && (
+    <section class="section alt">
+      <div class="page-inner">
+        <p class="eyebrow">{country.flagEmoji} Country Intelligence</p>
+        <h2>{home.priorityTitle}</h2>
+        <p class="lead">{intelligence.firstRecommendation}</p>
+        <div class="country-intel-grid">
+          <article class="card">
+            <p class="eyebrow">Pain points</p>
+            <h3>What riders here probably need first</h3>
+            <ul class="check-list">
+              {intelligence.primaryPainPoints.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Motorcycles</p>
+            <h3>Lead segments</h3>
+            <div class="tag-cloud">
+              {intelligence.leadMotorcycleSegments.map((item) => <span>{item}</span>)}
+            </div>
+            <p>{intelligence.budgetLogic}</p>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Buying logic</p>
+            <h3>Show these options early</h3>
+            <ol class="ranked-list">
+              {intelligence.buyingPriorities.map((item) => <li>{item}</li>)}
+            </ol>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Forums and tests</p>
+            <h3>Local research sources</h3>
+            <ul class="source-list">
+              {intelligence.forumSources.map((source) => (
+                <li>
+                  <a href={source.url}>{source.name}</a>
+                  <span>{source.language}</span>
+                  <small>{source.note}</small>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section alt">
     <div class="page-inner">

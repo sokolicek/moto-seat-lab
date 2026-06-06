@@ -20154,6 +20154,961 @@ INSERT INTO buying_channels (
     notes = EXCLUDED.notes,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+DELETE FROM country_research_sources;
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'de',
+    1,
+    'premium_touring_and_dach_value',
+    '["Adventure Touring","Sport Touring","Crossover Touring"]'::jsonb,
+    '["bmw-r-1300-gs","bmw-r-1250-gs","suzuki-gsx-s1000gx","honda-crf1100l-africa-twin"]'::jsonb,
+    '["Pain after 45 to 90 minutes on touring or commuting rides.","BMW GS comfort seat confusion: standard, comfort, exclusive, low and high versions.","Rider and pillion comfort on 6 to 10 hour day rides.","Seat height versus reach to the ground on adventure bikes."]'::jsonb,
+    'Start with diagnosis and a reversible pad, then compare OEM comfort seat, Wunderlich, Touratech, Sargent, Bagster or a local upholsterer.',
+    'BMW and premium touring riders may pay for a seat, but the page should still prove fitment, return policy and real riding goal first.',
+    '["OEM comfort seat","DACH aftermarket seat","local upholsterer","air cushion","3D mesh cover"]'::jsonb,
+    'Germany should keep the best researched path first: BMW GS plus GSX-S1000GX, then Honda/Yamaha touring models.',
+    '{"countryCode":"de","priority":1,"marketMode":"premium_touring_and_dach_value","leadMotorcycleSegments":["Adventure Touring","Sport Touring","Crossover Touring"],"leadMotorcycles":["bmw-r-1300-gs","bmw-r-1250-gs","suzuki-gsx-s1000gx","honda-crf1100l-africa-twin"],"primaryPainPoints":["Pain after 45 to 90 minutes on touring or commuting rides.","BMW GS comfort seat confusion: standard, comfort, exclusive, low and high versions.","Rider and pillion comfort on 6 to 10 hour day rides.","Seat height versus reach to the ground on adventure bikes."],"firstRecommendation":"Start with diagnosis and a reversible pad, then compare OEM comfort seat, Wunderlich, Touratech, Sargent, Bagster or a local upholsterer.","budgetLogic":"BMW and premium touring riders may pay for a seat, but the page should still prove fitment, return policy and real riding goal first.","forumSources":[{"name":"GS-Forum","url":"https://www.gs-forum.eu/","language":"de","note":"Strong BMW GS seat discussions, OEM comfort seat differences and rider reports."},{"name":"BMW Bike Forum","url":"https://www.bmw-bike-forum.info/","language":"de","note":"BMW seat comfort, long touring, Wunderlich, Airhawk and custom-seat discussions."},{"name":"MOTOR-TALK Motorrad","url":"https://www.motor-talk.de/forum/motorrad-biker-treff-b7.html","language":"de","note":"General German motorcycle forum with practical comfort and buying advice."}],"buyingPriorities":["OEM comfort seat","DACH aftermarket seat","local upholsterer","air cushion","3D mesh cover"],"adminNotes":"Germany should keep the best researched path first: BMW GS plus GSX-S1000GX, then Honda/Yamaha touring models."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'de-gs-forum-1',
+      'de',
+      'GS-Forum',
+      'https://www.gs-forum.eu/',
+      'de',
+      'forum',
+      'Strong BMW GS seat discussions, OEM comfort seat differences and rider reports.',
+      'active',
+      '{"name":"GS-Forum","url":"https://www.gs-forum.eu/","language":"de","note":"Strong BMW GS seat discussions, OEM comfort seat differences and rider reports."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'de-bmw-bike-forum-2',
+      'de',
+      'BMW Bike Forum',
+      'https://www.bmw-bike-forum.info/',
+      'de',
+      'forum',
+      'BMW seat comfort, long touring, Wunderlich, Airhawk and custom-seat discussions.',
+      'active',
+      '{"name":"BMW Bike Forum","url":"https://www.bmw-bike-forum.info/","language":"de","note":"BMW seat comfort, long touring, Wunderlich, Airhawk and custom-seat discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'de-motor-talk-motorrad-3',
+      'de',
+      'MOTOR-TALK Motorrad',
+      'https://www.motor-talk.de/forum/motorrad-biker-treff-b7.html',
+      'de',
+      'forum',
+      'General German motorcycle forum with practical comfort and buying advice.',
+      'active',
+      '{"name":"MOTOR-TALK Motorrad","url":"https://www.motor-talk.de/forum/motorrad-biker-treff-b7.html","language":"de","note":"General German motorcycle forum with practical comfort and buying advice."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'at',
+    2,
+    'alpine_touring',
+    '["Adventure Touring","Sport Touring"]'::jsonb,
+    '["ktm-1290-super-adventure","bmw-r-1300-gs","yamaha-tracer-9-9-gt"]'::jsonb,
+    '["Long alpine days with many position changes.","Seat heating, rain, cold morning starts and hot afternoon rides.","High adventure-bike seats for shorter riders."]'::jsonb,
+    'Diagnose seat height and pressure points before lowering foam; test reversible air or mesh solutions first.',
+    'Premium is possible, especially on KTM/BMW touring bikes, but weather and fitment matter more than decorative stitching.',
+    '["heated comfort seat","local upholsterer","air cushion","weather-resistant cover"]'::jsonb,
+    'Austria should reuse DACH research but prioritize KTM and alpine/weather advice.',
+    '{"countryCode":"at","priority":2,"marketMode":"alpine_touring","leadMotorcycleSegments":["Adventure Touring","Sport Touring"],"leadMotorcycles":["ktm-1290-super-adventure","bmw-r-1300-gs","yamaha-tracer-9-9-gt"],"primaryPainPoints":["Long alpine days with many position changes.","Seat heating, rain, cold morning starts and hot afternoon rides.","High adventure-bike seats for shorter riders."],"firstRecommendation":"Diagnose seat height and pressure points before lowering foam; test reversible air or mesh solutions first.","budgetLogic":"Premium is possible, especially on KTM/BMW touring bikes, but weather and fitment matter more than decorative stitching.","forumSources":[{"name":"1000PS Forum","url":"https://www.1000ps.at/","language":"de","note":"Austrian motorcycle media and community context for local models and touring use."}],"buyingPriorities":["heated comfort seat","local upholsterer","air cushion","weather-resistant cover"],"adminNotes":"Austria should reuse DACH research but prioritize KTM and alpine/weather advice."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'at-1000ps-forum-1',
+      'at',
+      '1000PS Forum',
+      'https://www.1000ps.at/',
+      'de',
+      'forum',
+      'Austrian motorcycle media and community context for local models and touring use.',
+      'active',
+      '{"name":"1000PS Forum","url":"https://www.1000ps.at/","language":"de","note":"Austrian motorcycle media and community context for local models and touring use."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'ch',
+    3,
+    'premium_multilingual_precision',
+    '["Adventure Touring","Premium Touring","Sport Touring"]'::jsonb,
+    '["bmw-r-1300-gs","bmw-r-1250-gs","ducati-multistrada-v4"]'::jsonb,
+    '["High expectations for precise fit and quality.","Multilingual buying information across German, French and Italian regions.","Long touring comfort with legal, weather and warranty awareness."]'::jsonb,
+    'Show premium options, but require source, fitment, price, return path and region language.',
+    'Higher willingness to pay is likely, but trust and documentation must be stronger than marketing.',
+    '["premium aftermarket seat","OEM comfort seat","regional upholsterer","air cushion"]'::jsonb,
+    'Switzerland needs regional language variants later: de-CH, fr-CH, it-CH.',
+    '{"countryCode":"ch","priority":3,"marketMode":"premium_multilingual_precision","leadMotorcycleSegments":["Adventure Touring","Premium Touring","Sport Touring"],"leadMotorcycles":["bmw-r-1300-gs","bmw-r-1250-gs","ducati-multistrada-v4"],"primaryPainPoints":["High expectations for precise fit and quality.","Multilingual buying information across German, French and Italian regions.","Long touring comfort with legal, weather and warranty awareness."],"firstRecommendation":"Show premium options, but require source, fitment, price, return path and region language.","budgetLogic":"Higher willingness to pay is likely, but trust and documentation must be stronger than marketing.","forumSources":[{"name":"Töff Forum Schweiz","url":"https://www.toeff-forum.ch/","language":"de","note":"Swiss motorcycle community for local use, touring and dealer context."}],"buyingPriorities":["premium aftermarket seat","OEM comfort seat","regional upholsterer","air cushion"],"adminNotes":"Switzerland needs regional language variants later: de-CH, fr-CH, it-CH."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'ch-toff-forum-schweiz-1',
+      'ch',
+      'Töff Forum Schweiz',
+      'https://www.toeff-forum.ch/',
+      'de',
+      'forum',
+      'Swiss motorcycle community for local use, touring and dealer context.',
+      'active',
+      '{"name":"Töff Forum Schweiz","url":"https://www.toeff-forum.ch/","language":"de","note":"Swiss motorcycle community for local use, touring and dealer context."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'fr',
+    4,
+    'comfort_sellerie',
+    '["Adventure Touring","Roadster","Scooter"]'::jsonb,
+    '["bmw-r-1250-gs","honda-crf1100l-africa-twin","yamaha-mt-07","honda-forza-350"]'::jsonb,
+    '["Comfort saddle versus gel insert decisions.","Finding a trusted sellier instead of buying blindly.","Daily riding plus touring weekends."]'::jsonb,
+    'Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier.',
+    'France has a strong saddle/upholstery culture; make artisan comparison visible before expensive imports.',
+    '["Bagster","Top Sellerie","local sellier","mesh cover","air cushion"]'::jsonb,
+    'France should surface sellier comparison and style-versus-function warnings.',
+    '{"countryCode":"fr","priority":4,"marketMode":"comfort_sellerie","leadMotorcycleSegments":["Adventure Touring","Roadster","Scooter"],"leadMotorcycles":["bmw-r-1250-gs","honda-crf1100l-africa-twin","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Comfort saddle versus gel insert decisions.","Finding a trusted sellier instead of buying blindly.","Daily riding plus touring weekends."],"firstRecommendation":"Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier.","budgetLogic":"France has a strong saddle/upholstery culture; make artisan comparison visible before expensive imports.","forumSources":[{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster comfort saddles, gel and rider experience."},{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider discussions including comfort saddle and artisan choice."}],"buyingPriorities":["Bagster","Top Sellerie","local sellier","mesh cover","air cushion"],"adminNotes":"France should surface sellier comparison and style-versus-function warnings."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'fr-forum-auto-moto-1',
+      'fr',
+      'Forum-Auto Moto',
+      'https://forum-auto.caradisiac.com/forum/13-moto/',
+      'fr',
+      'forum',
+      'French discussions about Bagster comfort saddles, gel and rider experience.',
+      'active',
+      '{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster comfort saddles, gel and rider experience."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'fr-motardie-2',
+      'fr',
+      'Motardie',
+      'https://www.reddit.com/r/Motardie/',
+      'fr',
+      'forum',
+      'French-speaking rider discussions including comfort saddle and artisan choice.',
+      'active',
+      '{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider discussions including comfort saddle and artisan choice."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'it',
+    5,
+    'style_plus_touring',
+    '["Premium Adventure Touring","Urban Scooter","Retro Touring"]'::jsonb,
+    '["ducati-multistrada-v4","moto-guzzi-v85-tt","vespa-gts-300","bmw-r-1250-gs"]'::jsonb,
+    '["Touring comfort without ruining the look of the bike.","Gel and reshaping questions for BMW and Italian touring models.","Older riders needing easier seat height and comfort."]'::jsonb,
+    'Show comfort and visual finish together, but keep pressure-point diagnosis first.',
+    'Italy needs a balance: aesthetic upholstery matters, but comfort claims must be tested.',
+    '["OEM comfort seat","Italian upholsterer","Bagster","gel insert","style cover"]'::jsonb,
+    'Italy pages should include visual finish as a decision factor, but never ahead of ergonomics.',
+    '{"countryCode":"it","priority":5,"marketMode":"style_plus_touring","leadMotorcycleSegments":["Premium Adventure Touring","Urban Scooter","Retro Touring"],"leadMotorcycles":["ducati-multistrada-v4","moto-guzzi-v85-tt","vespa-gts-300","bmw-r-1250-gs"],"primaryPainPoints":["Touring comfort without ruining the look of the bike.","Gel and reshaping questions for BMW and Italian touring models.","Older riders needing easier seat height and comfort."],"firstRecommendation":"Show comfort and visual finish together, but keep pressure-point diagnosis first.","budgetLogic":"Italy needs a balance: aesthetic upholstery matters, but comfort claims must be tested.","forumSources":[{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about motorcycle comfort and specific models."},{"name":"BMWpassion Moto","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused discussions including Bagster and comfort saddles."}],"buyingPriorities":["OEM comfort seat","Italian upholsterer","Bagster","gel insert","style cover"],"adminNotes":"Italy pages should include visual finish as a decision factor, but never ahead of ergonomics."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'it-moto-it-social-1',
+      'it',
+      'Moto.it Social',
+      'https://www.moto.it/social/',
+      'it',
+      'forum',
+      'Italian Q&A about motorcycle comfort and specific models.',
+      'active',
+      '{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about motorcycle comfort and specific models."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'it-bmwpassion-moto-2',
+      'it',
+      'BMWpassion Moto',
+      'https://www.bmwpassion.com/forum/',
+      'it',
+      'forum',
+      'BMW-focused discussions including Bagster and comfort saddles.',
+      'active',
+      '{"name":"BMWpassion Moto","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused discussions including Bagster and comfort saddles."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'sk',
+    6,
+    'value_local_upholstery',
+    '["Adventure Touring","Naked Bike","Scooter"]'::jsonb,
+    '["suzuki-gsx-s1000gx","bmw-r-1250-gs","yamaha-mt-07","honda-forza-350"]'::jsonb,
+    '["Need a practical answer quickly: why does the original seat hurt?","Budget-sensitive choice between pad, upholsterer and expensive imported seat.","Local availability and realistic prices."]'::jsonb,
+    'Start with a low-cost reversible pad, then local upholsterer, then verified aftermarket seat.',
+    'Do not push premium imports first. Show what the rider can try this weekend.',
+    '["3D mesh cover","gel pad","local upholsterer","used OEM comfort seat"]'::jsonb,
+    'Slovak page should be the practical low-chaos beginner guide.',
+    '{"countryCode":"sk","priority":6,"marketMode":"value_local_upholstery","leadMotorcycleSegments":["Adventure Touring","Naked Bike","Scooter"],"leadMotorcycles":["suzuki-gsx-s1000gx","bmw-r-1250-gs","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Need a practical answer quickly: why does the original seat hurt?","Budget-sensitive choice between pad, upholsterer and expensive imported seat.","Local availability and realistic prices."],"firstRecommendation":"Start with a low-cost reversible pad, then local upholsterer, then verified aftermarket seat.","budgetLogic":"Do not push premium imports first. Show what the rider can try this weekend.","forumSources":[{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community and article/forum context for local riders."}],"buyingPriorities":["3D mesh cover","gel pad","local upholsterer","used OEM comfort seat"],"adminNotes":"Slovak page should be the practical low-chaos beginner guide."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'sk-motoride-sk-1',
+      'sk',
+      'Motoride.sk',
+      'https://motoride.sk/',
+      'sk',
+      'forum',
+      'Slovak motorcycle community and article/forum context for local riders.',
+      'active',
+      '{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community and article/forum context for local riders."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'hu',
+    7,
+    'budget_and_workshop',
+    '["Naked Bike","Adventure Touring","Scooter"]'::jsonb,
+    '["yamaha-mt-07","honda-nc750x","bmw-r-1250-gs","honda-forza-350"]'::jsonb,
+    '["Budget choice between simple pad and local upholstery.","Daily use plus weekend touring.","Heat and slippery covers."]'::jsonb,
+    'Use symptom-first diagnosis, then mesh/air/gel test and local upholstery comparison.',
+    'Premium seats should be shown as a later option, not the default.',
+    '["mesh cover","gel pad","local upholsterer","used comfort seat"]'::jsonb,
+    'Hungary should emphasize clear cost bands and local workshops.',
+    '{"countryCode":"hu","priority":7,"marketMode":"budget_and_workshop","leadMotorcycleSegments":["Naked Bike","Adventure Touring","Scooter"],"leadMotorcycles":["yamaha-mt-07","honda-nc750x","bmw-r-1250-gs","honda-forza-350"],"primaryPainPoints":["Budget choice between simple pad and local upholstery.","Daily use plus weekend touring.","Heat and slippery covers."],"firstRecommendation":"Use symptom-first diagnosis, then mesh/air/gel test and local upholstery comparison.","budgetLogic":"Premium seats should be shown as a later option, not the default.","forumSources":[{"name":"SportMotor.hu","url":"https://www.sportmotor.hu/","language":"hu","note":"Hungarian motorcycle community and local rider context."}],"buyingPriorities":["mesh cover","gel pad","local upholsterer","used comfort seat"],"adminNotes":"Hungary should emphasize clear cost bands and local workshops."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'hu-sportmotor-hu-1',
+      'hu',
+      'SportMotor.hu',
+      'https://www.sportmotor.hu/',
+      'hu',
+      'forum',
+      'Hungarian motorcycle community and local rider context.',
+      'active',
+      '{"name":"SportMotor.hu","url":"https://www.sportmotor.hu/","language":"hu","note":"Hungarian motorcycle community and local rider context."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'pl',
+    8,
+    'tapicer_and_diy_value',
+    '["Naked Bike","Adventure Touring","Cruiser"]'::jsonb,
+    '["yamaha-mt-07","bmw-r-1250-gs","honda-crf1100l-africa-twin","harley-davidson-street-glide"]'::jsonb,
+    '["Pain after 50 km to 1 hour and interest in gel inserts.","Choosing a repeated local upholsterer rather than expensive replacement.","Passenger comfort and sliding on the seat."]'::jsonb,
+    'Compare gel/mesh as a quick test, then tapicer modification with foam shape, anti-slip cover and passenger needs.',
+    'Poland has strong value logic: local tapicer can beat imported seats if requirements are clear.',
+    '["local tapicer","gel insert","anti-slip cover","mesh cover","used seat"]'::jsonb,
+    'Poland pages should give tapicer brief/checklist early.',
+    '{"countryCode":"pl","priority":8,"marketMode":"tapicer_and_diy_value","leadMotorcycleSegments":["Naked Bike","Adventure Touring","Cruiser"],"leadMotorcycles":["yamaha-mt-07","bmw-r-1250-gs","honda-crf1100l-africa-twin","harley-davidson-street-glide"],"primaryPainPoints":["Pain after 50 km to 1 hour and interest in gel inserts.","Choosing a repeated local upholsterer rather than expensive replacement.","Passenger comfort and sliding on the seat."],"firstRecommendation":"Compare gel/mesh as a quick test, then tapicer modification with foam shape, anti-slip cover and passenger needs.","budgetLogic":"Poland has strong value logic: local tapicer can beat imported seats if requirements are clear.","forumSources":[{"name":"Forum Motocyklistów","url":"https://forum.motocyklistow.pl/","language":"pl","note":"Polish discussions about seats, slipping, upholstery and buying."},{"name":"Forum Ścigacz","url":"https://forum.scigacz.pl/","language":"pl","note":"Polish motorcycle forum with seat and comfort threads."}],"buyingPriorities":["local tapicer","gel insert","anti-slip cover","mesh cover","used seat"],"adminNotes":"Poland pages should give tapicer brief/checklist early."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'pl-forum-motocyklistow-1',
+      'pl',
+      'Forum Motocyklistów',
+      'https://forum.motocyklistow.pl/',
+      'pl',
+      'forum',
+      'Polish discussions about seats, slipping, upholstery and buying.',
+      'active',
+      '{"name":"Forum Motocyklistów","url":"https://forum.motocyklistow.pl/","language":"pl","note":"Polish discussions about seats, slipping, upholstery and buying."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'pl-forum-scigacz-2',
+      'pl',
+      'Forum Ścigacz',
+      'https://forum.scigacz.pl/',
+      'pl',
+      'forum',
+      'Polish motorcycle forum with seat and comfort threads.',
+      'active',
+      '{"name":"Forum Ścigacz","url":"https://forum.scigacz.pl/","language":"pl","note":"Polish motorcycle forum with seat and comfort threads."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'ru',
+    9,
+    'availability_first',
+    '["Adventure Touring","Naked Bike","Scooter"]'::jsonb,
+    '["bmw-r-1250-gs","honda-nc750x","cfmoto-800mt","royal-enfield-himalayan"]'::jsonb,
+    '["Availability and import uncertainty.","DIY or local workshop before premium imported seats.","Cold weather, waterproofing and durable cover material."]'::jsonb,
+    'Prioritize local availability, reversible pads and repairable upholstery; premium imports only when fitment and delivery are verified.',
+    'Advice must be availability-aware. A perfect imported seat is not useful if the rider cannot buy or return it.',
+    '["local upholsterer","mesh cover","gel pad","used OEM seat","repair materials"]'::jsonb,
+    'Russia should surface availability status and alternatives before brand prestige.',
+    '{"countryCode":"ru","priority":9,"marketMode":"availability_first","leadMotorcycleSegments":["Adventure Touring","Naked Bike","Scooter"],"leadMotorcycles":["bmw-r-1250-gs","honda-nc750x","cfmoto-800mt","royal-enfield-himalayan"],"primaryPainPoints":["Availability and import uncertainty.","DIY or local workshop before premium imported seats.","Cold weather, waterproofing and durable cover material."],"firstRecommendation":"Prioritize local availability, reversible pads and repairable upholstery; premium imports only when fitment and delivery are verified.","budgetLogic":"Advice must be availability-aware. A perfect imported seat is not useful if the rider cannot buy or return it.","forumSources":[{"name":"BikePost","url":"https://bikepost.ru/","language":"ru","note":"Russian motorcycle community and owner experience articles."}],"buyingPriorities":["local upholsterer","mesh cover","gel pad","used OEM seat","repair materials"],"adminNotes":"Russia should surface availability status and alternatives before brand prestige."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'ru-bikepost-1',
+      'ru',
+      'BikePost',
+      'https://bikepost.ru/',
+      'ru',
+      'forum',
+      'Russian motorcycle community and owner experience articles.',
+      'active',
+      '{"name":"BikePost","url":"https://bikepost.ru/","language":"ru","note":"Russian motorcycle community and owner experience articles."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'tr',
+    10,
+    'daily_budget_heat',
+    '["Commuter","Scooter","Naked Bike"]'::jsonb,
+    '["honda-nc750x","yamaha-mt-07","honda-forza-350"]'::jsonb,
+    '["Gel insert questions for smaller daily motorcycles.","Hot weather and long city use.","Whether paying for gel really solves pain."]'::jsonb,
+    'Start with low-cost mesh/air/gel comparison, then local seat craftsman; warn that gel alone is not magic.',
+    'Turkey should prioritize affordable tests and local craft before imported premium options.',
+    '["mesh cover","gel pad","local sele ustası","air cushion"]'::jsonb,
+    'Turkey pages should directly answer whether gel is worth it for smaller bikes.',
+    '{"countryCode":"tr","priority":10,"marketMode":"daily_budget_heat","leadMotorcycleSegments":["Commuter","Scooter","Naked Bike"],"leadMotorcycles":["honda-nc750x","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Gel insert questions for smaller daily motorcycles.","Hot weather and long city use.","Whether paying for gel really solves pain."],"firstRecommendation":"Start with low-cost mesh/air/gel comparison, then local seat craftsman; warn that gel alone is not magic.","budgetLogic":"Turkey should prioritize affordable tests and local craft before imported premium options.","forumSources":[{"name":"Motosiklet.net","url":"https://www.motosiklet.net/forum/","language":"tr","note":"Large Turkish motorcycle forum with gel-seat and comfort discussions."}],"buyingPriorities":["mesh cover","gel pad","local sele ustası","air cushion"],"adminNotes":"Turkey pages should directly answer whether gel is worth it for smaller bikes."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'tr-motosiklet-net-1',
+      'tr',
+      'Motosiklet.net',
+      'https://www.motosiklet.net/forum/',
+      'tr',
+      'forum',
+      'Large Turkish motorcycle forum with gel-seat and comfort discussions.',
+      'active',
+      '{"name":"Motosiklet.net","url":"https://www.motosiklet.net/forum/","language":"tr","note":"Large Turkish motorcycle forum with gel-seat and comfort discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'th',
+    11,
+    'scooter_heat_low_cost',
+    '["Scooter","Underbone","Commuter"]'::jsonb,
+    '["honda-forza-350","vespa-gts-300"]'::jsonb,
+    '["Scooter seat pain during daily riding.","Heat, humidity and rain.","Low-cost foam, gel or local seat reshaping."]'::jsonb,
+    'Show breathable cover and low-cost pad first; local upholstery before expensive imported touring seats.',
+    'Thailand should not lead with Sargent/Corbin. Start with scooter-relevant pads, foam and local shops.',
+    '["3D mesh cover","thin gel pad","local seat foam reshaping","water-resistant cover"]'::jsonb,
+    'Thailand is a scooter-first, heat-first and budget-first market.',
+    '{"countryCode":"th","priority":11,"marketMode":"scooter_heat_low_cost","leadMotorcycleSegments":["Scooter","Underbone","Commuter"],"leadMotorcycles":["honda-forza-350","vespa-gts-300"],"primaryPainPoints":["Scooter seat pain during daily riding.","Heat, humidity and rain.","Low-cost foam, gel or local seat reshaping."],"firstRecommendation":"Show breathable cover and low-cost pad first; local upholstery before expensive imported touring seats.","budgetLogic":"Thailand should not lead with Sargent/Corbin. Start with scooter-relevant pads, foam and local shops.","forumSources":[{"name":"Pantip Motorcycle","url":"https://pantip.com/tag/%E0%B8%A1%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%84%E0%B8%8B%E0%B8%84%E0%B9%8C","language":"th","note":"Thai discussions about scooter seats, butt pain, foam and gel."}],"buyingPriorities":["3D mesh cover","thin gel pad","local seat foam reshaping","water-resistant cover"],"adminNotes":"Thailand is a scooter-first, heat-first and budget-first market."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'th-pantip-motorcycle-1',
+      'th',
+      'Pantip Motorcycle',
+      'https://pantip.com/tag/%E0%B8%A1%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%84%E0%B8%8B%E0%B8%84%E0%B9%8C',
+      'th',
+      'forum',
+      'Thai discussions about scooter seats, butt pain, foam and gel.',
+      'active',
+      '{"name":"Pantip Motorcycle","url":"https://pantip.com/tag/%E0%B8%A1%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%84%E0%B8%8B%E0%B8%84%E0%B9%8C","language":"th","note":"Thai discussions about scooter seats, butt pain, foam and gel."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'id',
+    12,
+    'scooter_commuter_budget',
+    '["Scooter","Underbone","Commuter","Budget Adventure"]'::jsonb,
+    '["honda-forza-350","royal-enfield-himalayan","cfmoto-800mt"]'::jsonb,
+    '["Daily scooter and commuter seat discomfort.","Heat, rain and slippery stock seats.","Need cheap, removable improvements."]'::jsonb,
+    'Start with 3D mesh, breathable cover, thin gel or air-through pad; then local jok motor workshop.',
+    'Indonesia should prioritize low cost and weather resilience over premium touring seats.',
+    '["3D mesh cover","air-through pad","thin gel pad","local jok motor","waterproof cover"]'::jsonb,
+    'Indonesia pages should open with budget pads and scooter/commuter use.',
+    '{"countryCode":"id","priority":12,"marketMode":"scooter_commuter_budget","leadMotorcycleSegments":["Scooter","Underbone","Commuter","Budget Adventure"],"leadMotorcycles":["honda-forza-350","royal-enfield-himalayan","cfmoto-800mt"],"primaryPainPoints":["Daily scooter and commuter seat discomfort.","Heat, rain and slippery stock seats.","Need cheap, removable improvements."],"firstRecommendation":"Start with 3D mesh, breathable cover, thin gel or air-through pad; then local jok motor workshop.","budgetLogic":"Indonesia should prioritize low cost and weather resilience over premium touring seats.","forumSources":[{"name":"Webike Indonesia Reviews","url":"https://www.webike.id/review/","language":"id","note":"Product reviews for seat pads and touring support parts."},{"name":"Kaskus Otomotif","url":"https://www.kaskus.co.id/forum/646/otomotif","language":"id","note":"Large Indonesian forum context for local automotive and motorcycle discussions."}],"buyingPriorities":["3D mesh cover","air-through pad","thin gel pad","local jok motor","waterproof cover"],"adminNotes":"Indonesia pages should open with budget pads and scooter/commuter use."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'id-webike-indonesia-reviews-1',
+      'id',
+      'Webike Indonesia Reviews',
+      'https://www.webike.id/review/',
+      'id',
+      'forum',
+      'Product reviews for seat pads and touring support parts.',
+      'active',
+      '{"name":"Webike Indonesia Reviews","url":"https://www.webike.id/review/","language":"id","note":"Product reviews for seat pads and touring support parts."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'id-kaskus-otomotif-2',
+      'id',
+      'Kaskus Otomotif',
+      'https://www.kaskus.co.id/forum/646/otomotif',
+      'id',
+      'forum',
+      'Large Indonesian forum context for local automotive and motorcycle discussions.',
+      'active',
+      '{"name":"Kaskus Otomotif","url":"https://www.kaskus.co.id/forum/646/otomotif","language":"id","note":"Large Indonesian forum context for local automotive and motorcycle discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'my',
+    13,
+    'kapcai_scooter_weather',
+    '["Underbone","Scooter","Commuter"]'::jsonb,
+    '["honda-forza-350","yamaha-mt-07"]'::jsonb,
+    '["Kapcai, scooter and commuter comfort.","Heat and rain.","Low-cost covers, pads and local upholstery."]'::jsonb,
+    'Lead with mesh/air pad, weather-resistant cover and local seat shop; premium seats are a later path.',
+    'Malaysia should treat small-bike daily comfort as the default case.',
+    '["mesh cover","air cushion","water-resistant cover","local upholstery"]'::jsonb,
+    'Malaysia needs kapcai/underbone vocabulary and local marketplace mapping.',
+    '{"countryCode":"my","priority":13,"marketMode":"kapcai_scooter_weather","leadMotorcycleSegments":["Underbone","Scooter","Commuter"],"leadMotorcycles":["honda-forza-350","yamaha-mt-07"],"primaryPainPoints":["Kapcai, scooter and commuter comfort.","Heat and rain.","Low-cost covers, pads and local upholstery."],"firstRecommendation":"Lead with mesh/air pad, weather-resistant cover and local seat shop; premium seats are a later path.","budgetLogic":"Malaysia should treat small-bike daily comfort as the default case.","forumSources":[{"name":"Lowyat.NET Fast Bikes","url":"https://forum.lowyat.net/FASTBIKES","language":"en/ms","note":"Malaysian rider forum context for local bikes, buying and daily use."}],"buyingPriorities":["mesh cover","air cushion","water-resistant cover","local upholstery"],"adminNotes":"Malaysia needs kapcai/underbone vocabulary and local marketplace mapping."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'my-lowyat-net-fast-bikes-1',
+      'my',
+      'Lowyat.NET Fast Bikes',
+      'https://forum.lowyat.net/FASTBIKES',
+      'en/ms',
+      'forum',
+      'Malaysian rider forum context for local bikes, buying and daily use.',
+      'active',
+      '{"name":"Lowyat.NET Fast Bikes","url":"https://forum.lowyat.net/FASTBIKES","language":"en/ms","note":"Malaysian rider forum context for local bikes, buying and daily use."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'cn',
+    14,
+    'platform_commuter_scooter',
+    '["Scooter","Commuter","Budget Adventure"]'::jsonb,
+    '["honda-forza-350","cfmoto-800mt","royal-enfield-himalayan"]'::jsonb,
+    '["Commuter and scooter heat/pressure pain.","Huge platform choice but uncertain fitment and review quality.","Need local availability and low-risk testing."]'::jsonb,
+    'Prioritize breathable mesh, thin pad, local upholstery and platform fitment checks before premium imported seats.',
+    'China pages should be platform-aware and fitment-aware: many products exist, but the advisor must filter by use, climate and return policy.',
+    '["breathable mesh","thin gel pad","local upholstery","platform fitment check","waterproof cover"]'::jsonb,
+    'China needs marketplace and fitment confidence before product ranking.',
+    '{"countryCode":"cn","priority":14,"marketMode":"platform_commuter_scooter","leadMotorcycleSegments":["Scooter","Commuter","Budget Adventure"],"leadMotorcycles":["honda-forza-350","cfmoto-800mt","royal-enfield-himalayan"],"primaryPainPoints":["Commuter and scooter heat/pressure pain.","Huge platform choice but uncertain fitment and review quality.","Need local availability and low-risk testing."],"firstRecommendation":"Prioritize breathable mesh, thin pad, local upholstery and platform fitment checks before premium imported seats.","budgetLogic":"China pages should be platform-aware and fitment-aware: many products exist, but the advisor must filter by use, climate and return policy.","forumSources":[{"name":"Motuoche8","url":"https://www.motuoche8.com/","language":"zh","note":"Chinese motorcycle community and article/forum context."}],"buyingPriorities":["breathable mesh","thin gel pad","local upholstery","platform fitment check","waterproof cover"],"adminNotes":"China needs marketplace and fitment confidence before product ranking."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'cn-motuoche8-1',
+      'cn',
+      'Motuoche8',
+      'https://www.motuoche8.com/',
+      'zh',
+      'forum',
+      'Chinese motorcycle community and article/forum context.',
+      'active',
+      '{"name":"Motuoche8","url":"https://www.motuoche8.com/","language":"zh","note":"Chinese motorcycle community and article/forum context."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
 DELETE FROM content_media_links;
 DELETE FROM media_assets;
 INSERT INTO media_assets (
@@ -26159,5 +27114,5 @@ INSERT INTO controlled_vocabulary_terms (
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22,"controlled_vocabularies":6,"controlled_vocabulary_terms":61}'::jsonb);
+VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"country_seat_strategies":14,"country_research_sources":20,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22,"controlled_vocabularies":6,"controlled_vocabulary_terms":61}'::jsonb);
 COMMIT;

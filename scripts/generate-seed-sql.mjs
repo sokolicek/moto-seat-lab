@@ -36,6 +36,7 @@ const sources = await readJson("src/data/sources/suzuki-gsx-s1000gx.json");
 const countries = await readJson("src/data/i18n/countries.json");
 const uiCopy = await readJson("src/data/i18n/ui-copy.json");
 const localizedHome = await readJson("src/data/i18n/localized-home.json");
+const countrySeatIntelligence = await readJson("src/data/country-seat-intelligence.json");
 const technicalProfiles = await readJson("src/data/motorcycles/technical-profiles.json");
 const seatMaterials = await readJson("src/data/materials/seat-materials.json");
 const workshopTools = await readJson("src/data/tools/seat-tools.json");
@@ -627,6 +628,73 @@ for (const channel of buyingChannels) {
     updated_at = now();`);
 }
 counts.buying_channels = buyingChannels.length;
+
+add("DELETE FROM country_research_sources;");
+for (const strategy of countrySeatIntelligence) {
+  add(`INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    ${sqlString(strategy.countryCode)},
+    ${strategy.priority ?? 100},
+    ${sqlString(strategy.marketMode)},
+    ${sqlJson(strategy.leadMotorcycleSegments || [])},
+    ${sqlJson(strategy.leadMotorcycles || [])},
+    ${sqlJson(strategy.primaryPainPoints || [])},
+    ${sqlString(strategy.firstRecommendation)},
+    ${sqlString(strategy.budgetLogic)},
+    ${sqlJson(strategy.buyingPriorities || [])},
+    ${sqlString(strategy.adminNotes)},
+    ${sqlJson(strategy)},
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();`);
+
+  for (const [index, source] of (strategy.forumSources || []).entries()) {
+    const key = `${strategy.countryCode}-${slugify(source.name)}-${index + 1}`;
+    add(`INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      ${sqlString(key)},
+      ${sqlString(strategy.countryCode)},
+      ${sqlString(source.name)},
+      ${sqlString(source.url)},
+      ${sqlString(source.language)},
+      'forum',
+      ${sqlString(source.note)},
+      'active',
+      ${sqlJson(source)},
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();`);
+  }
+}
+counts.country_seat_strategies = countrySeatIntelligence.length;
+counts.country_research_sources = countrySeatIntelligence.reduce((sum, strategy) => sum + (strategy.forumSources || []).length, 0);
 
 add("DELETE FROM content_media_links;");
 add("DELETE FROM media_assets;");
