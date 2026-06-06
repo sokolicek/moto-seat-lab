@@ -15,6 +15,10 @@ export function getStaticPaths() {
 const { country } = Astro.props;
 const home = getLocalizedHome(country.code);
 const t = (key: string) => getCopy(country.primaryLanguage, key);
+const countryAlternates = countries.map((item) => ({
+  lang: item.primaryLanguage === "de" && item.code !== "de" ? `de-${item.code.toUpperCase()}` : item.primaryLanguage,
+  path: item.defaultPath,
+}));
 const translatedUiExamples = [
   t("nav.start"),
   t("nav.motorcycles"),
@@ -32,6 +36,7 @@ const translatedUiExamples = [
   imagePath="/assets/hero/touring-forest-curve.webp"
   preloadImagePath="/assets/hero/touring-forest-curve.webp"
   locale={country.primaryLanguage}
+  alternates={countryAlternates}
 >
   <section class="hero scenic-hero">
     <div class="page-inner scenic-hero-inner">

@@ -3,6 +3,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import DiagnosticMap from "../../components/DiagnosticMap.astro";
 import MediaAssetFigure from "../../components/MediaAssetFigure.astro";
 import { getMediaForEntity } from "../../lib/mediaAssets";
+import countries from "../../data/i18n/countries.json";
+
+const countryAlternates = countries.map((country) => ({
+  lang: country.primaryLanguage === "de" && country.code !== "de" ? `de-${country.code.toUpperCase()}` : country.primaryLanguage,
+  path: country.defaultPath,
+}));
 
 const visualStories = [
   {
@@ -42,6 +48,7 @@ const visualStories = [
   canonicalPath="/de/"
   imagePath="/assets/hero/touring-forest-curve.webp"
   preloadImagePath="/assets/hero/touring-forest-curve.webp"
+  alternates={countryAlternates}
 >
   <section class="hero scenic-hero germany-hero">
     <div class="page-inner scenic-hero-inner">

@@ -11,9 +11,11 @@ interface Props {
   imagePath?: string;
   preloadImagePath?: string;
   locale?: string;
+  alternates?: Array<{ lang: string; path: string }>;
 }
 
 const { title, description, canonicalPath = "/", imagePath, preloadImagePath } = Astro.props;
+const alternates = Astro.props.alternates ?? [];
 const locale = Astro.props.locale ?? getLocaleFromPath(Astro.url.pathname);
 const t = (key: string) => getCopy(locale, key);
 const canonical = new URL(canonicalPath, Astro.site ?? "https://motoseatlab.com").toString();
@@ -69,6 +71,10 @@ const diyShortcuts = [
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((alternate) => (
+      <link rel="alternate" hreflang={alternate.lang} href={new URL(alternate.path, Astro.site ?? "https://motoseatlab.com").toString()} />
+    ))}
+    {alternates.length > 0 && <link rel="alternate" hreflang="x-default" href={new URL("/", Astro.site ?? "https://motoseatlab.com").toString()} />}
     {preloadImagePath && <link rel="preload" as="image" href={preloadImagePath} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
