@@ -238,5 +238,25 @@
       "Bandingkan bahan untuk hujan, haba dan penggunaan harian.",
       "Bengkel tempat duduk atau DIY hanya selepas titik tekanan jelas."
     ]
+  },
+  "cn": {
+    "title": "Moto Seat Lab 中国 - 摩托车座椅舒适度",
+    "description": "中国版本：通勤、踏板车、夏季闷热、低成本坐垫、本地座椅改装和 DIY。",
+    "eyebrow": "Moto Seat Lab 中国",
+    "headline": "骑一会儿座椅就开始难受？",
+    "lead": "中国版本先解决日常通勤、踏板车和夏季闷热问题：先试可拆卸、低风险的缓解方案，再考虑本地改装、舒适座椅或 DIY。",
+    "primaryAction": "查看德国 MVP",
+    "secondaryAction": "打开摩托车列表",
+    "assetNote": "中国版本已启用。后续会逐步补充本地产品、价格、平台链接和座椅改装店信息。",
+    "strategyEyebrow": "本地策略",
+    "strategyTitle": "先解决通勤和热，再谈高价座椅。",
+    "strategyText": "在中国市场，建议不应一开始就推荐昂贵进口座椅。更合理的是先判断疼痛位置、骑行时长、天气和车型，再测试透气网垫、薄坐垫或本地改装。",
+    "priorityEyebrow": "推荐顺序",
+    "priorityTitle": "先从这里开始",
+    "priorities": [
+      "先试 3D 透气网垫、薄凝胶垫或气垫，确认问题是热、硬还是形状。",
+      "查看本地平台和座椅改装店时，优先关注适配、退换和真实评价。",
+      "只有在明确压力点、坐骨位置和座椅高度后，再考虑拆座椅、切泡棉或重包。"
+    ]
   }
 }

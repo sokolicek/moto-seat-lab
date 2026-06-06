@@ -65,6 +65,27 @@ export const getCountryByCode = (code: string) =>
 export const getCountriesForSwitcher = () =>
   [...countryProfiles].sort((left, right) => left.priority - right.priority);
 
+export const getCountryHreflang = (country: Pick<CountryProfile, "code" | "primaryLanguage">) => {
+  const regionByCountry: Record<string, string> = {
+    de: "DE",
+    at: "AT",
+    ch: "CH",
+    fr: "FR",
+    it: "IT",
+    sk: "SK",
+    hu: "HU",
+    pl: "PL",
+    ru: "RU",
+    tr: "TR",
+    th: "TH",
+    id: "ID",
+    my: "MY",
+    cn: "CN",
+  };
+  const region = regionByCountry[country.code];
+  return region ? `${country.primaryLanguage}-${region}` : country.primaryLanguage;
+};
+
 export const getLanguageCodes = () =>
   Array.from(
     new Set([

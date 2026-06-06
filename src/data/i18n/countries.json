@@ -6,7 +6,9 @@
     "name": "Germany",
     "nativeName": "Deutschland",
     "primaryLanguage": "de",
-    "languages": ["de"],
+    "languages": [
+      "de"
+    ],
     "region": "DACH",
     "marketTier": "premium_touring",
     "currency": "EUR",
@@ -35,7 +37,9 @@
     "name": "Austria",
     "nativeName": "Österreich",
     "primaryLanguage": "de",
-    "languages": ["de"],
+    "languages": [
+      "de"
+    ],
     "region": "DACH",
     "marketTier": "premium_touring",
     "currency": "EUR",
@@ -49,7 +53,12 @@
       "imagery": "alpine roads and touring motorcycles",
       "density": "medium"
     },
-    "contentFocus": ["touring", "alpine weather", "seat heating", "local workshops"]
+    "contentFocus": [
+      "touring",
+      "alpine weather",
+      "seat heating",
+      "local workshops"
+    ]
   },
   {
     "code": "ch",
@@ -58,7 +67,11 @@
     "name": "Switzerland",
     "nativeName": "Schweiz",
     "primaryLanguage": "de",
-    "languages": ["de", "fr", "it"],
+    "languages": [
+      "de",
+      "fr",
+      "it"
+    ],
     "region": "DACH",
     "marketTier": "premium_touring",
     "currency": "CHF",
@@ -72,7 +85,11 @@
       "imagery": "mountain touring, quality workshop detail",
       "density": "medium"
     },
-    "contentFocus": ["premium saddles", "multilingual content", "high-quality fitment data"]
+    "contentFocus": [
+      "premium saddles",
+      "multilingual content",
+      "high-quality fitment data"
+    ]
   },
   {
     "code": "fr",
@@ -81,7 +98,9 @@
     "name": "France",
     "nativeName": "France",
     "primaryLanguage": "fr",
-    "languages": ["fr"],
+    "languages": [
+      "fr"
+    ],
     "region": "EU",
     "marketTier": "mixed_touring_commuter",
     "currency": "EUR",
@@ -95,7 +114,12 @@
       "imagery": "road touring and workshop craft",
       "density": "medium"
     },
-    "contentFocus": ["commuting", "touring", "local saddlers", "seat covers"]
+    "contentFocus": [
+      "commuting",
+      "touring",
+      "local saddlers",
+      "seat covers"
+    ]
   },
   {
     "code": "it",
@@ -104,7 +128,9 @@
     "name": "Italy",
     "nativeName": "Italia",
     "primaryLanguage": "it",
-    "languages": ["it"],
+    "languages": [
+      "it"
+    ],
     "region": "EU",
     "marketTier": "mixed_touring_style",
     "currency": "EUR",
@@ -118,7 +144,12 @@
       "imagery": "seat detail, stitching, touring roads",
       "density": "medium"
     },
-    "contentFocus": ["seat covers", "artisan work", "style and comfort", "touring"]
+    "contentFocus": [
+      "seat covers",
+      "artisan work",
+      "style and comfort",
+      "touring"
+    ]
   },
   {
     "code": "sk",
@@ -127,7 +158,9 @@
     "name": "Slovakia",
     "nativeName": "Slovensko",
     "primaryLanguage": "sk",
-    "languages": ["sk"],
+    "languages": [
+      "sk"
+    ],
     "region": "CEE",
     "marketTier": "budget_practical",
     "currency": "EUR",
@@ -141,7 +174,12 @@
       "imagery": "DIY steps, affordable fixes, workshop table",
       "density": "medium"
     },
-    "contentFocus": ["rýchla úľava", "lacné doplnky", "čalúnnik", "DIY"]
+    "contentFocus": [
+      "rýchla úľava",
+      "lacné doplnky",
+      "čalúnnik",
+      "DIY"
+    ]
   },
   {
     "code": "hu",
@@ -150,7 +188,9 @@
     "name": "Hungary",
     "nativeName": "Magyarország",
     "primaryLanguage": "hu",
-    "languages": ["hu"],
+    "languages": [
+      "hu"
+    ],
     "region": "CEE",
     "marketTier": "budget_practical",
     "currency": "HUF",
@@ -164,7 +204,11 @@
       "imagery": "commuting, DIY, workshops",
       "density": "medium"
     },
-    "contentFocus": ["budget relief", "local upholsterers", "commuting"]
+    "contentFocus": [
+      "budget relief",
+      "local upholsterers",
+      "commuting"
+    ]
   },
   {
     "code": "pl",
@@ -173,7 +217,9 @@
     "name": "Poland",
     "nativeName": "Polska",
     "primaryLanguage": "pl",
-    "languages": ["pl"],
+    "languages": [
+      "pl"
+    ],
     "region": "CEE",
     "marketTier": "budget_to_mid",
     "currency": "PLN",
@@ -187,7 +233,11 @@
       "imagery": "DIY, product comparison, touring",
       "density": "medium"
     },
-    "contentFocus": ["DIY", "mid-price upgrades", "marketplace checks"]
+    "contentFocus": [
+      "DIY",
+      "mid-price upgrades",
+      "marketplace checks"
+    ]
   },
   {
     "code": "ru",
@@ -196,7 +246,9 @@
     "name": "Russia",
     "nativeName": "Россия",
     "primaryLanguage": "ru",
-    "languages": ["ru"],
+    "languages": [
+      "ru"
+    ],
     "region": "Eurasia",
     "marketTier": "availability_sensitive",
     "currency": "RUB",
@@ -210,7 +262,12 @@
       "imagery": "workshop, endurance touring",
       "density": "medium"
     },
-    "contentFocus": ["availability", "DIY", "universal pads", "repair"]
+    "contentFocus": [
+      "availability",
+      "DIY",
+      "universal pads",
+      "repair"
+    ]
   },
   {
     "code": "tr",
@@ -219,7 +276,9 @@
     "name": "Turkey",
     "nativeName": "Türkiye",
     "primaryLanguage": "tr",
-    "languages": ["tr"],
+    "languages": [
+      "tr"
+    ],
     "region": "Eurasia",
     "marketTier": "budget_to_mid",
     "currency": "TRY",
@@ -233,7 +292,11 @@
       "imagery": "urban riding, workshops, touring",
       "density": "medium"
     },
-    "contentFocus": ["daily riding", "local workshops", "affordable pads"]
+    "contentFocus": [
+      "daily riding",
+      "local workshops",
+      "affordable pads"
+    ]
   },
   {
     "code": "th",
@@ -242,7 +305,9 @@
     "name": "Thailand",
     "nativeName": "ไทย",
     "primaryLanguage": "th",
-    "languages": ["th"],
+    "languages": [
+      "th"
+    ],
     "region": "SEA",
     "marketTier": "scooter_budget_heat",
     "currency": "THB",
@@ -256,7 +321,12 @@
       "imagery": "scooters, mesh covers, rain/heat",
       "density": "low"
     },
-    "contentFocus": ["3D mesh covers", "rain and heat", "scooters", "low-cost pads"]
+    "contentFocus": [
+      "3D mesh covers",
+      "rain and heat",
+      "scooters",
+      "low-cost pads"
+    ]
   },
   {
     "code": "id",
@@ -265,7 +335,9 @@
     "name": "Indonesia",
     "nativeName": "Indonesia",
     "primaryLanguage": "id",
-    "languages": ["id"],
+    "languages": [
+      "id"
+    ],
     "region": "SEA",
     "marketTier": "scooter_budget_heat",
     "currency": "IDR",
@@ -279,7 +351,12 @@
       "imagery": "scooters, rain, breathable covers, local workshops",
       "density": "low"
     },
-    "contentFocus": ["scooters", "breathable covers", "rain", "budget"]
+    "contentFocus": [
+      "scooters",
+      "breathable covers",
+      "rain",
+      "budget"
+    ]
   },
   {
     "code": "my",
@@ -288,7 +365,10 @@
     "name": "Malaysia",
     "nativeName": "Malaysia",
     "primaryLanguage": "ms",
-    "languages": ["ms", "en"],
+    "languages": [
+      "ms",
+      "en"
+    ],
     "region": "SEA",
     "marketTier": "scooter_budget_heat",
     "currency": "MYR",
@@ -302,6 +382,42 @@
       "imagery": "commuting, scooters, breathable covers",
       "density": "low"
     },
-    "contentFocus": ["commuting", "mesh covers", "rain", "budget"]
+    "contentFocus": [
+      "commuting",
+      "mesh covers",
+      "rain",
+      "budget"
+    ]
+  },
+  {
+    "code": "cn",
+    "flagEmoji": "🇨🇳",
+    "slug": "china",
+    "name": "China",
+    "nativeName": "中国",
+    "primaryLanguage": "zh",
+    "languages": [
+      "zh"
+    ],
+    "region": "East Asia",
+    "marketTier": "scooter_commuter_scale",
+    "currency": "CNY",
+    "seatStrategy": "通勤、踏板车和中小排量摩托优先；先用低风险坐垫和本地改装店，再考虑高价进口座椅。",
+    "defaultPath": "/cn/",
+    "status": "draft",
+    "priority": 14,
+    "notes": "Chinese country version for high-volume commuter, scooter and value-focused motorcycle seat content.",
+    "designHints": {
+      "tone": "clear, mobile-first, practical, value-aware",
+      "imagery": "commuting, scooters, breathable covers, local workshops",
+      "density": "low"
+    },
+    "contentFocus": [
+      "commuting",
+      "scooters",
+      "breathable covers",
+      "local upholstery",
+      "budget pads"
+    ]
   }
 ]

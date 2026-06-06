@@ -4,9 +4,10 @@ import DiagnosticMap from "../../components/DiagnosticMap.astro";
 import MediaAssetFigure from "../../components/MediaAssetFigure.astro";
 import { getMediaForEntity } from "../../lib/mediaAssets";
 import countries from "../../data/i18n/countries.json";
+import { getCountryHreflang } from "../../lib/i18n";
 
 const countryAlternates = countries.map((country) => ({
-  lang: country.primaryLanguage === "de" && country.code !== "de" ? `de-${country.code.toUpperCase()}` : country.primaryLanguage,
+  lang: getCountryHreflang(country),
   path: country.defaultPath,
 }));
 

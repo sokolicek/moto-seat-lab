@@ -209,6 +209,23 @@ INSERT INTO languages (
     status = EXCLUDED.status,
     source_data = EXCLUDED.source_data,
     updated_at = now();
+INSERT INTO languages (
+    code, name, native_name, status, source_data, updated_at
+  )
+  VALUES (
+    'zh',
+    'ZH',
+    'ZH',
+    'planned',
+    '{"code":"zh","name":"ZH","nativeName":"ZH","status":"planned"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 INSERT INTO countries (
     code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
     currency_code, status, priority, market_notes, design_hints, content_focus,
@@ -940,6 +957,59 @@ INSERT INTO country_languages (
       is_primary = EXCLUDED.is_primary,
       priority = EXCLUDED.priority,
       source_data = EXCLUDED.source_data;
+INSERT INTO countries (
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
+    currency_code, status, priority, market_notes, design_hints, content_focus,
+    source_data, updated_at
+  )
+  VALUES (
+    'cn',
+    'china',
+    '🇨🇳',
+    'China',
+    '中国',
+    'zh',
+    'East Asia',
+    'scooter_commuter_scale',
+    'CNY',
+    'draft',
+    14,
+    '通勤、踏板车和中小排量摩托优先；先用低风险坐垫和本地改装店，再考虑高价进口座椅。',
+    '{"tone":"clear, mobile-first, practical, value-aware","imagery":"commuting, scooters, breathable covers, local workshops","density":"low"}'::jsonb,
+    '["commuting","scooters","breathable covers","local upholstery","budget pads"]'::jsonb,
+    '{"code":"cn","flagEmoji":"🇨🇳","slug":"china","name":"China","nativeName":"中国","primaryLanguage":"zh","languages":["zh"],"region":"East Asia","marketTier":"scooter_commuter_scale","currency":"CNY","seatStrategy":"通勤、踏板车和中小排量摩托优先；先用低风险坐垫和本地改装店，再考虑高价进口座椅。","defaultPath":"/cn/","status":"draft","priority":14,"notes":"Chinese country version for high-volume commuter, scooter and value-focused motorcycle seat content.","designHints":{"tone":"clear, mobile-first, practical, value-aware","imagery":"commuting, scooters, breathable covers, local workshops","density":"low"},"contentFocus":["commuting","scooters","breathable covers","local upholstery","budget pads"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    language_code = EXCLUDED.language_code,
+    region = EXCLUDED.region,
+    market_tier = EXCLUDED.market_tier,
+    currency_code = EXCLUDED.currency_code,
+    status = EXCLUDED.status,
+    priority = EXCLUDED.priority,
+    market_notes = EXCLUDED.market_notes,
+    design_hints = EXCLUDED.design_hints,
+    content_focus = EXCLUDED.content_focus,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_languages (
+      country_code, language_code, is_primary, priority, source_data
+    )
+    VALUES (
+      'cn',
+      'zh',
+      true,
+      1,
+      '{"countryCode":"cn","languageCode":"zh","primaryLanguage":"zh"}'::jsonb
+    )
+    ON CONFLICT (country_code, language_code) DO UPDATE SET
+      is_primary = EXCLUDED.is_primary,
+      priority = EXCLUDED.priority,
+      source_data = EXCLUDED.source_data;
 INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
@@ -1381,6 +1451,678 @@ INSERT INTO ui_translations (
       'Details',
       'active',
       '{"languageCode":"de","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.motorcycleCountLabel',
+      'Motorräder',
+      'active',
+      '{"languageCode":"de","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.allModels',
+      'Alle Modelle ansehen',
+      'active',
+      '{"languageCode":"de","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.current',
+      'Aktuell',
+      'active',
+      '{"languageCode":"de","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.currentlySelected',
+      'Aktuell gewählt',
+      'active',
+      '{"languageCode":"de","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.lastSelected',
+      'Zuletzt gewählt',
+      'active',
+      '{"languageCode":"de","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.open',
+      'Öffnen',
+      'active',
+      '{"languageCode":"de","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.guide',
+      'Guide',
+      'active',
+      '{"languageCode":"de","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.basisProfile',
+      'Basisprofil',
+      'active',
+      '{"languageCode":"de","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.planned',
+      'geplant',
+      'active',
+      '{"languageCode":"de","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.openSuzuki',
+      'Suzuki GSX-S1000GX öffnen',
+      'active',
+      '{"languageCode":"de","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.basisProfilesNote',
+      'Basisprofile sind bewusst ehrlich markiert, bis Produktdaten geprüft sind.',
+      'active',
+      '{"languageCode":"de","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.menuTitle',
+      'Kaufpfade',
+      'active',
+      '{"languageCode":"de","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.menuLink',
+      'Zur Kaufseite',
+      'active',
+      '{"languageCode":"de","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.overview',
+      'Kaufen Übersicht',
+      'active',
+      '{"languageCode":"de","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.overviewNote',
+      'Startseite für Kaufentscheidungen',
+      'active',
+      '{"languageCode":"de","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.quickHelp',
+      'Schnelle Hilfe',
+      'active',
+      '{"languageCode":"de","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.quickHelpNote',
+      'Auflage, Mesh, Gel, Airpad',
+      'active',
+      '{"languageCode":"de","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.matrix',
+      'Kaufmatrix',
+      'active',
+      '{"languageCode":"de","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.matrixNote',
+      'Problem, Rückgabe, Passform',
+      'active',
+      '{"languageCode":"de","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.channels',
+      'Kaufkanäle',
+      'active',
+      '{"languageCode":"de","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.channelsNote',
+      'OEM, Händler, Marktplatz, Sattler',
+      'active',
+      '{"languageCode":"de","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.productCards',
+      'Produktkarten',
+      'active',
+      '{"languageCode":"de","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'buy.productCardsNote',
+      'Beispiele mit Quelle und Risiko',
+      'active',
+      '{"languageCode":"de","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.menuTitle',
+      'DIY-Schnellzugriff',
+      'active',
+      '{"languageCode":"de","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.menuLink',
+      'Zur DIY-Seite',
+      'active',
+      '{"languageCode":"de","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.overview',
+      'DIY Übersicht',
+      'active',
+      '{"languageCode":"de","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.overviewNote',
+      'Sicher starten',
+      'active',
+      '{"languageCode":"de","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.foam',
+      'Schaumstoffe',
+      'active',
+      '{"languageCode":"de","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.foamNote',
+      'Dichte, Härte, Schichten',
+      'active',
+      '{"languageCode":"de","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.videos',
+      'Videos',
+      'active',
+      '{"languageCode":"de","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.videosNote',
+      'YouTube kuratieren und einbetten',
+      'active',
+      '{"languageCode":"de","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.materials',
+      'Materialien',
+      'active',
+      '{"languageCode":"de","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.materialsNote',
+      'Schaum, Gel, Mesh, Bezug',
+      'active',
+      '{"languageCode":"de","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.tools',
+      'Werkzeug',
+      'active',
+      '{"languageCode":"de","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.toolsNote',
+      'Was du wirklich brauchst',
+      'active',
+      '{"languageCode":"de","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.supplies',
+      'Präparate',
+      'active',
+      '{"languageCode":"de","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.suppliesNote',
+      'Kleber, Klammern, Pflege',
+      'active',
+      '{"languageCode":"de","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.protocol',
+      'Minimalprotokoll',
+      'active',
+      '{"languageCode":"de","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'diy.protocolNote',
+      'Messen, testen, dokumentieren',
+      'active',
+      '{"languageCode":"de","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'brand.homeAria',
+      'Moto Seat Lab Startseite',
+      'active',
+      '{"languageCode":"de","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'nav.aria',
+      'Hauptnavigation',
+      'active',
+      '{"languageCode":"de","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'de',
+      'menu.modelsAria',
+      'Modelle',
+      'active',
+      '{"languageCode":"de","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -1840,6 +2582,678 @@ INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
     VALUES (
+      'sk',
+      'menu.motorcycleCountLabel',
+      'motorky',
+      'draft',
+      '{"languageCode":"sk","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.allModels',
+      'Zobraziť všetky modely',
+      'draft',
+      '{"languageCode":"sk","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.current',
+      'Aktuálne',
+      'draft',
+      '{"languageCode":"sk","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.currentlySelected',
+      'Aktuálne zvolené',
+      'draft',
+      '{"languageCode":"sk","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.lastSelected',
+      'Naposledy zvolené',
+      'draft',
+      '{"languageCode":"sk","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.open',
+      'Otvoriť',
+      'draft',
+      '{"languageCode":"sk","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.guide',
+      'Sprievodca',
+      'draft',
+      '{"languageCode":"sk","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.basisProfile',
+      'Základný profil',
+      'draft',
+      '{"languageCode":"sk","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.planned',
+      'plánované',
+      'draft',
+      '{"languageCode":"sk","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.openSuzuki',
+      'Otvoriť Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"sk","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.basisProfilesNote',
+      'Základné profily sú úprimne označené, kým nie sú overené produktové dáta.',
+      'draft',
+      '{"languageCode":"sk","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.menuTitle',
+      'Nákupné cesty',
+      'draft',
+      '{"languageCode":"sk","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.menuLink',
+      'Na stránku nákupu',
+      'draft',
+      '{"languageCode":"sk","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.overview',
+      'Prehľad nákupu',
+      'draft',
+      '{"languageCode":"sk","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.overviewNote',
+      'Štart pre nákupné rozhodnutia',
+      'draft',
+      '{"languageCode":"sk","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.quickHelp',
+      'Rýchla pomoc',
+      'draft',
+      '{"languageCode":"sk","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.quickHelpNote',
+      'Podložka, mesh, gél, airpad',
+      'draft',
+      '{"languageCode":"sk","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.matrix',
+      'Nákupná matica',
+      'draft',
+      '{"languageCode":"sk","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.matrixNote',
+      'Problém, vrátenie, pasovanie',
+      'draft',
+      '{"languageCode":"sk","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.channels',
+      'Nákupné kanály',
+      'draft',
+      '{"languageCode":"sk","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.channelsNote',
+      'OEM, predajca, marketplace, čalúnnik',
+      'draft',
+      '{"languageCode":"sk","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.productCards',
+      'Produktové karty',
+      'draft',
+      '{"languageCode":"sk","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'buy.productCardsNote',
+      'Príklady so zdrojom a rizikom',
+      'draft',
+      '{"languageCode":"sk","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.menuTitle',
+      'DIY rýchly prístup',
+      'draft',
+      '{"languageCode":"sk","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.menuLink',
+      'Na DIY stránku',
+      'draft',
+      '{"languageCode":"sk","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.overview',
+      'DIY prehľad',
+      'draft',
+      '{"languageCode":"sk","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.overviewNote',
+      'Začať bezpečne',
+      'draft',
+      '{"languageCode":"sk","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.foam',
+      'Peny',
+      'draft',
+      '{"languageCode":"sk","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.foamNote',
+      'Hustota, tvrdosť, vrstvy',
+      'draft',
+      '{"languageCode":"sk","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.videos',
+      'Videá',
+      'draft',
+      '{"languageCode":"sk","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.videosNote',
+      'Kurátorovať a vkladať YouTube',
+      'draft',
+      '{"languageCode":"sk","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.materials',
+      'Materiály',
+      'draft',
+      '{"languageCode":"sk","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.materialsNote',
+      'Pena, gél, mesh, poťah',
+      'draft',
+      '{"languageCode":"sk","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.tools',
+      'Náradie',
+      'draft',
+      '{"languageCode":"sk","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.toolsNote',
+      'Čo naozaj potrebuješ',
+      'draft',
+      '{"languageCode":"sk","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.supplies',
+      'Prípravky',
+      'draft',
+      '{"languageCode":"sk","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.suppliesNote',
+      'Lepidlo, spony, starostlivosť',
+      'draft',
+      '{"languageCode":"sk","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.protocol',
+      'Minimálny protokol',
+      'draft',
+      '{"languageCode":"sk","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'diy.protocolNote',
+      'Merať, testovať, dokumentovať',
+      'draft',
+      '{"languageCode":"sk","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'brand.homeAria',
+      'Moto Seat Lab domov',
+      'draft',
+      '{"languageCode":"sk","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'nav.aria',
+      'Hlavná navigácia',
+      'draft',
+      '{"languageCode":"sk","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'sk',
+      'menu.modelsAria',
+      'modely',
+      'draft',
+      '{"languageCode":"sk","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
       'en',
       'brand.subtitle',
       'Seat comfort without blind buying',
@@ -2277,6 +3691,678 @@ INSERT INTO ui_translations (
       'Details',
       'draft',
       '{"languageCode":"en","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.motorcycleCountLabel',
+      'motorcycles',
+      'draft',
+      '{"languageCode":"en","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.allModels',
+      'View all models',
+      'draft',
+      '{"languageCode":"en","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.current',
+      'Current',
+      'draft',
+      '{"languageCode":"en","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.currentlySelected',
+      'Currently selected',
+      'draft',
+      '{"languageCode":"en","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.lastSelected',
+      'Last selected',
+      'draft',
+      '{"languageCode":"en","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.open',
+      'Open',
+      'draft',
+      '{"languageCode":"en","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.guide',
+      'Guide',
+      'draft',
+      '{"languageCode":"en","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.basisProfile',
+      'Base profile',
+      'draft',
+      '{"languageCode":"en","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.planned',
+      'planned',
+      'draft',
+      '{"languageCode":"en","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.openSuzuki',
+      'Open Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"en","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.basisProfilesNote',
+      'Base profiles are marked honestly until product data is verified.',
+      'draft',
+      '{"languageCode":"en","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.menuTitle',
+      'Buying paths',
+      'draft',
+      '{"languageCode":"en","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.menuLink',
+      'Go to buying page',
+      'draft',
+      '{"languageCode":"en","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.overview',
+      'Buying overview',
+      'draft',
+      '{"languageCode":"en","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.overviewNote',
+      'Start page for buying decisions',
+      'draft',
+      '{"languageCode":"en","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.quickHelp',
+      'Quick relief',
+      'draft',
+      '{"languageCode":"en","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.quickHelpNote',
+      'Pad, mesh, gel, air cushion',
+      'draft',
+      '{"languageCode":"en","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.matrix',
+      'Buying matrix',
+      'draft',
+      '{"languageCode":"en","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.matrixNote',
+      'Problem, return, fit',
+      'draft',
+      '{"languageCode":"en","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.channels',
+      'Buying channels',
+      'draft',
+      '{"languageCode":"en","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.channelsNote',
+      'OEM, dealer, marketplace, upholsterer',
+      'draft',
+      '{"languageCode":"en","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.productCards',
+      'Product cards',
+      'draft',
+      '{"languageCode":"en","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'buy.productCardsNote',
+      'Examples with source and risk',
+      'draft',
+      '{"languageCode":"en","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.menuTitle',
+      'DIY quick access',
+      'draft',
+      '{"languageCode":"en","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.menuLink',
+      'Go to DIY page',
+      'draft',
+      '{"languageCode":"en","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.overview',
+      'DIY overview',
+      'draft',
+      '{"languageCode":"en","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.overviewNote',
+      'Start safely',
+      'draft',
+      '{"languageCode":"en","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.foam',
+      'Foams',
+      'draft',
+      '{"languageCode":"en","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.foamNote',
+      'Density, firmness, layers',
+      'draft',
+      '{"languageCode":"en","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.videos',
+      'Videos',
+      'draft',
+      '{"languageCode":"en","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.videosNote',
+      'Curate and embed YouTube',
+      'draft',
+      '{"languageCode":"en","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.materials',
+      'Materials',
+      'draft',
+      '{"languageCode":"en","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.materialsNote',
+      'Foam, gel, mesh, cover',
+      'draft',
+      '{"languageCode":"en","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.tools',
+      'Tools',
+      'draft',
+      '{"languageCode":"en","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.toolsNote',
+      'What you really need',
+      'draft',
+      '{"languageCode":"en","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.supplies',
+      'Supplies',
+      'draft',
+      '{"languageCode":"en","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.suppliesNote',
+      'Glue, staples, care',
+      'draft',
+      '{"languageCode":"en","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.protocol',
+      'Minimal protocol',
+      'draft',
+      '{"languageCode":"en","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'diy.protocolNote',
+      'Measure, test, document',
+      'draft',
+      '{"languageCode":"en","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'brand.homeAria',
+      'Moto Seat Lab home',
+      'draft',
+      '{"languageCode":"en","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'nav.aria',
+      'Main navigation',
+      'draft',
+      '{"languageCode":"en","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'en',
+      'menu.modelsAria',
+      'models',
+      'draft',
+      '{"languageCode":"en","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -2736,6 +4822,678 @@ INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
     VALUES (
+      'fr',
+      'menu.motorcycleCountLabel',
+      'motos',
+      'draft',
+      '{"languageCode":"fr","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.allModels',
+      'Voir tous les modèles',
+      'draft',
+      '{"languageCode":"fr","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.current',
+      'Actuel',
+      'draft',
+      '{"languageCode":"fr","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.currentlySelected',
+      'Sélection actuelle',
+      'draft',
+      '{"languageCode":"fr","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.lastSelected',
+      'Dernière sélection',
+      'draft',
+      '{"languageCode":"fr","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.open',
+      'Ouvrir',
+      'draft',
+      '{"languageCode":"fr","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.guide',
+      'Guide',
+      'draft',
+      '{"languageCode":"fr","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.basisProfile',
+      'Profil de base',
+      'draft',
+      '{"languageCode":"fr","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.planned',
+      'prévu',
+      'draft',
+      '{"languageCode":"fr","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.openSuzuki',
+      'Ouvrir Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"fr","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.basisProfilesNote',
+      'Les profils de base sont signalés clairement tant que les données produit ne sont pas vérifiées.',
+      'draft',
+      '{"languageCode":"fr","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.menuTitle',
+      'Parcours d’achat',
+      'draft',
+      '{"languageCode":"fr","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.menuLink',
+      'Vers la page d’achat',
+      'draft',
+      '{"languageCode":"fr","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.overview',
+      'Vue d’achat',
+      'draft',
+      '{"languageCode":"fr","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.overviewNote',
+      'Point de départ pour décider',
+      'draft',
+      '{"languageCode":"fr","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.quickHelp',
+      'Soulagement rapide',
+      'draft',
+      '{"languageCode":"fr","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.quickHelpNote',
+      'Coussin, mesh, gel, airpad',
+      'draft',
+      '{"languageCode":"fr","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.matrix',
+      'Matrice d’achat',
+      'draft',
+      '{"languageCode":"fr","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.matrixNote',
+      'Problème, retour, ajustement',
+      'draft',
+      '{"languageCode":"fr","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.channels',
+      'Canaux d’achat',
+      'draft',
+      '{"languageCode":"fr","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.channelsNote',
+      'OEM, revendeur, marketplace, sellier',
+      'draft',
+      '{"languageCode":"fr","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.productCards',
+      'Fiches produit',
+      'draft',
+      '{"languageCode":"fr","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'buy.productCardsNote',
+      'Exemples avec source et risque',
+      'draft',
+      '{"languageCode":"fr","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.menuTitle',
+      'Accès rapide DIY',
+      'draft',
+      '{"languageCode":"fr","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.menuLink',
+      'Vers la page DIY',
+      'draft',
+      '{"languageCode":"fr","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.overview',
+      'Vue DIY',
+      'draft',
+      '{"languageCode":"fr","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.overviewNote',
+      'Commencer sans risque',
+      'draft',
+      '{"languageCode":"fr","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.foam',
+      'Mousses',
+      'draft',
+      '{"languageCode":"fr","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.foamNote',
+      'Densité, fermeté, couches',
+      'draft',
+      '{"languageCode":"fr","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.videos',
+      'Vidéos',
+      'draft',
+      '{"languageCode":"fr","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.videosNote',
+      'Sélectionner et intégrer YouTube',
+      'draft',
+      '{"languageCode":"fr","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.materials',
+      'Matériaux',
+      'draft',
+      '{"languageCode":"fr","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.materialsNote',
+      'Mousse, gel, mesh, housse',
+      'draft',
+      '{"languageCode":"fr","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.tools',
+      'Outils',
+      'draft',
+      '{"languageCode":"fr","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.toolsNote',
+      'Ce qu’il faut vraiment',
+      'draft',
+      '{"languageCode":"fr","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.supplies',
+      'Fournitures',
+      'draft',
+      '{"languageCode":"fr","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.suppliesNote',
+      'Colle, agrafes, entretien',
+      'draft',
+      '{"languageCode":"fr","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.protocol',
+      'Protocole minimal',
+      'draft',
+      '{"languageCode":"fr","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'diy.protocolNote',
+      'Mesurer, tester, documenter',
+      'draft',
+      '{"languageCode":"fr","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'brand.homeAria',
+      'Accueil Moto Seat Lab',
+      'draft',
+      '{"languageCode":"fr","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'nav.aria',
+      'Navigation principale',
+      'draft',
+      '{"languageCode":"fr","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'fr',
+      'menu.modelsAria',
+      'modèles',
+      'draft',
+      '{"languageCode":"fr","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
       'it',
       'brand.subtitle',
       'Comfort della sella senza comprare alla cieca',
@@ -3173,6 +5931,678 @@ INSERT INTO ui_translations (
       'Dettagli',
       'draft',
       '{"languageCode":"it","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.motorcycleCountLabel',
+      'moto',
+      'draft',
+      '{"languageCode":"it","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.allModels',
+      'Vedi tutti i modelli',
+      'draft',
+      '{"languageCode":"it","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.current',
+      'Attuale',
+      'draft',
+      '{"languageCode":"it","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.currentlySelected',
+      'Selezione attuale',
+      'draft',
+      '{"languageCode":"it","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.lastSelected',
+      'Ultima selezione',
+      'draft',
+      '{"languageCode":"it","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.open',
+      'Apri',
+      'draft',
+      '{"languageCode":"it","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.guide',
+      'Guida',
+      'draft',
+      '{"languageCode":"it","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.basisProfile',
+      'Profilo base',
+      'draft',
+      '{"languageCode":"it","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.planned',
+      'previsto',
+      'draft',
+      '{"languageCode":"it","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.openSuzuki',
+      'Apri Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"it","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.basisProfilesNote',
+      'I profili base sono indicati chiaramente finché i dati prodotto non sono verificati.',
+      'draft',
+      '{"languageCode":"it","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.menuTitle',
+      'Percorsi di acquisto',
+      'draft',
+      '{"languageCode":"it","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.menuLink',
+      'Vai alla pagina acquisto',
+      'draft',
+      '{"languageCode":"it","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.overview',
+      'Panoramica acquisto',
+      'draft',
+      '{"languageCode":"it","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.overviewNote',
+      'Inizio per decidere cosa comprare',
+      'draft',
+      '{"languageCode":"it","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.quickHelp',
+      'Sollievo rapido',
+      'draft',
+      '{"languageCode":"it","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.quickHelpNote',
+      'Cuscino, mesh, gel, airpad',
+      'draft',
+      '{"languageCode":"it","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.matrix',
+      'Matrice acquisto',
+      'draft',
+      '{"languageCode":"it","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.matrixNote',
+      'Problema, reso, compatibilità',
+      'draft',
+      '{"languageCode":"it","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.channels',
+      'Canali di acquisto',
+      'draft',
+      '{"languageCode":"it","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.channelsNote',
+      'OEM, rivenditore, marketplace, tappezziere',
+      'draft',
+      '{"languageCode":"it","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.productCards',
+      'Schede prodotto',
+      'draft',
+      '{"languageCode":"it","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'buy.productCardsNote',
+      'Esempi con fonte e rischio',
+      'draft',
+      '{"languageCode":"it","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.menuTitle',
+      'Accesso rapido DIY',
+      'draft',
+      '{"languageCode":"it","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.menuLink',
+      'Vai alla pagina DIY',
+      'draft',
+      '{"languageCode":"it","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.overview',
+      'Panoramica DIY',
+      'draft',
+      '{"languageCode":"it","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.overviewNote',
+      'Iniziare in sicurezza',
+      'draft',
+      '{"languageCode":"it","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.foam',
+      'Schiume',
+      'draft',
+      '{"languageCode":"it","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.foamNote',
+      'Densità, durezza, strati',
+      'draft',
+      '{"languageCode":"it","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.videos',
+      'Video',
+      'draft',
+      '{"languageCode":"it","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.videosNote',
+      'Curare e integrare YouTube',
+      'draft',
+      '{"languageCode":"it","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.materials',
+      'Materiali',
+      'draft',
+      '{"languageCode":"it","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.materialsNote',
+      'Schiuma, gel, mesh, rivestimento',
+      'draft',
+      '{"languageCode":"it","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.tools',
+      'Attrezzi',
+      'draft',
+      '{"languageCode":"it","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.toolsNote',
+      'Quello che serve davvero',
+      'draft',
+      '{"languageCode":"it","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.supplies',
+      'Forniture',
+      'draft',
+      '{"languageCode":"it","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.suppliesNote',
+      'Colla, graffe, cura',
+      'draft',
+      '{"languageCode":"it","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.protocol',
+      'Protocollo minimo',
+      'draft',
+      '{"languageCode":"it","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'diy.protocolNote',
+      'Misurare, testare, documentare',
+      'draft',
+      '{"languageCode":"it","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'brand.homeAria',
+      'Home Moto Seat Lab',
+      'draft',
+      '{"languageCode":"it","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'nav.aria',
+      'Navigazione principale',
+      'draft',
+      '{"languageCode":"it","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'it',
+      'menu.modelsAria',
+      'modelli',
+      'draft',
+      '{"languageCode":"it","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -3632,6 +7062,678 @@ INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
     VALUES (
+      'hu',
+      'menu.motorcycleCountLabel',
+      'motor',
+      'draft',
+      '{"languageCode":"hu","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.allModels',
+      'Összes modell megtekintése',
+      'draft',
+      '{"languageCode":"hu","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.current',
+      'Aktuális',
+      'draft',
+      '{"languageCode":"hu","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.currentlySelected',
+      'Jelenleg kiválasztva',
+      'draft',
+      '{"languageCode":"hu","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.lastSelected',
+      'Utoljára kiválasztva',
+      'draft',
+      '{"languageCode":"hu","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.open',
+      'Megnyitás',
+      'draft',
+      '{"languageCode":"hu","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.guide',
+      'Útmutató',
+      'draft',
+      '{"languageCode":"hu","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.basisProfile',
+      'Alapprofil',
+      'draft',
+      '{"languageCode":"hu","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.planned',
+      'tervezett',
+      'draft',
+      '{"languageCode":"hu","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.openSuzuki',
+      'Suzuki GSX-S1000GX megnyitása',
+      'draft',
+      '{"languageCode":"hu","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.basisProfilesNote',
+      'Az alapprofilok őszintén jelöltek, amíg a termékadatok nincsenek ellenőrizve.',
+      'draft',
+      '{"languageCode":"hu","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.menuTitle',
+      'Vásárlási utak',
+      'draft',
+      '{"languageCode":"hu","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.menuLink',
+      'Vásárlási oldalra',
+      'draft',
+      '{"languageCode":"hu","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.overview',
+      'Vásárlási áttekintés',
+      'draft',
+      '{"languageCode":"hu","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.overviewNote',
+      'Kezdés a vásárlási döntésekhez',
+      'draft',
+      '{"languageCode":"hu","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.quickHelp',
+      'Gyors segítség',
+      'draft',
+      '{"languageCode":"hu","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.quickHelpNote',
+      'Párna, mesh, gél, légpárna',
+      'draft',
+      '{"languageCode":"hu","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.matrix',
+      'Vásárlási mátrix',
+      'draft',
+      '{"languageCode":"hu","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.matrixNote',
+      'Probléma, visszaküldés, illeszkedés',
+      'draft',
+      '{"languageCode":"hu","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.channels',
+      'Vásárlási csatornák',
+      'draft',
+      '{"languageCode":"hu","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.channelsNote',
+      'OEM, kereskedő, piactér, kárpitos',
+      'draft',
+      '{"languageCode":"hu","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.productCards',
+      'Termékkártyák',
+      'draft',
+      '{"languageCode":"hu","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'buy.productCardsNote',
+      'Példák forrással és kockázattal',
+      'draft',
+      '{"languageCode":"hu","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.menuTitle',
+      'DIY gyorselérés',
+      'draft',
+      '{"languageCode":"hu","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.menuLink',
+      'DIY oldalra',
+      'draft',
+      '{"languageCode":"hu","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.overview',
+      'DIY áttekintés',
+      'draft',
+      '{"languageCode":"hu","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.overviewNote',
+      'Biztonságos kezdés',
+      'draft',
+      '{"languageCode":"hu","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.foam',
+      'Habok',
+      'draft',
+      '{"languageCode":"hu","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.foamNote',
+      'Sűrűség, keménység, rétegek',
+      'draft',
+      '{"languageCode":"hu","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.videos',
+      'Videók',
+      'draft',
+      '{"languageCode":"hu","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.videosNote',
+      'YouTube válogatás és beágyazás',
+      'draft',
+      '{"languageCode":"hu","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.materials',
+      'Anyagok',
+      'draft',
+      '{"languageCode":"hu","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.materialsNote',
+      'Hab, gél, mesh, huzat',
+      'draft',
+      '{"languageCode":"hu","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.tools',
+      'Szerszámok',
+      'draft',
+      '{"languageCode":"hu","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.toolsNote',
+      'Amire tényleg szükség van',
+      'draft',
+      '{"languageCode":"hu","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.supplies',
+      'Kellékek',
+      'draft',
+      '{"languageCode":"hu","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.suppliesNote',
+      'Ragasztó, kapcsok, ápolás',
+      'draft',
+      '{"languageCode":"hu","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.protocol',
+      'Minimális protokoll',
+      'draft',
+      '{"languageCode":"hu","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'diy.protocolNote',
+      'Mérés, teszt, dokumentálás',
+      'draft',
+      '{"languageCode":"hu","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'brand.homeAria',
+      'Moto Seat Lab kezdőlap',
+      'draft',
+      '{"languageCode":"hu","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'nav.aria',
+      'Fő navigáció',
+      'draft',
+      '{"languageCode":"hu","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'hu',
+      'menu.modelsAria',
+      'modellek',
+      'draft',
+      '{"languageCode":"hu","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
       'pl',
       'brand.subtitle',
       'Komfort siedzenia bez kupowania w ciemno',
@@ -4069,6 +8171,678 @@ INSERT INTO ui_translations (
       'Szczegóły',
       'draft',
       '{"languageCode":"pl","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.motorcycleCountLabel',
+      'motocykli',
+      'draft',
+      '{"languageCode":"pl","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.allModels',
+      'Zobacz wszystkie modele',
+      'draft',
+      '{"languageCode":"pl","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.current',
+      'Aktualny',
+      'draft',
+      '{"languageCode":"pl","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.currentlySelected',
+      'Aktualnie wybrany',
+      'draft',
+      '{"languageCode":"pl","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.lastSelected',
+      'Ostatnio wybrany',
+      'draft',
+      '{"languageCode":"pl","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.open',
+      'Otwórz',
+      'draft',
+      '{"languageCode":"pl","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.guide',
+      'Przewodnik',
+      'draft',
+      '{"languageCode":"pl","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.basisProfile',
+      'Profil bazowy',
+      'draft',
+      '{"languageCode":"pl","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.planned',
+      'planowane',
+      'draft',
+      '{"languageCode":"pl","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.openSuzuki',
+      'Otwórz Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"pl","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.basisProfilesNote',
+      'Profile bazowe są uczciwie oznaczone, dopóki dane produktów nie są zweryfikowane.',
+      'draft',
+      '{"languageCode":"pl","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.menuTitle',
+      'Ścieżki zakupu',
+      'draft',
+      '{"languageCode":"pl","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.menuLink',
+      'Do strony zakupu',
+      'draft',
+      '{"languageCode":"pl","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.overview',
+      'Przegląd zakupu',
+      'draft',
+      '{"languageCode":"pl","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.overviewNote',
+      'Start dla decyzji zakupowych',
+      'draft',
+      '{"languageCode":"pl","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.quickHelp',
+      'Szybka ulga',
+      'draft',
+      '{"languageCode":"pl","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.quickHelpNote',
+      'Nakładka, mesh, gel, airpad',
+      'draft',
+      '{"languageCode":"pl","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.matrix',
+      'Matryca zakupu',
+      'draft',
+      '{"languageCode":"pl","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.matrixNote',
+      'Problem, zwrot, dopasowanie',
+      'draft',
+      '{"languageCode":"pl","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.channels',
+      'Kanały zakupu',
+      'draft',
+      '{"languageCode":"pl","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.channelsNote',
+      'OEM, dealer, marketplace, tapicer',
+      'draft',
+      '{"languageCode":"pl","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.productCards',
+      'Karty produktów',
+      'draft',
+      '{"languageCode":"pl","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'buy.productCardsNote',
+      'Przykłady ze źródłem i ryzykiem',
+      'draft',
+      '{"languageCode":"pl","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.menuTitle',
+      'Szybki dostęp DIY',
+      'draft',
+      '{"languageCode":"pl","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.menuLink',
+      'Do strony DIY',
+      'draft',
+      '{"languageCode":"pl","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.overview',
+      'Przegląd DIY',
+      'draft',
+      '{"languageCode":"pl","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.overviewNote',
+      'Bezpieczny start',
+      'draft',
+      '{"languageCode":"pl","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.foam',
+      'Pianki',
+      'draft',
+      '{"languageCode":"pl","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.foamNote',
+      'Gęstość, twardość, warstwy',
+      'draft',
+      '{"languageCode":"pl","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.videos',
+      'Filmy',
+      'draft',
+      '{"languageCode":"pl","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.videosNote',
+      'Dobór i osadzanie YouTube',
+      'draft',
+      '{"languageCode":"pl","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.materials',
+      'Materiały',
+      'draft',
+      '{"languageCode":"pl","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.materialsNote',
+      'Pianka, gel, mesh, pokrowiec',
+      'draft',
+      '{"languageCode":"pl","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.tools',
+      'Narzędzia',
+      'draft',
+      '{"languageCode":"pl","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.toolsNote',
+      'Co naprawdę potrzebne',
+      'draft',
+      '{"languageCode":"pl","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.supplies',
+      'Preparaty',
+      'draft',
+      '{"languageCode":"pl","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.suppliesNote',
+      'Klej, zszywki, pielęgnacja',
+      'draft',
+      '{"languageCode":"pl","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.protocol',
+      'Minimalny protokół',
+      'draft',
+      '{"languageCode":"pl","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'diy.protocolNote',
+      'Mierzyć, testować, dokumentować',
+      'draft',
+      '{"languageCode":"pl","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'brand.homeAria',
+      'Strona główna Moto Seat Lab',
+      'draft',
+      '{"languageCode":"pl","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'nav.aria',
+      'Główna nawigacja',
+      'draft',
+      '{"languageCode":"pl","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'pl',
+      'menu.modelsAria',
+      'modele',
+      'draft',
+      '{"languageCode":"pl","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -4528,6 +9302,678 @@ INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
     VALUES (
+      'ru',
+      'menu.motorcycleCountLabel',
+      'мотоциклов',
+      'draft',
+      '{"languageCode":"ru","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.allModels',
+      'Смотреть все модели',
+      'draft',
+      '{"languageCode":"ru","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.current',
+      'Текущий',
+      'draft',
+      '{"languageCode":"ru","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.currentlySelected',
+      'Выбрано сейчас',
+      'draft',
+      '{"languageCode":"ru","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.lastSelected',
+      'Последний выбор',
+      'draft',
+      '{"languageCode":"ru","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.open',
+      'Открыть',
+      'draft',
+      '{"languageCode":"ru","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.guide',
+      'Гид',
+      'draft',
+      '{"languageCode":"ru","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.basisProfile',
+      'Базовый профиль',
+      'draft',
+      '{"languageCode":"ru","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.planned',
+      'планируется',
+      'draft',
+      '{"languageCode":"ru","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.openSuzuki',
+      'Открыть Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"ru","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.basisProfilesNote',
+      'Базовые профили отмечены честно, пока данные продуктов не проверены.',
+      'draft',
+      '{"languageCode":"ru","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.menuTitle',
+      'Пути покупки',
+      'draft',
+      '{"languageCode":"ru","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.menuLink',
+      'На страницу покупки',
+      'draft',
+      '{"languageCode":"ru","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.overview',
+      'Обзор покупки',
+      'draft',
+      '{"languageCode":"ru","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.overviewNote',
+      'Старт для решения о покупке',
+      'draft',
+      '{"languageCode":"ru","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.quickHelp',
+      'Быстрая помощь',
+      'draft',
+      '{"languageCode":"ru","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.quickHelpNote',
+      'Накладка, mesh, гель, airpad',
+      'draft',
+      '{"languageCode":"ru","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.matrix',
+      'Матрица покупки',
+      'draft',
+      '{"languageCode":"ru","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.matrixNote',
+      'Проблема, возврат, посадка',
+      'draft',
+      '{"languageCode":"ru","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.channels',
+      'Каналы покупки',
+      'draft',
+      '{"languageCode":"ru","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.channelsNote',
+      'OEM, дилер, маркетплейс, мастер',
+      'draft',
+      '{"languageCode":"ru","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.productCards',
+      'Карточки продуктов',
+      'draft',
+      '{"languageCode":"ru","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'buy.productCardsNote',
+      'Примеры с источником и риском',
+      'draft',
+      '{"languageCode":"ru","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.menuTitle',
+      'Быстрый доступ DIY',
+      'draft',
+      '{"languageCode":"ru","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.menuLink',
+      'На страницу DIY',
+      'draft',
+      '{"languageCode":"ru","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.overview',
+      'Обзор DIY',
+      'draft',
+      '{"languageCode":"ru","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.overviewNote',
+      'Начать безопасно',
+      'draft',
+      '{"languageCode":"ru","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.foam',
+      'Пены',
+      'draft',
+      '{"languageCode":"ru","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.foamNote',
+      'Плотность, жесткость, слои',
+      'draft',
+      '{"languageCode":"ru","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.videos',
+      'Видео',
+      'draft',
+      '{"languageCode":"ru","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.videosNote',
+      'Подбор и встраивание YouTube',
+      'draft',
+      '{"languageCode":"ru","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.materials',
+      'Материалы',
+      'draft',
+      '{"languageCode":"ru","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.materialsNote',
+      'Пена, гель, mesh, чехол',
+      'draft',
+      '{"languageCode":"ru","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.tools',
+      'Инструменты',
+      'draft',
+      '{"languageCode":"ru","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.toolsNote',
+      'Что действительно нужно',
+      'draft',
+      '{"languageCode":"ru","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.supplies',
+      'Расходники',
+      'draft',
+      '{"languageCode":"ru","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.suppliesNote',
+      'Клей, скобы, уход',
+      'draft',
+      '{"languageCode":"ru","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.protocol',
+      'Минимальный протокол',
+      'draft',
+      '{"languageCode":"ru","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'diy.protocolNote',
+      'Измерять, тестировать, документировать',
+      'draft',
+      '{"languageCode":"ru","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'brand.homeAria',
+      'Главная Moto Seat Lab',
+      'draft',
+      '{"languageCode":"ru","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'nav.aria',
+      'Основная навигация',
+      'draft',
+      '{"languageCode":"ru","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ru',
+      'menu.modelsAria',
+      'модели',
+      'draft',
+      '{"languageCode":"ru","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
       'tr',
       'brand.subtitle',
       'Körlemesine alışveriş yapmadan sele konforu',
@@ -4965,6 +10411,678 @@ INSERT INTO ui_translations (
       'Detaylar',
       'draft',
       '{"languageCode":"tr","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.motorcycleCountLabel',
+      'motosiklet',
+      'draft',
+      '{"languageCode":"tr","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.allModels',
+      'Tüm modelleri gör',
+      'draft',
+      '{"languageCode":"tr","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.current',
+      'Geçerli',
+      'draft',
+      '{"languageCode":"tr","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.currentlySelected',
+      'Şu an seçili',
+      'draft',
+      '{"languageCode":"tr","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.lastSelected',
+      'Son seçilen',
+      'draft',
+      '{"languageCode":"tr","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.open',
+      'Aç',
+      'draft',
+      '{"languageCode":"tr","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.guide',
+      'Rehber',
+      'draft',
+      '{"languageCode":"tr","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.basisProfile',
+      'Temel profil',
+      'draft',
+      '{"languageCode":"tr","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.planned',
+      'planlandı',
+      'draft',
+      '{"languageCode":"tr","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.openSuzuki',
+      'Suzuki GSX-S1000GX aç',
+      'draft',
+      '{"languageCode":"tr","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.basisProfilesNote',
+      'Ürün verileri doğrulanana kadar temel profiller açıkça işaretlenir.',
+      'draft',
+      '{"languageCode":"tr","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.menuTitle',
+      'Satın alma yolları',
+      'draft',
+      '{"languageCode":"tr","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.menuLink',
+      'Satın alma sayfasına git',
+      'draft',
+      '{"languageCode":"tr","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.overview',
+      'Satın alma özeti',
+      'draft',
+      '{"languageCode":"tr","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.overviewNote',
+      'Satın alma kararları için başlangıç',
+      'draft',
+      '{"languageCode":"tr","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.quickHelp',
+      'Hızlı rahatlama',
+      'draft',
+      '{"languageCode":"tr","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.quickHelpNote',
+      'Ped, mesh, jel, hava yastığı',
+      'draft',
+      '{"languageCode":"tr","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.matrix',
+      'Satın alma matrisi',
+      'draft',
+      '{"languageCode":"tr","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.matrixNote',
+      'Sorun, iade, uyum',
+      'draft',
+      '{"languageCode":"tr","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.channels',
+      'Satın alma kanalları',
+      'draft',
+      '{"languageCode":"tr","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.channelsNote',
+      'OEM, bayi, pazar yeri, döşemeci',
+      'draft',
+      '{"languageCode":"tr","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.productCards',
+      'Ürün kartları',
+      'draft',
+      '{"languageCode":"tr","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'buy.productCardsNote',
+      'Kaynak ve riskli örnekler',
+      'draft',
+      '{"languageCode":"tr","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.menuTitle',
+      'DIY hızlı erişim',
+      'draft',
+      '{"languageCode":"tr","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.menuLink',
+      'DIY sayfasına git',
+      'draft',
+      '{"languageCode":"tr","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.overview',
+      'DIY özeti',
+      'draft',
+      '{"languageCode":"tr","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.overviewNote',
+      'Güvenli başla',
+      'draft',
+      '{"languageCode":"tr","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.foam',
+      'Süngerler',
+      'draft',
+      '{"languageCode":"tr","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.foamNote',
+      'Yoğunluk, sertlik, katmanlar',
+      'draft',
+      '{"languageCode":"tr","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.videos',
+      'Videolar',
+      'draft',
+      '{"languageCode":"tr","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.videosNote',
+      'YouTube seç ve göm',
+      'draft',
+      '{"languageCode":"tr","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.materials',
+      'Malzemeler',
+      'draft',
+      '{"languageCode":"tr","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.materialsNote',
+      'Sünger, jel, mesh, kaplama',
+      'draft',
+      '{"languageCode":"tr","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.tools',
+      'Aletler',
+      'draft',
+      '{"languageCode":"tr","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.toolsNote',
+      'Gerçekten gerekenler',
+      'draft',
+      '{"languageCode":"tr","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.supplies',
+      'Sarf malzemeleri',
+      'draft',
+      '{"languageCode":"tr","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.suppliesNote',
+      'Yapıştırıcı, zımba, bakım',
+      'draft',
+      '{"languageCode":"tr","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.protocol',
+      'Minimum protokol',
+      'draft',
+      '{"languageCode":"tr","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'diy.protocolNote',
+      'Ölç, test et, belgele',
+      'draft',
+      '{"languageCode":"tr","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'brand.homeAria',
+      'Moto Seat Lab ana sayfa',
+      'draft',
+      '{"languageCode":"tr","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'nav.aria',
+      'Ana gezinme',
+      'draft',
+      '{"languageCode":"tr","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'tr',
+      'menu.modelsAria',
+      'modeller',
+      'draft',
+      '{"languageCode":"tr","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -5424,6 +11542,678 @@ INSERT INTO ui_translations (
       language_code, translation_key, translation_value, status, source_data, updated_at
     )
     VALUES (
+      'th',
+      'menu.motorcycleCountLabel',
+      'รุ่น',
+      'draft',
+      '{"languageCode":"th","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.allModels',
+      'ดูทุกรุ่น',
+      'draft',
+      '{"languageCode":"th","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.current',
+      'ปัจจุบัน',
+      'draft',
+      '{"languageCode":"th","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.currentlySelected',
+      'เลือกอยู่ตอนนี้',
+      'draft',
+      '{"languageCode":"th","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.lastSelected',
+      'เลือกล่าสุด',
+      'draft',
+      '{"languageCode":"th","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.open',
+      'เปิด',
+      'draft',
+      '{"languageCode":"th","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.guide',
+      'คู่มือ',
+      'draft',
+      '{"languageCode":"th","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.basisProfile',
+      'โปรไฟล์พื้นฐาน',
+      'draft',
+      '{"languageCode":"th","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.planned',
+      'วางแผนแล้ว',
+      'draft',
+      '{"languageCode":"th","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.openSuzuki',
+      'เปิด Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"th","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.basisProfilesNote',
+      'โปรไฟล์พื้นฐานถูกระบุอย่างตรงไปตรงมาจนกว่าข้อมูลสินค้าจะได้รับการตรวจสอบ',
+      'draft',
+      '{"languageCode":"th","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.menuTitle',
+      'เส้นทางการซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.menuLink',
+      'ไปหน้าซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.overview',
+      'ภาพรวมการซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.overviewNote',
+      'เริ่มตัดสินใจซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.quickHelp',
+      'ช่วยเร็ว',
+      'draft',
+      '{"languageCode":"th","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.quickHelpNote',
+      'แผ่นรอง, mesh, เจล, เบาะลม',
+      'draft',
+      '{"languageCode":"th","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.matrix',
+      'เมทริกซ์การซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.matrixNote',
+      'ปัญหา, การคืน, ความพอดี',
+      'draft',
+      '{"languageCode":"th","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.channels',
+      'ช่องทางซื้อ',
+      'draft',
+      '{"languageCode":"th","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.channelsNote',
+      'OEM, ตัวแทน, marketplace, ช่างหุ้มเบาะ',
+      'draft',
+      '{"languageCode":"th","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.productCards',
+      'การ์ดสินค้า',
+      'draft',
+      '{"languageCode":"th","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'buy.productCardsNote',
+      'ตัวอย่างพร้อมแหล่งที่มาและความเสี่ยง',
+      'draft',
+      '{"languageCode":"th","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.menuTitle',
+      'ทางลัด DIY',
+      'draft',
+      '{"languageCode":"th","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.menuLink',
+      'ไปหน้า DIY',
+      'draft',
+      '{"languageCode":"th","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.overview',
+      'ภาพรวม DIY',
+      'draft',
+      '{"languageCode":"th","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.overviewNote',
+      'เริ่มอย่างปลอดภัย',
+      'draft',
+      '{"languageCode":"th","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.foam',
+      'โฟม',
+      'draft',
+      '{"languageCode":"th","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.foamNote',
+      'ความหนาแน่น, ความแข็ง, ชั้นวัสดุ',
+      'draft',
+      '{"languageCode":"th","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.videos',
+      'วิดีโอ',
+      'draft',
+      '{"languageCode":"th","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.videosNote',
+      'คัดเลือกและฝัง YouTube',
+      'draft',
+      '{"languageCode":"th","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.materials',
+      'วัสดุ',
+      'draft',
+      '{"languageCode":"th","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.materialsNote',
+      'โฟม, เจล, mesh, หนังหุ้ม',
+      'draft',
+      '{"languageCode":"th","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.tools',
+      'เครื่องมือ',
+      'draft',
+      '{"languageCode":"th","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.toolsNote',
+      'สิ่งที่ต้องใช้จริง',
+      'draft',
+      '{"languageCode":"th","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.supplies',
+      'อุปกรณ์เสริม',
+      'draft',
+      '{"languageCode":"th","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.suppliesNote',
+      'กาว, ลวดเย็บ, การดูแล',
+      'draft',
+      '{"languageCode":"th","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.protocol',
+      'ขั้นตอนขั้นต่ำ',
+      'draft',
+      '{"languageCode":"th","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'diy.protocolNote',
+      'วัด, ทดสอบ, บันทึก',
+      'draft',
+      '{"languageCode":"th","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'brand.homeAria',
+      'หน้าแรก Moto Seat Lab',
+      'draft',
+      '{"languageCode":"th","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'nav.aria',
+      'การนำทางหลัก',
+      'draft',
+      '{"languageCode":"th","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'th',
+      'menu.modelsAria',
+      'รุ่น',
+      'draft',
+      '{"languageCode":"th","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
       'id',
       'brand.subtitle',
       'Kenyamanan jok tanpa membeli secara buta',
@@ -5861,6 +12651,678 @@ INSERT INTO ui_translations (
       'Detail',
       'draft',
       '{"languageCode":"id","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.motorcycleCountLabel',
+      'motor',
+      'draft',
+      '{"languageCode":"id","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.allModels',
+      'Lihat semua model',
+      'draft',
+      '{"languageCode":"id","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.current',
+      'Aktif',
+      'draft',
+      '{"languageCode":"id","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.currentlySelected',
+      'Sedang dipilih',
+      'draft',
+      '{"languageCode":"id","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.lastSelected',
+      'Terakhir dipilih',
+      'draft',
+      '{"languageCode":"id","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.open',
+      'Buka',
+      'draft',
+      '{"languageCode":"id","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.guide',
+      'Panduan',
+      'draft',
+      '{"languageCode":"id","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.basisProfile',
+      'Profil dasar',
+      'draft',
+      '{"languageCode":"id","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.planned',
+      'direncanakan',
+      'draft',
+      '{"languageCode":"id","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.openSuzuki',
+      'Buka Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"id","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.basisProfilesNote',
+      'Profil dasar ditandai jujur sampai data produk diverifikasi.',
+      'draft',
+      '{"languageCode":"id","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.menuTitle',
+      'Jalur pembelian',
+      'draft',
+      '{"languageCode":"id","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.menuLink',
+      'Ke halaman beli',
+      'draft',
+      '{"languageCode":"id","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.overview',
+      'Ringkasan beli',
+      'draft',
+      '{"languageCode":"id","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.overviewNote',
+      'Awal untuk keputusan beli',
+      'draft',
+      '{"languageCode":"id","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.quickHelp',
+      'Bantuan cepat',
+      'draft',
+      '{"languageCode":"id","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.quickHelpNote',
+      'Bantalan, mesh, gel, airpad',
+      'draft',
+      '{"languageCode":"id","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.matrix',
+      'Matriks beli',
+      'draft',
+      '{"languageCode":"id","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.matrixNote',
+      'Masalah, retur, kecocokan',
+      'draft',
+      '{"languageCode":"id","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.channels',
+      'Kanal pembelian',
+      'draft',
+      '{"languageCode":"id","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.channelsNote',
+      'OEM, dealer, marketplace, tukang jok',
+      'draft',
+      '{"languageCode":"id","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.productCards',
+      'Kartu produk',
+      'draft',
+      '{"languageCode":"id","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'buy.productCardsNote',
+      'Contoh dengan sumber dan risiko',
+      'draft',
+      '{"languageCode":"id","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.menuTitle',
+      'Akses cepat DIY',
+      'draft',
+      '{"languageCode":"id","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.menuLink',
+      'Ke halaman DIY',
+      'draft',
+      '{"languageCode":"id","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.overview',
+      'Ringkasan DIY',
+      'draft',
+      '{"languageCode":"id","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.overviewNote',
+      'Mulai dengan aman',
+      'draft',
+      '{"languageCode":"id","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.foam',
+      'Busa',
+      'draft',
+      '{"languageCode":"id","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.foamNote',
+      'Densitas, kekerasan, lapisan',
+      'draft',
+      '{"languageCode":"id","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.videos',
+      'Video',
+      'draft',
+      '{"languageCode":"id","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.videosNote',
+      'Kurasi dan embed YouTube',
+      'draft',
+      '{"languageCode":"id","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.materials',
+      'Material',
+      'draft',
+      '{"languageCode":"id","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.materialsNote',
+      'Busa, gel, mesh, cover',
+      'draft',
+      '{"languageCode":"id","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.tools',
+      'Alat',
+      'draft',
+      '{"languageCode":"id","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.toolsNote',
+      'Yang benar-benar dibutuhkan',
+      'draft',
+      '{"languageCode":"id","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.supplies',
+      'Perlengkapan',
+      'draft',
+      '{"languageCode":"id","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.suppliesNote',
+      'Lem, staples, perawatan',
+      'draft',
+      '{"languageCode":"id","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.protocol',
+      'Protokol minimal',
+      'draft',
+      '{"languageCode":"id","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'diy.protocolNote',
+      'Ukur, tes, dokumentasikan',
+      'draft',
+      '{"languageCode":"id","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'brand.homeAria',
+      'Beranda Moto Seat Lab',
+      'draft',
+      '{"languageCode":"id","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'nav.aria',
+      'Navigasi utama',
+      'draft',
+      '{"languageCode":"id","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'id',
+      'menu.modelsAria',
+      'model',
+      'draft',
+      '{"languageCode":"id","key":"menu.modelsAria"}'::jsonb,
       now()
     )
     ON CONFLICT (language_code, translation_key) DO UPDATE SET
@@ -6316,6 +13778,1798 @@ INSERT INTO ui_translations (
       status = EXCLUDED.status,
       source_data = EXCLUDED.source_data,
       updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.motorcycleCountLabel',
+      'motosikal',
+      'draft',
+      '{"languageCode":"ms","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.allModels',
+      'Lihat semua model',
+      'draft',
+      '{"languageCode":"ms","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.current',
+      'Semasa',
+      'draft',
+      '{"languageCode":"ms","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.currentlySelected',
+      'Sedang dipilih',
+      'draft',
+      '{"languageCode":"ms","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.lastSelected',
+      'Terakhir dipilih',
+      'draft',
+      '{"languageCode":"ms","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.open',
+      'Buka',
+      'draft',
+      '{"languageCode":"ms","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.guide',
+      'Panduan',
+      'draft',
+      '{"languageCode":"ms","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.basisProfile',
+      'Profil asas',
+      'draft',
+      '{"languageCode":"ms","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.planned',
+      'dirancang',
+      'draft',
+      '{"languageCode":"ms","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.openSuzuki',
+      'Buka Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"ms","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.basisProfilesNote',
+      'Profil asas ditanda dengan jujur sehingga data produk disahkan.',
+      'draft',
+      '{"languageCode":"ms","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.menuTitle',
+      'Laluan pembelian',
+      'draft',
+      '{"languageCode":"ms","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.menuLink',
+      'Ke halaman beli',
+      'draft',
+      '{"languageCode":"ms","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.overview',
+      'Gambaran beli',
+      'draft',
+      '{"languageCode":"ms","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.overviewNote',
+      'Mula untuk keputusan membeli',
+      'draft',
+      '{"languageCode":"ms","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.quickHelp',
+      'Bantuan cepat',
+      'draft',
+      '{"languageCode":"ms","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.quickHelpNote',
+      'Alas, mesh, gel, kusyen udara',
+      'draft',
+      '{"languageCode":"ms","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.matrix',
+      'Matriks beli',
+      'draft',
+      '{"languageCode":"ms","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.matrixNote',
+      'Masalah, pemulangan, padanan',
+      'draft',
+      '{"languageCode":"ms","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.channels',
+      'Saluran beli',
+      'draft',
+      '{"languageCode":"ms","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.channelsNote',
+      'OEM, dealer, marketplace, tukang upholsteri',
+      'draft',
+      '{"languageCode":"ms","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.productCards',
+      'Kad produk',
+      'draft',
+      '{"languageCode":"ms","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'buy.productCardsNote',
+      'Contoh dengan sumber dan risiko',
+      'draft',
+      '{"languageCode":"ms","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.menuTitle',
+      'Akses pantas DIY',
+      'draft',
+      '{"languageCode":"ms","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.menuLink',
+      'Ke halaman DIY',
+      'draft',
+      '{"languageCode":"ms","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.overview',
+      'Gambaran DIY',
+      'draft',
+      '{"languageCode":"ms","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.overviewNote',
+      'Mula dengan selamat',
+      'draft',
+      '{"languageCode":"ms","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.foam',
+      'Buih',
+      'draft',
+      '{"languageCode":"ms","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.foamNote',
+      'Ketumpatan, kekerasan, lapisan',
+      'draft',
+      '{"languageCode":"ms","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.videos',
+      'Video',
+      'draft',
+      '{"languageCode":"ms","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.videosNote',
+      'Pilih dan benam YouTube',
+      'draft',
+      '{"languageCode":"ms","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.materials',
+      'Bahan',
+      'draft',
+      '{"languageCode":"ms","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.materialsNote',
+      'Buih, gel, mesh, sarung',
+      'draft',
+      '{"languageCode":"ms","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.tools',
+      'Alat',
+      'draft',
+      '{"languageCode":"ms","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.toolsNote',
+      'Apa yang benar-benar perlu',
+      'draft',
+      '{"languageCode":"ms","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.supplies',
+      'Bekalan',
+      'draft',
+      '{"languageCode":"ms","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.suppliesNote',
+      'Gam, staples, penjagaan',
+      'draft',
+      '{"languageCode":"ms","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.protocol',
+      'Protokol minimum',
+      'draft',
+      '{"languageCode":"ms","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'diy.protocolNote',
+      'Ukur, uji, dokumentasi',
+      'draft',
+      '{"languageCode":"ms","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'brand.homeAria',
+      'Laman utama Moto Seat Lab',
+      'draft',
+      '{"languageCode":"ms","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'nav.aria',
+      'Navigasi utama',
+      'draft',
+      '{"languageCode":"ms","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'ms',
+      'menu.modelsAria',
+      'model',
+      'draft',
+      '{"languageCode":"ms","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'brand.subtitle',
+      '不盲买的座椅舒适度指南',
+      'draft',
+      '{"languageCode":"zh","key":"brand.subtitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.start',
+      '首页',
+      'draft',
+      '{"languageCode":"zh","key":"nav.start"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.motorcycles',
+      '摩托车',
+      'draft',
+      '{"languageCode":"zh","key":"nav.motorcycles"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.solutions',
+      '解决方案',
+      'draft',
+      '{"languageCode":"zh","key":"nav.solutions"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.buying',
+      '购买',
+      'draft',
+      '{"languageCode":"zh","key":"nav.buying"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.diy',
+      'DIY',
+      'draft',
+      '{"languageCode":"zh","key":"nav.diy"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.images',
+      '图片',
+      'draft',
+      '{"languageCode":"zh","key":"nav.images"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.locale',
+      '国家/地区',
+      'draft',
+      '{"languageCode":"zh","key":"nav.locale"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.active',
+      '已启用',
+      'draft',
+      '{"languageCode":"zh","key":"locale.active"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.draft',
+      '基础版',
+      'draft',
+      '{"languageCode":"zh","key":"locale.draft"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.planned',
+      '计划中',
+      'draft',
+      '{"languageCode":"zh","key":"locale.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.panelTitle',
+      '国家和语言',
+      'draft',
+      '{"languageCode":"zh","key":"locale.panelTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.panelLink',
+      '准备本地化',
+      'draft',
+      '{"languageCode":"zh","key":"locale.panelLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'locale.panelNote',
+      '每面旗帜都会打开对应国家版本，并使用本地语言和本地推荐逻辑。',
+      'draft',
+      '{"languageCode":"zh","key":"locale.panelNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.summary',
+      'Moto Seat Lab 是一个独立概念项目，帮助骑手研究座椅舒适度并做出清晰的购买决定。任何建议都不保证适配、舒适或医疗效果。',
+      'draft',
+      '{"languageCode":"zh","key":"footer.summary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.mvp',
+      'MVP 状态：本地开发，无活动广告网络，无付费联盟链接。',
+      'draft',
+      '{"languageCode":"zh","key":"footer.mvp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.legal',
+      '法律信息',
+      'draft',
+      '{"languageCode":"zh","key":"footer.legal"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.privacy',
+      '隐私',
+      'draft',
+      '{"languageCode":"zh","key":"footer.privacy"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.privacyNote',
+      '说明当前不收集哪些数据，以及未来如何透明处理。',
+      'draft',
+      '{"languageCode":"zh","key":"footer.privacyNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.cookies',
+      'Cookie',
+      'draft',
+      '{"languageCode":"zh","key":"footer.cookies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.cookiesNote',
+      '最小化 Cookie 提示、本地存储和计划中的选项。',
+      'draft',
+      '{"languageCode":"zh","key":"footer.cookiesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.imprint',
+      '网站信息',
+      'draft',
+      '{"languageCode":"zh","key":"footer.imprint"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'footer.imprintNote',
+      '发布前需要补充运营者信息并进行法律检查。',
+      'draft',
+      '{"languageCode":"zh","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'cookie.label',
+      'Cookie 提示',
+      'draft',
+      '{"languageCode":"zh","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'cookie.text',
+      '我们使用必要 Cookie 保障网站运行。可选设置未来可能启用便利功能和统计。在 MVP 阶段不会加载广告网络。',
+      'draft',
+      '{"languageCode":"zh","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'cookie.optional',
+      '接受可选项',
+      'draft',
+      '{"languageCode":"zh","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'cookie.necessary',
+      '仅必要项',
+      'draft',
+      '{"languageCode":"zh","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'cookie.details',
+      '详情',
+      'draft',
+      '{"languageCode":"zh","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.motorcycleCountLabel',
+      '款摩托车',
+      'draft',
+      '{"languageCode":"zh","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.allModels',
+      '查看所有车型',
+      'draft',
+      '{"languageCode":"zh","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.current',
+      '当前',
+      'draft',
+      '{"languageCode":"zh","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.currentlySelected',
+      '当前选择',
+      'draft',
+      '{"languageCode":"zh","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.lastSelected',
+      '上次选择',
+      'draft',
+      '{"languageCode":"zh","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.open',
+      '打开',
+      'draft',
+      '{"languageCode":"zh","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.guide',
+      '指南',
+      'draft',
+      '{"languageCode":"zh","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.basisProfile',
+      '基础档案',
+      'draft',
+      '{"languageCode":"zh","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.planned',
+      '计划中',
+      'draft',
+      '{"languageCode":"zh","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.openSuzuki',
+      '打开 Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"zh","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.basisProfilesNote',
+      '基础档案会如实标记，直到产品数据完成验证。',
+      'draft',
+      '{"languageCode":"zh","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.menuTitle',
+      '购买路径',
+      'draft',
+      '{"languageCode":"zh","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.menuLink',
+      '前往购买页',
+      'draft',
+      '{"languageCode":"zh","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.overview',
+      '购买总览',
+      'draft',
+      '{"languageCode":"zh","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.overviewNote',
+      '购买决策起点',
+      'draft',
+      '{"languageCode":"zh","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.quickHelp',
+      '快速缓解',
+      'draft',
+      '{"languageCode":"zh","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.quickHelpNote',
+      '坐垫、网布、凝胶、气垫',
+      'draft',
+      '{"languageCode":"zh","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.matrix',
+      '购买矩阵',
+      'draft',
+      '{"languageCode":"zh","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.matrixNote',
+      '问题、退换、适配',
+      'draft',
+      '{"languageCode":"zh","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.channels',
+      '购买渠道',
+      'draft',
+      '{"languageCode":"zh","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.channelsNote',
+      'OEM、经销商、平台、座椅店',
+      'draft',
+      '{"languageCode":"zh","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.productCards',
+      '产品卡片',
+      'draft',
+      '{"languageCode":"zh","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'buy.productCardsNote',
+      '带来源和风险的示例',
+      'draft',
+      '{"languageCode":"zh","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.menuTitle',
+      'DIY 快速入口',
+      'draft',
+      '{"languageCode":"zh","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.menuLink',
+      '前往 DIY 页',
+      'draft',
+      '{"languageCode":"zh","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.overview',
+      'DIY 总览',
+      'draft',
+      '{"languageCode":"zh","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.overviewNote',
+      '安全开始',
+      'draft',
+      '{"languageCode":"zh","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.foam',
+      '泡棉',
+      'draft',
+      '{"languageCode":"zh","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.foamNote',
+      '密度、硬度、层次',
+      'draft',
+      '{"languageCode":"zh","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.videos',
+      '视频',
+      'draft',
+      '{"languageCode":"zh","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.videosNote',
+      '筛选并嵌入 YouTube',
+      'draft',
+      '{"languageCode":"zh","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.materials',
+      '材料',
+      'draft',
+      '{"languageCode":"zh","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.materialsNote',
+      '泡棉、凝胶、网布、座椅面料',
+      'draft',
+      '{"languageCode":"zh","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.tools',
+      '工具',
+      'draft',
+      '{"languageCode":"zh","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.toolsNote',
+      '真正需要的工具',
+      'draft',
+      '{"languageCode":"zh","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.supplies',
+      '耗材',
+      'draft',
+      '{"languageCode":"zh","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.suppliesNote',
+      '胶水、订书钉、护理',
+      'draft',
+      '{"languageCode":"zh","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.protocol',
+      '最小记录流程',
+      'draft',
+      '{"languageCode":"zh","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'diy.protocolNote',
+      '测量、测试、记录',
+      'draft',
+      '{"languageCode":"zh","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'brand.homeAria',
+      'Moto Seat Lab 首页',
+      'draft',
+      '{"languageCode":"zh","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'nav.aria',
+      '主导航',
+      'draft',
+      '{"languageCode":"zh","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'zh',
+      'menu.modelsAria',
+      '车型',
+      'draft',
+      '{"languageCode":"zh","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
 INSERT INTO localized_pages (
     country_code, language_code, page_key, route_path, title, description,
     status, content, source_data, updated_at
@@ -6594,6 +15848,30 @@ INSERT INTO localized_pages (
     'draft',
     '{"title":"Moto Seat Lab Malaysia - keselesaan tempat duduk motosikal","description":"Versi Malaysia: haba, hujan, skuter, komuter, alas mesh, bengkel tempat duduk dan DIY.","eyebrow":"Moto Seat Lab Malaysia","headline":"Tempat duduk mula sakit selepas lama menunggang?","lead":"Versi Malaysia fokus pada cuaca panas, hujan, skuter dan kegunaan harian. Mulakan dengan penyelesaian murah sebelum tempat duduk premium.","primaryAction":"Lihat MVP Jerman","secondaryAction":"Buka motosikal","assetNote":"Versi negara Malaysia aktif. Produk tempatan, harga dan sumber akan ditambah secara berperingkat.","strategyEyebrow":"Strategi tempatan","strategyTitle":"Cuaca panas, hujan dan perjalanan harian.","strategyText":"Nasihat awal patut mengutamakan cover mesh, alas mudah tanggal dan bahan yang tidak terlalu panas atau licin.","priorityEyebrow":"Urutan cadangan","priorityTitle":"Cuba dahulu","priorities":["Cover 3D mesh, gel nipis atau air cushion sebagai ujian awal.","Bandingkan bahan untuk hujan, haba dan penggunaan harian.","Bengkel tempat duduk atau DIY hanya selepas titik tekanan jelas."]}'::jsonb,
     '{"countryCode":"my","languageCode":"ms","pageKey":"home"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
+    route_path = EXCLUDED.route_path,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    status = EXCLUDED.status,
+    content = EXCLUDED.content,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO localized_pages (
+    country_code, language_code, page_key, route_path, title, description,
+    status, content, source_data, updated_at
+  )
+  VALUES (
+    'cn',
+    'zh',
+    'home',
+    '/cn/',
+    'Moto Seat Lab 中国 - 摩托车座椅舒适度',
+    '中国版本：通勤、踏板车、夏季闷热、低成本坐垫、本地座椅改装和 DIY。',
+    'draft',
+    '{"title":"Moto Seat Lab 中国 - 摩托车座椅舒适度","description":"中国版本：通勤、踏板车、夏季闷热、低成本坐垫、本地座椅改装和 DIY。","eyebrow":"Moto Seat Lab 中国","headline":"骑一会儿座椅就开始难受？","lead":"中国版本先解决日常通勤、踏板车和夏季闷热问题：先试可拆卸、低风险的缓解方案，再考虑本地改装、舒适座椅或 DIY。","primaryAction":"查看德国 MVP","secondaryAction":"打开摩托车列表","assetNote":"中国版本已启用。后续会逐步补充本地产品、价格、平台链接和座椅改装店信息。","strategyEyebrow":"本地策略","strategyTitle":"先解决通勤和热，再谈高价座椅。","strategyText":"在中国市场，建议不应一开始就推荐昂贵进口座椅。更合理的是先判断疼痛位置、骑行时长、天气和车型，再测试透气网垫、薄坐垫或本地改装。","priorityEyebrow":"推荐顺序","priorityTitle":"先从这里开始","priorities":["先试 3D 透气网垫、薄凝胶垫或气垫，确认问题是热、硬还是形状。","查看本地平台和座椅改装店时，优先关注适配、退换和真实评价。","只有在明确压力点、坐骨位置和座椅高度后，再考虑拆座椅、切泡棉或重包。"]}'::jsonb,
+    '{"countryCode":"cn","languageCode":"zh","pageKey":"home"}'::jsonb,
     now()
   )
   ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
@@ -15937,5 +25215,5 @@ INSERT INTO content_video_links (
       priority = EXCLUDED.priority,
       notes = EXCLUDED.notes;
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"languages":12,"countries":13,"country_languages":16,"ui_translations":336,"localized_pages":12,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
+VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22}'::jsonb);
 COMMIT;

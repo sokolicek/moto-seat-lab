@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import countries from "../../data/i18n/countries.json";
-import { getCopy, getLocalizedHome } from "../../lib/i18n";
+import { getCopy, getCountryHreflang, getLocalizedHome } from "../../lib/i18n";
 
 export function getStaticPaths() {
   return countries
@@ -16,7 +16,7 @@ const { country } = Astro.props;
 const home = getLocalizedHome(country.code);
 const t = (key: string) => getCopy(country.primaryLanguage, key);
 const countryAlternates = countries.map((item) => ({
-  lang: item.primaryLanguage === "de" && item.code !== "de" ? `de-${item.code.toUpperCase()}` : item.primaryLanguage,
+  lang: getCountryHreflang(item),
   path: item.defaultPath,
 }));
 const translatedUiExamples = [

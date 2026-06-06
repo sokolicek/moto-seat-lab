@@ -17,7 +17,35 @@
   --shadow-lift: 0 18px 48px rgba(24, 34, 43, 0.13);
   --radius: 8px;
   --content-width: 1120px;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-ui: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-cyrillic: "Noto Sans", "Segoe UI", Arial, sans-serif;
+  --font-thai: "Noto Sans Thai", "Leelawadee UI", Tahoma, sans-serif;
+  --font-cjk: "Noto Sans SC", "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-family: var(--font-ui);
+}
+
+:lang(ru) {
+  font-family: var(--font-cyrillic);
+}
+
+:lang(th) {
+  font-family: var(--font-thai);
+  line-height: 1.75;
+}
+
+:lang(zh) {
+  font-family: var(--font-cjk);
+  line-height: 1.72;
+}
+
+:lang(zh) h1,
+:lang(zh) h2,
+:lang(zh) h3,
+:lang(zh) .brand strong,
+:lang(zh) .button,
+:lang(zh) summary,
+:lang(zh) .badge {
+  font-weight: 800;
 }
 
 * {

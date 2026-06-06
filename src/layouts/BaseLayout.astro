@@ -31,9 +31,9 @@ const referenceMotorcycle = menuMotorcycles.find((motorcycle) => motorcycle.stat
 const currentMotorcycle =
   menuMotorcycles.find((motorcycle) => motorcycle.path === currentPath) ?? referenceMotorcycle;
 const motorcycleStatusLabel: Record<string, string> = {
-  active: "Guide",
-  draft: "Basisprofil",
-  planned: "geplant",
+  active: t("menu.guide"),
+  draft: t("menu.basisProfile"),
+  planned: t("menu.planned"),
 };
 const statusClass = (status: string) => (status === "draft" ? "basis-profile" : status);
 const motorcycleGroups = Array.from(
@@ -46,20 +46,20 @@ const motorcycleGroups = Array.from(
 );
 const slugFromPath = (path: string) => path.split("/").filter(Boolean).at(-1) ?? "";
 const buyingShortcuts = [
-  { label: "Kaufen Übersicht", href: "/de/kaufen/", note: "Startseite für Kaufentscheidungen" },
-  { label: "Schnelle Hilfe", href: "/de/kaufen/#schnellhilfe", note: "Auflage, Mesh, Gel, Airpad" },
-  { label: "Kaufmatrix", href: "/de/kaufen/#kaufmatrix", note: "Problem, Rückgabe, Passform" },
-  { label: "Kaufkanäle", href: "/de/kaufen/#kaufkanaele", note: "OEM, Händler, Marktplatz, Sattler" },
-  { label: "Produktkarten", href: "/de/kaufen/#produktkandidaten", note: "Beispiele mit Quelle und Risiko" },
+  { label: t("buy.overview"), href: "/de/kaufen/", note: t("buy.overviewNote") },
+  { label: t("buy.quickHelp"), href: "/de/kaufen/#schnellhilfe", note: t("buy.quickHelpNote") },
+  { label: t("buy.matrix"), href: "/de/kaufen/#kaufmatrix", note: t("buy.matrixNote") },
+  { label: t("buy.channels"), href: "/de/kaufen/#kaufkanaele", note: t("buy.channelsNote") },
+  { label: t("buy.productCards"), href: "/de/kaufen/#produktkandidaten", note: t("buy.productCardsNote") },
 ];
 const diyShortcuts = [
-  { label: "DIY Übersicht", href: "/de/diy/", note: "Sicher starten" },
-  { label: "Schaumstoffe", href: "/de/diy/#schaumstoffe", note: "Dichte, Härte, Schichten" },
-  { label: "Videos", href: "/de/diy/#videos", note: "YouTube kuratieren und einbetten" },
-  { label: "Materialien", href: "/de/diy/#materialien", note: "Schaum, Gel, Mesh, Bezug" },
-  { label: "Werkzeug", href: "/de/diy/#werkzeug", note: "Was du wirklich brauchst" },
-  { label: "Präparate", href: "/de/diy/#pruefmittel", note: "Kleber, Klammern, Pflege" },
-  { label: "Minimalprotokoll", href: "/de/diy/#minimalprotokoll", note: "Messen, testen, dokumentieren" },
+  { label: t("diy.overview"), href: "/de/diy/", note: t("diy.overviewNote") },
+  { label: t("diy.foam"), href: "/de/diy/#schaumstoffe", note: t("diy.foamNote") },
+  { label: t("diy.videos"), href: "/de/diy/#videos", note: t("diy.videosNote") },
+  { label: t("diy.materials"), href: "/de/diy/#materialien", note: t("diy.materialsNote") },
+  { label: t("diy.tools"), href: "/de/diy/#werkzeug", note: t("diy.toolsNote") },
+  { label: t("diy.supplies"), href: "/de/diy/#pruefmittel", note: t("diy.suppliesNote") },
+  { label: t("diy.protocol"), href: "/de/diy/#minimalprotokoll", note: t("diy.protocolNote") },
 ];
 ---
 
@@ -91,15 +91,15 @@ const diyShortcuts = [
     <div class="site-shell">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="brand" href="/de/" aria-label="Moto Seat Lab Startseite">
+          <a class="brand" href={currentCountry.defaultPath} aria-label={t("brand.homeAria")}>
             <span class="brand-mark" aria-hidden="true"><span></span></span>
             <span>
               <strong>Moto Seat Lab</strong>
               <small>{t("brand.subtitle")}</small>
             </span>
           </a>
-          <nav class="nav-links" aria-label="Hauptnavigation">
-            <a href="/de/">{t("nav.start")}</a>
+          <nav class="nav-links" aria-label={t("nav.aria")}>
+            <a href={currentCountry.defaultPath}>{t("nav.start")}</a>
             <details class="nav-dropdown">
               <summary>
                 <span>{t("nav.motorcycles")}</span>
@@ -107,8 +107,8 @@ const diyShortcuts = [
               </summary>
               <div class="dropdown-panel">
                 <div class="dropdown-head">
-                  <strong>{menuMotorcycles.length} Motorräder</strong>
-                  <a href="/de/motorrad-sitzbank/">Alle Modelle ansehen</a>
+                  <strong>{menuMotorcycles.length} {t("menu.motorcycleCountLabel")}</strong>
+                  <a href="/de/motorrad-sitzbank/">{t("menu.allModels")}</a>
                 </div>
                 {currentMotorcycle && (
                   <a
@@ -118,14 +118,14 @@ const diyShortcuts = [
                     data-motorcycle-slug={slugFromPath(currentMotorcycle.path)}
                     data-motorcycle-name={currentMotorcycle.name}
                   >
-                    <span class="badge">{currentMotorcycle.path === currentPath ? "Aktuell gewählt" : "Zuletzt gewählt"}</span>
+                    <span class="badge">{currentMotorcycle.path === currentPath ? t("menu.currentlySelected") : t("menu.lastSelected")}</span>
                     <strong>{currentMotorcycle.name}</strong>
                     <small>{currentMotorcycle.seatPainFocus}</small>
                   </a>
                 )}
                 <div class="dropdown-brand-list">
                   {motorcycleGroups.map(([brand, brandMotorcycles]) => (
-                    <section class="dropdown-brand-group" aria-label={`${brand} Modelle`}>
+                    <section class="dropdown-brand-group" aria-label={`${brand} ${t("menu.modelsAria")}`}>
                       <h3>{brand}</h3>
                       <div class="dropdown-list">
                         {brandMotorcycles.map((motorcycle) => {
@@ -143,7 +143,7 @@ const diyShortcuts = [
                                 <strong>{motorcycle.name}</strong>
                                 <small>{motorcycle.segment} · {motorcycle.countryPriority}</small>
                               </span>
-                              <em>{isCurrent ? "Aktuell" : motorcycleStatusLabel[motorcycle.status] ?? "Öffnen"}</em>
+                              <em>{isCurrent ? t("menu.current") : motorcycleStatusLabel[motorcycle.status] ?? t("menu.open")}</em>
                             </a>
                           );
                         })}
@@ -159,9 +159,9 @@ const diyShortcuts = [
                       data-motorcycle-slug={slugFromPath(referenceMotorcycle.path)}
                       data-motorcycle-name={referenceMotorcycle.name}
                     >
-                      Suzuki GSX-S1000GX öffnen
+                      {t("menu.openSuzuki")}
                     </a>
-                    <span>Basisprofile sind bewusst ehrlich markiert, bis Produktdaten geprüft sind.</span>
+                    <span>{t("menu.basisProfilesNote")}</span>
                   </div>
                 )}
               </div>
@@ -174,8 +174,8 @@ const diyShortcuts = [
               </summary>
               <div class="dropdown-panel shortcut-panel">
                 <div class="dropdown-head">
-                  <strong>Kaufpfade</strong>
-                  <a href="/de/kaufen/">Zur Kaufseite</a>
+                  <strong>{t("buy.menuTitle")}</strong>
+                  <a href="/de/kaufen/">{t("buy.menuLink")}</a>
                 </div>
                 <div class="dropdown-shortcuts">
                   {buyingShortcuts.map((shortcut) => (
@@ -194,8 +194,8 @@ const diyShortcuts = [
               </summary>
               <div class="dropdown-panel shortcut-panel">
                 <div class="dropdown-head">
-                  <strong>DIY-Schnellzugriff</strong>
-                  <a href="/de/diy/">Zur DIY-Seite</a>
+                  <strong>{t("diy.menuTitle")}</strong>
+                  <a href="/de/diy/">{t("diy.menuLink")}</a>
                 </div>
                 <div class="dropdown-shortcuts">
                   {diyShortcuts.map((shortcut) => (
