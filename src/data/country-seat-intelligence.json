@@ -3,8 +3,17 @@
     "countryCode": "de",
     "priority": 1,
     "marketMode": "premium_touring_and_dach_value",
-    "leadMotorcycleSegments": ["Adventure Touring", "Sport Touring", "Crossover Touring"],
-    "leadMotorcycles": ["bmw-r-1300-gs", "bmw-r-1250-gs", "suzuki-gsx-s1000gx", "honda-crf1100l-africa-twin"],
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Sport Touring",
+      "Crossover Touring"
+    ],
+    "leadMotorcycles": [
+      "bmw-r-1300-gs",
+      "bmw-r-1250-gs",
+      "suzuki-gsx-s1000gx",
+      "honda-crf1100l-africa-twin"
+    ],
     "primaryPainPoints": [
       "Pain after 45 to 90 minutes on touring or commuting rides.",
       "BMW GS comfort seat confusion: standard, comfort, exclusive, low and high versions.",
@@ -33,15 +42,28 @@
         "note": "General German motorcycle forum with practical comfort and buying advice."
       }
     ],
-    "buyingPriorities": ["OEM comfort seat", "DACH aftermarket seat", "local upholsterer", "air cushion", "3D mesh cover"],
+    "buyingPriorities": [
+      "OEM comfort seat",
+      "DACH aftermarket seat",
+      "local upholsterer",
+      "air cushion",
+      "3D mesh cover"
+    ],
     "adminNotes": "Germany should keep the best researched path first: BMW GS plus GSX-S1000GX, then Honda/Yamaha touring models."
   },
   {
     "countryCode": "at",
     "priority": 2,
     "marketMode": "alpine_touring",
-    "leadMotorcycleSegments": ["Adventure Touring", "Sport Touring"],
-    "leadMotorcycles": ["ktm-1290-super-adventure", "bmw-r-1300-gs", "yamaha-tracer-9-9-gt"],
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Sport Touring"
+    ],
+    "leadMotorcycles": [
+      "ktm-1290-super-adventure",
+      "bmw-r-1300-gs",
+      "yamaha-tracer-9-9-gt"
+    ],
     "primaryPainPoints": [
       "Long alpine days with many position changes.",
       "Seat heating, rain, cold morning starts and hot afternoon rides.",
@@ -57,15 +79,28 @@
         "note": "Austrian motorcycle media and community context for local models and touring use."
       }
     ],
-    "buyingPriorities": ["heated comfort seat", "local upholsterer", "air cushion", "weather-resistant cover"],
+    "buyingPriorities": [
+      "heated comfort seat",
+      "local upholsterer",
+      "air cushion",
+      "weather-resistant cover"
+    ],
     "adminNotes": "Austria should reuse DACH research but prioritize KTM and alpine/weather advice."
   },
   {
     "countryCode": "ch",
     "priority": 3,
     "marketMode": "premium_multilingual_precision",
-    "leadMotorcycleSegments": ["Adventure Touring", "Premium Touring", "Sport Touring"],
-    "leadMotorcycles": ["bmw-r-1300-gs", "bmw-r-1250-gs", "ducati-multistrada-v4"],
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Premium Touring",
+      "Sport Touring"
+    ],
+    "leadMotorcycles": [
+      "bmw-r-1300-gs",
+      "bmw-r-1250-gs",
+      "ducati-multistrada-v4"
+    ],
     "primaryPainPoints": [
       "High expectations for precise fit and quality.",
       "Multilingual buying information across German, French and Italian regions.",
@@ -81,99 +116,176 @@
         "note": "Swiss motorcycle community for local use, touring and dealer context."
       }
     ],
-    "buyingPriorities": ["premium aftermarket seat", "OEM comfort seat", "regional upholsterer", "air cushion"],
+    "buyingPriorities": [
+      "premium aftermarket seat",
+      "OEM comfort seat",
+      "regional upholsterer",
+      "air cushion"
+    ],
     "adminNotes": "Switzerland needs regional language variants later: de-CH, fr-CH, it-CH."
   },
   {
     "countryCode": "fr",
     "priority": 4,
     "marketMode": "comfort_sellerie",
-    "leadMotorcycleSegments": ["Adventure Touring", "Roadster", "Scooter"],
-    "leadMotorcycles": ["bmw-r-1250-gs", "honda-crf1100l-africa-twin", "yamaha-mt-07", "honda-forza-350"],
-    "primaryPainPoints": [
-      "Comfort saddle versus gel insert decisions.",
-      "Finding a trusted sellier instead of buying blindly.",
-      "Daily riding plus touring weekends."
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Roadster",
+      "Sport Touring",
+      "Scooter"
     ],
-    "firstRecommendation": "Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier.",
-    "budgetLogic": "France has a strong saddle/upholstery culture; make artisan comparison visible before expensive imports.",
+    "leadMotorcycles": [
+      "bmw-r-1250-gs",
+      "honda-crf1100l-africa-twin",
+      "yamaha-mt-07",
+      "honda-forza-350"
+    ],
+    "primaryPainPoints": [
+      "Selle confort versus gel versus real foam change.",
+      "Bagster, Top Sellerie and sellier comparisons.",
+      "Passenger sliding and support shape matter on longer rides.",
+      "Seat slope can ruin comfort even on an expensive saddle."
+    ],
+    "firstRecommendation": "Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier with slope, passenger and return notes.",
+    "budgetLogic": "France has strong sellerie options; do not present imported premium seats before sellier and fitment checks.",
     "forumSources": [
       {
         "name": "Forum-Auto Moto",
         "url": "https://forum-auto.caradisiac.com/forum/13-moto/",
         "language": "fr",
-        "note": "French discussions about Bagster comfort saddles, gel and rider experience."
+        "note": "French discussions about Bagster, gel and comfort saddles."
+      },
+      {
+        "name": "Le Repaire des Motards",
+        "url": "https://www.lerepairedesmotards.com/forum/",
+        "language": "fr",
+        "note": "French rider forum with BMW GS comfort saddle and sellier discussions."
       },
       {
         "name": "Motardie",
         "url": "https://www.reddit.com/r/Motardie/",
         "language": "fr",
-        "note": "French-speaking rider discussions including comfort saddle and artisan choice."
+        "note": "French-speaking rider community with artisan and comfort-seat questions."
       }
     ],
-    "buyingPriorities": ["Bagster", "Top Sellerie", "local sellier", "mesh cover", "air cushion"],
-    "adminNotes": "France should surface sellier comparison and style-versus-function warnings."
+    "buyingPriorities": [
+      "local sellier",
+      "Bagster",
+      "Top Sellerie",
+      "OEM comfort seat",
+      "air cushion"
+    ],
+    "adminNotes": "France should surface sellier comparison and passenger comfort notes early."
   },
   {
     "countryCode": "it",
     "priority": 5,
     "marketMode": "style_plus_touring",
-    "leadMotorcycleSegments": ["Premium Adventure Touring", "Urban Scooter", "Retro Touring"],
-    "leadMotorcycles": ["ducati-multistrada-v4", "moto-guzzi-v85-tt", "vespa-gts-300", "bmw-r-1250-gs"],
-    "primaryPainPoints": [
-      "Touring comfort without ruining the look of the bike.",
-      "Gel and reshaping questions for BMW and Italian touring models.",
-      "Older riders needing easier seat height and comfort."
+    "leadMotorcycleSegments": [
+      "Premium Adventure Touring",
+      "Urban Scooter",
+      "Retro Touring",
+      "Sport Touring"
     ],
-    "firstRecommendation": "Show comfort and visual finish together, but keep pressure-point diagnosis first.",
-    "budgetLogic": "Italy needs a balance: aesthetic upholstery matters, but comfort claims must be tested.",
+    "leadMotorcycles": [
+      "ducati-multistrada-v4",
+      "moto-guzzi-v85-tt",
+      "vespa-gts-300",
+      "bmw-r-1250-gs"
+    ],
+    "primaryPainPoints": [
+      "Comfort without ruining the visual finish.",
+      "Gel and lowered/raised seat questions for BMW and touring models.",
+      "Older riders may need easier reach and more support.",
+      "Heat and summer riding change material choice."
+    ],
+    "firstRecommendation": "Keep pressure-point diagnosis first, then compare OEM, Bagster/Top Sellerie, local tappezziere and verified imported seats.",
+    "budgetLogic": "Italy can value style and stitching, but the portal should prove comfort before aesthetics.",
     "forumSources": [
       {
         "name": "Moto.it Social",
         "url": "https://www.moto.it/social/",
         "language": "it",
-        "note": "Italian Q&A about motorcycle comfort and specific models."
+        "note": "Italian Q&A about comfort, BMW GS and long-ride saddle questions."
       },
       {
-        "name": "BMWpassion Moto",
+        "name": "BMWpassion",
         "url": "https://www.bmwpassion.com/forum/",
         "language": "it",
-        "note": "BMW-focused discussions including Bagster and comfort saddles."
+        "note": "BMW-focused Italian community with Bagster and comfort saddle mentions."
       }
     ],
-    "buyingPriorities": ["OEM comfort seat", "Italian upholsterer", "Bagster", "gel insert", "style cover"],
-    "adminNotes": "Italy pages should include visual finish as a decision factor, but never ahead of ergonomics."
+    "buyingPriorities": [
+      "OEM comfort seat",
+      "local tappezziere",
+      "Bagster / Top Sellerie",
+      "gel insert",
+      "verified Sargent/Corbin fitment"
+    ],
+    "adminNotes": "Italy pages should include visual finish but keep ergonomics first."
   },
   {
     "countryCode": "sk",
     "priority": 6,
     "marketMode": "value_local_upholstery",
-    "leadMotorcycleSegments": ["Adventure Touring", "Naked Bike", "Scooter"],
-    "leadMotorcycles": ["suzuki-gsx-s1000gx", "bmw-r-1250-gs", "yamaha-mt-07", "honda-forza-350"],
-    "primaryPainPoints": [
-      "Need a practical answer quickly: why does the original seat hurt?",
-      "Budget-sensitive choice between pad, upholsterer and expensive imported seat.",
-      "Local availability and realistic prices."
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Naked Bike",
+      "Sport Touring",
+      "Scooter"
     ],
-    "firstRecommendation": "Start with a low-cost reversible pad, then local upholsterer, then verified aftermarket seat.",
-    "budgetLogic": "Do not push premium imports first. Show what the rider can try this weekend.",
+    "leadMotorcycles": [
+      "suzuki-gsx-s1000gx",
+      "bmw-r-1250-gs",
+      "yamaha-mt-07",
+      "honda-forza-350"
+    ],
+    "primaryPainPoints": [
+      "Original seat hurts after about one hour and the rider wants quick help.",
+      "Budget-sensitive choice between pad, local upholsterer and imported premium seat.",
+      "Local forum signals point to seat rebuilding, new filling, cover choice and practical price.",
+      "Riders need a Slovak beginner path before expert foam terminology."
+    ],
+    "firstRecommendation": "Start with low-cost reversible relief, then a local upholsterer checklist, then verified EU aftermarket options only when fitment and return path are clear.",
+    "budgetLogic": "Slovakia should lead with practical value: mesh, gel/air test and local upholstery before Sargent/Corbin-style premium imports.",
     "forumSources": [
+      {
+        "name": "Motocykel.sk forum",
+        "url": "https://motocykel.sk/forums/topic/prerobeniesedla/",
+        "language": "sk",
+        "note": "Slovak thread about rebuilding a motorcycle seat, filling, cover and local upholstery."
+      },
       {
         "name": "Motoride.sk",
         "url": "https://motoride.sk/",
         "language": "sk",
-        "note": "Slovak motorcycle community and article/forum context for local riders."
+        "note": "Slovak motorcycle community context for local riders and practical advice."
       }
     ],
-    "buyingPriorities": ["3D mesh cover", "gel pad", "local upholsterer", "used OEM comfort seat"],
-    "adminNotes": "Slovak page should be the practical low-chaos beginner guide."
+    "buyingPriorities": [
+      "3D mesh cover",
+      "thin gel or air pad",
+      "local upholsterer",
+      "used OEM comfort seat",
+      "verified EU aftermarket seat"
+    ],
+    "adminNotes": "Slovakia should be the clearest beginner-first path: cheap test, local upholsterer, then imported products."
   },
   {
     "countryCode": "hu",
     "priority": 7,
     "marketMode": "budget_and_workshop",
-    "leadMotorcycleSegments": ["Naked Bike", "Adventure Touring", "Scooter"],
-    "leadMotorcycles": ["yamaha-mt-07", "honda-nc750x", "bmw-r-1250-gs", "honda-forza-350"],
+    "leadMotorcycleSegments": [
+      "Naked Bike",
+      "Adventure Touring",
+      "Scooter"
+    ],
+    "leadMotorcycles": [
+      "yamaha-mt-07",
+      "honda-nc750x",
+      "bmw-r-1250-gs",
+      "honda-forza-350"
+    ],
     "primaryPainPoints": [
       "Budget choice between simple pad and local upholstery.",
       "Daily use plus weekend touring.",
@@ -189,15 +301,29 @@
         "note": "Hungarian motorcycle community and local rider context."
       }
     ],
-    "buyingPriorities": ["mesh cover", "gel pad", "local upholsterer", "used comfort seat"],
+    "buyingPriorities": [
+      "mesh cover",
+      "gel pad",
+      "local upholsterer",
+      "used comfort seat"
+    ],
     "adminNotes": "Hungary should emphasize clear cost bands and local workshops."
   },
   {
     "countryCode": "pl",
     "priority": 8,
     "marketMode": "tapicer_and_diy_value",
-    "leadMotorcycleSegments": ["Naked Bike", "Adventure Touring", "Cruiser"],
-    "leadMotorcycles": ["yamaha-mt-07", "bmw-r-1250-gs", "honda-crf1100l-africa-twin", "harley-davidson-street-glide"],
+    "leadMotorcycleSegments": [
+      "Naked Bike",
+      "Adventure Touring",
+      "Cruiser"
+    ],
+    "leadMotorcycles": [
+      "yamaha-mt-07",
+      "bmw-r-1250-gs",
+      "honda-crf1100l-africa-twin",
+      "harley-davidson-street-glide"
+    ],
     "primaryPainPoints": [
       "Pain after 50 km to 1 hour and interest in gel inserts.",
       "Choosing a repeated local upholsterer rather than expensive replacement.",
@@ -219,15 +345,30 @@
         "note": "Polish motorcycle forum with seat and comfort threads."
       }
     ],
-    "buyingPriorities": ["local tapicer", "gel insert", "anti-slip cover", "mesh cover", "used seat"],
+    "buyingPriorities": [
+      "local tapicer",
+      "gel insert",
+      "anti-slip cover",
+      "mesh cover",
+      "used seat"
+    ],
     "adminNotes": "Poland pages should give tapicer brief/checklist early."
   },
   {
     "countryCode": "ru",
     "priority": 9,
     "marketMode": "availability_first",
-    "leadMotorcycleSegments": ["Adventure Touring", "Naked Bike", "Scooter"],
-    "leadMotorcycles": ["bmw-r-1250-gs", "honda-nc750x", "cfmoto-800mt", "royal-enfield-himalayan"],
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Naked Bike",
+      "Scooter"
+    ],
+    "leadMotorcycles": [
+      "bmw-r-1250-gs",
+      "honda-nc750x",
+      "cfmoto-800mt",
+      "royal-enfield-himalayan"
+    ],
     "primaryPainPoints": [
       "Availability and import uncertainty.",
       "DIY or local workshop before premium imported seats.",
@@ -243,15 +384,29 @@
         "note": "Russian motorcycle community and owner experience articles."
       }
     ],
-    "buyingPriorities": ["local upholsterer", "mesh cover", "gel pad", "used OEM seat", "repair materials"],
+    "buyingPriorities": [
+      "local upholsterer",
+      "mesh cover",
+      "gel pad",
+      "used OEM seat",
+      "repair materials"
+    ],
     "adminNotes": "Russia should surface availability status and alternatives before brand prestige."
   },
   {
     "countryCode": "tr",
     "priority": 10,
     "marketMode": "daily_budget_heat",
-    "leadMotorcycleSegments": ["Commuter", "Scooter", "Naked Bike"],
-    "leadMotorcycles": ["honda-nc750x", "yamaha-mt-07", "honda-forza-350"],
+    "leadMotorcycleSegments": [
+      "Commuter",
+      "Scooter",
+      "Naked Bike"
+    ],
+    "leadMotorcycles": [
+      "honda-nc750x",
+      "yamaha-mt-07",
+      "honda-forza-350"
+    ],
     "primaryPainPoints": [
       "Gel insert questions for smaller daily motorcycles.",
       "Hot weather and long city use.",
@@ -267,15 +422,27 @@
         "note": "Large Turkish motorcycle forum with gel-seat and comfort discussions."
       }
     ],
-    "buyingPriorities": ["mesh cover", "gel pad", "local sele ustası", "air cushion"],
+    "buyingPriorities": [
+      "mesh cover",
+      "gel pad",
+      "local sele ustası",
+      "air cushion"
+    ],
     "adminNotes": "Turkey pages should directly answer whether gel is worth it for smaller bikes."
   },
   {
     "countryCode": "th",
     "priority": 11,
     "marketMode": "scooter_heat_low_cost",
-    "leadMotorcycleSegments": ["Scooter", "Underbone", "Commuter"],
-    "leadMotorcycles": ["honda-forza-350", "vespa-gts-300"],
+    "leadMotorcycleSegments": [
+      "Scooter",
+      "Underbone",
+      "Commuter"
+    ],
+    "leadMotorcycles": [
+      "honda-forza-350",
+      "vespa-gts-300"
+    ],
     "primaryPainPoints": [
       "Scooter seat pain during daily riding.",
       "Heat, humidity and rain.",
@@ -291,15 +458,29 @@
         "note": "Thai discussions about scooter seats, butt pain, foam and gel."
       }
     ],
-    "buyingPriorities": ["3D mesh cover", "thin gel pad", "local seat foam reshaping", "water-resistant cover"],
+    "buyingPriorities": [
+      "3D mesh cover",
+      "thin gel pad",
+      "local seat foam reshaping",
+      "water-resistant cover"
+    ],
     "adminNotes": "Thailand is a scooter-first, heat-first and budget-first market."
   },
   {
     "countryCode": "id",
     "priority": 12,
     "marketMode": "scooter_commuter_budget",
-    "leadMotorcycleSegments": ["Scooter", "Underbone", "Commuter", "Budget Adventure"],
-    "leadMotorcycles": ["honda-forza-350", "royal-enfield-himalayan", "cfmoto-800mt"],
+    "leadMotorcycleSegments": [
+      "Scooter",
+      "Underbone",
+      "Commuter",
+      "Budget Adventure"
+    ],
+    "leadMotorcycles": [
+      "honda-forza-350",
+      "royal-enfield-himalayan",
+      "cfmoto-800mt"
+    ],
     "primaryPainPoints": [
       "Daily scooter and commuter seat discomfort.",
       "Heat, rain and slippery stock seats.",
@@ -321,15 +502,28 @@
         "note": "Large Indonesian forum context for local automotive and motorcycle discussions."
       }
     ],
-    "buyingPriorities": ["3D mesh cover", "air-through pad", "thin gel pad", "local jok motor", "waterproof cover"],
+    "buyingPriorities": [
+      "3D mesh cover",
+      "air-through pad",
+      "thin gel pad",
+      "local jok motor",
+      "waterproof cover"
+    ],
     "adminNotes": "Indonesia pages should open with budget pads and scooter/commuter use."
   },
   {
     "countryCode": "my",
     "priority": 13,
     "marketMode": "kapcai_scooter_weather",
-    "leadMotorcycleSegments": ["Underbone", "Scooter", "Commuter"],
-    "leadMotorcycles": ["honda-forza-350", "yamaha-mt-07"],
+    "leadMotorcycleSegments": [
+      "Underbone",
+      "Scooter",
+      "Commuter"
+    ],
+    "leadMotorcycles": [
+      "honda-forza-350",
+      "yamaha-mt-07"
+    ],
     "primaryPainPoints": [
       "Kapcai, scooter and commuter comfort.",
       "Heat and rain.",
@@ -345,15 +539,28 @@
         "note": "Malaysian rider forum context for local bikes, buying and daily use."
       }
     ],
-    "buyingPriorities": ["mesh cover", "air cushion", "water-resistant cover", "local upholstery"],
+    "buyingPriorities": [
+      "mesh cover",
+      "air cushion",
+      "water-resistant cover",
+      "local upholstery"
+    ],
     "adminNotes": "Malaysia needs kapcai/underbone vocabulary and local marketplace mapping."
   },
   {
     "countryCode": "cn",
     "priority": 14,
     "marketMode": "platform_commuter_scooter",
-    "leadMotorcycleSegments": ["Scooter", "Commuter", "Budget Adventure"],
-    "leadMotorcycles": ["honda-forza-350", "cfmoto-800mt", "royal-enfield-himalayan"],
+    "leadMotorcycleSegments": [
+      "Scooter",
+      "Commuter",
+      "Budget Adventure"
+    ],
+    "leadMotorcycles": [
+      "honda-forza-350",
+      "cfmoto-800mt",
+      "royal-enfield-himalayan"
+    ],
     "primaryPainPoints": [
       "Commuter and scooter heat/pressure pain.",
       "Huge platform choice but uncertain fitment and review quality.",
@@ -369,7 +576,113 @@
         "note": "Chinese motorcycle community and article/forum context."
       }
     ],
-    "buyingPriorities": ["breathable mesh", "thin gel pad", "local upholstery", "platform fitment check", "waterproof cover"],
+    "buyingPriorities": [
+      "breathable mesh",
+      "thin gel pad",
+      "local upholstery",
+      "platform fitment check",
+      "waterproof cover"
+    ],
     "adminNotes": "China needs marketplace and fitment confidence before product ranking."
+  },
+  {
+    "countryCode": "uk",
+    "priority": 15,
+    "marketMode": "premium_touring_and_commuter",
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Sport Touring",
+      "Commuter",
+      "Cruiser / Bagger"
+    ],
+    "leadMotorcycles": [
+      "bmw-r-1300-gs",
+      "bmw-r-1250-gs",
+      "honda-crf1100l-africa-twin",
+      "harley-davidson-street-glide"
+    ],
+    "primaryPainPoints": [
+      "Long-distance discomfort on adventure and touring bikes.",
+      "Choosing between Sargent, Corbin, Bagster, OEM comfort seat and local trim work.",
+      "Rain gear and textile trousers can change sliding and pressure.",
+      "Airhawk, sheepskin and pads are common reversible experiments."
+    ],
+    "firstRecommendation": "Use a reversible pad or sheepskin/Airhawk test first, then compare Sargent, Corbin, Bagster and local trimmers with fitment, break-in and return notes.",
+    "budgetLogic": "UK riders may pay for premium seats, but forums show strong personal fit variation; recommend evidence and return path before brand prestige.",
+    "forumSources": [
+      {
+        "name": "UKGSer",
+        "url": "https://www.ukgser.com/community/",
+        "language": "en",
+        "note": "UK BMW GS community with Sargent, Corbin, Bagster, Airhawk and sheepskin seat discussions."
+      },
+      {
+        "name": "BMW MOA Forums",
+        "url": "https://forums.bmwmoa.org/",
+        "language": "en",
+        "note": "North American but useful English-language comparisons of Corbin, Sargent, BMW comfort seats and custom makers."
+      },
+      {
+        "name": "Reddit r/motorcycles",
+        "url": "https://www.reddit.com/r/motorcycles/",
+        "language": "en",
+        "note": "Current broad seat pad, aftermarket and long-ride comfort discussions."
+      }
+    ],
+    "buyingPriorities": [
+      "Airhawk or sheepskin test",
+      "Sargent",
+      "Corbin",
+      "Bagster/local trimmer",
+      "OEM comfort seat"
+    ],
+    "adminNotes": "UK needs dedicated buying channels and clear import/return notes."
+  },
+  {
+    "countryCode": "es",
+    "priority": 16,
+    "marketMode": "touring_heat_and_value",
+    "leadMotorcycleSegments": [
+      "Adventure Touring",
+      "Sport Touring",
+      "Urban Scooter",
+      "Roadster"
+    ],
+    "leadMotorcycles": [
+      "bmw-r-1250-gs",
+      "bmw-r-1300-gs",
+      "honda-forza-350",
+      "yamaha-mt-07"
+    ],
+    "primaryPainPoints": [
+      "BMW comfort seat questions for GS/F/RT style bikes.",
+      "Bagster and Top Sellerie comparisons with gel and added padding.",
+      "Heat and long routes make breathable covers relevant.",
+      "Wider or taller comfort seats can reduce reach to the ground."
+    ],
+    "firstRecommendation": "Start with heat-aware mesh or air/gel test, then compare BMW comfort, Bagster, Top Sellerie and local tapicero with height and width warnings.",
+    "budgetLogic": "Spain should balance touring comfort and price; local tapicero can be better value than imported premium if requirements are clear.",
+    "forumSources": [
+      {
+        "name": "BMWMOTOS.com",
+        "url": "https://www.bmwmotos.com/foro/",
+        "language": "es",
+        "note": "Spanish BMW motorcycle forum with comfort seat, Bagster, Top Sellerie and tapicero experiences."
+      },
+      {
+        "name": "ForoCoches Motos",
+        "url": "https://forocoches.com/foro/forumdisplay.php?f=73",
+        "language": "es",
+        "note": "Large Spanish forum area for motorcycle buying and owner discussions."
+      }
+    ],
+    "buyingPriorities": [
+      "3D mesh cover",
+      "BMW comfort seat",
+      "Bagster",
+      "Top Sellerie",
+      "local tapicero"
+    ],
+    "adminNotes": "Spain needs heat, seat height and wider-seat warnings on every recommendation."
   }
 ]

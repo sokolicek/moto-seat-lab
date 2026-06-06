@@ -6,6 +6,7 @@ import mediaAssets from "../../../../data/media/media-assets.json";
 import videos from "../../../../data/videos/seat-videos.json";
 import uiCopy from "../../../../data/i18n/ui-copy.json";
 import countrySeatIntelligence from "../../../../data/country-seat-intelligence.json";
+import countryCatalogLocalization from "../../../../data/country-catalog-localization.json";
 
 const activeCountries = countries.filter((country) => country.status === "active" || country.status === "draft");
 const activeMotorcycles = motorcycles.filter((motorcycle) => motorcycle.status === "active");
@@ -37,7 +38,7 @@ const analyticsPlan = [
         <span class="admin-stat"><strong>{countries.length}</strong><small>Länder</small></span>
         <span class="admin-stat"><strong>{motorcycles.length}</strong><small>Motorräder</small></span>
         <span class="admin-stat"><strong>{forumSourceCount}</strong><small>Forum-/Research-Quellen</small></span>
-        <span class="admin-stat"><strong>{translationCount}</strong><small>UI-Übersetzungen</small></span>
+        <span class="admin-stat"><strong>{countryCatalogLocalization.length}</strong><small>Lokale Kataloge</small></span>
       </div>
     </div>
   </section>
@@ -53,6 +54,8 @@ const analyticsPlan = [
           <span><strong>Draft motorcycles</strong>{draftMotorcycles.length}</span>
           <span><strong>Media assets</strong>{mediaAssets.length}</span>
           <span><strong>Videos</strong>{videos.length}</span>
+          <span><strong>UI translations</strong>{translationCount}</span>
+          <span><strong>Localized catalog packs</strong>{countryCatalogLocalization.length}</span>
         </div>
       </article>
       <article class="card">
@@ -103,6 +106,31 @@ const analyticsPlan = [
           })}
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="page-inner">
+      <p class="eyebrow">Localized catalog</p>
+      <h2>First translated catalog packs</h2>
+      <div class="admin-dashboard-grid">
+        {countryCatalogLocalization.map((item) => {
+          const country = countries.find((entry) => entry.code === item.countryCode);
+          return (
+            <article class="card">
+              <p class="eyebrow">{country?.flagEmoji} {country?.nativeName ?? item.countryCode}</p>
+              <h3>{item.title}</h3>
+              <p>{item.intro}</p>
+              <div class="quick-facts">
+                <span><strong>Fast relief</strong>{item.quickRelief.length}</span>
+                <span><strong>Buying</strong>{item.buyingRecommendations.length}</span>
+                <span><strong>DIY</strong>{item.diyRecommendations.length}</span>
+              </div>
+              <p>{item.availabilityNotes}</p>
+            </article>
+          );
+        })}
+      </div>
     </div>
   </section>
 </BaseLayout>

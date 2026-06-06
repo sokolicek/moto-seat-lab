@@ -298,6 +298,21 @@ CREATE TABLE IF NOT EXISTS country_research_sources (
   updated_at timestamptz NOT NULL DEFAULT now()
 );
 
+CREATE TABLE IF NOT EXISTS country_catalog_localizations (
+  country_code text PRIMARY KEY REFERENCES countries(code) ON DELETE CASCADE,
+  language_code text REFERENCES languages(code) ON DELETE SET NULL,
+  title text NOT NULL,
+  intro text NOT NULL,
+  quick_relief jsonb NOT NULL DEFAULT '[]'::jsonb,
+  buying_recommendations jsonb NOT NULL DEFAULT '[]'::jsonb,
+  diy_recommendations jsonb NOT NULL DEFAULT '[]'::jsonb,
+  availability_notes text NOT NULL,
+  admin_priority text,
+  source_data jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+
 CREATE TABLE IF NOT EXISTS visitor_events (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   occurred_at timestamptz NOT NULL DEFAULT now(),
@@ -439,6 +454,7 @@ CREATE INDEX IF NOT EXISTS idx_workshop_supplies_type ON workshop_supplies(suppl
 CREATE INDEX IF NOT EXISTS idx_buying_channels_country ON buying_channels(country_code);
 CREATE INDEX IF NOT EXISTS idx_country_seat_strategies_priority ON country_seat_strategies(priority, country_code);
 CREATE INDEX IF NOT EXISTS idx_country_research_sources_country ON country_research_sources(country_code, source_type, status);
+CREATE INDEX IF NOT EXISTS idx_country_catalog_localizations_language ON country_catalog_localizations(language_code, country_code);
 CREATE INDEX IF NOT EXISTS idx_visitor_events_country_time ON visitor_events(country_code, occurred_at DESC);
 CREATE INDEX IF NOT EXISTS idx_visitor_events_route_time ON visitor_events(route_path, occurred_at DESC);
 CREATE INDEX IF NOT EXISTS idx_content_media_links_entity ON content_media_links(entity_type, entity_key, usage, priority);
@@ -494,6 +510,8 @@ UNION ALL
 SELECT 'country_seat_strategies', count(*)::integer FROM country_seat_strategies
 UNION ALL
 SELECT 'country_research_sources', count(*)::integer FROM country_research_sources
+UNION ALL
+SELECT 'country_catalog_localizations', count(*)::integer FROM country_catalog_localizations
 UNION ALL
 SELECT 'visitor_events', count(*)::integer FROM visitor_events
 UNION ALL
@@ -686,6 +704,20 @@ SELECT
   'country research source has no URL'
 FROM country_research_sources
 WHERE url IS NULL OR url = ''
+UNION ALL
+SELECT
+  'country_catalog_localizations',
+  country_code,
+  'localized catalog has no quick relief items'
+FROM country_catalog_localizations
+WHERE quick_relief IS NULL OR jsonb_array_length(quick_relief) = 0
+UNION ALL
+SELECT
+  'country_catalog_localizations',
+  country_code,
+  'localized catalog has no buying recommendations'
+FROM country_catalog_localizations
+WHERE buying_recommendations IS NULL OR jsonb_array_length(buying_recommendations) = 0
 UNION ALL
 SELECT
   'media_assets',

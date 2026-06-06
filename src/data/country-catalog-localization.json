@@ -1,0 +1,68 @@
+[
+  {
+    "countryCode": "de",
+    "languageCode": "de",
+    "title": "Lokaler Katalog: Deutschland",
+    "intro": "Für Deutschland startet der Katalog mit BMW GS, Suzuki GSX-S1000GX, Honda Africa Twin und sportlichen Tourern. Erst Ursache und Test, dann OEM, Wunderlich, Touratech, Sargent, Bagster oder Sattler.",
+    "quickRelief": ["3D-Mesh gegen Hitze", "Airhawk/Luftkissen als reversibler Test", "Sitzneigung prüfen", "Anti-Rutsch Bezug bei Rutschen"],
+    "buyingRecommendations": ["BMW OEM Komfortsitz nur mit Sitzhöhe vergleichen", "Wunderlich Aktivkomfort für BMW GS prüfen", "Touratech Fresh Touch/Komfortsitze prüfen", "Sargent/Bagster nur mit Fitment und Rückgabe"],
+    "diyRecommendations": ["Druckpunkte markieren", "Sitzhöhe nicht blind abpolstern", "Schaum nur schichtweise testen", "Sitzheizung/Wasserdichtheit dokumentieren"],
+    "availabilityNotes": "DACH hat gute Premium-Auswahl, aber Foren zeigen: teuer heißt nicht automatisch passend.",
+    "adminPriority": "BMW GS and GSX-S1000GX first; then Honda/Yamaha touring."
+  },
+  {
+    "countryCode": "sk",
+    "languageCode": "sk",
+    "title": "Lokálny katalóg: Slovensko",
+    "intro": "Na Slovensku má zmysel začať prakticky: lacná vratná úľava, potom lokálny čalúnnik, až potom drahé dovozové sedlo.",
+    "quickRelief": ["3D mesh poťah proti teplu", "tenká gélová podložka ako test", "vzduchová podložka na dlhšie jazdy", "protišmykový poťah pri kĺzaní"],
+    "buyingRecommendations": ["najprv hľadať použité alebo OEM komfortné sedlo", "overiť dostupnosť Sargent/Bagster/Touratech cez EU predajcov", "lokálny čalúnnik často dáva lepší pomer cena/výsledok", "affiliate link až po jasnom označení"],
+    "diyRecommendations": ["najprv fotky a označenie bolestivých bodov", "nerozrezať sedlo bez plánu vrstiev", "lepidlo a poťah vybrať podľa tepla a dažďa", "po úprave testovať krátku aj dlhú trasu"],
+    "availabilityNotes": "Lokálne fórum signály ukazujú záujem o prerobenie sedla, výplň, poťah a cenu.",
+    "adminPriority": "Beginner-first Slovak guide with local upholsterer checklist."
+  },
+  {
+    "countryCode": "uk",
+    "languageCode": "en",
+    "title": "Local catalogue: United Kingdom",
+    "intro": "The UK path should cover commuting, rain, long weekends, BMW GS, adventure touring and honest comparison of Sargent, Corbin, Bagster, Airhawk, sheepskin and local trimmers.",
+    "quickRelief": ["Airhawk as a reversible long-ride test", "sheepskin or breathable cover", "waterproof clothing and seat slope check", "anti-slip cover for textile riding gear"],
+    "buyingRecommendations": ["Sargent for lighter aftermarket touring seat options", "Corbin for firm custom-style seats, with break-in and weight caveats", "Bagster or local trimmer when style and gel are wanted", "OEM comfort seat only if height and width still fit"],
+    "diyRecommendations": ["do not add soft foam without pressure mapping", "check waterproofing after cover removal", "document seat-pan clips and heating wiring", "test in rain gear as well as normal kit"],
+    "availabilityNotes": "UK forums repeatedly compare Sargent, Corbin, Bagster, Airhawk and local trim work; rider shape and return path matter.",
+    "adminPriority": "UK should get a separate buying-channel table later: Sargent UK/EU, Corbin import, Bagster dealers, local trimmers."
+  },
+  {
+    "countryCode": "it",
+    "languageCode": "it",
+    "title": "Catalogo locale: Italia",
+    "intro": "In Italia il comfort deve convivere con stile e finitura. Ducati, Moto Guzzi, Vespa e BMW hanno bisogni diversi: prima ergonomia, poi cuciture e look.",
+    "quickRelief": ["cover mesh per caldo", "gel sottile come prova reversibile", "controllo inclinazione sella", "rivestimento antiscivolo"],
+    "buyingRecommendations": ["sella OEM comfort se la quota resta corretta", "Bagster/Top Sellerie quando serve finitura su misura", "tappezziere locale per modifica mirata", "Sargent/Corbin solo con fitment verificato"],
+    "diyRecommendations": ["misurare punti di pressione", "non inseguire solo morbidezza", "proteggere cuciture e impermeabilità", "testare con pantaloni estivi e touring"],
+    "availabilityNotes": "Le discussioni italiane mostrano interesse per gel, altezza sella e comfort per piloti più anziani o viaggi lunghi.",
+    "adminPriority": "Italy should show style warnings without letting aesthetics override ergonomics."
+  },
+  {
+    "countryCode": "es",
+    "languageCode": "es",
+    "title": "Catálogo local: España",
+    "intro": "En España el catálogo empieza con calor, rutas, BMW GS/F/RT, Bagster, Top Sellerie, gel y tapicero local. Ojo: más confort puede significar más anchura y altura.",
+    "quickRelief": ["funda 3D mesh contra calor", "gel fino como prueba", "cojín de aire en viajes", "material antideslizante si la ropa resbala"],
+    "buyingRecommendations": ["asiento BMW confort si no compromete altura", "Bagster o Top Sellerie con gel y anchura revisadas", "tapicero local para modificar la espuma", "comparar precio, devolución y plazo antes de comprar"],
+    "diyRecommendations": ["marcar dónde duele antes de abrir", "no añadir gel sin revisar dureza de espuma", "controlar impermeabilidad tras tapizar", "probar en calor real"],
+    "availabilityNotes": "Foros españoles citan BMW comfort, Bagster, Top Sellerie, gel y tapiceros; la altura al suelo aparece como riesgo importante.",
+    "adminPriority": "Spain needs heat and seat-height warnings early."
+  },
+  {
+    "countryCode": "fr",
+    "languageCode": "fr",
+    "title": "Catalogue local : France",
+    "intro": "En France, le portail doit mettre en avant les selliers, Bagster, Top Sellerie, gel et comparaison honnête entre confort réel et finition visible.",
+    "quickRelief": ["housse mesh contre la chaleur", "coussin air pour test longue distance", "gel seulement comme test ciblé", "revêtement antidérapant si le pilote glisse"],
+    "buyingRecommendations": ["Bagster avec vérification mousse/gel", "Top Sellerie avec attention à l’inclinaison", "sellier local avec cahier des charges", "OEM confort si hauteur et retour sont clairs"],
+    "diyRecommendations": ["mesurer les points d’appui", "ne pas confondre souple et confortable", "documenter couture et étanchéité", "tester pilote et passager séparément"],
+    "availabilityNotes": "Les forums français discutent Bagster, Top Sellerie, Moillo, gel et sellier; la selle passager et le glissement reviennent souvent.",
+    "adminPriority": "France should prioritize sellier comparison and passenger comfort notes."
+  }
+]

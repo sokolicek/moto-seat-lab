@@ -2,6 +2,7 @@ import countries from "../data/i18n/countries.json";
 import localizedHome from "../data/i18n/localized-home.json";
 import uiCopy from "../data/i18n/ui-copy.json";
 import countrySeatIntelligence from "../data/country-seat-intelligence.json";
+import countryCatalogLocalization from "../data/country-catalog-localization.json";
 
 export type LocaleStatus = "active" | "draft" | "planned";
 
@@ -44,6 +45,18 @@ export interface CountrySeatIntelligence {
   adminNotes: string;
 }
 
+export interface CountryCatalogLocalization {
+  countryCode: string;
+  languageCode: string;
+  title: string;
+  intro: string;
+  quickRelief: string[];
+  buyingRecommendations: string[];
+  diyRecommendations: string[];
+  availabilityNotes: string;
+  adminPriority: string;
+}
+
 type CopyMap = Record<string, Record<string, string>>;
 type LocalizedHomeMap = Record<
   string,
@@ -67,6 +80,7 @@ type LocalizedHomeMap = Record<
 
 const countryProfiles = countries as CountryProfile[];
 const countrySeatIntelligenceList = countrySeatIntelligence as CountrySeatIntelligence[];
+const countryCatalogLocalizationList = countryCatalogLocalization as CountryCatalogLocalization[];
 const copyMap = uiCopy as CopyMap;
 const localizedHomeMap = localizedHome as LocalizedHomeMap;
 
@@ -89,9 +103,11 @@ export const getCountriesForSwitcher = () =>
 export const getCountryHreflang = (country: Pick<CountryProfile, "code" | "primaryLanguage">) => {
   const regionByCountry: Record<string, string> = {
     de: "DE",
+    uk: "GB",
     at: "AT",
     ch: "CH",
     fr: "FR",
+    es: "ES",
     it: "IT",
     sk: "SK",
     hu: "HU",
@@ -127,3 +143,9 @@ export const getCountrySeatIntelligence = (countryCode: string) =>
 
 export const getCountrySeatIntelligenceList = () =>
   [...countrySeatIntelligenceList].sort((left, right) => left.priority - right.priority);
+
+export const getCountryCatalogLocalization = (countryCode: string) =>
+  countryCatalogLocalizationList.find((item) => item.countryCode === countryCode);
+
+export const getCountryCatalogLocalizationList = () =>
+  [...countryCatalogLocalizationList].sort((left, right) => left.countryCode.localeCompare(right.countryCode));

@@ -1,7 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import countries from "../../data/i18n/countries.json";
-import { getCopy, getCountryHreflang, getCountrySeatIntelligence, getLocalizedHome } from "../../lib/i18n";
+import {
+  getCopy,
+  getCountryCatalogLocalization,
+  getCountryHreflang,
+  getCountrySeatIntelligence,
+  getLocalizedHome,
+} from "../../lib/i18n";
 
 export function getStaticPaths() {
   return countries
@@ -15,6 +21,7 @@ export function getStaticPaths() {
 const { country } = Astro.props;
 const home = getLocalizedHome(country.code);
 const intelligence = getCountrySeatIntelligence(country.code);
+const catalog = getCountryCatalogLocalization(country.code);
 const t = (key: string) => getCopy(country.primaryLanguage, key);
 const countryAlternates = countries.map((item) => ({
   lang: getCountryHreflang(item),
@@ -117,6 +124,44 @@ const translatedUiExamples = [
                 </li>
               ))}
             </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {catalog && (
+    <section class="section">
+      <div class="page-inner">
+        <p class="eyebrow">{country.flagEmoji} Local catalog</p>
+        <h2>{catalog.title}</h2>
+        <p class="lead">{catalog.intro}</p>
+        <div class="country-intel-grid">
+          <article class="card">
+            <p class="eyebrow">Fast relief</p>
+            <h3>Try first</h3>
+            <ul class="check-list">
+              {catalog.quickRelief.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="card">
+            <p class="eyebrow">Buying</p>
+            <h3>Compare before buying</h3>
+            <ul class="check-list">
+              {catalog.buyingRecommendations.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="card">
+            <p class="eyebrow">DIY</p>
+            <h3>Modify carefully</h3>
+            <ul class="check-list">
+              {catalog.diyRecommendations.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+          <article class="notice">
+            <p class="eyebrow">Availability</p>
+            <h3>Local note</h3>
+            <p>{catalog.availabilityNotes}</p>
           </article>
         </div>
       </div>

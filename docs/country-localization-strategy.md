@@ -49,6 +49,34 @@ Do not translate the full catalog blindly. Use this order:
 7. Add country-specific buying channels and affiliate disclosure.
 8. Review claims before publishing.
 
+## First Localization Wave
+
+The first translated catalog wave covers:
+
+- Germany (`de`)
+- Slovakia (`sk`)
+- United Kingdom (`uk`)
+- Italy (`it`)
+- Spain (`es`)
+- France (`fr`)
+
+Implemented fields per country:
+
+- local catalog intro,
+- quick relief recommendations,
+- buying recommendations,
+- DIY recommendations,
+- availability notes,
+- admin priority notes,
+- country forum/research signals.
+
+The UK and Spain were added as new country routes:
+
+- `/uk/`
+- `/es/`
+
+These pages are draft country layers. Product availability, affiliate links, prices and final rankings still need manual review before publication.
+
 ## Admin And Analytics
 
 The static MVP can show catalog stats, but it cannot record visits by itself.

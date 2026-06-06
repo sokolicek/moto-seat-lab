@@ -419,5 +419,63 @@
       "local upholstery",
       "budget pads"
     ]
+  },
+  {
+    "code": "uk",
+    "flagEmoji": "🇬🇧",
+    "slug": "united-kingdom",
+    "name": "United Kingdom",
+    "nativeName": "United Kingdom",
+    "primaryLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "region": "Western Europe",
+    "marketTier": "premium_touring_and_commuter",
+    "currency": "GBP",
+    "seatStrategy": "UK starts with long-distance comfort, adventure touring, commuting, Sargent/Corbin/Airhawk and local trim shops.",
+    "defaultPath": "/uk/",
+    "status": "draft",
+    "priority": 15,
+    "notes": "First UK layer: English content, local forums and availability need ongoing verification.",
+    "designHints": {
+      "tone": "practical, direct, product-aware",
+      "imagery": "touring, rainy roads, adventure and commuter bikes"
+    },
+    "contentFocus": [
+      "BMW GS and adventure touring seats",
+      "Sargent, Corbin, Bagster, Airhawk and sheepskin/air pads",
+      "Local trimmers and return/fitment checks",
+      "Commuting plus long weekends"
+    ]
+  },
+  {
+    "code": "es",
+    "flagEmoji": "🇪🇸",
+    "slug": "spain",
+    "name": "Spain",
+    "nativeName": "España",
+    "primaryLanguage": "es",
+    "languages": [
+      "es"
+    ],
+    "region": "Southern Europe",
+    "marketTier": "touring_heat_and_value",
+    "currency": "EUR",
+    "seatStrategy": "Spain starts with BMW GS/F/RT comfort seats, Bagster, Top Sellerie, gel and local tapicero options with heat awareness.",
+    "defaultPath": "/es/",
+    "status": "draft",
+    "priority": 16,
+    "notes": "First Spanish layer: forum-backed starting assumptions, product availability needs deeper verification.",
+    "designHints": {
+      "tone": "practical, warm, price-aware",
+      "imagery": "sun, touring roads, city scooters"
+    },
+    "contentFocus": [
+      "Asiento confort and gel comparisons",
+      "BMW touring and mid-size adventure bikes",
+      "Heat, height and wider-seat tradeoffs",
+      "Tapicero and value modifications"
+    ]
   }
 ]

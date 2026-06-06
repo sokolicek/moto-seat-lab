@@ -258,5 +258,45 @@
       "查看本地平台和座椅改装店时，优先关注适配、退换和真实评价。",
       "只有在明确压力点、坐骨位置和座椅高度后，再考虑拆座椅、切泡棉或重包。"
     ]
+  },
+  "uk": {
+    "title": "Moto Seat Lab UK - motorcycle seat comfort",
+    "description": "UK version: motorcycle seat comfort, touring, commuting, Sargent, Corbin, Airhawk, local trimmers and honest buying checks.",
+    "eyebrow": "Moto Seat Lab UK",
+    "headline": "Seat pain after an hour should not decide your ride.",
+    "lead": "The UK version starts with real use: commuting, wet weather, weekend touring and long-distance comfort. Try reversible relief first, then compare OEM, aftermarket and local trimming.",
+    "primaryAction": "Open German MVP",
+    "secondaryAction": "Open motorcycles",
+    "assetNote": "UK country layer is active. Local prices, fitments and supplier links are still being verified.",
+    "strategyEyebrow": "Local strategy",
+    "strategyTitle": "Touring comfort, rain and fitment first.",
+    "strategyText": "The UK page should compare Sargent, Corbin, Bagster, Airhawk, sheepskin and local trimmers without pretending one expensive seat works for every rider.",
+    "priorityEyebrow": "Recommendation order",
+    "priorityTitle": "Start with the least risky test",
+    "priorities": [
+      "Check pain location, riding time, waterproof clothing and seat slope.",
+      "Try Airhawk, mesh, sheepskin or a reversible pad before changing the seat pan.",
+      "Compare Sargent, Corbin, Bagster or a local trimmer only with fitment, return and rider-height notes."
+    ]
+  },
+  "es": {
+    "title": "Moto Seat Lab España - comodidad del asiento de moto",
+    "description": "Versión española: asiento confort, gel, Bagster, Top Sellerie, tapicero, calor y comparativas honestas.",
+    "eyebrow": "Moto Seat Lab España",
+    "headline": "¿El asiento empieza a doler después de una hora?",
+    "lead": "La versión española empieza por lo práctico: calor, rutas largas, altura del asiento, gel, Bagster, Top Sellerie y un tapicero local antes de comprar a ciegas.",
+    "primaryAction": "Ver MVP alemán",
+    "secondaryAction": "Abrir motos",
+    "assetNote": "La versión española está activa. Productos, precios y enlaces locales se verificarán paso a paso.",
+    "strategyEyebrow": "Estrategia local",
+    "strategyTitle": "Calor, rutas y altura del asiento.",
+    "strategyText": "En España no basta con recomendar una silla cara. Hay que mirar si el asiento nuevo es más ancho o alto, si hay gel real, si se puede devolver y si un tapicero local lo hace mejor.",
+    "priorityEyebrow": "Orden recomendado",
+    "priorityTitle": "Primero prueba, luego compra",
+    "priorities": [
+      "Empieza con una funda 3D mesh, gel fino o cojín de aire si quieres una prueba reversible.",
+      "Compara asiento BMW/OEM, Bagster, Top Sellerie y tapicero con altura, anchura y precio.",
+      "Modifica espuma o gel solo después de saber dónde presiona el asiento."
+    ]
   }
 }

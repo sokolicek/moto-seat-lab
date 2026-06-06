@@ -43,6 +43,23 @@ INSERT INTO languages (
     code, name, native_name, status, source_data, updated_at
   )
   VALUES (
+    'es',
+    'Spanish',
+    'Español',
+    'planned',
+    '{"code":"es","name":"Spanish","nativeName":"Español","status":"planned"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    status = EXCLUDED.status,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO languages (
+    code, name, native_name, status, source_data, updated_at
+  )
+  VALUES (
     'fr',
     'French',
     'Français',
@@ -1005,6 +1022,112 @@ INSERT INTO country_languages (
       true,
       1,
       '{"countryCode":"cn","languageCode":"zh","primaryLanguage":"zh"}'::jsonb
+    )
+    ON CONFLICT (country_code, language_code) DO UPDATE SET
+      is_primary = EXCLUDED.is_primary,
+      priority = EXCLUDED.priority,
+      source_data = EXCLUDED.source_data;
+INSERT INTO countries (
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
+    currency_code, status, priority, market_notes, design_hints, content_focus,
+    source_data, updated_at
+  )
+  VALUES (
+    'uk',
+    'united-kingdom',
+    '🇬🇧',
+    'United Kingdom',
+    'United Kingdom',
+    'en',
+    'Western Europe',
+    'premium_touring_and_commuter',
+    'GBP',
+    'draft',
+    15,
+    'UK starts with long-distance comfort, adventure touring, commuting, Sargent/Corbin/Airhawk and local trim shops.',
+    '{"tone":"practical, direct, product-aware","imagery":"touring, rainy roads, adventure and commuter bikes"}'::jsonb,
+    '["BMW GS and adventure touring seats","Sargent, Corbin, Bagster, Airhawk and sheepskin/air pads","Local trimmers and return/fitment checks","Commuting plus long weekends"]'::jsonb,
+    '{"code":"uk","flagEmoji":"🇬🇧","slug":"united-kingdom","name":"United Kingdom","nativeName":"United Kingdom","primaryLanguage":"en","languages":["en"],"region":"Western Europe","marketTier":"premium_touring_and_commuter","currency":"GBP","seatStrategy":"UK starts with long-distance comfort, adventure touring, commuting, Sargent/Corbin/Airhawk and local trim shops.","defaultPath":"/uk/","status":"draft","priority":15,"notes":"First UK layer: English content, local forums and availability need ongoing verification.","designHints":{"tone":"practical, direct, product-aware","imagery":"touring, rainy roads, adventure and commuter bikes"},"contentFocus":["BMW GS and adventure touring seats","Sargent, Corbin, Bagster, Airhawk and sheepskin/air pads","Local trimmers and return/fitment checks","Commuting plus long weekends"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    language_code = EXCLUDED.language_code,
+    region = EXCLUDED.region,
+    market_tier = EXCLUDED.market_tier,
+    currency_code = EXCLUDED.currency_code,
+    status = EXCLUDED.status,
+    priority = EXCLUDED.priority,
+    market_notes = EXCLUDED.market_notes,
+    design_hints = EXCLUDED.design_hints,
+    content_focus = EXCLUDED.content_focus,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_languages (
+      country_code, language_code, is_primary, priority, source_data
+    )
+    VALUES (
+      'uk',
+      'en',
+      true,
+      1,
+      '{"countryCode":"uk","languageCode":"en","primaryLanguage":"en"}'::jsonb
+    )
+    ON CONFLICT (country_code, language_code) DO UPDATE SET
+      is_primary = EXCLUDED.is_primary,
+      priority = EXCLUDED.priority,
+      source_data = EXCLUDED.source_data;
+INSERT INTO countries (
+    code, slug, flag_emoji, name, native_name, language_code, region, market_tier,
+    currency_code, status, priority, market_notes, design_hints, content_focus,
+    source_data, updated_at
+  )
+  VALUES (
+    'es',
+    'spain',
+    '🇪🇸',
+    'Spain',
+    'España',
+    'es',
+    'Southern Europe',
+    'touring_heat_and_value',
+    'EUR',
+    'draft',
+    16,
+    'Spain starts with BMW GS/F/RT comfort seats, Bagster, Top Sellerie, gel and local tapicero options with heat awareness.',
+    '{"tone":"practical, warm, price-aware","imagery":"sun, touring roads, city scooters"}'::jsonb,
+    '["Asiento confort and gel comparisons","BMW touring and mid-size adventure bikes","Heat, height and wider-seat tradeoffs","Tapicero and value modifications"]'::jsonb,
+    '{"code":"es","flagEmoji":"🇪🇸","slug":"spain","name":"Spain","nativeName":"España","primaryLanguage":"es","languages":["es"],"region":"Southern Europe","marketTier":"touring_heat_and_value","currency":"EUR","seatStrategy":"Spain starts with BMW GS/F/RT comfort seats, Bagster, Top Sellerie, gel and local tapicero options with heat awareness.","defaultPath":"/es/","status":"draft","priority":16,"notes":"First Spanish layer: forum-backed starting assumptions, product availability needs deeper verification.","designHints":{"tone":"practical, warm, price-aware","imagery":"sun, touring roads, city scooters"},"contentFocus":["Asiento confort and gel comparisons","BMW touring and mid-size adventure bikes","Heat, height and wider-seat tradeoffs","Tapicero and value modifications"]}'::jsonb,
+    now()
+  )
+  ON CONFLICT (code) DO UPDATE SET
+    slug = EXCLUDED.slug,
+    flag_emoji = EXCLUDED.flag_emoji,
+    name = EXCLUDED.name,
+    native_name = EXCLUDED.native_name,
+    language_code = EXCLUDED.language_code,
+    region = EXCLUDED.region,
+    market_tier = EXCLUDED.market_tier,
+    currency_code = EXCLUDED.currency_code,
+    status = EXCLUDED.status,
+    priority = EXCLUDED.priority,
+    market_notes = EXCLUDED.market_notes,
+    design_hints = EXCLUDED.design_hints,
+    content_focus = EXCLUDED.content_focus,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_languages (
+      country_code, language_code, is_primary, priority, source_data
+    )
+    VALUES (
+      'es',
+      'es',
+      true,
+      1,
+      '{"countryCode":"es","languageCode":"es","primaryLanguage":"es"}'::jsonb
     )
     ON CONFLICT (country_code, language_code) DO UPDATE SET
       is_primary = EXCLUDED.is_primary,
@@ -15570,6 +15693,1126 @@ INSERT INTO ui_translations (
       status = EXCLUDED.status,
       source_data = EXCLUDED.source_data,
       updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'brand.subtitle',
+      'Comodidad del asiento sin comprar a ciegas',
+      'draft',
+      '{"languageCode":"es","key":"brand.subtitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.start',
+      'Inicio',
+      'draft',
+      '{"languageCode":"es","key":"nav.start"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.motorcycles',
+      'Motos',
+      'draft',
+      '{"languageCode":"es","key":"nav.motorcycles"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.solutions',
+      'Soluciones',
+      'draft',
+      '{"languageCode":"es","key":"nav.solutions"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.buying',
+      'Comprar',
+      'draft',
+      '{"languageCode":"es","key":"nav.buying"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.diy',
+      'DIY',
+      'draft',
+      '{"languageCode":"es","key":"nav.diy"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.images',
+      'Imágenes',
+      'draft',
+      '{"languageCode":"es","key":"nav.images"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.locale',
+      'País',
+      'draft',
+      '{"languageCode":"es","key":"nav.locale"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.active',
+      'activo',
+      'draft',
+      '{"languageCode":"es","key":"locale.active"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.draft',
+      'borrador',
+      'draft',
+      '{"languageCode":"es","key":"locale.draft"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.planned',
+      'planificado',
+      'draft',
+      '{"languageCode":"es","key":"locale.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.panelTitle',
+      'Países e idiomas',
+      'draft',
+      '{"languageCode":"es","key":"locale.panelTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.panelLink',
+      'Preparar localización',
+      'draft',
+      '{"languageCode":"es","key":"locale.panelLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'locale.panelNote',
+      'Cada bandera abre una versión local con idioma y lógica propia.',
+      'draft',
+      '{"languageCode":"es","key":"locale.panelNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.summary',
+      'Proyecto independiente sobre comodidad de asiento, investigación y decisiones de compra claras. Ninguna recomendación garantiza ajuste, confort o efecto médico.',
+      'draft',
+      '{"languageCode":"es","key":"footer.summary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.mvp',
+      'Estado MVP: desarrollo local, sin redes publicitarias activas y sin enlaces afiliados de pago.',
+      'draft',
+      '{"languageCode":"es","key":"footer.mvp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.legal',
+      'Avisos legales',
+      'draft',
+      '{"languageCode":"es","key":"footer.legal"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.privacy',
+      'Privacidad',
+      'draft',
+      '{"languageCode":"es","key":"footer.privacy"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.privacyNote',
+      'Qué datos no se procesan ahora y qué se hará después de forma transparente.',
+      'draft',
+      '{"languageCode":"es","key":"footer.privacyNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.cookies',
+      'Cookies',
+      'draft',
+      '{"languageCode":"es","key":"footer.cookies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.cookiesNote',
+      'Aviso mínimo de cookies, almacenamiento local y opciones previstas.',
+      'draft',
+      '{"languageCode":"es","key":"footer.cookiesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.imprint',
+      'Aviso legal',
+      'draft',
+      '{"languageCode":"es","key":"footer.imprint"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'footer.imprintNote',
+      'Completar datos del operador y revisión legal antes de publicar.',
+      'draft',
+      '{"languageCode":"es","key":"footer.imprintNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'cookie.label',
+      'Aviso de cookies',
+      'draft',
+      '{"languageCode":"es","key":"cookie.label"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'cookie.text',
+      'Usamos cookies necesarias para el funcionamiento. Más adelante, ajustes opcionales podrán activar comodidad y estadísticas. En el MVP no cargamos redes publicitarias.',
+      'draft',
+      '{"languageCode":"es","key":"cookie.text"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'cookie.optional',
+      'Aceptar opcionales',
+      'draft',
+      '{"languageCode":"es","key":"cookie.optional"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'cookie.necessary',
+      'Solo necesarias',
+      'draft',
+      '{"languageCode":"es","key":"cookie.necessary"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'cookie.details',
+      'Detalles',
+      'draft',
+      '{"languageCode":"es","key":"cookie.details"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.motorcycleCountLabel',
+      'motos',
+      'draft',
+      '{"languageCode":"es","key":"menu.motorcycleCountLabel"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.allModels',
+      'Ver todos los modelos',
+      'draft',
+      '{"languageCode":"es","key":"menu.allModels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.current',
+      'Actual',
+      'draft',
+      '{"languageCode":"es","key":"menu.current"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.currentlySelected',
+      'Seleccionada',
+      'draft',
+      '{"languageCode":"es","key":"menu.currentlySelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.lastSelected',
+      'Última seleccionada',
+      'draft',
+      '{"languageCode":"es","key":"menu.lastSelected"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.open',
+      'Abrir',
+      'draft',
+      '{"languageCode":"es","key":"menu.open"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.guide',
+      'Guía',
+      'draft',
+      '{"languageCode":"es","key":"menu.guide"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.basisProfile',
+      'Perfil básico',
+      'draft',
+      '{"languageCode":"es","key":"menu.basisProfile"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.planned',
+      'planificado',
+      'draft',
+      '{"languageCode":"es","key":"menu.planned"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.openSuzuki',
+      'Abrir Suzuki GSX-S1000GX',
+      'draft',
+      '{"languageCode":"es","key":"menu.openSuzuki"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.basisProfilesNote',
+      'Los perfiles básicos se marcan honestamente hasta verificar datos de producto.',
+      'draft',
+      '{"languageCode":"es","key":"menu.basisProfilesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'menu.modelsAria',
+      'modelos',
+      'draft',
+      '{"languageCode":"es","key":"menu.modelsAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.menuTitle',
+      'Rutas de compra',
+      'draft',
+      '{"languageCode":"es","key":"buy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.menuLink',
+      'Ir a comprar',
+      'draft',
+      '{"languageCode":"es","key":"buy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.overview',
+      'Resumen de compra',
+      'draft',
+      '{"languageCode":"es","key":"buy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.overviewNote',
+      'Inicio para decidir compra',
+      'draft',
+      '{"languageCode":"es","key":"buy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.quickHelp',
+      'Ayuda rápida',
+      'draft',
+      '{"languageCode":"es","key":"buy.quickHelp"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.quickHelpNote',
+      'Funda, mesh, gel, airpad',
+      'draft',
+      '{"languageCode":"es","key":"buy.quickHelpNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.matrix',
+      'Matriz de compra',
+      'draft',
+      '{"languageCode":"es","key":"buy.matrix"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.matrixNote',
+      'Problema, devolución, ajuste',
+      'draft',
+      '{"languageCode":"es","key":"buy.matrixNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.channels',
+      'Canales de compra',
+      'draft',
+      '{"languageCode":"es","key":"buy.channels"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.channelsNote',
+      'OEM, tienda, marketplace, tapicero',
+      'draft',
+      '{"languageCode":"es","key":"buy.channelsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.productCards',
+      'Fichas de producto',
+      'draft',
+      '{"languageCode":"es","key":"buy.productCards"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'buy.productCardsNote',
+      'Ejemplos con fuente y riesgo',
+      'draft',
+      '{"languageCode":"es","key":"buy.productCardsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.menuTitle',
+      'Acceso DIY',
+      'draft',
+      '{"languageCode":"es","key":"diy.menuTitle"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.menuLink',
+      'Ir a DIY',
+      'draft',
+      '{"languageCode":"es","key":"diy.menuLink"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.overview',
+      'Resumen DIY',
+      'draft',
+      '{"languageCode":"es","key":"diy.overview"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.overviewNote',
+      'Empezar con seguridad',
+      'draft',
+      '{"languageCode":"es","key":"diy.overviewNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.foam',
+      'Espumas',
+      'draft',
+      '{"languageCode":"es","key":"diy.foam"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.foamNote',
+      'Densidad, dureza, capas',
+      'draft',
+      '{"languageCode":"es","key":"diy.foamNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.videos',
+      'Vídeos',
+      'draft',
+      '{"languageCode":"es","key":"diy.videos"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.videosNote',
+      'Curar e insertar YouTube',
+      'draft',
+      '{"languageCode":"es","key":"diy.videosNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.materials',
+      'Materiales',
+      'draft',
+      '{"languageCode":"es","key":"diy.materials"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.materialsNote',
+      'Espuma, gel, mesh, tapizado',
+      'draft',
+      '{"languageCode":"es","key":"diy.materialsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.tools',
+      'Herramientas',
+      'draft',
+      '{"languageCode":"es","key":"diy.tools"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.toolsNote',
+      'Lo que realmente necesitas',
+      'draft',
+      '{"languageCode":"es","key":"diy.toolsNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.supplies',
+      'Consumibles',
+      'draft',
+      '{"languageCode":"es","key":"diy.supplies"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.suppliesNote',
+      'Pegamento, grapas, cuidado',
+      'draft',
+      '{"languageCode":"es","key":"diy.suppliesNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.protocol',
+      'Protocolo mínimo',
+      'draft',
+      '{"languageCode":"es","key":"diy.protocol"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'diy.protocolNote',
+      'Medir, probar, documentar',
+      'draft',
+      '{"languageCode":"es","key":"diy.protocolNote"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'brand.homeAria',
+      'Inicio Moto Seat Lab',
+      'draft',
+      '{"languageCode":"es","key":"brand.homeAria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO ui_translations (
+      language_code, translation_key, translation_value, status, source_data, updated_at
+    )
+    VALUES (
+      'es',
+      'nav.aria',
+      'Navegación principal',
+      'draft',
+      '{"languageCode":"es","key":"nav.aria"}'::jsonb,
+      now()
+    )
+    ON CONFLICT (language_code, translation_key) DO UPDATE SET
+      translation_value = EXCLUDED.translation_value,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
 INSERT INTO localized_pages (
     country_code, language_code, page_key, route_path, title, description,
     status, content, source_data, updated_at
@@ -15872,6 +17115,54 @@ INSERT INTO localized_pages (
     'draft',
     '{"title":"Moto Seat Lab 中国 - 摩托车座椅舒适度","description":"中国版本：通勤、踏板车、夏季闷热、低成本坐垫、本地座椅改装和 DIY。","eyebrow":"Moto Seat Lab 中国","headline":"骑一会儿座椅就开始难受？","lead":"中国版本先解决日常通勤、踏板车和夏季闷热问题：先试可拆卸、低风险的缓解方案，再考虑本地改装、舒适座椅或 DIY。","primaryAction":"查看德国 MVP","secondaryAction":"打开摩托车列表","assetNote":"中国版本已启用。后续会逐步补充本地产品、价格、平台链接和座椅改装店信息。","strategyEyebrow":"本地策略","strategyTitle":"先解决通勤和热，再谈高价座椅。","strategyText":"在中国市场，建议不应一开始就推荐昂贵进口座椅。更合理的是先判断疼痛位置、骑行时长、天气和车型，再测试透气网垫、薄坐垫或本地改装。","priorityEyebrow":"推荐顺序","priorityTitle":"先从这里开始","priorities":["先试 3D 透气网垫、薄凝胶垫或气垫，确认问题是热、硬还是形状。","查看本地平台和座椅改装店时，优先关注适配、退换和真实评价。","只有在明确压力点、坐骨位置和座椅高度后，再考虑拆座椅、切泡棉或重包。"]}'::jsonb,
     '{"countryCode":"cn","languageCode":"zh","pageKey":"home"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
+    route_path = EXCLUDED.route_path,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    status = EXCLUDED.status,
+    content = EXCLUDED.content,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO localized_pages (
+    country_code, language_code, page_key, route_path, title, description,
+    status, content, source_data, updated_at
+  )
+  VALUES (
+    'uk',
+    'en',
+    'home',
+    '/uk/',
+    'Moto Seat Lab UK - motorcycle seat comfort',
+    'UK version: motorcycle seat comfort, touring, commuting, Sargent, Corbin, Airhawk, local trimmers and honest buying checks.',
+    'draft',
+    '{"title":"Moto Seat Lab UK - motorcycle seat comfort","description":"UK version: motorcycle seat comfort, touring, commuting, Sargent, Corbin, Airhawk, local trimmers and honest buying checks.","eyebrow":"Moto Seat Lab UK","headline":"Seat pain after an hour should not decide your ride.","lead":"The UK version starts with real use: commuting, wet weather, weekend touring and long-distance comfort. Try reversible relief first, then compare OEM, aftermarket and local trimming.","primaryAction":"Open German MVP","secondaryAction":"Open motorcycles","assetNote":"UK country layer is active. Local prices, fitments and supplier links are still being verified.","strategyEyebrow":"Local strategy","strategyTitle":"Touring comfort, rain and fitment first.","strategyText":"The UK page should compare Sargent, Corbin, Bagster, Airhawk, sheepskin and local trimmers without pretending one expensive seat works for every rider.","priorityEyebrow":"Recommendation order","priorityTitle":"Start with the least risky test","priorities":["Check pain location, riding time, waterproof clothing and seat slope.","Try Airhawk, mesh, sheepskin or a reversible pad before changing the seat pan.","Compare Sargent, Corbin, Bagster or a local trimmer only with fitment, return and rider-height notes."]}'::jsonb,
+    '{"countryCode":"uk","languageCode":"en","pageKey":"home"}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
+    route_path = EXCLUDED.route_path,
+    title = EXCLUDED.title,
+    description = EXCLUDED.description,
+    status = EXCLUDED.status,
+    content = EXCLUDED.content,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO localized_pages (
+    country_code, language_code, page_key, route_path, title, description,
+    status, content, source_data, updated_at
+  )
+  VALUES (
+    'es',
+    'es',
+    'home',
+    '/es/',
+    'Moto Seat Lab España - comodidad del asiento de moto',
+    'Versión española: asiento confort, gel, Bagster, Top Sellerie, tapicero, calor y comparativas honestas.',
+    'draft',
+    '{"title":"Moto Seat Lab España - comodidad del asiento de moto","description":"Versión española: asiento confort, gel, Bagster, Top Sellerie, tapicero, calor y comparativas honestas.","eyebrow":"Moto Seat Lab España","headline":"¿El asiento empieza a doler después de una hora?","lead":"La versión española empieza por lo práctico: calor, rutas largas, altura del asiento, gel, Bagster, Top Sellerie y un tapicero local antes de comprar a ciegas.","primaryAction":"Ver MVP alemán","secondaryAction":"Abrir motos","assetNote":"La versión española está activa. Productos, precios y enlaces locales se verificarán paso a paso.","strategyEyebrow":"Estrategia local","strategyTitle":"Calor, rutas y altura del asiento.","strategyText":"En España no basta con recomendar una silla cara. Hay que mirar si el asiento nuevo es más ancho o alto, si hay gel real, si se puede devolver y si un tapicero local lo hace mejor.","priorityEyebrow":"Orden recomendado","priorityTitle":"Primero prueba, luego compra","priorities":["Empieza con una funda 3D mesh, gel fino o cojín de aire si quieres una prueba reversible.","Compara asiento BMW/OEM, Bagster, Top Sellerie y tapicero con altura, anchura y precio.","Modifica espuma o gel solo después de saber dónde presiona el asiento."]}'::jsonb,
+    '{"countryCode":"es","languageCode":"es","pageKey":"home"}'::jsonb,
     now()
   )
   ON CONFLICT (country_code, language_code, page_key) DO UPDATE SET
@@ -20387,14 +21678,14 @@ INSERT INTO country_seat_strategies (
     'fr',
     4,
     'comfort_sellerie',
-    '["Adventure Touring","Roadster","Scooter"]'::jsonb,
+    '["Adventure Touring","Roadster","Sport Touring","Scooter"]'::jsonb,
     '["bmw-r-1250-gs","honda-crf1100l-africa-twin","yamaha-mt-07","honda-forza-350"]'::jsonb,
-    '["Comfort saddle versus gel insert decisions.","Finding a trusted sellier instead of buying blindly.","Daily riding plus touring weekends."]'::jsonb,
-    'Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier.',
-    'France has a strong saddle/upholstery culture; make artisan comparison visible before expensive imports.',
-    '["Bagster","Top Sellerie","local sellier","mesh cover","air cushion"]'::jsonb,
-    'France should surface sellier comparison and style-versus-function warnings.',
-    '{"countryCode":"fr","priority":4,"marketMode":"comfort_sellerie","leadMotorcycleSegments":["Adventure Touring","Roadster","Scooter"],"leadMotorcycles":["bmw-r-1250-gs","honda-crf1100l-africa-twin","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Comfort saddle versus gel insert decisions.","Finding a trusted sellier instead of buying blindly.","Daily riding plus touring weekends."],"firstRecommendation":"Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier.","budgetLogic":"France has a strong saddle/upholstery culture; make artisan comparison visible before expensive imports.","forumSources":[{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster comfort saddles, gel and rider experience."},{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider discussions including comfort saddle and artisan choice."}],"buyingPriorities":["Bagster","Top Sellerie","local sellier","mesh cover","air cushion"],"adminNotes":"France should surface sellier comparison and style-versus-function warnings."}'::jsonb,
+    '["Selle confort versus gel versus real foam change.","Bagster, Top Sellerie and sellier comparisons.","Passenger sliding and support shape matter on longer rides.","Seat slope can ruin comfort even on an expensive saddle."]'::jsonb,
+    'Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier with slope, passenger and return notes.',
+    'France has strong sellerie options; do not present imported premium seats before sellier and fitment checks.',
+    '["local sellier","Bagster","Top Sellerie","OEM comfort seat","air cushion"]'::jsonb,
+    'France should surface sellier comparison and passenger comfort notes early.',
+    '{"countryCode":"fr","priority":4,"marketMode":"comfort_sellerie","leadMotorcycleSegments":["Adventure Touring","Roadster","Sport Touring","Scooter"],"leadMotorcycles":["bmw-r-1250-gs","honda-crf1100l-africa-twin","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Selle confort versus gel versus real foam change.","Bagster, Top Sellerie and sellier comparisons.","Passenger sliding and support shape matter on longer rides.","Seat slope can ruin comfort even on an expensive saddle."],"firstRecommendation":"Compare mesh/air/gel as a low-risk test, then Bagster, Top Sellerie, OEM seat or local sellier with slope, passenger and return notes.","budgetLogic":"France has strong sellerie options; do not present imported premium seats before sellier and fitment checks.","forumSources":[{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster, gel and comfort saddles."},{"name":"Le Repaire des Motards","url":"https://www.lerepairedesmotards.com/forum/","language":"fr","note":"French rider forum with BMW GS comfort saddle and sellier discussions."},{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider community with artisan and comfort-seat questions."}],"buyingPriorities":["local sellier","Bagster","Top Sellerie","OEM comfort seat","air cushion"],"adminNotes":"France should surface sellier comparison and passenger comfort notes early."}'::jsonb,
     now()
   )
   ON CONFLICT (country_code) DO UPDATE SET
@@ -20420,9 +21711,9 @@ INSERT INTO country_research_sources (
       'https://forum-auto.caradisiac.com/forum/13-moto/',
       'fr',
       'forum',
-      'French discussions about Bagster comfort saddles, gel and rider experience.',
+      'French discussions about Bagster, gel and comfort saddles.',
       'active',
-      '{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster comfort saddles, gel and rider experience."}'::jsonb,
+      '{"name":"Forum-Auto Moto","url":"https://forum-auto.caradisiac.com/forum/13-moto/","language":"fr","note":"French discussions about Bagster, gel and comfort saddles."}'::jsonb,
       now()
     )
     ON CONFLICT (key) DO UPDATE SET
@@ -20440,15 +21731,41 @@ INSERT INTO country_research_sources (
       source_data, updated_at
     )
     VALUES (
-      'fr-motardie-2',
+      'fr-le-repaire-des-motards-2',
+      'fr',
+      'Le Repaire des Motards',
+      'https://www.lerepairedesmotards.com/forum/',
+      'fr',
+      'forum',
+      'French rider forum with BMW GS comfort saddle and sellier discussions.',
+      'active',
+      '{"name":"Le Repaire des Motards","url":"https://www.lerepairedesmotards.com/forum/","language":"fr","note":"French rider forum with BMW GS comfort saddle and sellier discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'fr-motardie-3',
       'fr',
       'Motardie',
       'https://www.reddit.com/r/Motardie/',
       'fr',
       'forum',
-      'French-speaking rider discussions including comfort saddle and artisan choice.',
+      'French-speaking rider community with artisan and comfort-seat questions.',
       'active',
-      '{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider discussions including comfort saddle and artisan choice."}'::jsonb,
+      '{"name":"Motardie","url":"https://www.reddit.com/r/Motardie/","language":"fr","note":"French-speaking rider community with artisan and comfort-seat questions."}'::jsonb,
       now()
     )
     ON CONFLICT (key) DO UPDATE SET
@@ -20470,14 +21787,14 @@ INSERT INTO country_seat_strategies (
     'it',
     5,
     'style_plus_touring',
-    '["Premium Adventure Touring","Urban Scooter","Retro Touring"]'::jsonb,
+    '["Premium Adventure Touring","Urban Scooter","Retro Touring","Sport Touring"]'::jsonb,
     '["ducati-multistrada-v4","moto-guzzi-v85-tt","vespa-gts-300","bmw-r-1250-gs"]'::jsonb,
-    '["Touring comfort without ruining the look of the bike.","Gel and reshaping questions for BMW and Italian touring models.","Older riders needing easier seat height and comfort."]'::jsonb,
-    'Show comfort and visual finish together, but keep pressure-point diagnosis first.',
-    'Italy needs a balance: aesthetic upholstery matters, but comfort claims must be tested.',
-    '["OEM comfort seat","Italian upholsterer","Bagster","gel insert","style cover"]'::jsonb,
-    'Italy pages should include visual finish as a decision factor, but never ahead of ergonomics.',
-    '{"countryCode":"it","priority":5,"marketMode":"style_plus_touring","leadMotorcycleSegments":["Premium Adventure Touring","Urban Scooter","Retro Touring"],"leadMotorcycles":["ducati-multistrada-v4","moto-guzzi-v85-tt","vespa-gts-300","bmw-r-1250-gs"],"primaryPainPoints":["Touring comfort without ruining the look of the bike.","Gel and reshaping questions for BMW and Italian touring models.","Older riders needing easier seat height and comfort."],"firstRecommendation":"Show comfort and visual finish together, but keep pressure-point diagnosis first.","budgetLogic":"Italy needs a balance: aesthetic upholstery matters, but comfort claims must be tested.","forumSources":[{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about motorcycle comfort and specific models."},{"name":"BMWpassion Moto","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused discussions including Bagster and comfort saddles."}],"buyingPriorities":["OEM comfort seat","Italian upholsterer","Bagster","gel insert","style cover"],"adminNotes":"Italy pages should include visual finish as a decision factor, but never ahead of ergonomics."}'::jsonb,
+    '["Comfort without ruining the visual finish.","Gel and lowered/raised seat questions for BMW and touring models.","Older riders may need easier reach and more support.","Heat and summer riding change material choice."]'::jsonb,
+    'Keep pressure-point diagnosis first, then compare OEM, Bagster/Top Sellerie, local tappezziere and verified imported seats.',
+    'Italy can value style and stitching, but the portal should prove comfort before aesthetics.',
+    '["OEM comfort seat","local tappezziere","Bagster / Top Sellerie","gel insert","verified Sargent/Corbin fitment"]'::jsonb,
+    'Italy pages should include visual finish but keep ergonomics first.',
+    '{"countryCode":"it","priority":5,"marketMode":"style_plus_touring","leadMotorcycleSegments":["Premium Adventure Touring","Urban Scooter","Retro Touring","Sport Touring"],"leadMotorcycles":["ducati-multistrada-v4","moto-guzzi-v85-tt","vespa-gts-300","bmw-r-1250-gs"],"primaryPainPoints":["Comfort without ruining the visual finish.","Gel and lowered/raised seat questions for BMW and touring models.","Older riders may need easier reach and more support.","Heat and summer riding change material choice."],"firstRecommendation":"Keep pressure-point diagnosis first, then compare OEM, Bagster/Top Sellerie, local tappezziere and verified imported seats.","budgetLogic":"Italy can value style and stitching, but the portal should prove comfort before aesthetics.","forumSources":[{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about comfort, BMW GS and long-ride saddle questions."},{"name":"BMWpassion","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused Italian community with Bagster and comfort saddle mentions."}],"buyingPriorities":["OEM comfort seat","local tappezziere","Bagster / Top Sellerie","gel insert","verified Sargent/Corbin fitment"],"adminNotes":"Italy pages should include visual finish but keep ergonomics first."}'::jsonb,
     now()
   )
   ON CONFLICT (country_code) DO UPDATE SET
@@ -20503,9 +21820,9 @@ INSERT INTO country_research_sources (
       'https://www.moto.it/social/',
       'it',
       'forum',
-      'Italian Q&A about motorcycle comfort and specific models.',
+      'Italian Q&A about comfort, BMW GS and long-ride saddle questions.',
       'active',
-      '{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about motorcycle comfort and specific models."}'::jsonb,
+      '{"name":"Moto.it Social","url":"https://www.moto.it/social/","language":"it","note":"Italian Q&A about comfort, BMW GS and long-ride saddle questions."}'::jsonb,
       now()
     )
     ON CONFLICT (key) DO UPDATE SET
@@ -20523,15 +21840,15 @@ INSERT INTO country_research_sources (
       source_data, updated_at
     )
     VALUES (
-      'it-bmwpassion-moto-2',
+      'it-bmwpassion-2',
       'it',
-      'BMWpassion Moto',
+      'BMWpassion',
       'https://www.bmwpassion.com/forum/',
       'it',
       'forum',
-      'BMW-focused discussions including Bagster and comfort saddles.',
+      'BMW-focused Italian community with Bagster and comfort saddle mentions.',
       'active',
-      '{"name":"BMWpassion Moto","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused discussions including Bagster and comfort saddles."}'::jsonb,
+      '{"name":"BMWpassion","url":"https://www.bmwpassion.com/forum/","language":"it","note":"BMW-focused Italian community with Bagster and comfort saddle mentions."}'::jsonb,
       now()
     )
     ON CONFLICT (key) DO UPDATE SET
@@ -20553,14 +21870,14 @@ INSERT INTO country_seat_strategies (
     'sk',
     6,
     'value_local_upholstery',
-    '["Adventure Touring","Naked Bike","Scooter"]'::jsonb,
+    '["Adventure Touring","Naked Bike","Sport Touring","Scooter"]'::jsonb,
     '["suzuki-gsx-s1000gx","bmw-r-1250-gs","yamaha-mt-07","honda-forza-350"]'::jsonb,
-    '["Need a practical answer quickly: why does the original seat hurt?","Budget-sensitive choice between pad, upholsterer and expensive imported seat.","Local availability and realistic prices."]'::jsonb,
-    'Start with a low-cost reversible pad, then local upholsterer, then verified aftermarket seat.',
-    'Do not push premium imports first. Show what the rider can try this weekend.',
-    '["3D mesh cover","gel pad","local upholsterer","used OEM comfort seat"]'::jsonb,
-    'Slovak page should be the practical low-chaos beginner guide.',
-    '{"countryCode":"sk","priority":6,"marketMode":"value_local_upholstery","leadMotorcycleSegments":["Adventure Touring","Naked Bike","Scooter"],"leadMotorcycles":["suzuki-gsx-s1000gx","bmw-r-1250-gs","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Need a practical answer quickly: why does the original seat hurt?","Budget-sensitive choice between pad, upholsterer and expensive imported seat.","Local availability and realistic prices."],"firstRecommendation":"Start with a low-cost reversible pad, then local upholsterer, then verified aftermarket seat.","budgetLogic":"Do not push premium imports first. Show what the rider can try this weekend.","forumSources":[{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community and article/forum context for local riders."}],"buyingPriorities":["3D mesh cover","gel pad","local upholsterer","used OEM comfort seat"],"adminNotes":"Slovak page should be the practical low-chaos beginner guide."}'::jsonb,
+    '["Original seat hurts after about one hour and the rider wants quick help.","Budget-sensitive choice between pad, local upholsterer and imported premium seat.","Local forum signals point to seat rebuilding, new filling, cover choice and practical price.","Riders need a Slovak beginner path before expert foam terminology."]'::jsonb,
+    'Start with low-cost reversible relief, then a local upholsterer checklist, then verified EU aftermarket options only when fitment and return path are clear.',
+    'Slovakia should lead with practical value: mesh, gel/air test and local upholstery before Sargent/Corbin-style premium imports.',
+    '["3D mesh cover","thin gel or air pad","local upholsterer","used OEM comfort seat","verified EU aftermarket seat"]'::jsonb,
+    'Slovakia should be the clearest beginner-first path: cheap test, local upholsterer, then imported products.',
+    '{"countryCode":"sk","priority":6,"marketMode":"value_local_upholstery","leadMotorcycleSegments":["Adventure Touring","Naked Bike","Sport Touring","Scooter"],"leadMotorcycles":["suzuki-gsx-s1000gx","bmw-r-1250-gs","yamaha-mt-07","honda-forza-350"],"primaryPainPoints":["Original seat hurts after about one hour and the rider wants quick help.","Budget-sensitive choice between pad, local upholsterer and imported premium seat.","Local forum signals point to seat rebuilding, new filling, cover choice and practical price.","Riders need a Slovak beginner path before expert foam terminology."],"firstRecommendation":"Start with low-cost reversible relief, then a local upholsterer checklist, then verified EU aftermarket options only when fitment and return path are clear.","budgetLogic":"Slovakia should lead with practical value: mesh, gel/air test and local upholstery before Sargent/Corbin-style premium imports.","forumSources":[{"name":"Motocykel.sk forum","url":"https://motocykel.sk/forums/topic/prerobeniesedla/","language":"sk","note":"Slovak thread about rebuilding a motorcycle seat, filling, cover and local upholstery."},{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community context for local riders and practical advice."}],"buyingPriorities":["3D mesh cover","thin gel or air pad","local upholsterer","used OEM comfort seat","verified EU aftermarket seat"],"adminNotes":"Slovakia should be the clearest beginner-first path: cheap test, local upholsterer, then imported products."}'::jsonb,
     now()
   )
   ON CONFLICT (country_code) DO UPDATE SET
@@ -20580,15 +21897,41 @@ INSERT INTO country_research_sources (
       source_data, updated_at
     )
     VALUES (
-      'sk-motoride-sk-1',
+      'sk-motocykel-sk-forum-1',
+      'sk',
+      'Motocykel.sk forum',
+      'https://motocykel.sk/forums/topic/prerobeniesedla/',
+      'sk',
+      'forum',
+      'Slovak thread about rebuilding a motorcycle seat, filling, cover and local upholstery.',
+      'active',
+      '{"name":"Motocykel.sk forum","url":"https://motocykel.sk/forums/topic/prerobeniesedla/","language":"sk","note":"Slovak thread about rebuilding a motorcycle seat, filling, cover and local upholstery."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'sk-motoride-sk-2',
       'sk',
       'Motoride.sk',
       'https://motoride.sk/',
       'sk',
       'forum',
-      'Slovak motorcycle community and article/forum context for local riders.',
+      'Slovak motorcycle community context for local riders and practical advice.',
       'active',
-      '{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community and article/forum context for local riders."}'::jsonb,
+      '{"name":"Motoride.sk","url":"https://motoride.sk/","language":"sk","note":"Slovak motorcycle community context for local riders and practical advice."}'::jsonb,
       now()
     )
     ON CONFLICT (key) DO UPDATE SET
@@ -21109,6 +22452,372 @@ INSERT INTO country_research_sources (
       status = EXCLUDED.status,
       source_data = EXCLUDED.source_data,
       updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'uk',
+    15,
+    'premium_touring_and_commuter',
+    '["Adventure Touring","Sport Touring","Commuter","Cruiser / Bagger"]'::jsonb,
+    '["bmw-r-1300-gs","bmw-r-1250-gs","honda-crf1100l-africa-twin","harley-davidson-street-glide"]'::jsonb,
+    '["Long-distance discomfort on adventure and touring bikes.","Choosing between Sargent, Corbin, Bagster, OEM comfort seat and local trim work.","Rain gear and textile trousers can change sliding and pressure.","Airhawk, sheepskin and pads are common reversible experiments."]'::jsonb,
+    'Use a reversible pad or sheepskin/Airhawk test first, then compare Sargent, Corbin, Bagster and local trimmers with fitment, break-in and return notes.',
+    'UK riders may pay for premium seats, but forums show strong personal fit variation; recommend evidence and return path before brand prestige.',
+    '["Airhawk or sheepskin test","Sargent","Corbin","Bagster/local trimmer","OEM comfort seat"]'::jsonb,
+    'UK needs dedicated buying channels and clear import/return notes.',
+    '{"countryCode":"uk","priority":15,"marketMode":"premium_touring_and_commuter","leadMotorcycleSegments":["Adventure Touring","Sport Touring","Commuter","Cruiser / Bagger"],"leadMotorcycles":["bmw-r-1300-gs","bmw-r-1250-gs","honda-crf1100l-africa-twin","harley-davidson-street-glide"],"primaryPainPoints":["Long-distance discomfort on adventure and touring bikes.","Choosing between Sargent, Corbin, Bagster, OEM comfort seat and local trim work.","Rain gear and textile trousers can change sliding and pressure.","Airhawk, sheepskin and pads are common reversible experiments."],"firstRecommendation":"Use a reversible pad or sheepskin/Airhawk test first, then compare Sargent, Corbin, Bagster and local trimmers with fitment, break-in and return notes.","budgetLogic":"UK riders may pay for premium seats, but forums show strong personal fit variation; recommend evidence and return path before brand prestige.","forumSources":[{"name":"UKGSer","url":"https://www.ukgser.com/community/","language":"en","note":"UK BMW GS community with Sargent, Corbin, Bagster, Airhawk and sheepskin seat discussions."},{"name":"BMW MOA Forums","url":"https://forums.bmwmoa.org/","language":"en","note":"North American but useful English-language comparisons of Corbin, Sargent, BMW comfort seats and custom makers."},{"name":"Reddit r/motorcycles","url":"https://www.reddit.com/r/motorcycles/","language":"en","note":"Current broad seat pad, aftermarket and long-ride comfort discussions."}],"buyingPriorities":["Airhawk or sheepskin test","Sargent","Corbin","Bagster/local trimmer","OEM comfort seat"],"adminNotes":"UK needs dedicated buying channels and clear import/return notes."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'uk-ukgser-1',
+      'uk',
+      'UKGSer',
+      'https://www.ukgser.com/community/',
+      'en',
+      'forum',
+      'UK BMW GS community with Sargent, Corbin, Bagster, Airhawk and sheepskin seat discussions.',
+      'active',
+      '{"name":"UKGSer","url":"https://www.ukgser.com/community/","language":"en","note":"UK BMW GS community with Sargent, Corbin, Bagster, Airhawk and sheepskin seat discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'uk-bmw-moa-forums-2',
+      'uk',
+      'BMW MOA Forums',
+      'https://forums.bmwmoa.org/',
+      'en',
+      'forum',
+      'North American but useful English-language comparisons of Corbin, Sargent, BMW comfort seats and custom makers.',
+      'active',
+      '{"name":"BMW MOA Forums","url":"https://forums.bmwmoa.org/","language":"en","note":"North American but useful English-language comparisons of Corbin, Sargent, BMW comfort seats and custom makers."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'uk-reddit-r-motorcycles-3',
+      'uk',
+      'Reddit r/motorcycles',
+      'https://www.reddit.com/r/motorcycles/',
+      'en',
+      'forum',
+      'Current broad seat pad, aftermarket and long-ride comfort discussions.',
+      'active',
+      '{"name":"Reddit r/motorcycles","url":"https://www.reddit.com/r/motorcycles/","language":"en","note":"Current broad seat pad, aftermarket and long-ride comfort discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_seat_strategies (
+    country_code, priority, market_mode, lead_motorcycle_segments, lead_motorcycles,
+    primary_pain_points, first_recommendation, budget_logic, buying_priorities,
+    admin_notes, source_data, updated_at
+  )
+  VALUES (
+    'es',
+    16,
+    'touring_heat_and_value',
+    '["Adventure Touring","Sport Touring","Urban Scooter","Roadster"]'::jsonb,
+    '["bmw-r-1250-gs","bmw-r-1300-gs","honda-forza-350","yamaha-mt-07"]'::jsonb,
+    '["BMW comfort seat questions for GS/F/RT style bikes.","Bagster and Top Sellerie comparisons with gel and added padding.","Heat and long routes make breathable covers relevant.","Wider or taller comfort seats can reduce reach to the ground."]'::jsonb,
+    'Start with heat-aware mesh or air/gel test, then compare BMW comfort, Bagster, Top Sellerie and local tapicero with height and width warnings.',
+    'Spain should balance touring comfort and price; local tapicero can be better value than imported premium if requirements are clear.',
+    '["3D mesh cover","BMW comfort seat","Bagster","Top Sellerie","local tapicero"]'::jsonb,
+    'Spain needs heat, seat height and wider-seat warnings on every recommendation.',
+    '{"countryCode":"es","priority":16,"marketMode":"touring_heat_and_value","leadMotorcycleSegments":["Adventure Touring","Sport Touring","Urban Scooter","Roadster"],"leadMotorcycles":["bmw-r-1250-gs","bmw-r-1300-gs","honda-forza-350","yamaha-mt-07"],"primaryPainPoints":["BMW comfort seat questions for GS/F/RT style bikes.","Bagster and Top Sellerie comparisons with gel and added padding.","Heat and long routes make breathable covers relevant.","Wider or taller comfort seats can reduce reach to the ground."],"firstRecommendation":"Start with heat-aware mesh or air/gel test, then compare BMW comfort, Bagster, Top Sellerie and local tapicero with height and width warnings.","budgetLogic":"Spain should balance touring comfort and price; local tapicero can be better value than imported premium if requirements are clear.","forumSources":[{"name":"BMWMOTOS.com","url":"https://www.bmwmotos.com/foro/","language":"es","note":"Spanish BMW motorcycle forum with comfort seat, Bagster, Top Sellerie and tapicero experiences."},{"name":"ForoCoches Motos","url":"https://forocoches.com/foro/forumdisplay.php?f=73","language":"es","note":"Large Spanish forum area for motorcycle buying and owner discussions."}],"buyingPriorities":["3D mesh cover","BMW comfort seat","Bagster","Top Sellerie","local tapicero"],"adminNotes":"Spain needs heat, seat height and wider-seat warnings on every recommendation."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    priority = EXCLUDED.priority,
+    market_mode = EXCLUDED.market_mode,
+    lead_motorcycle_segments = EXCLUDED.lead_motorcycle_segments,
+    lead_motorcycles = EXCLUDED.lead_motorcycles,
+    primary_pain_points = EXCLUDED.primary_pain_points,
+    first_recommendation = EXCLUDED.first_recommendation,
+    budget_logic = EXCLUDED.budget_logic,
+    buying_priorities = EXCLUDED.buying_priorities,
+    admin_notes = EXCLUDED.admin_notes,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'es-bmwmotos-com-1',
+      'es',
+      'BMWMOTOS.com',
+      'https://www.bmwmotos.com/foro/',
+      'es',
+      'forum',
+      'Spanish BMW motorcycle forum with comfort seat, Bagster, Top Sellerie and tapicero experiences.',
+      'active',
+      '{"name":"BMWMOTOS.com","url":"https://www.bmwmotos.com/foro/","language":"es","note":"Spanish BMW motorcycle forum with comfort seat, Bagster, Top Sellerie and tapicero experiences."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_research_sources (
+      key, country_code, name, url, language_code, source_type, note, status,
+      source_data, updated_at
+    )
+    VALUES (
+      'es-forocoches-motos-2',
+      'es',
+      'ForoCoches Motos',
+      'https://forocoches.com/foro/forumdisplay.php?f=73',
+      'es',
+      'forum',
+      'Large Spanish forum area for motorcycle buying and owner discussions.',
+      'active',
+      '{"name":"ForoCoches Motos","url":"https://forocoches.com/foro/forumdisplay.php?f=73","language":"es","note":"Large Spanish forum area for motorcycle buying and owner discussions."}'::jsonb,
+      now()
+    )
+    ON CONFLICT (key) DO UPDATE SET
+      country_code = EXCLUDED.country_code,
+      name = EXCLUDED.name,
+      url = EXCLUDED.url,
+      language_code = EXCLUDED.language_code,
+      source_type = EXCLUDED.source_type,
+      note = EXCLUDED.note,
+      status = EXCLUDED.status,
+      source_data = EXCLUDED.source_data,
+      updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'de',
+    'de',
+    'Lokaler Katalog: Deutschland',
+    'Für Deutschland startet der Katalog mit BMW GS, Suzuki GSX-S1000GX, Honda Africa Twin und sportlichen Tourern. Erst Ursache und Test, dann OEM, Wunderlich, Touratech, Sargent, Bagster oder Sattler.',
+    '["3D-Mesh gegen Hitze","Airhawk/Luftkissen als reversibler Test","Sitzneigung prüfen","Anti-Rutsch Bezug bei Rutschen"]'::jsonb,
+    '["BMW OEM Komfortsitz nur mit Sitzhöhe vergleichen","Wunderlich Aktivkomfort für BMW GS prüfen","Touratech Fresh Touch/Komfortsitze prüfen","Sargent/Bagster nur mit Fitment und Rückgabe"]'::jsonb,
+    '["Druckpunkte markieren","Sitzhöhe nicht blind abpolstern","Schaum nur schichtweise testen","Sitzheizung/Wasserdichtheit dokumentieren"]'::jsonb,
+    'DACH hat gute Premium-Auswahl, aber Foren zeigen: teuer heißt nicht automatisch passend.',
+    'BMW GS and GSX-S1000GX first; then Honda/Yamaha touring.',
+    '{"countryCode":"de","languageCode":"de","title":"Lokaler Katalog: Deutschland","intro":"Für Deutschland startet der Katalog mit BMW GS, Suzuki GSX-S1000GX, Honda Africa Twin und sportlichen Tourern. Erst Ursache und Test, dann OEM, Wunderlich, Touratech, Sargent, Bagster oder Sattler.","quickRelief":["3D-Mesh gegen Hitze","Airhawk/Luftkissen als reversibler Test","Sitzneigung prüfen","Anti-Rutsch Bezug bei Rutschen"],"buyingRecommendations":["BMW OEM Komfortsitz nur mit Sitzhöhe vergleichen","Wunderlich Aktivkomfort für BMW GS prüfen","Touratech Fresh Touch/Komfortsitze prüfen","Sargent/Bagster nur mit Fitment und Rückgabe"],"diyRecommendations":["Druckpunkte markieren","Sitzhöhe nicht blind abpolstern","Schaum nur schichtweise testen","Sitzheizung/Wasserdichtheit dokumentieren"],"availabilityNotes":"DACH hat gute Premium-Auswahl, aber Foren zeigen: teuer heißt nicht automatisch passend.","adminPriority":"BMW GS and GSX-S1000GX first; then Honda/Yamaha touring."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'sk',
+    'sk',
+    'Lokálny katalóg: Slovensko',
+    'Na Slovensku má zmysel začať prakticky: lacná vratná úľava, potom lokálny čalúnnik, až potom drahé dovozové sedlo.',
+    '["3D mesh poťah proti teplu","tenká gélová podložka ako test","vzduchová podložka na dlhšie jazdy","protišmykový poťah pri kĺzaní"]'::jsonb,
+    '["najprv hľadať použité alebo OEM komfortné sedlo","overiť dostupnosť Sargent/Bagster/Touratech cez EU predajcov","lokálny čalúnnik často dáva lepší pomer cena/výsledok","affiliate link až po jasnom označení"]'::jsonb,
+    '["najprv fotky a označenie bolestivých bodov","nerozrezať sedlo bez plánu vrstiev","lepidlo a poťah vybrať podľa tepla a dažďa","po úprave testovať krátku aj dlhú trasu"]'::jsonb,
+    'Lokálne fórum signály ukazujú záujem o prerobenie sedla, výplň, poťah a cenu.',
+    'Beginner-first Slovak guide with local upholsterer checklist.',
+    '{"countryCode":"sk","languageCode":"sk","title":"Lokálny katalóg: Slovensko","intro":"Na Slovensku má zmysel začať prakticky: lacná vratná úľava, potom lokálny čalúnnik, až potom drahé dovozové sedlo.","quickRelief":["3D mesh poťah proti teplu","tenká gélová podložka ako test","vzduchová podložka na dlhšie jazdy","protišmykový poťah pri kĺzaní"],"buyingRecommendations":["najprv hľadať použité alebo OEM komfortné sedlo","overiť dostupnosť Sargent/Bagster/Touratech cez EU predajcov","lokálny čalúnnik často dáva lepší pomer cena/výsledok","affiliate link až po jasnom označení"],"diyRecommendations":["najprv fotky a označenie bolestivých bodov","nerozrezať sedlo bez plánu vrstiev","lepidlo a poťah vybrať podľa tepla a dažďa","po úprave testovať krátku aj dlhú trasu"],"availabilityNotes":"Lokálne fórum signály ukazujú záujem o prerobenie sedla, výplň, poťah a cenu.","adminPriority":"Beginner-first Slovak guide with local upholsterer checklist."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'uk',
+    'en',
+    'Local catalogue: United Kingdom',
+    'The UK path should cover commuting, rain, long weekends, BMW GS, adventure touring and honest comparison of Sargent, Corbin, Bagster, Airhawk, sheepskin and local trimmers.',
+    '["Airhawk as a reversible long-ride test","sheepskin or breathable cover","waterproof clothing and seat slope check","anti-slip cover for textile riding gear"]'::jsonb,
+    '["Sargent for lighter aftermarket touring seat options","Corbin for firm custom-style seats, with break-in and weight caveats","Bagster or local trimmer when style and gel are wanted","OEM comfort seat only if height and width still fit"]'::jsonb,
+    '["do not add soft foam without pressure mapping","check waterproofing after cover removal","document seat-pan clips and heating wiring","test in rain gear as well as normal kit"]'::jsonb,
+    'UK forums repeatedly compare Sargent, Corbin, Bagster, Airhawk and local trim work; rider shape and return path matter.',
+    'UK should get a separate buying-channel table later: Sargent UK/EU, Corbin import, Bagster dealers, local trimmers.',
+    '{"countryCode":"uk","languageCode":"en","title":"Local catalogue: United Kingdom","intro":"The UK path should cover commuting, rain, long weekends, BMW GS, adventure touring and honest comparison of Sargent, Corbin, Bagster, Airhawk, sheepskin and local trimmers.","quickRelief":["Airhawk as a reversible long-ride test","sheepskin or breathable cover","waterproof clothing and seat slope check","anti-slip cover for textile riding gear"],"buyingRecommendations":["Sargent for lighter aftermarket touring seat options","Corbin for firm custom-style seats, with break-in and weight caveats","Bagster or local trimmer when style and gel are wanted","OEM comfort seat only if height and width still fit"],"diyRecommendations":["do not add soft foam without pressure mapping","check waterproofing after cover removal","document seat-pan clips and heating wiring","test in rain gear as well as normal kit"],"availabilityNotes":"UK forums repeatedly compare Sargent, Corbin, Bagster, Airhawk and local trim work; rider shape and return path matter.","adminPriority":"UK should get a separate buying-channel table later: Sargent UK/EU, Corbin import, Bagster dealers, local trimmers."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'it',
+    'it',
+    'Catalogo locale: Italia',
+    'In Italia il comfort deve convivere con stile e finitura. Ducati, Moto Guzzi, Vespa e BMW hanno bisogni diversi: prima ergonomia, poi cuciture e look.',
+    '["cover mesh per caldo","gel sottile come prova reversibile","controllo inclinazione sella","rivestimento antiscivolo"]'::jsonb,
+    '["sella OEM comfort se la quota resta corretta","Bagster/Top Sellerie quando serve finitura su misura","tappezziere locale per modifica mirata","Sargent/Corbin solo con fitment verificato"]'::jsonb,
+    '["misurare punti di pressione","non inseguire solo morbidezza","proteggere cuciture e impermeabilità","testare con pantaloni estivi e touring"]'::jsonb,
+    'Le discussioni italiane mostrano interesse per gel, altezza sella e comfort per piloti più anziani o viaggi lunghi.',
+    'Italy should show style warnings without letting aesthetics override ergonomics.',
+    '{"countryCode":"it","languageCode":"it","title":"Catalogo locale: Italia","intro":"In Italia il comfort deve convivere con stile e finitura. Ducati, Moto Guzzi, Vespa e BMW hanno bisogni diversi: prima ergonomia, poi cuciture e look.","quickRelief":["cover mesh per caldo","gel sottile come prova reversibile","controllo inclinazione sella","rivestimento antiscivolo"],"buyingRecommendations":["sella OEM comfort se la quota resta corretta","Bagster/Top Sellerie quando serve finitura su misura","tappezziere locale per modifica mirata","Sargent/Corbin solo con fitment verificato"],"diyRecommendations":["misurare punti di pressione","non inseguire solo morbidezza","proteggere cuciture e impermeabilità","testare con pantaloni estivi e touring"],"availabilityNotes":"Le discussioni italiane mostrano interesse per gel, altezza sella e comfort per piloti più anziani o viaggi lunghi.","adminPriority":"Italy should show style warnings without letting aesthetics override ergonomics."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'es',
+    'es',
+    'Catálogo local: España',
+    'En España el catálogo empieza con calor, rutas, BMW GS/F/RT, Bagster, Top Sellerie, gel y tapicero local. Ojo: más confort puede significar más anchura y altura.',
+    '["funda 3D mesh contra calor","gel fino como prueba","cojín de aire en viajes","material antideslizante si la ropa resbala"]'::jsonb,
+    '["asiento BMW confort si no compromete altura","Bagster o Top Sellerie con gel y anchura revisadas","tapicero local para modificar la espuma","comparar precio, devolución y plazo antes de comprar"]'::jsonb,
+    '["marcar dónde duele antes de abrir","no añadir gel sin revisar dureza de espuma","controlar impermeabilidad tras tapizar","probar en calor real"]'::jsonb,
+    'Foros españoles citan BMW comfort, Bagster, Top Sellerie, gel y tapiceros; la altura al suelo aparece como riesgo importante.',
+    'Spain needs heat and seat-height warnings early.',
+    '{"countryCode":"es","languageCode":"es","title":"Catálogo local: España","intro":"En España el catálogo empieza con calor, rutas, BMW GS/F/RT, Bagster, Top Sellerie, gel y tapicero local. Ojo: más confort puede significar más anchura y altura.","quickRelief":["funda 3D mesh contra calor","gel fino como prueba","cojín de aire en viajes","material antideslizante si la ropa resbala"],"buyingRecommendations":["asiento BMW confort si no compromete altura","Bagster o Top Sellerie con gel y anchura revisadas","tapicero local para modificar la espuma","comparar precio, devolución y plazo antes de comprar"],"diyRecommendations":["marcar dónde duele antes de abrir","no añadir gel sin revisar dureza de espuma","controlar impermeabilidad tras tapizar","probar en calor real"],"availabilityNotes":"Foros españoles citan BMW comfort, Bagster, Top Sellerie, gel y tapiceros; la altura al suelo aparece como riesgo importante.","adminPriority":"Spain needs heat and seat-height warnings early."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
+INSERT INTO country_catalog_localizations (
+    country_code, language_code, title, intro, quick_relief,
+    buying_recommendations, diy_recommendations, availability_notes,
+    admin_priority, source_data, updated_at
+  )
+  VALUES (
+    'fr',
+    'fr',
+    'Catalogue local : France',
+    'En France, le portail doit mettre en avant les selliers, Bagster, Top Sellerie, gel et comparaison honnête entre confort réel et finition visible.',
+    '["housse mesh contre la chaleur","coussin air pour test longue distance","gel seulement comme test ciblé","revêtement antidérapant si le pilote glisse"]'::jsonb,
+    '["Bagster avec vérification mousse/gel","Top Sellerie avec attention à l’inclinaison","sellier local avec cahier des charges","OEM confort si hauteur et retour sont clairs"]'::jsonb,
+    '["mesurer les points d’appui","ne pas confondre souple et confortable","documenter couture et étanchéité","tester pilote et passager séparément"]'::jsonb,
+    'Les forums français discutent Bagster, Top Sellerie, Moillo, gel et sellier; la selle passager et le glissement reviennent souvent.',
+    'France should prioritize sellier comparison and passenger comfort notes.',
+    '{"countryCode":"fr","languageCode":"fr","title":"Catalogue local : France","intro":"En France, le portail doit mettre en avant les selliers, Bagster, Top Sellerie, gel et comparaison honnête entre confort réel et finition visible.","quickRelief":["housse mesh contre la chaleur","coussin air pour test longue distance","gel seulement comme test ciblé","revêtement antidérapant si le pilote glisse"],"buyingRecommendations":["Bagster avec vérification mousse/gel","Top Sellerie avec attention à l’inclinaison","sellier local avec cahier des charges","OEM confort si hauteur et retour sont clairs"],"diyRecommendations":["mesurer les points d’appui","ne pas confondre souple et confortable","documenter couture et étanchéité","tester pilote et passager séparément"],"availabilityNotes":"Les forums français discutent Bagster, Top Sellerie, Moillo, gel et sellier; la selle passager et le glissement reviennent souvent.","adminPriority":"France should prioritize sellier comparison and passenger comfort notes."}'::jsonb,
+    now()
+  )
+  ON CONFLICT (country_code) DO UPDATE SET
+    language_code = EXCLUDED.language_code,
+    title = EXCLUDED.title,
+    intro = EXCLUDED.intro,
+    quick_relief = EXCLUDED.quick_relief,
+    buying_recommendations = EXCLUDED.buying_recommendations,
+    diy_recommendations = EXCLUDED.diy_recommendations,
+    availability_notes = EXCLUDED.availability_notes,
+    admin_priority = EXCLUDED.admin_priority,
+    source_data = EXCLUDED.source_data,
+    updated_at = now();
 DELETE FROM content_media_links;
 DELETE FROM media_assets;
 INSERT INTO media_assets (
@@ -27114,5 +28823,5 @@ INSERT INTO controlled_vocabulary_terms (
     source_data = EXCLUDED.source_data,
     updated_at = now();
 INSERT INTO import_runs (label, row_counts)
-VALUES ('json seed import', '{"languages":13,"countries":14,"country_languages":17,"ui_translations":910,"localized_pages":13,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"country_seat_strategies":14,"country_research_sources":20,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22,"controlled_vocabularies":6,"controlled_vocabulary_terms":61}'::jsonb);
+VALUES ('json seed import', '{"languages":14,"countries":16,"country_languages":19,"ui_translations":980,"localized_pages":15,"motorcycles":19,"solution_paths":5,"product_categories":6,"seat_options":10,"seat_manufacturers":14,"seat_products":16,"seat_product_fitments":18,"research_sources":3,"technical_profiles":19,"seat_materials":13,"workshop_tools":13,"workshop_supplies":13,"buying_channels":5,"country_seat_strategies":16,"country_research_sources":27,"country_catalog_localizations":6,"media_assets":39,"content_media_links":127,"video_resources":13,"content_video_links":22,"controlled_vocabularies":6,"controlled_vocabulary_terms":61}'::jsonb);
 COMMIT;
